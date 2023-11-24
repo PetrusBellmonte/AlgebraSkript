@@ -1,0 +1,107 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+\subsection{Motivation}\label{sec:mot}
+\TODO
+\begin{itemize}
+    \item Für quadratische Gleichungen der Form $x^2 + bx + c = 0$, $b, c \in \mathbb{C}$, sind die einzigen Lösungen explizit gegeben durch 
+    \begin{equation}\label{eq:mot:0}
+        x_{12} = -\frac{b}{2} \pm \sqrt{\frac{b^2}{4} - c}
+    \end{equation} 
+    Erstmals systematisch behandelt wurden solche Gleichungen von al Khwarizmi ($\sim$ 800 n. Ch.).
+    \item Für kubische Gleichungen der Form
+    \begin{equation}\label{eq:mot:1}
+        x^3 + ax^2 + bx + c = 0, \; a, b, c \in \mathbb{C}
+    \end{equation}
+    haben Tartaglia und Cardano im 16. Jh. eine explizite Lösungsformel aufgestellt:
+    \begin{enumerate}
+        \item Sei o.B.d.A. $x = y - \frac{a}{3}$ für $y \in \mathbb{C}$. Substituiere dies in \cref{eq:mot:1}, so dass jetzt mit $p := b - \frac{a^2}{3} \in \mathbb{C}$, $q := c + \frac{2a^3 - 9ba}{27} \in \mathbb{C}$ zu lösen ist:
+        \begin{equation}\label{eq:mot:2}
+            y^3 + py + q
+        \end{equation}
+        \item Substituiere nun $y = u + v$, so dass $y^3 = u^3 + v^3 + 3uv(u+v) = u^3 + v^3 + 3uv y$.
+        Dies ähnelt der Gleichung \cref{eq:mot:2}, wenn $u^3 + v^3 = -q$ und $3uv = -p$ gesetzt wird. Versuche nun also, 
+            \begin{align}\label{eq:mot:3}
+                &u^3 + v^3 = -q \\
+                &3uv = -p \Leftrightarrow u^3v^3 = \frac{-p^3}{27}\label{eq:mot:3:2}
+            \end{align}
+        zu lösen.
+        Aus \cref{eq:mot:3} ergibt sich, dass $u^3, v^3$ die quadratische Gleichung $z^2 + qz - \frac{p^3}{27}$ lösen. Es kann nun also \cref{eq:mot:0} verwendet werden - man erhält die sogenannte \todo{Formel von Cardano}:
+        Beachte beim Ziehen der 3. Wurzel in der Formel von Cardano explizit, dass \cref{eq:mot:3:2} erfüllt bleibt.
+    \end{enumerate}
+    \item Ähnlich funktioniert das Lösen von polynomiellen Gleichungen 4. Grades mittels Radikalen.
+    \item Für Gleichungen höheren Grades existiert keine explizite Lösungsformel mehr: 
+    \begin{theorem}[Abel-Ruffini, 1824]
+        Polynomielle Gleichungen vom Grad $\geq 5$ sind im Allgemeinen nicht durch Radikale lösbar.
+    \end{theorem}
+    Kurz, nachdem dieser Satz bewiesen wurde, kam die Galois-Theorie auf, welche die algebraischen Überlegungen in Gruppentheorie überführt.
+\end{itemize}
+
+Zunächst finden sich im Folgenden noch Wiederholungen einiger gruppen- und zahlentheoretischer Begriffe aus der Linearen Algebra [LA] und Einführung in Algebra und Zahlentheorie [EAZ], die im Verlauf des Skripts eine Rolle spielen.
+
+\subsection{Grundlegende Definitionen aus EAZ und LA}
+
+\begin{definition}[Radikal]
+\TODO
+\end{definition}
+\begin{definition}
+    Sei $(G, *)$ eine Gruppe und $H \leq G$ eine Untergruppe. Die (Links-)Nebenklasse von $g \in G$ zu $H$ in $G$ ist die Menge $$gH := \{gh \mid h \in H\}$$
+    Der Quotient von $H$ in $G$ ist die Menge der Linksnebenklassen:
+    $$G/H := \{gH \mid g \in G\}$$
+    Die kanonische Projektion von $G$ auf $G/H$ ist die Abbildung $\pi: G \rightarrow G/H, g \mapsto gH$.
+\end{definition}
+\begin{definition}[Normalteiler, Quotientengruppe]
+Sei $(G, *)$ eine Gruppe und $H \leq G$ eine Untergruppe. $H$ heißt Normalteiler, wenn $H$ konjugationsinvariant ist, also
+$$\forall g \in G. \; gHg^{-1} = H$$
+In diesem Fall schreibt man auch $N \trianglelefteq G$.
+Genau dann, wenn $H \trianglelefteq G$ gilt, ist die Operation $\cdot: G/H \rightarrow G/H$ mit $gH \cdot hH := (gh)H$ wohldefiniert und macht $(G/H, \cdot)$ zu einer Gruppe (der sogenannten "Quotientengruppe" von $H$ in $G$). Weiter ist die kanonische Projektion von $G$ auf $H$ dann ein Gruppenhomomorphismus.
+\end{definition}
+\begin{example}[Alternierende Gruppe $A_n$]
+Sei $n \in \mathbb{N}, \; [n] := \{1,...,n\}$ und $S_n := \{\pi: [n] \rightarrow [n] \mid f \; bijektiv\}$ die symmetrische Gruppe auf $[n]$. Sei weiter $I(\pi) := \{(i,j) \in [n] \times [n] \mid i < j, \pi(i) > \pi(j)\}, \pi \in S_n$ die Menge der Inversionen und $sgn(\pi) := (-1)^{|I(\pi)|}$ die Signumsfunktion. Die alternierende Gruppe $A_n := \{\pi \in S_n \mid sgn(\pi) = 0\}$ ist für alle $n \in \mathbb{N}$ ein Normalteiler der symmetrischen Gruppe , also $A_n \trianglelefteq S_n$. Gleichheit gilt nur für $n = 1$.
+Für alle $n \geq 2$  gilt $S_n/A_n \cong \mathbb{Z}/2\mathbb{Z}$ und die kanonische Projektion $S_n \rightarrow S_n/A_n$ stimmt mit der Signumsabbildung überein.
+\end{example}
+
+\subsection{Grundlegende Resultate aus EAZ und LA}
+
+\begin{lemma}[Chinesischer Restsatz]\label{lem:found:0}
+    \TODO
+\end{lemma}
+
+\begin{lemma}\label{lem:found:1}
+Die alternierende Gruppe $A_n$ wird für alle $n \geq 3$ von 3-Zykeln erzeugt.
+\end{lemma}
+    \begin{proof}
+        \TODO (Für den Beweis siehe bspw. Satz 2.5.10 im EAZ-Skript von Dr. Stefan Kühnlein.)
+    \end{proof}
+    
+\begin{lemma}\label{lem:found:2}
+Sei $(G,*)$ eine abelsche Gruppe. Dann ist jede Untergruppe $H \leq G$ bereits ein Normalteiler von $G$.
+\end{lemma}
+\begin{proof}
+    Sei $H \subseteq G$ und $g \in G$. Dann ist wegen der Kommutativität $gHg^{-1} = gg^{-1}H = H$, also ist $H$ kojugationsinvariant. Gilt zudem $H \leq G$, so folgt die Behauptung.
+\end{proof}
+    
+\begin{lemma}\label{lem:found:3}
+    Sei $(G,*)$ eine Gruppe, $N \trianglelefteq G$ und $U \leq G$. Dann ist $U*N := \{u*n \mid u \in U, n \in N\} = N*U$ eine Untergruppe von G.
+\end{lemma}
+\begin{proof}
+    \TODO
+\end{proof}
+    
+\begin{lemma}\label{lem:found:4}
+    Seien $(G,*), (H,\cdot)$ Gruppen, $U \leq H, \; N \trianglelefteq U$ und $\phi: G \rightarrow H$ ein Gruppenhomomorphismus. Dann ist $\phi^{-1}(N) \trianglelefteq \phi^{-1}(U)$. Ist $\phi$ zusätzlich surjektiv, so gilt Gleichheit gdw. $U = N$.
+\end{lemma}
+\begin{proof} 
+    Die Untergruppenrelation ist klar. Wir zeigen also noch, dass das Urbild $\phi^{-1}(N)$ konjugationsinvariant ist. Sei dafür $g \in G$. Dann ist $\phi(g\phi^{-1}(N)g^{-1}) = \phi(g)\phi^{-1}(N)\phi(g)^{-1} = N$, also $g\phi^{-1}(N)g^{-1} \subseteq \phi^{-1}(N)$. Außerdem ist für $a \in \phi^{-1}(N)$: $\phi(g^{-1}ag) = \phi(g)^{-1}\phi(a)\phi(g) \in \phi(g)^{-1}N\phi(g) = N$, also $g^{-1}ag \in \phi^{-1}(N)$ und damit $a = gg^{-1}agg^{-1} \in g\phi^{-1}(N)g^{-1}$, was die andere Inklusionsrichtung und damit die Konjugationsinvarianz zeigt.
+    Ist zudem $\phi$ surjektiv, so gilt $N \neq U \Rightarrow \exists \; u \in U. \; u \notin N$. Ein solches $u \in U$ besitzt also kein Urbild in $\phi^{-1}(N)$, jedoch ein Urbild in $\phi^{-1}(U)$, da $\phi$ ja surjektiv ist. Damit muss dann also gelten $\phi^{-1}(N) \subseteq \phi^{-1}(U)\setminus\{\phi^{-1}(u))\}$ und die Mengen sind nicht gleich.
+\end{proof}
+    
+\begin{lemma}\label{lem:found:5}
+        Seien $(G,*), (H,\cdot)$ Gruppen, $N \trianglelefteq G$ und $\phi: G \rightarrow H$ ein surjektiver Gruppenhomomorphismus. Dann ist auch $\phi(N) \trianglelefteq H$.
+\end{lemma}
+    \begin{proof}
+        \TODO
+    \end{proof}
+    
+\end{document}
