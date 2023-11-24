@@ -1,0 +1,54 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+
+\begin{document}
+\begin{definition}
+    Eine algebraische Körpererweiterung $L|K$ heißt \emph{Galoiserweiterung} (oder galois'sch), wenn $L|K$ normal und separabel ist.
+    Man nennt dann $Gal(L|K) = Aut_k(L)$ die \emph{Galoisgruppe} von $L|K$.
+
+    Sei $F$ ein Körper und $H\leq Aut(F)$ eine Untergruppe.
+    dann ist $F^H = \{x\in F\mid \forall\sigma\in H:\sigma(x) = x\}$ ein Teilkörper von F, genannt \emph{Fixkörper} von H.
+\end{definition}
+\subsection{Hauptsatz der Galoistheorie}
+\begin{lemma}
+    Sei $L|K$ Galoiserweiterung. Dann ist $L^{Gal(L|K)} = K$.
+\end{lemma}
+\begin{proof}
+    "$\supseteq$" klar
+    "$\subseteq$" Sei $a\in L\setminus K$. Das Minimalpolynom $m_{a,K}$ hat Grad $\geq2$.
+    * $L|k$ normal => $m_{a,K}$ zerfällt in $L[X]$ in Linearfaktoren.
+    * $L|K$ separabel -> $m_{a,k}$ hat keine mehrfach Nullstelle.
+
+    Also gibt es eine weitere Nullstelle $b$ von $m_{a,K}$ mit $b\neq a$.
+    Nach Satz \todo{2.37} existiert eine $\sigma \in Gal(L|K)$ mit $\sigma(a)=b$.
+    => $a\notin L^{Gal(L|K)}$
+\end{proof}
+\begin{theorem}
+    Seien $L$ ein Körper und $H\leq Aut(L)$ eine eindliche Untergruppe.
+    Dann ist
+    \begin{enumerate}
+        \item $L|L^H$ galois'sch
+        \item $[L:L^H] = \card{H}$
+        \item $Gal(L|L^H)\cong H$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Sei $a\in L$. Betrachte die $H$-Bahn von $a$.
+    $$H\cdot a = \{\sigma(a)\mid \sigma\in H\} = \{a_1,\dots, a_n\} \subseteq L$$
+    Betrachte Polynom $f_a = \Pi_{i=1}^n (X-a_i)$ hat Koeffizienten in $L^H$.
+    Für $\sigma\in H$ ist $\sigma_*(f) = \Pi_{i=1}^n(X-\sigma(a_i)) = \Pi_{i=1}^n(X-a_i)$.
+    Weil alle Nullstellen von $f_a$ auch Nullstelle von $m_{a,L^H}$, muss schon $f_a=m_{a,L^H}$ sein.\footnote{$\sigma$ erhält Minimalpolynom-Nullstellen oder so}
+    Nach Konstruktion hat $f_a$ nur einfache Nullstellen, ist also separabel. => $a$ separabel. $\overset{=>}{a\ beliebig}$ $L|L^H$separabel.
+    Weiter zerfällt $f_a=m_{a,L^H}$ in Linearfaktoren -> $L|L^H$ normal and damit Galois.
+
+    Es gilt$\card{H}\leq \card{Gal(L|L^H)} = [L:L^H]_S = [L:L^H]$.
+    Angenommen $\card{H} < [L:L^H]\leq \infty$. 
+    Dann findin wir ein $L_0$ mit $L^H\subseteq L_0 \subseteq L$ mit $\card{H} \leq [L_0:L^H] <\infty$.
+    Der Satz vom primitiven Element liefert ein $a\in L_0$ mit $L_0 = L^H(a)$.
+    Aber $f_a=m_{a,L^H}$ hat grad $leq \card{H}$.
+    => $[L_0:L^H] = \deg(m_{a,L^K})\leq \card{H}$ \Lightning
+
+    Also ist $[L:L^H] = \card{H} = \card{Gal(L|L^H)}$
+    => $H=Gal(L|L^H)$.
+\end{proof}
+\end{document}
