@@ -4,7 +4,7 @@
 \begin{document}
 \subsection{Irreduzible Polynome}
 \begin{definition}[Wiederholung aus EAZ]
-    Sei $K$ im Folgenden ein Körper. Der Polynomring $K[X]$ ist ein Hauptidealring\footnote{nullteilerfrei, Kommultativ und jedes Ideal ist Hauptideal}. Das Ideal $(f)$ ist Primideal gdw. $f = 0$ oder $f$ irreduzibles Polynom ist, d.h. $f = gh \Rightarrow g \in K^* \vee h \in K^*$.
+    Sei $K$ im Folgenden ein Körper. Der Polynomring $K[X]$ ist ein Hauptidealring\footnote{nullteilerfrei, kommutativ und jedes Ideal ist Hauptideal}. Das Ideal $(f)$ ist Primideal gdw. $f = 0$ oder $f$ irreduzibles Polynom ist, d.h. $f = gh \Rightarrow g \in K^* \vee h \in K^*$.
 \end{definition}
 \begin{lemma} \label{theo:2.2}
     Ist f irreduzibel, dann ist (f) ein maximales Ideal.
@@ -52,7 +52,7 @@
     Kühnlein EAZ
 \end{proof}
 \begin{lemma}
-    A Hauptidealring, $K = Quot(A)$, $f \in A[X]$ nicht-konstantes Polynom. Falls f sich nicht als Produkt $f = gh$ mit $g,h \in A[X], deg g, deg h < deg f$ schreiben lässen, dann ist auch $f \in K[X]$ irreduzibel.
+    A Hauptidealring, $K = Quot(A)$, $f \in A[X]$ nicht-konstantes Polynom. Falls f sich nicht als Produkt $f = gh$ mit $g,h \in A[X], \deg(g), \deg(h) < \deg(f)$ schreiben lässen, dann ist auch $f \in K[X]$ irreduzibel.
 \end{lemma}
 \begin{proof}
     Ang. $f = g_0h_0$ mit $g_0, h_0 \in K[X]$. Setze 
@@ -82,7 +82,7 @@
 \end{definition}
 \begin{example*} $\mathbb{R}|\mathbb{Q}, \mathbb{C}|\mathbb{R},\mathbb{C}|\mathbb{Q},\mathbb{Q}(\sqrt{2}) | \mathbb{Q}, \mathbb{C}(\mathbb{Z}) | \mathbb{C}$ \end{example*}
 \begin{definition}[Endliche Erweiterung]
-    Sei $L | K$ eine Erweiterung. Dann ist L insb. ein $K-VR$. Die Dimension über K von L $dim_K(K) =: [L:K]$ heißt der Grad der Körpererweiterung $L | K$. Die Erweiterung heißt endlich, wenn $[L:K] < \infty$.
+    Sei $L | K$ eine Erweiterung. Dann ist L insb. ein $K-VR$. Die Dimension über K von L $dim_K(L) =: [L:K]$ heißt der \emph{Grad der Körpererweiterung} $L | K$. Die Erweiterung heißt \emph{endlich}, wenn $[L:K] < \infty$.
 \end{definition}
 \begin{lemma}[Grad ist multiplikativ]
     Sei $L | K$ eine K-Erweiterung und sei V ein L-Vektorraum mit L-Basis $(v_i)_{i \in I} \subset V$. Sei $(e_j)_{j \in J} \subset L$ eine K-Basis von L. Dann ist $(e_j \cdot v_i)_{i \in I, j \in J}$ (VR-Multiplikation von Skalaren aus L mit Vektoren aus V) eine K-Basis von V.
@@ -93,7 +93,7 @@ Erzeugendensystem: Sei $v \in V$.
 Dann ist $v = \sum_{i \in I} \lambda_iv_i$ mit gewissen $\lambda_i \in L$. Für jedes $i \in I$ ist $\lambda_i = \sum_{j \in J} b_ije_j$ mit gewissen $b_ij \in K$. Also $v = \sum_{i,j} b_{ij}(e_j \cdot v_i)$.
 \end{proof}
 \begin{lemma}[Korollar]
-    Sind $M | L, L | K$ Körpererweiterungen, dann gilt $[M:K] = [M:L]\cdot[L:K]$ (mit den üblichen Konventionen $\infty \cdot \infty = \infty$.
+    Sind $M | L, L | K$ Körpererweiterungen, dann gilt $[M:K] = [M:L]\cdot[L:K]$ (mit den üblichen Konventionen $\infty \cdot \infty = \infty$).
 \end{lemma}
 \begin{definition}[Adjungieren]
     Sei $L | K$ eine Körpererweiterung. Sei $S \subset L$ eine Teilmenge. Dann bezeichnet $K(S)$ den kleinsten Teilkörper von L, der K und S enthält. Für $S=\{\alpha\}$ schreibt man $K(\alpha) = K(\{\alpha\})$ (gesprochen "K adjungiert $\alpha$"). Man nennt eine Körpererweiterung $K(\alpha) | K$ einfach.
@@ -101,9 +101,9 @@ Dann ist $v = \sum_{i \in I} \lambda_iv_i$ mit gewissen $\lambda_i \in L$. Für 
 \begin{definition}[Algebraisch vs. Transzendent]
     Sei $L | K$ eine Körpererweiterung. Sei $\alpha \in L$. Betrachte die Evaluationsabbildung $ev_\alpha: K[X] \rightarrow L, f \mapsto f(\alpha)$. 
     
-    Falls $ev_\alpha$ injektiv ist, so nennt man $\alpha$ transzendent (dann ist $f(\alpha) \equiv 0 \Rightarrow f \equiv 0$, also ist $\alpha$ nicht Nullstelle eines nichttrivialen Polynoms). Es gilt $Bild(ev_\alpha) \cong K[X]$ und $K(X) \cong K(\alpha)$. Insb. $[K(\alpha):K] = \infty$.
+    Falls $ev_\alpha$ injektiv ist, so nennt man $\alpha$ \emph{transzendent} (dann ist $f(\alpha) \equiv 0 \Rightarrow f \equiv 0$, also ist $\alpha$ nicht Nullstelle eines nichttrivialen Polynoms). Es gilt $Bild(ev_\alpha) \cong K[X]$ und $K(X) \cong K(\alpha)$. Insb. $[K(\alpha):K] = \infty$.
     
-    Falls dagegen $ev_\alpha$ nicht injektiv ist, nennt man $\alpha$ algebraisch. Dann ist $ker(ev_\alpha) = (m_{\alpha, K})$ Hauptideal. O.B.d.A. sei $m_{\alpha, K}$ normiert (Leitkoeffizient = 1). Wir nennen $m_{\alpha, K}$ das Minimalpolynom von $\alpha$ über K. Dann $L \supset Bild(ev_\alpha) \cong K[X]/(m_{\alpha, K})$ nullteilerfrei. Folglich ist $m_{\alpha, K}$ irreduzibel. Damit ist $(m_{\alpha, K})$ sogar ein maximales Ideal in K[X], also ist $Bild(ev_\alpha) \cong K[X]/(m_{\alpha, K})$ sogar ein Körper, also $Bild(ev_\alpha) = K(\alpha)$. (Schreibe auch $K[\alpha] := Bild(ev_\alpha)$.) Es ist $[K(\alpha):K] = deg \; m_{\alpha, K} < \infty$.
+    Falls dagegen $ev_\alpha$ nicht injektiv ist, nennt man $\alpha$ \emph{algebraisch}. Dann ist $ker(ev_\alpha) = (m_{\alpha, K})$ Hauptideal. O.B.d.A. sei $m_{\alpha, K}$ normiert (Leitkoeffizient = 1). Wir nennen $m_{\alpha, K}$ das \emph{Minimalpolynom} von $\alpha$ über K. Dann $L \supset Bild(ev_\alpha) \cong K[X]/(m_{\alpha, K})$ nullteilerfrei. Folglich ist $m_{\alpha, K}$ irreduzibel. Damit ist $(m_{\alpha, K})$ sogar ein maximales Ideal in K[X], also ist $Bild(ev_\alpha) \cong K[X]/(m_{\alpha, K})$ sogar ein Körper, also $Bild(ev_\alpha) = K(\alpha)$. (Schreibe auch $K[\alpha] := Bild(ev_\alpha)$.) Es ist $[K(\alpha):K] = deg \; m_{\alpha, K} < \infty$.
 \end{definition}
 \begin{example}
     $\pi \in \mathbb{C}$ ist transzendent über $\mathbb{Q}$ (Lindemann 1882). Es gibt in $\mathbb{C}$ nur abzählbar viele algebraische Zahlen über $\mathbb{Q}$, also überabzählbar viele transzendente Zahlen.
@@ -117,9 +117,9 @@ Dann ist $v = \sum_{i \in I} \lambda_iv_i$ mit gewissen $\lambda_i \in L$. Für 
 \subsection{Algebraische Körpererweiterungen}
 \begin{theorem}
     \begin{enumerate}
-        \item Ist $L \mid K$ endlich, adnn ist $L \mid K$ algebraisch.
+        \item Ist $L \mid K$ endlich, dann ist $L \mid K$ algebraisch.
         \item Ist $L \mid K$ algebraisch und endlich erzeugt (d.h. $L = K(\alpha_1, ..., \alpha_n)$ für geeignete $\alpha_i$), dann ist $L \mid K$ endlich.
-        \item Sind $L \mid K$ und $M \mid L$ algebraisch, so ist auch $M \mid K$ algebraisch.
+        \item Sind $M \mid L$ und $L \mid K$ algebraisch, so ist auch $M \mid K$ algebraisch.
     \end{enumerate}
 \end{theorem}
 \begin{proof}

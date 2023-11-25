@@ -7,9 +7,9 @@ VL vom 26.10.2023:
 \end{flushright}
 \addtocounter{theorem}{-1}
 \begin{reminder}
-    Ein \emph{Normalteiler} $N$ einer Gruppe $(G,*)$ ist eine Untergruppe mit der Eigenschaft  $\forall g\in G: gNg^-1 = N$. Man defintiert auf den Nebenklassen $G/N = \{gN\mid g\in G\}$ eine Verknüpfung $g_1N \dot g_2N = g_1g_2N$, die aus $G/N$ eine Gruppe macht. Weiter ist $G\rightarrow G/N, g\mapsto gN$ ein Homomorphismus. Notation $N\nteq G$.
+    Ein \emph{Normalteiler} $N$ einer Gruppe $(G,*)$ ist eine Untergruppe mit der Eigenschaft  $\forall g\in G: gNg^{-1} = N$. Man definiert auf den Nebenklassen $G/N = \{gN\mid g\in G\}$ eine Verknüpfung $g_1N \cdot g_2N = g_1g_2N$, die aus $G/N$ eine Gruppe macht. Weiter ist $G\rightarrow G/N, g\mapsto gN$ ein Homomorphismus. Notation $N\nteq G$.
 
-    Z.B. Die alternatierende Grruppe $A_n$ ist ein Normalteiler der symmethrischen Gruppe $S_3$.
+    Z.B. Die alternierende Grruppe $A_n$ ist ein Normalteiler der symmetrischen Gruppe $S_3$.
 
 \end{reminder}
 Ansatz: Verstehe eine Gruppe $G$, indem man Normalteiler $\{e\} \neq N \nt G$ und dann $G/N$ studiert.
@@ -40,11 +40,11 @@ Wähle $\sigma \in N\setminus\{1\}$:
 \subsection{Normal- und Kompositionsreihen}
 
 \begin{definition}[Normalreihe, Kompositionsreihe]
-Sei $G$ eine Gruppe. Ein \emph{Normalreihe} ist eine aufsteigende Folge von Untergruppen $\trivGO=G_0\nt G_1\nt \dots \nt G_n = G$ sodass $G_i$ normal in $G_{i+1}$ ist. Die Quotienten $G_{i+1}/G_i$ heißen \emph{Faktoren} der Reihe $\mathcal{G}$.
+Sei $G$ eine Gruppe. Eine \emph{Normalreihe} ist eine aufsteigende Folge von Untergruppen $\trivGO=G_0\nt G_1\nt \dots \nt G_n = G$ sodass $G_i$ normal in $G_{i+1}$ ist. Die Quotienten $G_{i+1}/G_i$ heißen \emph{Faktoren} der Reihe $\mathcal{G}$.
 
 Man sagt, dass eine Normalreihe $\mathcal{H}$ von $G$ eine Normalreihe $\mathcal{G}$ \emph{verfeinert}, wenn $\mathcal{H}$ aus $\mathcal{G}$ durch hinzufügen von Termen hervorgeht.
 
-Man sagt, dass $\mathcal{G}$ und $\mathcal{H}$ äquivalent sind, winn sie die gleiche Länge haben und es eine Permutation $\sigma \in S_n$ gibt mit $H_{i+1}/H_i \cong G_{\sigma(i)+1}/G_{\sigma(i)}$.
+Man sagt, dass $\mathcal{G}$ und $\mathcal{H}$ äquivalent sind, wenn sie die gleiche Länge haben und es eine Permutation $\sigma \in S_n$ gibt mit $H_{i+1}/H_i \cong G_{\sigma(i)+1}/G_{\sigma(i)}$.
 
 Eine Normalreihe, die keine echte Verfeinerung besitzt, heißt Kompositionsreihe.
 \end{definition}
@@ -53,7 +53,7 @@ Eine Normalreihe, die keine echte Verfeinerung besitzt, heißt Kompositionsreihe
 VL vom 27.10.2023:
 \end{flushright}
 
-\begin{example}[Kompositionsreihen von $(G := \mathbb{Z},+)$]
+\begin{example}[Kompositionsreihen von $(G := (\Z,+)$]
     Alle Untergruppen von $G$ sind Normalteiler, da es sich um eine abelsche Gruppe handelt (\cref{lem:found:2}). Weiterhin haben alle Untergruppen von $G$ die Form $n\mathbb{Z}$ für ein $n \in \mathbb{N}_0$.
     Sei nun $n \in \mathbb{N}$. Dann ist
     $$\mathcal{G}: \{0\} = G_0 \; \triangleleftneq \; n\mathbb{Z} \; \triangleleftneq \; \mathbb{Z} = G$$ eine Normalreihe in $G$ mit den Faktoren $$G_1/G_0 = \{\{k\} \mid k \in n\mathbb{Z}\} \; \cong \; n\mathbb{Z} \; \cong \; \mathbb{Z}, \; G/G_1 = \mathbb{Z}/n\mathbb{Z}$$
@@ -74,7 +74,7 @@ VL vom 27.10.2023:
 
         IA  $i=0$: $G_0=\trivG=H_0$ \checkmark
 
-        IS: Es extistiert $j>i$ mit $H_i = G_{i+1}$. $G_i \subseteq H_{j-1}\nt H_j = G_{i+1} \overset{\rightarrow}{\pi_i} G_{i+1}/=G_i$ einfach. Da surjektive Homomorphismen Normalteiler erhalten gilt $\pi_i(H_{j-1})\subseteq G_{i+1}/G_i$. Wegen "Einfachheit" $\pi_i(H_j)=\trivG$. $\Rightarrow H_{j-1} = G_i = H_i$.
+        IS: Es existiert $j>i$ mit $H_i = G_{i+1}$. $G_i \subseteq H_{j-1}\nt H_j = G_{i+1} \overset{\rightarrow}{\pi_i} G_{i+1}/=G_i$ einfach. Da surjektive Homomorphismen Normalteiler erhalten gilt $\pi_i(H_{j-1})\subseteq G_{i+1}/G_i$. Wegen "Einfachheit" $\pi_i(H_j)=\trivG$. $\Rightarrow H_{j-1} = G_i = H_i$.
     \end{itemize}
     Zu (b):
     Induktion über die Mächtigkeit dei Gruppe $\card{G}$. IA $\card{G}=1$: $G=\trivG$ \checkmark.
@@ -94,7 +94,7 @@ Sei $G$ Gruppe, $A,B <G$ Untergruppen und $A_0 \nteq A$, $B_0 \nteq B$. Dann
 \end{proof}
 
 \begin{theorem}
-    Sind $\mathcal{G}$, $\mathcal{H}$ Normalreihen vorn $G$, dann gibt es Verfeinerung $\Tilde{\mathcal{G}}$, $\Tilde{\mathcal{H}}$ von $\mathcal{G}$, $\mathcal{H}$, sodass sie äquivalent sind.
+    Sind $\mathcal{G}$, $\mathcal{H}$ Normalreihen von $G$, dann gibt es Verfeinerung $\Tilde{\mathcal{G}}$, $\Tilde{\mathcal{H}}$ von $\mathcal{G}$, $\mathcal{H}$, sodass sie äquivalent sind.
 \end{theorem}
 \begin{proof}
     \TODO
@@ -112,7 +112,7 @@ Sei $G$ Gruppe, $A,B <G$ Untergruppen und $A_0 \nteq A$, $B_0 \nteq B$. Dann
 \begin{example*}
     \begin{itemize}
         \item $\Z/14\Z \cong \Z/2\Z \times \Z/7\Z$ hat Kompositionsreihen $\trivGZ \nt (\Z/2\Z \times \trivGZ) \nt \Z/14\Z$ und $\trivGZ \nt (\trivGZ \times \Z/2\Z) \nt \Z/14\Z$, aber immer die gleichen Faktoren in unterschiedlicher Reihenfolge.
-        \item Zu $G=\Z/9\Z$ und $H=\Z/3\Z\times\Z/3\Z$ haben die Kompositionsreihen $\mathcal{G}: \trivGZ \nt 3 \Z/9\Z \nt G$ und $\mathcal{H}: \trivGZ \nt Z/3\Z \nt H$ die gleichen Faktoren (zweimal $Z/3\Z$ und damit äquivalent, aber $G\neq H$.
+        \item Zu $G=\Z/9\Z$ und $H=\Z/3\Z\times\Z/3\Z$ haben die Kompositionsreihen $\mathcal{G}: \trivGZ \nt 3 \Z/9\Z \nt G$ und $\mathcal{H}: \trivGZ \nt Z/3\Z \nt H$ die gleichen Faktoren (zweimal $Z/3\Z$ und damit äquivalent, aber $G\neq H$).
     \end{itemize}
 \end{example*}
     
@@ -130,7 +130,7 @@ VL vom 02.11.2023:
     b) Sei weiterhin $\mathbb{K}$ ein Körper. Die Matrixgruppe $$(B = \{\begin{pmatrix} a & c \\ 0 & b \end{pmatrix} \in GL_2(\mathbb{K}) \mid a,b,c \in \mathbb{K}\}, \cdot)$$ ist nicht abelsch, aber dennoch auflösbar. Sei dafür $$\mathbb{K}^* = \mathbb{K}\setminus\{0\}$$ und $$\phi: B \rightarrow \mathbb{K}^* \times \mathbb{K}^*, \begin{pmatrix} a & c \\ 0 & b
     \end{pmatrix} \mapsto (a,b)$$ Dann ist $N = ker(\phi) = \{\begin{pmatrix}
         1 & c \\ 0 & 1
-    \end{pmatrix} \mid c \in \mathbb{K}\} \cong (\mathbb{K},+)$ Somit is $$\{id\} \triangleleftneq N \triangleleftneq B$$ eine Normalreihe mit abelschen Faktoren. (Geht auch für $GL_n(K)$, Beweis komplizierter)
+    \end{pmatrix} \mid c \in \mathbb{K}\} \cong (\mathbb{K},+)$ Somit ist $$\{id\} \triangleleftneq N \triangleleftneq B$$ eine Normalreihe mit abelschen Faktoren. (Geht auch für $GL_n(K)$, Beweis komplizierter)
 
     c) (Semidirektes Produkt von Gruppen) \TODO
 \end{example}
