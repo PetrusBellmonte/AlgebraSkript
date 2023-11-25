@@ -32,6 +32,7 @@ jobs:
           git config --global user.email 'action@github.com'
           git fetch                         # fetch branches
           git checkout gh-pages       # checkout to your branch
-          git add main.pdf
+          cp main.pdf algebra.pdf
+          git add algebra.pdf
           git diff-index --quiet HEAD ||  git commit -am "deploy files"  # commit to the repository (ignore if no modification)
           git push origin gh-pages # push to remote branch
