@@ -96,7 +96,7 @@ Dann ist $v = \sum_{i \in I} \lambda_iv_i$ mit gewissen $\lambda_i \in L$. Für 
     Sind $M | L, L | K$ Körpererweiterungen, dann gilt $[M:K] = [M:L]\cdot[L:K]$ (mit den üblichen Konventionen $\infty \cdot \infty = \infty$).
 \end{lemma}
 \begin{definition}[Adjungieren]
-    Sei $L | K$ eine Körpererweiterung. Sei $S \subset L$ eine Teilmenge. Dann bezeichnet $K(S)$ den kleinsten Teilkörper von L, der K und S enthält. Für $S=\{\alpha\}$ schreibt man $K(\alpha) = K(\{\alpha\})$ (gesprochen "K adjungiert $\alpha$"). Man nennt eine Körpererweiterung $K(\alpha) | K$ einfach.
+    Sei $L | K$ eine Körpererweiterung. Sei $S \subset L$ eine Teilmenge. Dann bezeichnet $K(S)$ den kleinsten Teilkörper von L, der K und S enthält. Für $S=\{\alpha\}$ schreibt man $K(\alpha) = K(\{\alpha\})$ (gesprochen "K adjungiert $\alpha$"). Man nennt eine Körpererweiterung $K(\alpha) | K$ \emph{einfach}.
 \end{definition}
 \begin{definition}[Algebraisch vs. Transzendent]
     Sei $L | K$ eine Körpererweiterung. Sei $\alpha \in L$. Betrachte die Evaluationsabbildung $ev_\alpha: K[X] \rightarrow L, f \mapsto f(\alpha)$. 
@@ -130,7 +130,7 @@ Dann ist $v = \sum_{i \in I} \lambda_iv_i$ mit gewissen $\lambda_i \in L$. Für 
     \end{itemize}
 \end{proof}
 \begin{remark}
-Sei $L \mid K$ eine K-Erweiterung. Die Menge $L_{alg, K} := \{\alpha \in L \mid \alpha \text{ algebraisch über K}\}$ ist ein Zwischenkörper $L-L_{alg, K}-K$. Diesen nennt man den algebraischen Abschluss von K in L.
+Sei $L \mid K$ eine K-Erweiterung. Die Menge $L_{alg, K} := \{\alpha \in L \mid \alpha \text{ algebraisch über K}\}$ ist ein Zwischenkörper $L-L_{alg, K}-K$. Diesen nennt man den \emph{algebraischen Abschluss} von K in L.
 
 Begründung: Seien $\alpha, \beta \in L_{alg,K}$. $$[K(\alpha,\beta):K]=[K(\alpha,\beta):K(\alpha)][K(\alpha):K] \leq [K(\beta):K][K(\alpha):K] < \infty$$ (Frage aus VL: Wie würde das Minimalpolynom von $\alpha + \beta$ über K aussehen?)
 \end{remark}
@@ -140,27 +140,27 @@ Wir stellen uns nun die folgenden Fragen: Sei K ein Körper und $f \in K[X]$ nic
     \item f in L[X] in Linearfaktoren zerfällt?
     \item jedes Polynom in L[X] in Linearfaktoren zerfällt?
 \end{itemize}
-\begin{theorem}
+\begin{theorem} \label{theo:2.19}
     Seien K ein Körper und $f \in K[X]$ irreduzibel. Dann gibt es eine algebraische K-Erweiterung mit $[L:K] = deg(f)$, in der f eine Nullstelle besitzt.
 \end{theorem}
 \begin{proof}
 
     Setze $L := K[X]/(f)$. Nach \cref{theo:2.2} ist L ein Körper. Betrachte die Quotientenabbildung $\pi: K[X] \rightarrow L$ (Homomorphismus!). Setze $\alpha := \pi(X) \in L$. Dann ist 
-    $$f(\alpha) = f(\pi(X)) = \sum_{i=0}^n c_i\pi(X)^i = \pi(\sum_{i=0}^n c_iX^i) = \pi(f) = 0 \in L$$
-    Also $[L:K] = [K(\alpha):K] = deg(f)$, weil f Minimalpolynom von $\alpha$ ist.
+    $$f(\alpha) = f\left(\pi(X)\right) = \sum_{i=0}^n c_i\pi(X)^i = \pi\left(\sum_{i=0}^n c_iX^i\right) = \pi(f) = 0 \in L$$
+    Also $[L:K] = [K(\alpha):K] = deg(f)$, weil $f$ Minimalpolynom von $\alpha$ ist.
 \end{proof}
 \begin{corollary}\label{theo:2.20}
-Seien K ein Körper und $f \in K[X]$ ein nicht-konstantes Polynom (irreduzible Polynome sind per Definition nicht-konstant). Es gibt eine endliche K-Erweiterung $L \mid K$, so dass f über L in Linearfaktoren zerfällt.
+Seien K ein Körper und $f \in K[X]$ ein nicht-konstantes Polynom\footnote{irreduzible Polynome sind per Definition nicht-konstant}. Es gibt eine endliche K-Erweiterung $L \mid K$, so dass f über L in Linearfaktoren zerfällt.
 \end{corollary}
 \begin{proof}
     Induktion über $deg(f) =: d$:
     \begin{itemize}
-        \item[IA] $d = 1$: Klar, da f selbst Linearfaktor ist.
-        \item[ISchritt] Sei $g \in K[X]$ ein irreduzibles Polynom, das f teilt. Nach dem vorhergehenden Satz gibt es $L_1 \mid K$, in der g eine Nullstelle $\alpha \in L_1$ besitzt. Schreibe $f = (X-\alpha)\Tilde{f}$ mit $\Tilde{f} \in L_1[X]$. Nach I-Annahme existiert $L \mid L_1$ endlich, in der $\Tilde{f}$ in Linearfaktoren zerfällt. Weiter $[L:K] = [L:L_1][L_1:L] < \infty$.
+        \item[IA] $d = 1$: Klar, da $f$ selbst Linearfaktor ist.
+        \item[ISchritt] Sei $g \in K[X]$ ein irreduzibles Polynom, das $f$ teilt. Nach dem vorhergehenden Satz (\cref{theo:2.19}) gibt es $L_1 \mid K$, in der $g$ eine Nullstelle $\alpha \in L_1$ besitzt. Schreibe $f = (X-\alpha)\Tilde{f}$ mit $\Tilde{f} \in L_1[X]$. Nach I-Annahme existiert $L \mid L_1$ endlich, in der $\Tilde{f}$ in Linearfaktoren zerfällt. Weiter $[L:K] = [L:L_1][L_1:L] < \infty$.
     \end{itemize}
 \end{proof}
 \begin{definition}
-    Ein Körper K ist algebraisch abgeschlossen, falls jedes nicht-konstante Polynom $f \in K[X]$ eine Nullstelle in K besitzt.
+    Ein Körper $K$ ist \emph{algebraisch abgeschlossen}, falls jedes nicht-konstante Polynom $f \in K[X]$ eine Nullstelle in $K$ besitzt.
 \end{definition}
 \begin{remark}\label{theo:2.22}
     Ist K algebraisch abgeschlossen, dann gilt:
@@ -179,7 +179,9 @@ Seien K ein Körper und $f \in K[X]$ ein nicht-konstantes Polynom (irreduzible P
 \begin{theorem}\label{theo:2.24}
     Für jeden Körper gibt es einen algebraisch abgeschlossenen Erweiterungskörper.
 \end{theorem}
-Auswahlaxiom in Algebra: nur hier, FAna: überall/Hahn-Banach, LA: Existenz von Basen unendlich dim VR
+Auswahlaxiom in Algebra: nur hier;
+Funktionale Analysis: überall/Hahn-Banach;
+Lineare Algebra: Existenz von Basen unendlich dim VR
 \begin{proof}
 1) Konstruiere $L_1 \mid K$, so dass jedes $f \in K[X]\setminus K =: \Omega$ eine Nullstelle in $L_1$ hat. Definiere $A = K[(X_f)_{f \in \Omega}]$ (Polynomring in unendlich vielen Variablen). Setze $I := (\{f(X_f) \mid f \in \Omega\}) \subseteq A$. Dann ist $I \subsetneq A$. Angenommen $I = A$, also $1 \in I$. Dann $1 = \sum_{i = 1}^r g_if_i(X_{f_i})$ für $g_i \in A, f_i \in \Omega$. Sei $f = f_1...f_r$ Nach \ref{theo:2.20} ex. $F \mid K$, so dass f in Linearfaktoren zerfällt. Insbesondere hat jedes $f_i$ eine Nullstelle $z_i \in F$. Definiere $\phi: A \rightarrow F$ durch $\phi|_K = \text{Inklusion } K -> F$, $\phi(X_f) = 0$ für $f \in \Omega\setminus\{f_1,...,f_r\}$, $\phi(X_{f_i}) = z_i$. Es gilt: $$1 = \phi(1) = \sum_{i = 1}^r \phi(g_i)\phi(f_i(X_{f_i})) = \sum_{i = 1}^r \phi(g_i)f_i(\phi(X_{f_i})) = 0 \in F$$
 Nach \ref{theo:2.24} ex. ein max. Ideal $m \subsetneq A$ mit $I \subseteq m$. Setze $L_1 := A/m$.
@@ -188,15 +190,15 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
 2) Mit Schritt 1) erhalten wir eine Folge von Körpererweiterungen $$K \subseteq L_1 \subseteq L_2 \subseteq ...$$ mit der Eigenschaft, dass jedes $f \in L_j[X]\setminus L_j$ eine Nullstelle in $L_{j+1}$ hat. Definiere $L = \bigcup_{j \geq 1} L_j$. Sei $g \in L[X]\setminus L$. Dann hat g endlich viele Koeffizienten, die alle in einem $L_m$ (m groß genug) liegen. Damit hat g eine Nullstelle in $L_{m+1} \subseteq L$. [Frage aus VL: Warum existiert $L = \bigcup_{j \geq 1} L_j$?]
 \end{proof}
 \begin{definition}
-    Sei K ein Körper. Es gibt einen algebraisch abgeschlossenen Körper $\overline{K}$ so, dass $K \subseteq \overline{K}$ und $\overline{K}\setminus K$\todo{oder $\overline{K}|K$? Zumindest steht das in anderer Aufzeichnung} algebraisch ist. Man nennt $\overline{K}$ einen algebraischen Abschluss. 
+    Sei K ein Körper. Es gibt einen algebraisch abgeschlossenen Körper $\overline{K}$ so, dass $K \subseteq \overline{K}$ und $\overline{K}\setminus K$ algebraisch ist. Man nennt $\overline{K}$ einen \emph{algebraischen Abschluss}. 
 \end{definition}
 \begin{proof}
-    Sei $L \mid K$ eine alg. abgeschlossene Erweiterung. Sei $\overline{K} = L_{alg, K} = \{\alpha \in L \mid \alpha \text{ algebraisch über K}\}$. Z.z. $\overline{K}$ ist alg. abgeschlossen. Sei dafür $f \in \overline{K}[X]\setminus\overline{K}$. Es gibt eine Nullstelle $\alpha \in L$ von f. Dann ist $\alpha$ algebraisch über $\overline{K}$. Da $\overline{K}$ alg. über K, ist $\alpha$ alg. über K, also $\alpha \in \overline{K}$.
+    Sei $L|K$ eine alg. abgeschlossene Erweiterung. Sei $\overline{K} = L_{alg, K} = \{\alpha \in L \mid \alpha \text{ algebraisch über K}\}$. Z.z. $\overline{K}$ ist alg. abgeschlossen. Sei dafür $f \in \overline{K}[X]\setminus\overline{K}$. Es gibt eine Nullstelle $\alpha \in L$ von f. Dann ist $\alpha$ algebraisch über $\overline{K}$. Da $\overline{K}$ alg. über K, ist $\alpha$ alg. über K, also $\alpha \in \overline{K}$.
 \end{proof}
 
 \subsection{$\overline{K}$-Homomorphismen}
 \begin{definition}
-    Seien $L_1 \mid K$ und $L_2 \mid K$ K-Erweiterungen. Ein Homomorphismus $f: L_1 \rightarrow L_2$ heißt K-Homomorphismus, falls $f(k) = k$ für alle $k \in K$. Ein K-Isomorphismus ist ein bijektiver K-Homomorphismus. Definiere $Aut(L_1 \mid K) = \{f: L_1 \rightarrow L_2 \mid f \; K-Isom.\}$ (Gruppe der K-Automorphismen mit Verknüpfung als Operation).
+    Seien $L_1| K$ und $L_2|K$ $K$-Erweiterungen. Ein Homomorphismus $f: L_1 \rightarrow L_2$ heißt \emph{$K$-Homomorphismus}, falls $f(k) = k$ für alle $k \in K$. Ein K-Isomorphismus ist ein bijektiver K-Homomorphismus. Definiere ${Aut}(L_1|K) = \{f: L_1 \rightarrow L_2 \mid f \; K-Isom.\}$ (Gruppe der K-Automorphismen mit Verknüpfung als Operation).
 \end{definition}
 \begin{remark}[Beobachtung]
     Sei $\phi: L_1 \rightarrow L_2$ K-Hom. Sei $f \in K[X]$, $\alpha \in L_1$ mit $f(\alpha) = 0$. Dann ist $f(\phi(\alpha)) = \phi(f(\alpha)) = \phi(0) = 0$. 
@@ -206,21 +208,21 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
     $Aut(\mathbb{C}\mid\mathbb{R}) = \{id, \tau\}$ mit $\tau$ komplexe Konjugation. Denn: $\mathbb{C} = \mathbb{R}[i], m_{i, \mathbb{R}} = X^2 + 1$ mit Nullstellen $i$, $-i$. Jeder $\mathbb{R}-Aut.$ bildet $i$ auf $i$ (id) oder $-i$ ($\tau$) ab.
 \end{example*}
 \begin{lemma} \label{theo:2.28}
-    Seien $K$, $K'$ zwei Körper und $\sigma: K \rightarrow K'$ ein Isomorphismus. Sei $K(\alpha) \mid K$ eine einfache algebraische $K$-Erweiterung. Sei $L' \mid K'$ eine K'-Erweiterung. Für jede Nst. $\alpha' \in L'$ von $\sigma_*(m_{\alpha, K}) \in K'[X]$ ($\sigma_*$ wendet $\sigma$ auf die Koeffizienten an) gibt es genau einen Homomorphismus $\phi: K(\alpha) \rightarrow L'$ mit $\phi_{|K} = \sigma$ und $\phi(\alpha) = \alpha'$. Dann ist $\phi$ Isomorphismus zwischen $K(\alpha)$ und $K'(\alpha')$.
+    Seien $K$, $K'$ zwei Körper und $\sigma: K \rightarrow K'$ ein Isomorphismus. Sei $K(\alpha) \mid K$ eine einfache algebraische $K$-Erweiterung. Sei $L' \mid K'$ eine $K'$-Erweiterung. Für jede Nullstelle $\alpha' \in L'$ von $\sigma_*(m_{\alpha, K}) \in K'[X]$ ($\sigma_*$ wendet $\sigma$ auf die Koeffizienten an) gibt es genau einen Homomorphismus $\phi: K(\alpha) \rightarrow L'$ mit $\phi_{|K} = \sigma$ und $\phi(\alpha) = \alpha'$. Dann ist $\phi$ Isomorphismus zwischen $K(\alpha)$ und $K'(\alpha')$.
 \end{lemma}
 \begin{proof}
     Kommutatives Diagramm
 \end{proof}
 \begin{remark}
-    Die Anzahl der Homom. $\phi$ wie im vorherigen Lemma ist genau die Anzahl der Nst. von $\sigma_*(m_{\alpha, K})$ in $L'$.
+    Die Anzahl der Homomorphismen $\phi$ wie im vorherigen Lemma ist genau die Anzahl der Nullstellen von $\sigma_*(m_{\alpha, K})$ in $L'$.
 \end{remark}
 \begin{example}
     Sei $d \neq 1$ eine quadratfreie ganze Zahl. $Aut(\mathbb{Q}(\sqrt{d}) \mid \mathbb{Q}) = \{id, \sigma\}$, $m_{\sqrt{d},\mathbb{Q}} = X^2 - d$ mit $\sigma(\sqrt{d}) = -\sqrt{d}$.
 \end{example}
 \begin{theorem}[Fortsetzungssatz]
     \begin{enumerate}[label=(\alph*)]
-        \item Sei $L \mid K$ eine alg. K-Erweiterung, M ein alg. abgeschlossener Körper und $\sigma: K \rightarrow M$ ein Homom. Dann ex. $\phi: L \rightarrow M$ mit $\phi_{|K} = \sigma$.
-        \item Sei $\sigma: K \rightarrow K'$ ein Isomorphismus von Körpern. Seien $\overline{K}, \overline{K'}$ alg. Abschlüsse von K bzw. K'. Dann ex. ein Isomorphismus $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. (Je zwei algebraische Abschlüsse eines Körpers K sind isomorph.)
+        \item Sei $L \mid K$ eine alg. $K$-Erweiterung, $M$ ein alg. abgeschlossener Körper und $\sigma: K \rightarrow M$ ein Homomorphismus Dann existiert $\phi: L \rightarrow M$ mit $\phi_{|K} = \sigma$.
+        \item Sei $\sigma: K \rightarrow K'$ ein Isomorphismus von Körpern. Seien $\overline{K}, \overline{K'}$ alg. Abschlüsse von $K$ bzw. $K'$. Dann ex. ein Isomorphismus $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. (Je zwei algebraische Abschlüsse eines Körpers K sind isomorph.)
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -233,7 +235,7 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
 
     Das Bild $\phi(\overline{K}$ ist ein alg. abgeschlossener Körper, da $\phi$ injektiv und damit $\phi(\overline{K})$ isomorph zu $\overline{K}$.
     \TODO[Abbildung]
-    Wegen Bemerkung \ref{theo:2.22} und der Algebraizität von $\overline{K'}|\phi(\overline{K})$ folgt $\phi(\overline{K}) = \overline{K'}$.
+    Wegen \cref{theo:2.22} und der Algebraizität von $\overline{K'}|\phi(\overline{K})$ folgt $\phi(\overline{K}) = \overline{K'}$.
 \end{proof}
 \begin{flushright}
 VL vom 13.11.2023:
@@ -241,7 +243,7 @@ VL vom 13.11.2023:
 \subsection{Zerfallskörper}
 
 \begin{definition}
-    Sei $K$ ein Körper und $\Omega \subseteq K[X]$ ene Teilmenge von nicht konstanten Polynomen. Ein Erweiterungskörper $L$ von $K$ heißt \emph{Zeifällungskörper} von $\Omega$, falls gilt
+    Sei $K$ ein Körper und $\Omega \subseteq K[X]$ ene Teilmenge von nicht konstanten Polynomen. Ein Erweiterungskörper $L$ von $K$ heißt \emph{Zerfällungskörper} von $\Omega$, falls gilt
     \begin{enumerate}
         \item Jedes $f\in \Omega$ zerfällt in $L[X]$ in Linearfaktoren
         \item $L=K(S)$, wobei $S=\{x\in L \mid \exists f\in \Omega: f(x)=0\}$
@@ -250,16 +252,16 @@ VL vom 13.11.2023:
 \end{definition}
 
 \begin{remark}
-    Ist $L$ ein Zerfällungskörper von $f\in K[X]\setminus K$ mit $deg(f)=m$.
-    Dann ist $L=K(\alpha_1, \dots, \alpha_r)$, wobei $\alpha_1,\dots,\alpha_r$ Nullstellen von $f$ in $L$ sind ($r\leq m)$.
+    Ist $L$ ein Zerfällungskörper von $f\in K[X]\setminus K$ mit $\deg(f)=m$.
+    Dann ist $L=K(\alpha_1, \dots, \alpha_r)$, wobei $\alpha_1,\dots,\alpha_r$ Nullstellen von $f$ in $L$ sind ($r\leq m$).
     Es gilt $[L:K]< m^r$.
-    Tatsächlich gilt $[L:;] \leq m!$ (Übung).
-    Natürlich \TODO[graphik] und $[K(\alpha_1,\dots,\alpha_i):K(\alpha_1,\dots,\alpha_{i-1})] \leq [K(\alpha_i):K] \leq m$
+    Tatsächlich gilt $[L:K] \leq m!$ (Übung).
+    Natürlich \TODO[graphik] und $[K(\alpha_1,\dots,\alpha_i):K(\alpha_1,\dots,\alpha_{i-1})] \leq [K(\alpha_i):K] \leq m$.
 \end{remark}
 
 \begin{example}
     \begin{enumerate}[label=\alph*)]
-        \item $f=X^4 -2 \in \Q[X]$ irreduzibel nach Eisensteinkriterium mit $p=2$ und Nullstellen $\sqrt[4]{2},-\sqrt[4]{2},i\sqrt[4]{2}$,$-i\sqrt[4]{2}$ \footnote{\TODO Der mir vorliegende aufschieb hat hir nochmal die NS $\sqrt[4]{2}$. Ich vermute, dass ist ein fehler und ich habe es hier ersetzt}
+        \item $f=X^4 -2 \in \Q[X]$ irreduzibel nach Eisensteinkriterium mit $p=2$ und Nullstellen $\sqrt[4]{2},-\sqrt[4]{2},i\sqrt[4]{2}$,$-i\sqrt[4]{2}$
         \begin{align*}
             L=\Q&(\sqrt[4]{2}) \cong \Q[X]/(f) \text{hat Grad 4 über }\Q\\
             &\shortparallel\\
@@ -271,12 +273,12 @@ VL vom 13.11.2023:
         \item $f=X^4-2 \in \mathbb{F}_5[X]$ irreduzibel.
         \begin{proof}
             Angenommen $f=gh$: 
-            Wenn $deg(g)=1$, hat $f$ eine Nullstelle in $\mathbb{F}_5$, aber $X^n \equiv 1 \mod{5}$ nach Satz von Euler\footnote{Satz von Euler: $X^{p-1} \equiv 1 \mod{p}$}.
-            Wenn $deg(g)= 2 = deg(f)$ \TODO[was soll das für eine begründung sein?]
+            Wenn $\deg(g)=1$, hat $f$ eine Nullstelle in $\mathbb{F}_5$, aber $X^4 \equiv 1 \mod{5}$ nach Satz von Euler\footnote{Satz von Euler: $X^{p-1} \equiv 1 \mod{p}$} und damit $\forall x\in \F_5\setminus\trivGZ\colon f(x)=X^4-2=1-2=4\neq0$.
+            Wenn $\deg(g)= 2 = \deg(f)$ \TODO[was soll das für eine begründung sein?]
         \end{proof}
-        Sei $\alpha\in \mathbb{F}_5$ eine Nullstelle von $f$. $\overline{\mathbb{F}}_5$ algebraischer Abschuss von $\mathbb{F}_5$.
+        Sei $\alpha\in \overline{\mathbb{F}}_5$ eine Nullstelle von $f$. $\overline{\mathbb{F}}_5$ algebraischer Abschuss von $\mathbb{F}_5$.
         Dann ist $E = \mathbb{F}_5(\alpha) \cong \mathbb{F}_5[X]/(f)$ ein Zerfällungskörper von $f$, weil:
-        $f$ hat die Nullstellen $\alpha, 2\alpha, 3\alpha, 4\alpha \in E$, da $b^4\equiv 1 \mod{5}$nach Euler für $b=2,3,4$.
+        $f$ hat die Nullstellen $\alpha, 2\alpha, 3\alpha, 4\alpha \in E$, da $b^4\equiv 1 \mod{5}$ nach Euler für $b=2,3,4$ und damit $(b\alpha)^4 = b^4\alpha^4=\alpha^4$.
 
         In $E[X]$ gilt: $f = \Pi_{i=1}^4 ( X-i\alpha) \in E[X]$.
     \end{enumerate}
@@ -294,11 +296,11 @@ VL vom 13.11.2023:
 \end{proof}
 
 \begin{theorem}[Charackterisung von normalen Erweiterungen]
-    Sei $K$ Körper mit alg. Abschluss $\overline{K}$ Für einen zwischenkörper $K\subseteq L \subseteq \overline{K}$ sind folgende Aussagen äquivalent:
+    Sei $K$ Körper mit alg. Abschluss $\overline{K}$. Für einen Zwischenkörper $K\subseteq L \subseteq \overline{K}$ sind folgende Aussagen äquivalent:
     \begin{enumerate}
         \item $L|K$ ist normal
         \item Ist $\phi: L\rightarrow \overline{K}$ ein $K$-Homomorphismus, dann ist $\phi(L)=L$
-        \item Ledes irreduzible $f\in K[X]$, dass in $L$ eine Nullstelle besitzt, zerfällt in ´$L[X]$ in Linearfaktoren
+        \item Jedes irreduzible $f\in K[X]$, dass in $L$ eine Nullstelle besitzt, zerfällt in $L[X]$ in Linearfaktoren
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -315,7 +317,6 @@ VL vom 13.11.2023:
 \begin{proof}
     \TODO
 \end{proof}
-Ich habe mal die sätze der letzten vorlesung ergänzt
 
 \begin{flushright}
 VL vom 13.11.2023:
@@ -327,7 +328,7 @@ VL vom 13.11.2023:
 \end{definition}
 
 \begin{definition}
-    Die $K$-lineare Abbildung $D:K[X]\rightarrow K[X], \sum a_ix^i \mapsto \sum ia_iX^{i-1}$ heizt \emph{(formal) Ableitung}.
+    Die $K$-lineare Abbildung $D:K[X]\rightarrow K[X], \sum a_ix^i \mapsto \sum ia_iX^{i-1}$ heißt \emph{(formal) Ableitung}.
     Es gilt die Leibnizregel $D(fg) = D(f)g+fD(g)$.
 \end{definition}
 \begin{theorem}
@@ -335,31 +336,32 @@ VL vom 13.11.2023:
 \end{theorem}
 (Die mehrfache Nullstellen eines bel. Polynoms $f$ sind die gemeinsamen Nullstellen von $f$ und $D(f)$)
 \begin{example}
-    $K = \F_p(T) = Quot(\F_p[T])$ (rationaler Funktiononkörper)
+    $K = \F_p(T) = Quot(\F_p[T])$ (rationaler Funktionenkörper)
     Betrachte $f=X^p-T\in K[X]$.
     Nach Eisenstein ist $f$ irreduzibel.
     Es ist $D(f)=pX^{p-1} = 0$.
     Also ist $f$ nicht separabel.
     
-    Sei $a=\sqrt[p]{T}/in \overline{K}$ eine Nullstelle von $f$.
+    Sei $a=\sqrt[p]{T}\in \overline{K}$ eine Nullstelle von $f$.
     Dann gilt $(X-a)^p =f$.
 \end{example}
-\begin{proof}[Beweis zu 2.4.0]
+\begin{proof}[Beweis zu 2.40]
     \begin{remark*}
         Schreibe $f=c\Pi_{j=1}^d (X-a_j)\in \overline{K}[X]$ mit $0\neq c$, $a_1,\dots, a_d\in \overline{K}$.
-        Dann ist $D(f) = c\sum_{j-1}^d \Pi_{i\neq j} (X-a_i)$ (Leibnizregel).
+        Dann ist $D(f) = c\sum_{j=1}^d \Pi_{i\neq j} (X-a_i)$ (Leibnizregel).
     \end{remark*}
-    Damit folgt $D(f)(a_k)=c\Pi_{i\neq k} (a_k-a_i)$.
+    Damit folgt $D(f)(a_k)=c'\Pi_{i\neq k} (a_k-a_i)$.
 
-    "=>" Sei $D(f)=0$. Dann $D(f)(a_1)=0$. Dann $\exists i\neq1: a_i=a_1$, was \Lightning sep.
-
-    "<=" Sei $D(f)\neq 0$.
-    Wegen $\deg(D(f)) < \deg(f)$ und $f$ irreduzibel, sind $D(f)$ und $f$ teilerfremd.
-    Es gibt also $g,k\in K[X]$ mit $1=gf+hD(f)$.
-
-    Sei $a_k$ eine der Nullstellen in $\overline{K}$. Dann ist
-    $$1=\equalto{g(a_k) f(a_k)}{0} + \equalto{h(a_k) D(f)(a_k)}{\neq 0}$$
-    Wegen (*) muss die nullstelle $a_k$ einfach sein.
+    \begin{itemize}
+        \item["'$\Rightarrow$"'] Durch Kontraposition: Sei $D(f)=0$. Dann $D(f)(a_1)=0$. Dann $\exists i\neq1: a_i=a_1$, was \Lightning sep.
+        \item["'$\Leftarrow$"'] Sei $D(f)\neq 0$.
+        Wegen $\deg(D(f)) < \deg(f)$ und $f$ irreduzibel, sind $D(f)$ und $f$ teilerfremd.
+        Es gibt also $g,k\in K[X]$ mit $1=gf+hD(f)$.
+    
+        Sei $a_k$ eine der Nullstellen von $f$ in $\overline{K}$. Dann ist
+        $$1=\equalto{g(a_k) f(a_k)}{0} + \notequalto{h(a_k) D(f)(a_k)}{ 0}$$
+        Wegen (*) muss die Nullstelle $a_k$ einfach sein.
+    \end{itemize}
 \end{proof}
 
 \begin{remark}
@@ -560,7 +562,7 @@ VL vom 24.11.2023:
         Aslo $(\phi_i(a_1)-\phi_j(a_1))\cdot c + (\phi_i(a_2)-\phi_j(a_2)) \neq = 0$ für alle $i<j$.
         Das ist $\phi_i(a_1 \cdot c + a_2)- \phi_i(a_1\cdot c + a_2)$ und $\phi_i(a) \neq \phi_j(a)$ mit $a := a_1c+a_l\in L$ für $i<j$.
         Damit sind $\phi_1(a),\dots,\phi_m(a)$ sind verschiedene Nullstellen von $m_{a,k}$.
-        Damit $[L:K] \geq [K(a):K] = deg(m_{a,K}) \geq = m = [L:K]$, also $[L:K] = [K(a):K]$ und $L=K(a)$
+        Damit $[L:K] \geq [K(a):K] = \deg(m_{a,K}) \geq = m = [L:K]$, also $[L:K] = [K(a):K]$ und $L=K(a)$
     \end{enumerate}
 \end{proof}
 \begin{example}
