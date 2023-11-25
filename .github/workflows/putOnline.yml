@@ -26,12 +26,12 @@ jobs:
           # Artifact name
           name: pdfs
           path: "*.pdf"
-      - name: Move pdf files to final directory for deployment
+      - name: Copy my folder
         run: |
-          mkdir -p public
-          find . -type f | grep -i pdf$ | xargs -i cp {} public
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: public # The folder the action should deploy.
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git fetch                         # fetch branches
+          git checkout gh-pages       # checkout to your branch
+          git add main.pdf
+          git diff-index --quiet HEAD ||  git commit -am "deploy files"  # commit to the repository (ignore if no modification)
+          git push origin gh-pages # push to remote branch
