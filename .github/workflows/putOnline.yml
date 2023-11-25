@@ -28,6 +28,7 @@ jobs:
           path: "*.pdf"
       - name: Move pdf files to final directory for deployment
         run: |
+          mkdir -p public
           find . -type f | grep -i pdf$ | xargs -i cp {} public
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
