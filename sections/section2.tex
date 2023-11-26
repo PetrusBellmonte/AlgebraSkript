@@ -92,7 +92,7 @@ $(v_i)$ L-Basis $\Rightarrow$ für jedes $i \in I ist \sum_j c_{ij}e_j = 0$. $(c
 Erzeugendensystem: Sei $v \in V$.
 Dann ist $v = \sum_{i \in I} \lambda_iv_i$ mit gewissen $\lambda_i \in L$. Für jedes $i \in I$ ist $\lambda_i = \sum_{j \in J} b_ije_j$ mit gewissen $b_ij \in K$. Also $v = \sum_{i,j} b_{ij}(e_j \cdot v_i)$.
 \end{proof}
-\begin{lemma}[Korollar]
+\begin{lemma}[Korollar] \label{theo:2.12}
     Sind $M | L, L | K$ Körpererweiterungen, dann gilt $[M:K] = [M:L]\cdot[L:K]$ (mit den üblichen Konventionen $\infty \cdot \infty = \infty$).
 \end{lemma}
 \begin{definition}[Adjungieren]
@@ -219,7 +219,7 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
 \begin{example}
     Sei $d \neq 1$ eine quadratfreie ganze Zahl. $Aut(\mathbb{Q}(\sqrt{d}) \mid \mathbb{Q}) = \{id, \sigma\}$, $m_{\sqrt{d},\mathbb{Q}} = X^2 - d$ mit $\sigma(\sqrt{d}) = -\sqrt{d}$.
 \end{example}
-\begin{theorem}[Fortsetzungssatz]
+\begin{theorem}[Fortsetzungssatz] \label{theo:2.31}
     \begin{enumerate}[label=(\alph*)]
         \item Sei $L \mid K$ eine alg. $K$-Erweiterung, $M$ ein alg. abgeschlossener Körper und $\sigma: K \rightarrow M$ ein Homomorphismus Dann existiert $\phi: L \rightarrow M$ mit $\phi_{|K} = \sigma$.
         \item Sei $\sigma: K \rightarrow K'$ ein Isomorphismus von Körpern. Seien $\overline{K}, \overline{K'}$ alg. Abschlüsse von $K$ bzw. $K'$. Dann ex. ein Isomorphismus $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. (Je zwei algebraische Abschlüsse eines Körpers K sind isomorph.)
@@ -284,10 +284,10 @@ VL vom 13.11.2023:
     \end{enumerate}
 \end{example}
 
-\begin{theorem}
+\begin{theorem} \label{theo:2.35}
     Sei $K$ Körper und $\Omega\subseteq K[X]\setminus K$
     \begin{enumerate}[label=\alph*)]
-        \item Jeder alg. Abschluss ven $K$ enhält genau einen Zerfällungskörper von $\Omega$.
+        \item Jeder alg. Abschluss von $K$ enhält genau einen Zerfällungskörper von $\Omega$.
         \item Je zwei Zerfällungskörper von $\Omega$ sind $K$-Isomorph
     \end{enumerate}
 \end{theorem}
@@ -295,7 +295,7 @@ VL vom 13.11.2023:
     \TODO
 \end{proof}
 
-\begin{theorem}[Charackterisung von normalen Erweiterungen]
+\begin{theorem}[Charackterisung von normalen Erweiterungen] \label{theo:2.36}
     Sei $K$ Körper mit alg. Abschluss $\overline{K}$. Für einen Zwischenkörper $K\subseteq L \subseteq \overline{K}$ sind folgende Aussagen äquivalent:
     \begin{enumerate}
         \item $L|K$ ist normal
@@ -329,10 +329,10 @@ VL vom 13.11.2023:
 
 \begin{definition}
     Die $K$-lineare Abbildung $D:K[X]\rightarrow K[X], \sum a_ix^i \mapsto \sum ia_iX^{i-1}$ heißt \emph{(formal) Ableitung}.
-    Es gilt die Leibnizregel $D(fg) = D(f)g+fD(g)$.
+    Es gilt die Leibnizregel $D(fg) = D(f)g+fD(g)$.\footnote{Präziser $\sum a_ix^i \mapsto \sum \pi(i)a_iX^{i-1}$ mit $\pi\colon \Z\rightarrow K$ definiert durch $1\mapsto 1_K$. Daher ist die $Char(K)$ auch relevant.}
 \end{definition}
 \begin{theorem}
-    Ein irreduzibles Polynom $f$ist genau dann separabel, wenn $D(f)\neq 0$.
+    Ein irreduzibles Polynom $f$ ist genau dann separabel, wenn $D(f)\neq 0$.
 \end{theorem}
 (Die mehrfache Nullstellen eines bel. Polynoms $f$ sind die gemeinsamen Nullstellen von $f$ und $D(f)$)
 \begin{example}
@@ -350,7 +350,7 @@ VL vom 13.11.2023:
         Schreibe $f=c\Pi_{j=1}^d (X-a_j)\in \overline{K}[X]$ mit $0\neq c$, $a_1,\dots, a_d\in \overline{K}$.
         Dann ist $D(f) = c\sum_{j=1}^d \Pi_{i\neq j} (X-a_i)$ (Leibnizregel).
     \end{remark*}
-    Damit folgt $D(f)(a_k)=c'\Pi_{i\neq k} (a_k-a_i)$.
+    Damit folgt $D(f)(a_k)=c\Pi_{i\neq k} (a_k-a_i)$.
 
     \begin{itemize}
         \item["'$\Rightarrow$"'] Durch Kontraposition: Sei $D(f)=0$. Dann $D(f)(a_1)=0$. Dann $\exists i\neq1: a_i=a_1$, was \Lightning sep.
@@ -365,12 +365,12 @@ VL vom 13.11.2023:
 \end{proof}
 
 \begin{remark}
-    Ist $Char(K)=0$, dann ist jedes irreduzible Polynom separabel.
+    Ist $Char(K)=0$, dann ist jedes irreduzible Polynom separabel.\footnote{Editor's remark: $Char(K)=0$ verhindert, dass die Faktor $i$ in der Ableitung $0$ werden kann und damit $D(f)=0$ werden könnte.}
 \end{remark}
 
-\begin{definition}
+\begin{definition} \label{theo:2.43}
     Sei $L|K$ eine alg. $K$-Erweiterung.
-    Eein Element $a\in L$ ist separabel, winn $m_{a,K}$ separabel ist.
+    Ein Element $a\in L$ ist separabel, wenn $m_{a,K}$ separabel ist.
     Sind alle $a\in L$ separabel, dann nennt man $L|K$ separabel.
 \end{definition}
 
@@ -387,14 +387,14 @@ VL vom 13.11.2023:
 
 \begin{definition}
     Sei $L|K$ eine alg. $K$-Erweiterung.
-    Der \emph{Separabititätsgrad} $[L:K]_S$ über $K$ ist definiert als $\card{hom_K(L,\overline{K})}$.
-    Ist $L|K$ normal, dann ist $[L:K]_s = \card{Aut(L|K)}$.\footnote{Nach 2.35 ii} 
+    Der \emph{Separabititätsgrad} $[L:K]_S$ über $K$ ist definiert als $\card{Hom_K(L,\overline{K})}$.
+    Ist $L|K$ normal, dann ist $[L:K]_s = \card{Aut(L|K)}$.\footnote{Nach \cref{theo:2.35} b)} 
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}\label{theo:2.46}$ $
     \begin{enumerate}[label=\alph*)]
-        \item Sind $L|K$ und $M|L$ alg. Erweiterungen, dann ist $[M:K]_S = [M:L]_S \cdot [L:K]_S$ (\TODO[M und L ist hier in ungewöhnlicher Reihenfolge. Korregieren??])
-        \item Ist $L:K$ endlich, so ist $[L:K]_S \leq [L:K]_S$
+        \item Sind $M|L$ und $L|K$ alg. Erweiterungen, dann ist $$[M:K]_S = [M:L]_S \cdot [L:K]_S$$
+        \item Ist $L:K$ endlich, so ist $[L:K]_S \leq [L:K]$
     \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -402,37 +402,39 @@ VL vom 13.11.2023:
     Seien $(\sigma_i)_{i\in I}$ die paarweise verschiedenen $K$-Homomorphismen $L\rightarrow \overline{K}$.
     Seien $(\tau_j)_{j\in J}$ die paarweise verschiedenen $L$-Homomorphismen $M\rightarrow \overline{K}$.
     Also $\card{I} = [L:K]_S$ and $\card{J}=[M:L]_S$.
-    Die $K$-Homomorphismen $\sigma_i \circ \tau_j = f_{ij}$ sind genau die paarweise verschiedenen $K$-Homom. $M\rightarrow \overline{K}$, webei $\overline{\sigma_i}$ eine Fortsetzung von $\sigma_i$ zu einem $K$:Homom $\overline{K} \rightarrow \overline{K}$ ist (Fortsetzungssatz 2.31). 
-    Angenommen $\overline{\sigma_i} \circ \tau_j = \overline{\sigma_s} \circ \tau_r$, dann ist $\overline{\sigma_i}_{|L} = (\overline{\sigma_i} \circ \tau_j)_{|L} =(\overline{\sigma_s} \circ \tau_s)_{|L} = \sigma_s$, alse $i=s$.
+    Die $K$-Homomorphismen $\overline{\sigma_i} \circ \tau_j = f_{ij}$ sind genau die paarweise verschiedenen $K$-Homom. 
+    $M\rightarrow \overline{K}$, wobei $\overline{\sigma_i}$ eine Fortsetzung von $\sigma_i$ zu einem $K$-Homomorphismus $\overline{K} \rightarrow \overline{K}$ ist (Fortsetzungssatz \cref{theo:2.31}). 
+    Angenommen $\overline{\sigma_i} \circ \tau_j = \overline{\sigma_s} \circ \tau_r$, dann ist $\overline{\sigma_i}_{|L} = (\overline{\sigma_i} \circ \tau_j)_{|L} =(\overline{\sigma_s} \circ \tau_s)_{|L} = \sigma_s$, also $i=s$.
     Da $\overline{\sigma_i},\overline{\sigma_s}$ automatisch inj. sind, ist $\tau_j = \tau_r$ also $j = r$.
     Damit ist a) bewiesen.
 
     Zu b)
-    Es gilt $L=K(a_1, \dots, a_n)$ für gewisse $a_i\in L$. Wegen a) wird der Gradformel 2.12 genügt es $L=K(a)$ zu betrachten.
-    Nach Lemma 2.28 ist $[K(a), K]=\card{\{b\in \overline{K}\mid m_{a,k}(b)=0\}} \leq \deg(m_{a,K}) = [K(a):K]$
+    Es gilt $L=K(a_1, \dots, a_n)$ für gewisse $a_i\in L$. Wegen a) wird der Gradformel \cref{theo:2.12} genügt es $L=K(a)$ zu betrachten.
+    Nach \cref{theo:2.28} ist $[K(a):K]_S=\card{\{b\in \overline{K}\mid m_{a,k}(b)=0\}} \leq \deg(m_{a,K}) = [K(a):K]$
 \end{proof}
 
 \begin{theorem}[Char. separabler Erweiterungen]
     Sei $L|K$ eine endliche Erweiterung. Dann sind äquivalent:
-    \begin{enumerate} % mit i, ii, iii
+    \begin{enumerate}[label=(\roman*)]
         \item $L|K$ separabel
         \item $L=K(a_1, \dots, a_n)$ für über $K$ separable Elemente $a_1, \dots, a_n \in L$
         \item $[L:K]_S = [L:K]$
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    \begin{enumerate}
-        \item[(i) -> (ii)] $[L:K] < \infty$, dann gilt $a_1, \dots, a_n \in L$ mit $L=K(a_1, \dots, a_n)$. Diese Elemente sind automatisch separabel.
-        \item[(ii)->(iii)] Wegen 2.46 a) and 2.12 reicht es (iii) für den Fall $L=K(a)$ zu zeigen.
-        $$[K(a):K]_S=\card{\{b\in \overline{K}\mid m_{a,K}(b)=0\}} \overset{=}{a sep.}\deg(m_{a,K}) = [K(a):K]$$
-        \item[(iii)->(i)] Sei $a\in L$. Dann gilt
+$ $
+    \begin{itemize}[align= left]
+        \item[(i) $\rightarrow$ (ii)] $[L:K] < \infty$, dann gilt $a_1, \dots, a_n \in L$ mit $L=K(a_1, \dots, a_n)$. Diese Elemente sind (nach Definition separabler Körpererweiterungen \cref{theo:2.43}) automatisch separabel.
+        \item[(ii) $\rightarrow$ (iii)] Wegen \cref{theo:2.46} a) and \cref{theo:2.12} reicht es (iii) für den Fall $L=K(a)$ zu zeigen.
+        $$[K(a):K]_S=\card{\{b\in \overline{K}\mid m_{a,K}(b)=0\}} \overset{a\text{ sep.}}{=}\deg(m_{a,K}) = [K(a):K]$$
+        \item[(iii) $\rightarrow$ (i)] Sei $a\in L$. Dann gilt
         \begin{align*}
             [L:K] = [L:K]_S &= [L:K(a)]_S \cdot [K(a):K]_S\\
             &\leq [L:K(a)] \cdot [K(a):K]\\
             &= [L:K]
         \end{align*}
         Damit ist $[K(a):K]_S = [K(a):K]$ und $a$ ist separabel.
-    \end{enumerate}
+    \end{itemize}
 \end{proof}
 \begin{corollary}
     Ist $f\in K[X]\setminus K$ ein separables Polynom, so ist der Zerällungskörper von $f$ separabel
@@ -445,19 +447,19 @@ VL vom 23.11.2023:
 \subsection{Endliche Körper}
 Ziel: Konstruktion eines Körpers $\F_q$, $q=p^n$, $p$ prim mit $q$ Elementen. Nicht zu verwechseln mit $\Z/q\Z$, der für $n>1$ Nullteiler besitzt.
 \begin{lemma}
-    Es sei $\F$ ein endlicher Körper. Dann gilt $p=char(\F)>0$. Somit $\card{\F} = q := p^n$ für $[\F:\F_p] = n$. Es ist $\F$ der Zerfällungskörper des Polynoms $X^q-X$ über $\F_p$. Insbesondere ist die Erweiterung über $\F/\F_p$ normal.
+    Es sei $\F$ ein endlicher Körper. Dann gilt $p=char(\F)>0$. Somit $\card{\F} = q \coloneqq p^n$ für $[\F:\F_p] = n$. Es ist $\F$ der Zerfällungskörper des Polynoms $X^q-X$ über $\F_p$. Insbesondere ist die Erweiterung über $\F/\F_p$ normal.
 \end{lemma}
 \begin{proof}
-    Mit $\F$ ist auch der Primkörper endlich, also von der Form $\F_p$. Daher $\card{\F} = \card{\F_p}^{[\F:\F_p]} = p^n$.
+    Mit $\F$ ist auch der Primkörper\footnote{Kleinster Teilkörper eines Körpers. Er wird von $0$ und $1$ durch Abschluss von Multiplikation, Addition und der Inversen erzeugt. Er ist isomorph zu $\Q$, wenn $char(K)=0$, oder zu $\F_{char(K)}$, wenn $char(K) > 0$.} endlich, also von der Form $\F_p$. Daher $\card{\F} = \card{\F_p}^{[\F:\F_p]} = p^n$.
 
-    Die multipilkatie Gruppe $\F^*$ hat die Ordnung $q-1$, daher ist jedes Element in $\F^*$ Nullstelle von $X^{q-1}-1$. Also ist jedes Element von $\F$ Nullstelle von $X^q-X$.
+    Die multiplikative Gruppe $\F^*$ hat die Ordnung $q-1$, daher ist jedes Element in $\F^*$ Nullstelle von $X^{q-1}-1$. Also ist jedes Element von $\F$ Nullstelle von $X^q-X$.
     Insbesondere ist $\F$ Zerfällungskörper von $X^q-X$.
 \end{proof}
 
 \begin{theorem}
     Es sei $p$ eine Primzahl. Dann existiert zu jedem $n\in \N$ eine Erweiterung $\F_q|\F_p$ mit $q=p^n$ Elementen. Es ist $\F_q$ bis auf Isomophie der eindeutige Zerfällungskörper von $X^q-X\in \F_p[X]$.
     Es besteht $\F_q$ genau aus den Nullstellen von $X^q-X$.
-    Leder endliche Körper ist bis auf Isomorphie ein Körper des Typs $\F_q$.
+    Jeder endliche Körper ist bis auf Isomorphie ein Körper des Typs $\F_q$.
 \end{theorem}
 \begin{proof}
     Die Eindeutigkeitsaussagen folgen aus dem Lemma.
@@ -465,30 +467,30 @@ Ziel: Konstruktion eines Körpers $\F_q$, $q=p^n$, $p$ prim mit $q$ Elementen. N
     Diese Nullstellen bilden einen Teilkörper von $\overline{\F}_p$:
 
 
-    Sei $a,b\in \overline{\F}_p$ Nullstellen. Dann $(a\pm b)^q =\sum_{i=0}^q \binom{q}{i}a^ib^{q-i} =\footnote{char = p} a^q\pm b^q$ also ist $a\pm b$ wieder eine Nullstelle.
+    Sei $a,b\in \overline{\F}_p$ Nullstellen. Dann $(a\pm b)^q =\sum_{i=0}^q \binom{q}{i}a^ib^{q-i} \overset{char = p}{=} a^q\pm b^q$ also ist $a\pm b$ wieder eine Nullstelle.
 
     $(ab^{-1})^q = a^q (b^q)^{-1} = ab^{-1}$ also ist $ab^{-1}$ wieder eine Nullstelle.
     D.h. die Nullstellen von f sind der Zerfällungskörper von $f$. Er hat $q$ Elemente.
 \end{proof}
 
 \begin{remark}
-    Sei $K$ ein Kärper der Charakteristik $p>0$.
+    Sei $K$ ein Körper der Charakteristik $p>0$.
     Das Argument des letzten Beweises impliziert, dass $$\{x^{p^n}\mid x\in K\}$$ ein Teilkörper von $K$ ist.
 \end{remark}
 \begin{corollary}
-    Man bette die Körper $\F_q$, $ q=p^n$ in einen algebraischen Abschluss $\F_p$ von $\F_p$ ein.
+    Man bette die Körper $\F_q$, $ q=p^n$ in einen algebraischen Abschluss $\overline{\F}_p$ von $\F_p$ ein.
     Es ist $\F_q \subseteq \F_{q'}$, $(q = p^n, q'=p^{n'})$genau dann, wenn $n|n'$.
     Die Erweiterung $\F_{q'}|\F_q$ sind bis auf Isomorphie die einzigen Erweiterungen zwischen endlichen Körpern der Charackteristik $p$.
 \end{corollary}
 \begin{proof}
-    Es gelte $\F_q \subseteq \F_{q'}$. Sei $m:= [\F_{q'}:\F_q]$. Dann $p^n = \card{ \F_{q'}}^m = \card{\F_q}^m = (p^n)^m = p^{n\cdot m}$, also $n|n'$.
-    Gilt umgekehrt $n'=n\cdot m$, so folgt für $a\in \overline{\F_p}$ aus $a^q=q$ stets $a^{q'}=a^{q^m} = a$.
+    Es gelte $\F_q \subseteq \F_{q'}$. Sei $m:= [\F_{q'}:\F_q]$. Dann $p^{n'} = \card{ \F_{q'}} = \card{\F_q}^m = (p^n)^m = p^{n\cdot m}$, also $n|n'$.
+    Gilt umgekehrt $n'=n\cdot m$, so folgt für $a\in \overline{\F}_p$ aus $a^q=a$ stets $a^{q'}=a^{q^m} = a$.
     Wegen des Fortsetzungssatzes kann man jede Erweiterung $L|\F$ von endlichen Köpern der Char. $p$ in $\overline{\F}_p$ realisiert werden.
     Die Eindeutigkeit folgt dann mit dem schon Gezeigten and  dem vorherigen Satz.
 \end{proof}
 Ein Körper $K$ ist \emph{perfekt}, wenn jede alg. Erweiterung von $K$ separabel ist.
 \begin{enumerate} %todo with points
-    \item $char(K)=0$, d.h. $\Q \subseteq K$. Dann ist $K$ perfekt, weil jedes irreduzible Polynom $f$ über $K$ separabel ist. (denn $D(f) = 0$) Es gibt aber alg., nicht normale Erweiterungen von $\Q$ (Bsp. 2.36)
+    \item $char(K)=0$, d.h. $\Q \subseteq K$. Dann ist $K$ perfekt, weil jedes irreduzible Polynom $f$ über $K$ separabel ist. (denn $D(f) = 0$) Es gibt aber alg., nicht normale Erweiterungen von $\Q$ (Bsp. \cref{theo:2.36} \TODO[does this reference make sense???])
     \item $\F_p(t)$ ist nicht perfekt. Die Erweiterung $\F_p(t)[t^{\frac{1}{p}}] = \F_p(t^{\frac{1}{p}})$ ist normal aber nicht separabel. (Bsp. 2.41)
     Sei $p=5$. Betrachte die alg. Erweiterung
     \TODO[bild]
@@ -496,7 +498,7 @@ Ein Körper $K$ ist \emph{perfekt}, wenn jede alg. Erweiterung von $K$ separabel
     Ansonsten wären alle Nullstellen von $X^3-t^{1/5}$ in $\F_5(t^{1/15})$.\footnote{man bekommt die dritten Einheitswurzeln aus den nullstellen raus}
     Somit auch alle Nullstellen von $X^3-1= (X-1)(X^2+X+1)$.
     Jedes Element von $\F_p(t^{1/15})$ ist von der Form $\frac{p(t^{1/15})}{q(t^{1/15})}$ mit $p,q \in \F_5[X]$ teilerfremde Polynome.
-    Da $t^{1/15}$ transzendent über $\F$, ist die Evaluationsabbildung $$\F_5[Y]\overset{\rightarrow}{ev} \F_5(t^{1/15})$$ injektiv, erwertert sich also auf den Quotientenkörper $$\F_5(Y)\rightarrow \F_5(t^{F/15})$$ injektiv.
+    Da $t^{1/15}$ transzendent über $\F$, ist die Evaluationsabbildung $$\F_5[Y]\overset{ev}{\rightarrow} \F_5(t^{1/15})$$ injektiv, erwertert sich also auf den Quotientenkörper $$\F_5(Y)\rightarrow \F_5(t^{F/15})$$ injektiv.
     Also muss es ein $f\in \F_5(Y)$ geben mit $f^2+f+1=0$.
     Sei $g=f-2\in \F_5(Y)$.
     Dann $0=(g+2)^2+(g+2)+1 = g^2 +4g+4+g+2+1= g^2 +2$ also $g^2=-2=3$ undn $g\in \F_5$.
@@ -515,7 +517,7 @@ Ein Körper $K$ ist \emph{perfekt}, wenn jede alg. Erweiterung von $K$ separabel
 \begin{theorem}
     $Aut(\F_{p^n}| \F_p)$ ist zyklisch von Ordung $n$. Sie wird erzeugt vom \emph{Frobenius-Automorphismus}:
     \begin{align*}
-        Fr: \F_{p^n} )&\overset{\rightarrow}{\cong}\F_{p^n}\\
+        Fr: \F_{p^n} &\overset{\cong}{\rightarrow}\F_{p^n}\\
         x&\mapsto x^p
     \end{align*}
 \end{theorem}
