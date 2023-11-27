@@ -228,7 +228,8 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
 \begin{proof}
     a) Sei $$\mathcal{U} = \{(F,\tau) \mid K \subseteq F \subseteq L \text{ Zwischenkörper und } \tau: F \rightarrow M \text{ Hom. mit } \tau|_K = \sigma\}$$ Die Menge $\mathcal{U}$ ist partiell geordnet via 
     $$(F_1, \tau_1) \leq (F_2, \tau_2) :\Leftrightarrow F_1 \subseteq F_2 \text{ und } \tau_2|_{F_1} = \tau_1$$
-    $(\mathcal{U},\leq)$ ist induktiv, d.h jede Kette in $(\mathcal{U},\leq)$ (total geordnete Teilmenge) besitzt eine obere Schranke. Sei C eine Kette. Setze $F_0 := \bigcup_{(F,\tau) \in C} F \subseteq L$. Für $x \in F$ definiere man $\tau_0(x) := \tau_F(x)$, falls $x \in F$. Da C eine Kette ist, ist die Definition von $\tau_0(x)$ unabhängig von der konkreten Wahl von F, also wohldefiniert. Dann ist $(F_0,\tau_0)$ eine obere Schranke von C. Lemma von Zorn impliziert die Existenz eines max. Elementes $(F_1, \tau_1) \in \mathcal{U}$. Wir behaupten nun, dass $F_1 = L$. Falls nicht, also $F \subsetneq L$, sei $\alpha \in L\setminus F_1$. Dann ist $\alpha$ algebraisch über K, insb. algebraisch über $F_1$. Definiere $F_2 := F_1(\alpha)$. Nach \ref{theo:2.28} ex. $\tau_2: F_2 \rightarrow M$ mit $\tau_2|_{F_1} = \tau_1$, also $(F_2, \tau_2) > (F_1, \tau_1)$ - Widerspruch.
+    $(\mathcal{U},\leq)$ ist induktiv, d.h jede Kette in $(\mathcal{U},\leq)$ (total geordnete Teilmenge) besitzt eine obere Schranke. 
+    Sei $C$ eine Kette. Setze $F_0 := \bigcup_{(F,\tau) \in C} F \subseteq L$. Für $x \in F_0$ definiere man $\tau_0(x) := \tau_F(x)$, falls $x \in F$. Da C eine Kette ist, ist die Definition von $\tau_0(x)$ unabhängig von der konkreten Wahl von $F$, also wohldefiniert. Dann ist $(F_0,\tau_0)$ eine obere Schranke von C. Lemma von Zorn impliziert die Existenz eines max. Elementes $(F_1, \tau_1) \in \mathcal{U}$. Wir behaupten nun, dass $F_1 = L$. Falls nicht, also $F_1 \subsetneq L$, sei $\alpha \in L\setminus F_1$. Dann ist $\alpha$ algebraisch über K, insb. algebraisch über $F_1$. Definiere $F_2 := F_1(\alpha)$. Nach \ref{theo:2.28} ex. $\tau_2: F_2 \rightarrow M$ mit $\tau_2|_{F_1} = \tau_1$, also $(F_2, \tau_2) > (F_1, \tau_1)$ - Widerspruch.
 
     b)
     Nach a) gibt es $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. Z.z. $\phi(\overline{K}) = K'$.
@@ -405,7 +406,7 @@ VL vom 13.11.2023:
     Die $K$-Homomorphismen $\overline{\sigma_i} \circ \tau_j = f_{ij}$ sind genau die paarweise verschiedenen $K$-Homom. 
     $M\rightarrow \overline{K}$, wobei $\overline{\sigma_i}$ eine Fortsetzung von $\sigma_i$ zu einem $K$-Homomorphismus $\overline{K} \rightarrow \overline{K}$ ist (Fortsetzungssatz \cref{theo:2.31}). 
     Angenommen $\overline{\sigma_i} \circ \tau_j = \overline{\sigma_s} \circ \tau_r$, dann ist $\overline{\sigma_i}_{|L} = (\overline{\sigma_i} \circ \tau_j)_{|L} =(\overline{\sigma_s} \circ \tau_s)_{|L} = \sigma_s$, also $i=s$.
-    Da $\overline{\sigma_i},\overline{\sigma_s}$ automatisch inj. sind, ist $\tau_j = \tau_r$ also $j = r$.
+    Da $\overline{\sigma_i},\overline{\sigma_s}$ automatisch inj. sind\footnote{Alle Körperhomomorphismen sind $0$ oder injektiv. Wäre $\phi(a)=0$, dann $0 = \phi(a) = \phi(a)\phi(a^{-1}) = \phi(1)=1$}, ist $\tau_j = \tau_r$ also $j = r$.
     Damit ist a) bewiesen.
 
     Zu b)
@@ -530,32 +531,31 @@ Ein Körper $K$ ist \emph{perfekt}, wenn jede alg. Erweiterung von $K$ separabel
 \begin{flushright}
 VL vom 24.11.2023:
 \end{flushright}
-\begin{theorem}
+\begin{theorem} \label{theo:2.55}
     Eine endliche Untergruppe der multiplikativen Gruppe eines beliebigen Körpers ist zyklisch.
 \end{theorem}
 \begin{proof}
-    Sei $H\leq K^*$ eine endliche Untergruppe
+    Sei $H\leq K^*$ eine endliche Untergruppe.
     Sei $a\in H$ ein Element maximaler Ordnung $m$ in $H$.
     Sei $H_m := \{b\in H\mid ord(b)|m\} \subseteq H$.
-    Die Elemente von $H_m$ sind Nullstellen dei Polynoms $X^m-1\in K[X]$.
-    Somit $\card{H_m}\leq m$. Wegen $a\in H_m$, somit $<a>\subseteq H_m$, ist $\card{H_m}=m$.
+    Die Elemente von $H_m$ sind Nullstellen des Polynoms $X^m-1\in K[X]$.
+    Somit $\card{H_m}\leq m$. Wegen $a\in H_m$, somit $\langle a\rangle\subseteq H_m$, ist $\card{H_m}=m$.
     Ang. es gibt $b\in H\setminus H_m$. D.h. $ord(b)\nmid m$.
     Dann gilt $ord(ab)= kgV(ord(b),m) >m$.
     \Lightning zur Maximalität von $a$.
 \end{proof}
 
-\begin{theorem}[Satz vom primitiven Element]
+\begin{theorem}[Satz vom primitiven Element] \label{theo:2.56}
     Sei $L|K$ eine endliche und separabel Körpererweiterung.
     Dann existiert ein $a\in L$ mit $L=K(a)$.
 \end{theorem}
-\begin{proof}
-
-    \begin{enumerate}
+\begin{proof} $ $
+    \begin{enumerate}[align=left]
         \item [1.Fall: $K$ ist ein Endlicher Körper] 
-        Dann ist auch $L$ endlich. Nach \todo{2.55} ist $L^*$ zyklisch, d.h. $L^*=<a>$. 
+        Dann ist auch $L$ endlich. Nach \cref{theo:2.55} ist $L^*$ zyklisch, d.h. $L^*=<a>$. 
         Somit $L=K(a)$.
         \item [2. Fall $K$ ist unendlich]
-        Schreibe $L=K(a_1, \dots, a_n)$. Durch eine Induktion über $n$ reicht es den Fall $nG2$ zu zeigen.
+        Schreibe $L=K(a_1, \dots, a_n)$. Durch eine Induktion über $n$ reicht es den Fall $n=2$ zu zeigen.
         Sei $L = K(a_1,a_2)$Seien $\phi_1,\dots,\phi_m: L\rightarrow \overline{K}$ seien die verschiedenen $K$-Einbettungen $L\rightarrow \overline{K}$, wobei $m=[L:K]_S=[L:K]$ weil separabel.
         Das Polynom $$g = \Pi_{i<j} \left((\phi_i(a_1)-\phi_j(a_1))\cdot X + (\phi_i(a_2)-\phi_j(a_2))\right)\in \overline{K}[X]$$
         Für $i<j$ ist $\phi_i(a_1)\neq \phi_j(a_1)$ oder $\phi_i(a_2)\neq\phi_j(a_2)$.
@@ -568,7 +568,7 @@ VL vom 24.11.2023:
     \end{enumerate}
 \end{proof}
 \begin{example}
-    Die Separabilität im Satz \todo{2.56} ist essenziell.
+    Die Separabilität im Satz \cref{theo:2.56} ist essenziell.
     $K=\F_p(s,t)$ rationaler Funktionenkörper in zwei Variablen.
     $L=K(\sqrt[p]{s},\sqrt[p]{t})$ und damit $[L:K] = p^2$. \TODO[Graphik]
 
