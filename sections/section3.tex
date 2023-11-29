@@ -4,7 +4,7 @@
 \begin{document}
 \begin{definition}
     Eine algebraische Körpererweiterung $L|K$ heißt \emph{Galoiserweiterung} (oder galois'sch), wenn $L|K$ normal und separabel ist.
-    Man nennt dann $Gal(L|K) = Aut_k(L)$ die \emph{Galoisgruppe} von $L|K$.
+    Man nennt dann $Gal(L|K) = Aut_K(L)$ die \emph{Galoisgruppe} von $L|K$.
 
     Sei $F$ ein Körper und $H\leq Aut(F)$ eine Untergruppe.
     dann ist $F^H = \{x\in F\mid \forall\sigma\in H:\sigma(x) = x\}$ ein Teilkörper von F, genannt \emph{Fixkörper} von H.
@@ -13,18 +13,22 @@
 \begin{lemma}
     Sei $L|K$ Galoiserweiterung. Dann ist $L^{Gal(L|K)} = K$.
 \end{lemma}
-\begin{proof}
-    "$\supseteq$" klar
-    "$\subseteq$" Sei $a\in L\setminus K$. Das Minimalpolynom $m_{a,K}$ hat Grad $\geq2$.
-    * $L|k$ normal => $m_{a,K}$ zerfällt in $L[X]$ in Linearfaktoren.
-    * $L|K$ separabel -> $m_{a,k}$ hat keine mehrfach Nullstelle.
-
-    Also gibt es eine weitere Nullstelle $b$ von $m_{a,K}$ mit $b\neq a$.
-    Nach Satz \todo{2.37} existiert eine $\sigma \in Gal(L|K)$ mit $\sigma(a)=b$.
-    => $a\notin L^{Gal(L|K)}$
+\begin{proof}$ $
+    \begin{enumerate}
+        \item["'$\supseteq$"'] klar
+        \item["'$\subseteq$"'] (Durch Kontraposition) Sei $a\in L\setminus K$. Das Minimalpolynom $m_{a,K}$ hat Grad $\geq2$.
+        \begin{itemize}
+            \item $L|k$ normal => $m_{a,K}$ zerfällt in $L[X]$ in Linearfaktoren.
+            \item $L|K$ separabel => $m_{a,k}$ hat keine mehrfach Nullstelle.
+        \end{itemize}
+    
+        Also gibt es eine weitere Nullstelle $b$ von $m_{a,K}$ mit $b\neq a$.
+        Nach Satz \cref{theo:2.37} existiert eine $\sigma \in Gal(L|K)$ mit $\sigma(a)=b$.
+        => $a\notin L^{Gal(L|K)}$
+    \end{enumerate}
 \end{proof}
 \begin{theorem}
-    Seien $L$ ein Körper und $H\leq Aut(L)$ eine eindliche Untergruppe.
+    Seien $L$ ein Körper und $H\leq Aut(L)$ eine endliche Untergruppe.
     Dann ist
     \begin{enumerate}
         \item $L|L^H$ galois'sch
