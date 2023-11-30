@@ -55,4 +55,83 @@
     Also ist $[L:L^H] = \card{H} = \card{Gal(L|L^H)}$
     => $H=Gal(L|L^H)$.
 \end{proof}
+\begin{flushright}
+VL vom 30.11.2023:
+\end{flushright}
+\TODO[Die Stunde muss korrigiert und formatiert werden!!!]
+\begin{theorem}[Hauptsatz]
+    $L|K$ endliche Galoiserweiterung.
+    $$U=\{H\leq Gal(L|K) \mid H \text{untergruppe}\}$$
+    $$Z:= \{E\subseteq L \mid K\subseteq E \subseteq L \text{Zwischenkörper}\}$$
+    \begin{enumerate}%a)
+        \item Die Zuordnungen $Fix: U \rightarrow Z, H\mapsto L^H$ und $\tau: Z\rightarrow U, E \mapsto Gal(L|E)$
+        sind zueinander inverse Bijektionen.
+        $Fix$ und $\tau$ sind enthaltungsumkehrend
+        $H_1\leq H_2 \Rightarrow Fix(H_1) \subseteq Fix(H_2)$
+        $E\subset E_2 \Rightarrow \tau(E_1) \leq \tau(E_2)$
+        \item Sei $E \in Z$, dann ist $E|K$ normal genau dann wenn $Gal(L|E)$ ein Normalteiler von $Gal(L|K)$ ist.
+        $$ Gal(E|K) \cong Gal(L|K)/Gal(L|E)$$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Zu a)
+    Beachte: $E\in Z$ , dann $L|E$ galoissch (nach 2.37 a, nach 2.44)
+    * $E\in Z$: $Fix(Gal(L|E)) = L^{Gal(L|E)}\overset{3.2}{=} E$
+    * $H\in U$: $\tau(Fix(H)) = \tau(L^H) = Gal(L|L^H)\overset{3.3}{=}H$
+    * $H_1\leq H_2$: $x\in L^{H_2}$ D.h. $\forall\sigma\in H_2\colon \sigma(x)=x$ also insbesondere für $\sigma\in H_1 \Rightarrow x\in L^{H_1}$
+
+    $E_1\subseteq E_2$: $\sigma \in \tau(E_1) = Gal(L|E_2)\leq Gal(L|E_1)=\tau(E_1)$
+    \begin{remark*}
+        Für $\sigma\in Gal(L|K)$ und $H\in U$, dann $\sigma(L^H) = L^{\sigma H \sigma^{-1}}$, denn für $x\in L^{\sigma H \sigma^{-1}} \Leftrightarrow \forall tau \in H\colon \sigma tau \sigma^{-1}(x)=x \Leftrightarrow \forall tau \in H\colon tau \sigma^{-1}(x) = \sigma^{-1}(x) \Leftrightarrow \sigma^{-1}x\in L^H \Leftrightarrow x\in \sigma(L^H)$
+    \end{remark*}
+
+    Zu b)
+    Ist $E|K$ normal, so gilt $\sigma(E) = E$ für alle $\sigma \in Gal(L|K)$ nach Satz 2.35 (ii).
+    $E=L^{Gal(L|E)} \Rightarrow \sigma Gal(L|E) \sigma^{-1} = \sigma \tau(E) \sigma^{-1} = Gal(L|E)$ für alle $\sigma \in Gal(L|K)$.
+    Damit ist $H:=\tau(E)$ normal.
+    Damit ist $Gal(L|E)\nteq Gal(L|K)$.
+
+    $Gal(L|E) \nteq Gal(L|K)$, d.h. $\forall \sigma\in Gal(L|K)$ gilt $\sigma(E)=\sigma(L^{Gal(L|E)}) = L^{\sigma Gal(L|E) \sigma^{-1}} = L^{Gal(L|E)} = E$.
+    Nach Satz 2.35 (ii) ist $E|K$ normal.
+
+    * Sei $E|K$ normal. Die Restirktionsabbildung $r_E: Gal(L|K) \rightarrow Gal(E|K), \sigma \mapsto \sigma_{|E}$ ist Gruppenhomomorphismus mit $Kern(r_E) = Gal(L|E)$.
+    $r_E$ ist surjektiv:
+    Für $tau\in Gal(E|K)$ findet man dank Fortsetzungssatz (2.31) ein $\sigma \in Gal(L|K)$ sodass $\sigma_{|E}=tau$.
+    Mit Homomorphiesatz folgt die Behauptung.
+\end{proof}
+\begin{remark}
+    $L|K$ endliche Galoiserweiterung $H\leq Gal(L|K)$
+    \begin{itemize}
+        \item $[L:L^H] = \card{H}$
+        \item $[L^H:K] = [L:K]/[L:L^H] = \frac{\card{Gal(L|K)}}{\card{H}} = [Gal(L|K):H]$
+    \end{itemize}
+\end{remark}
+\begin{example}
+    Wie bei (2.36 a)
+    $L$ Zerfällungskörper von $X^4-2$ über $\Q$.
+    $L = \Q(a, ia, -a, -ia) = \Q(a,i)$ mit $a=\sqrt[4]{2}$.
+    Damit ist $[L:\Q] = 8$.
+    $L|\Q$ ist Galois Gruppe.
+    $\sigma\in Gal(L|\Q)$ eindeutig bestimmt durch $\sigma(a)\in \{a,ia,-a,-ia\}$, $\sigma(i)\in \{i,-i\}$.
+    Da $\card{Gal(L|\Q)} = 8$ sind alle Kombinationen möglich.
+    \TODO[Graphik]
+    $Gal(L|\Q) = \{id,\rho,\rho^2,\rho^3,\tau,\rho\tau,\rho^2\tau,\rho^3\tau\}$ % In 2 Zeilen!
+    $\tau\rho^{-1}=\rho \tau = \rho\tau^3$ % Bei erstem fakor klammer??
+    Isomorph zu der Diedergruppe:
+    $D_4 = <x,y\mid x^4=1, y^2=1,xy=yx^3>$
+    \TODO[Andere Graphik und mehr...]
+\end{example}
+
+
+This is not
+\begin{theorem}[Translationssatz] % No number
+    $L_1$,$L_2$ Körper und $L_1|K$, $L|K$ gemeinsame Erweiterung ungskörper
+    $L_1|K$ endl. Galoiserweiterung => $L_1\cdot L_2|L_2$ ist Galois-erw.
+    
+    Durchschnitt: $Gal(L_1L_2|L_2)\rightarrow Gal(L_1|K)$
+    $\sigma \mapsto \sigma_{|L_1}$ def. Isom.
+    $Gal(L_1L_2|L_2) \cong Gal(L_1|L_1\cap L_2)$
+
+    $H\in $
+\end{theorem}
 \end{document}
