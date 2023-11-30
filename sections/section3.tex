@@ -10,7 +10,7 @@
     dann ist $F^H = \{x\in F\mid \forall\sigma\in H:\sigma(x) = x\}$ ein Teilkörper von F, genannt \emph{Fixkörper} von H.
 \end{definition}
 \subsection{Hauptsatz der Galoistheorie}
-\begin{lemma}
+\begin{lemma} \label{theo:3.2}
     Sei $L|K$ Galoiserweiterung. Dann ist $L^{Gal(L|K)} = K$.
 \end{lemma}
 \begin{proof}$ $
@@ -27,7 +27,7 @@
         => $a\notin L^{Gal(L|K)}$
     \end{enumerate}
 \end{proof}
-\begin{theorem}
+\begin{theorem} \label{theo:3.3}
     Seien $L$ ein Körper und $H\leq Aut(L)$ eine endliche Untergruppe.
     Dann ist
     \begin{enumerate}
@@ -39,17 +39,19 @@
 \begin{proof}
     Sei $a\in L$. Betrachte die $H$-Bahn von $a$.
     $$H\cdot a = \{\sigma(a)\mid \sigma\in H\} = \{a_1,\dots, a_n\} \subseteq L$$
-    Betrachte Polynom $f_a = \Pi_{i=1}^n (X-a_i)$ hat Koeffizienten in $L^H$.
-    Für $\sigma\in H$ ist $\sigma_*(f) = \Pi_{i=1}^n(X-\sigma(a_i)) = \Pi_{i=1}^n(X-a_i)$.
-    Weil alle Nullstellen von $f_a$ auch Nullstelle von $m_{a,L^H}$, muss schon $f_a=m_{a,L^H}$ sein.\footnote{$\sigma$ erhält Minimalpolynom-Nullstellen oder so}
-    Nach Konstruktion hat $f_a$ nur einfache Nullstellen, ist also separabel. => $a$ separabel. $\overset{=>}{a\ beliebig}$ $L|L^H$separabel.
-    Weiter zerfällt $f_a=m_{a,L^H}$ in Linearfaktoren -> $L|L^H$ normal and damit Galois.
+    Betrachte Polynom $f_a = \Pi_{i=1}^n (X-a_i)$.
+    Für $\sigma\in H$ ist $\sigma_*(f) = \Pi_{i=1}^n\left(X-\sigma(a_i)\right) = \Pi_{i=1}^n(X-a_i)$.\footnote{Zu jedem $a_i$ existiert ein $\tau\in H$ mit $\tau(a) = a_i$. Dann ist $\sigma(a_i) = \sigma(\tau(a)) = \underbrace{(\sigma\circ \tau)}_{\in H}(a)\in H\cdot a$.
+    $\sigma$ is bijektiv, weshalb jedes $a_i$ auf ein anderes Element in $H\cdot a\subseteq L$ abgebildet.}
+    Da $f_a$ also fix unter $\sigma\in H$ ist, müssen die Koeffizienten von $f_a$ in $L^H$ liegen und damit $f_a\in L^H[X]$.
+    Weil alle Nullstellen von $f_a$ auch Nullstelle von $m_{a,L^H}$ sind, muss schon $f_a=m_{a,L^H}$ sein.\footnote{$m_{a,L^H}$ teilt $f_a\in L^H[X]$, weil $a$ Nullstelle von $f_a$}
+    Nach Konstruktion hat $f_a$ nur einfache Nullstellen, ist also separabel. $\Rightarrow$ $a$ separabel. $\overset{a\text{ beliebig}}{\Rightarrow}$ $L|L^H$separabel.
+    Weiter zerfällt $f_a=m_{a,L^H}$ in Linearfaktoren $\Rightarrow$ $L|L^H$ normal and damit galois'sch.
 
-    Es gilt$\card{H}\leq \card{Gal(L|L^H)} = [L:L^H]_S = [L:L^H]$.
+    Wegen $H\subseteq Gal(L|L^H)$ gilt $\card{H}\leq \card{Gal(L|L^H)} = [L:L^H]_S \overset{\cref{theo:2.47}}{=} [L:L^H]$.
     Angenommen $\card{H} < [L:L^H]\leq \infty$. 
-    Dann findin wir ein $L_0$ mit $L^H\subseteq L_0 \subseteq L$ mit $\card{H} \leq [L_0:L^H] <\infty$.
+    Dann finden wir ein $L_0$ mit $L^H\subseteq L_0 \subseteq L$ mit $\card{H} \leq [L_0:L^H] <\infty$.
     Der Satz vom primitiven Element liefert ein $a\in L_0$ mit $L_0 = L^H(a)$.
-    Aber $f_a=m_{a,L^H}$ hat grad $leq \card{H}$.
+    Aber $f_a=m_{a,L^H}$ hat Grad $\leq \card{H}$.
     => $[L_0:L^H] = \deg(m_{a,L^K})\leq \card{H}$ \Lightning
 
     Also ist $[L:L^H] = \card{H} = \card{Gal(L|L^H)}$
@@ -61,43 +63,68 @@ VL vom 30.11.2023:
 \TODO[Die Stunde muss korrigiert und formatiert werden!!!]
 \begin{theorem}[Hauptsatz]
     $L|K$ endliche Galoiserweiterung.
-    $$U=\{H\leq Gal(L|K) \mid H \text{untergruppe}\}$$
-    $$Z:= \{E\subseteq L \mid K\subseteq E \subseteq L \text{Zwischenkörper}\}$$
-    \begin{enumerate}%a)
-        \item Die Zuordnungen $Fix: U \rightarrow Z, H\mapsto L^H$ und $\tau: Z\rightarrow U, E \mapsto Gal(L|E)$
-        sind zueinander inverse Bijektionen.
-        $Fix$ und $\tau$ sind enthaltungsumkehrend
-        $H_1\leq H_2 \Rightarrow Fix(H_1) \subseteq Fix(H_2)$
-        $E\subset E_2 \Rightarrow \tau(E_1) \leq \tau(E_2)$
-        \item Sei $E \in Z$, dann ist $E|K$ normal genau dann wenn $Gal(L|E)$ ein Normalteiler von $Gal(L|K)$ ist.
+    $$U \coloneqq \{H\leq Gal(L|K) \mid H \text{ Untergruppe}\}$$
+    $$Z\coloneqq \{E\subseteq L \mid K\subseteq E \subseteq L \text{ Zwischenkörper}\}$$
+    \begin{enumerate}[label=\alph*)]
+        \item Die Zuordnungen $Fix: U \rightarrow Z, H\mapsto L^H$ und $\Gamma: Z\rightarrow U, E \mapsto Gal(L|E)$
+        sind zueinander inverse Bijektionen:
+        \begin{align*}
+            U &\longleftrightarrow Z\\
+            H &\longmapsto L^H = Fix(H)\\
+            \Gamma(E) = Gal(L|E) &\longmapsfrom  E 
+        \end{align*}
+        $Fix$ und $\Gamma$ sind enthaltungsumkehrend:
+        \begin{align*}
+            H_1\leq H_2\;&\Rightarrow\; Fix(H_1) \supseteq Fix(H_2)\\
+            E_1\subset E_2\;&\Rightarrow\; \Gamma(E_1) \geq \Gamma(E_2)
+        \end{align*}
+        \item Sei $E \in Z$, dann ist $E|K$ normal g.d.w. $Gal(L|E)$ ein Normalteiler von $Gal(L|K)$ ist.
         $$ Gal(E|K) \cong Gal(L|K)/Gal(L|E)$$
     \end{enumerate}
 \end{theorem}
-\begin{proof}
-    Zu a)
-    Beachte: $E\in Z$ , dann $L|E$ galoissch (nach 2.37 a, nach 2.44)
-    * $E\in Z$: $Fix(Gal(L|E)) = L^{Gal(L|E)}\overset{3.2}{=} E$
-    * $H\in U$: $\tau(Fix(H)) = \tau(L^H) = Gal(L|L^H)\overset{3.3}{=}H$
-    * $H_1\leq H_2$: $x\in L^{H_2}$ D.h. $\forall\sigma\in H_2\colon \sigma(x)=x$ also insbesondere für $\sigma\in H_1 \Rightarrow x\in L^{H_1}$
+\begin{proof} $ $
+\begin{itemize}[align= left]
+    \item[Zu a)]
+    Beachte: $E\in Z$ , dann $L|E$ nach \cref{theo:2.37} a) normal und nach \cref{theo:2.44} separabel und damit galoissch
+    
+    \begin{itemize}[align=left]
+        \item[]$Fix$ und $\Gamma$ sind inverse Bijektionen:
+        \item[$Fix\circ \Gamma = id$] Für jedes $E\in Z$ gilt $Fix(\Gamma(E))=Fix(Gal(L|E)) = L^{Gal(L|E)}\overset{\ref{theo:3.2}}{=} E$
+        \item[$\Gamma\circ Fix = id$] Für jedes $H\in U$ gilt $\Gamma(Fix(H)) = \Gamma(L^H) = Gal(L|L^H)\overset{\ref{theo:3.3}}{=}H$
+    \end{itemize}
+    
+    \begin{itemize}[label=•,align=left]
+        \item[$Fix$ und $\Gamma$ sind enthaltungsumkehrend] 
+        \item Sei $H_1\leq H_2$.
+        Für jedes $x\in L^{H_2}$  gilt per Definition $\forall\sigma\in H_2\colon \sigma(x)=x$, was damit auch insbesondere für jedes $\sigma\in H_1\subseteq H_2$ gilt. $\Rightarrow x\in L^{H_1}$\\
+        $\Rightarrow Fix(H_2) = L^{H_2}\subseteq L^{H_1} = Fix(H_1)$
+        \item 
+        Sei $E_1\subseteq E_2$.
+        $\sigma \in \Gamma(E_2) = Gal(L|E_2)\leq Gal(L|E_1)=\Gamma(E_1)$ 
+    \end{itemize}
 
-    $E_1\subseteq E_2$: $\sigma \in \tau(E_1) = Gal(L|E_2)\leq Gal(L|E_1)=\tau(E_1)$
+    
     \begin{remark*}
-        Für $\sigma\in Gal(L|K)$ und $H\in U$, dann $\sigma(L^H) = L^{\sigma H \sigma^{-1}}$, denn für $x\in L^{\sigma H \sigma^{-1}} \Leftrightarrow \forall tau \in H\colon \sigma tau \sigma^{-1}(x)=x \Leftrightarrow \forall tau \in H\colon tau \sigma^{-1}(x) = \sigma^{-1}(x) \Leftrightarrow \sigma^{-1}x\in L^H \Leftrightarrow x\in \sigma(L^H)$
+        Für $\sigma\in Gal(L|K)$ und $H\in U$, dann $\sigma(L^H) = L^{\sigma H \sigma^{-1}}$, denn für $x\in L^{\sigma H \sigma^{-1}} \Leftrightarrow \forall \tau \in H\colon \sigma \tau \sigma^{-1}(x)=x \Leftrightarrow \forall \tau \in H\colon \tau \sigma^{-1}(x) = \sigma^{-1}(x) \Leftrightarrow \sigma^{-1}x\in L^H \Leftrightarrow x\in \sigma(L^H)$
     \end{remark*}
 
-    Zu b)
-    Ist $E|K$ normal, so gilt $\sigma(E) = E$ für alle $\sigma \in Gal(L|K)$ nach Satz 2.35 (ii).
-    $E=L^{Gal(L|E)} \Rightarrow \sigma Gal(L|E) \sigma^{-1} = \sigma \tau(E) \sigma^{-1} = Gal(L|E)$ für alle $\sigma \in Gal(L|K)$.
-    Damit ist $H:=\tau(E)$ normal.
-    Damit ist $Gal(L|E)\nteq Gal(L|K)$.
+    \item[Zu b)]$ $
+    \begin{itemize}
+        \item["'$\Rightarrow$"']
+        Ist $E|K$ normal, so gilt $\sigma(E) = E$ für alle $\sigma \in Gal(L|K)$ nach \cref{theo:2.35} b).
+        $E=L^{Gal(L|E)} \overset{\sigma\Gamma(\cdot)\sigma^{-1}}{\Longrightarrow} \sigma Gal(L|E) \sigma^{-1} = \sigma \Gamma(E) \sigma^{-1} = Gal(L|E)$\footnote{\TODO[Why does the last = hold true]} für alle $\sigma \in Gal(L|K)$.
+        Damit ist $Gal(L|E)=\Gamma(E)$ normal, also $Gal(L|E)\nteq Gal(L|K)$.
+        \item["'$\Leftarrow$"']
+        $Gal(L|E) \nteq Gal(L|K)$, d.h. $\forall \sigma\in Gal(L|K)$ gilt $\sigma(E)=\sigma(L^{Gal(L|E)}) = L^{\sigma Gal(L|E) \sigma^{-1}} = L^{Gal(L|E)} = E$.
+    Nach \cref{theo:2.35} (ii) ist $E|K$ normal.
+    \end{itemize}
 
-    $Gal(L|E) \nteq Gal(L|K)$, d.h. $\forall \sigma\in Gal(L|K)$ gilt $\sigma(E)=\sigma(L^{Gal(L|E)}) = L^{\sigma Gal(L|E) \sigma^{-1}} = L^{Gal(L|E)} = E$.
-    Nach Satz 2.35 (ii) ist $E|K$ normal.
-
-    * Sei $E|K$ normal. Die Restirktionsabbildung $r_E: Gal(L|K) \rightarrow Gal(E|K), \sigma \mapsto \sigma_{|E}$ ist Gruppenhomomorphismus mit $Kern(r_E) = Gal(L|E)$.
+    Sei $E|K$ normal.
+    Die Restriktionsabbildung $r_E: Gal(L|K) \rightarrow Gal(E|K), \sigma \mapsto \sigma_{|E}$ ist Gruppenhomomorphismus mit $\ker(r_E) = Gal(L|E)$.
     $r_E$ ist surjektiv:
-    Für $tau\in Gal(E|K)$ findet man dank Fortsetzungssatz (2.31) ein $\sigma \in Gal(L|K)$ sodass $\sigma_{|E}=tau$.
+    Für $\tau\in Gal(E|K)$ findet man dank Fortsetzungssatz (2.31) ein $\sigma \in Gal(L|K)$ sodass $\sigma_{|E}=\tau$.
     Mit Homomorphiesatz folgt die Behauptung.
+\end{itemize}
 \end{proof}
 \begin{remark}
     $L|K$ endliche Galoiserweiterung $H\leq Gal(L|K)$
@@ -107,7 +134,7 @@ VL vom 30.11.2023:
     \end{itemize}
 \end{remark}
 \begin{example}
-    Wie bei (2.36 a)
+    Wie bei (\cref{theo:2.36} a)
     $L$ Zerfällungskörper von $X^4-2$ über $\Q$.
     $L = \Q(a, ia, -a, -ia) = \Q(a,i)$ mit $a=\sqrt[4]{2}$.
     Damit ist $[L:\Q] = 8$.
@@ -122,16 +149,4 @@ VL vom 30.11.2023:
     \TODO[Andere Graphik und mehr...]
 \end{example}
 
-
-This is not
-\begin{theorem}[Translationssatz] % No number
-    $L_1$,$L_2$ Körper und $L_1|K$, $L|K$ gemeinsame Erweiterung ungskörper
-    $L_1|K$ endl. Galoiserweiterung => $L_1\cdot L_2|L_2$ ist Galois-erw.
-    
-    Durchschnitt: $Gal(L_1L_2|L_2)\rightarrow Gal(L_1|K)$
-    $\sigma \mapsto \sigma_{|L_1}$ def. Isom.
-    $Gal(L_1L_2|L_2) \cong Gal(L_1|L_1\cap L_2)$
-
-    $H\in $
-\end{theorem}
 \end{document}
