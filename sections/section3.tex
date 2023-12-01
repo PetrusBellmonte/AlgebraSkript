@@ -60,7 +60,6 @@
 \begin{flushright}
 VL vom 30.11.2023:
 \end{flushright}
-\TODO[Die Stunde muss korrigiert und formatiert werden!!!]
 \begin{theorem}[Hauptsatz]
     $L|K$ endliche Galoiserweiterung.
     $$U \coloneqq \{H\leq Gal(L|K) \mid H \text{ Untergruppe}\}$$
@@ -149,4 +148,123 @@ VL vom 30.11.2023:
     \TODO[Andere Graphik und mehr...]
 \end{example}
 
+\begin{flushright}
+VL vom 1.12.2023:
+\end{flushright}
+\TODO[Die Stunde muss korrigiert und formatiert werden!!!]
+
+\begin{theorem}[Produktsatz]
+Sei $K$ Körper
+    $L_1,L_2\subset \overline{K}$ zwei Teilkörper sodass $(L_1|K)$ und $(L_2|K)$ endlich und galoissch.
+    Dann ist das Kompositum $L_1L_2$ Galois-Erweiterung von $K$.
+    Die Zuordnung $\Phi\colon Gal(L_1L_2|K)\rightarrow Gal(L_1|K)\times Gal(L_2|K), \sigma \mapsto (\sigma_{|L_1},\sigma_{|L_2})$. ist injektiver Gruppenhomomorphismus.
+    Falls $L_1\cap L_2 = K$, so ist $\Phi$ ein Isomorphismus.
+\end{theorem}
+\begin{proof}
+    galois, also normal und separabel:
+    * $L_i$ ist Zerfällungskörper von $w_i\subset K[X]\setminus K$ ($i\in\{1,2\}$)=> $L_1L_2$ ist Zerfällungskörper von $w_1\cup w_2$ => $(L_1L_2|K$ ist normal.
+    * Nach Satz 2.50 gilt $L_1 = K(a_1)$, $L_2=K(a_2)$ mit $a_i\in L_i$.
+    Sie sind separabel über $K$ => $L_1L_2 = K(a_1,a_2)$ ist separabel über K (nach 2.47)
+
+    Damit ist das Kompositum eine galois-erweiterung
+
+    Fall $K = L_1\cap L_2$:
+    injektiv:
+    * $\Phi$ ist injektiv, denn $\sigma\in \ker(\Phi) \Rightarrow \sigma_{|L_1} =id$,$\sigma_{|L_2} = id$ => $\sigma = id$, da $L_1L_2$ erzeugt wird von $L_1\cup L_2$
+    
+    surjektivität:
+    * Surjektivität von $\Phi$ im Fall $K= L_1\cap L_2$:
+    $(L_1L_2|L_1), (L_1L_2|L_2)$ sind Galoiserweiterungen.
+    $\Phi_1: Gal(L_1L_2|L_2)\rightarrow Gal(L_1|K), \sigma \mapsto \sigma_{|L_1}$ ist injektiv, denn $\sigma \in \ker(\Phi_1)\Rightarrow \sigma_{|L_1} = id$.
+    Außerdem ist $\sigma_{|L_2} = id$, da $\sigma$ $L_2$-Homomorphismus. => $\sigma = id$
+
+    $\Phi_1$ ist surjektiv, falls $K = L_1 \cap L_2$:
+    Sei $H=Bild(\Phi_1)\leq Gal(L_1|K)$.
+    $L_1^H=\{x\in L_1\mid\forall \sigma\in Gal(L_1L_2|L_2)\colon \sigma_{|L_1}(x) = x\} = L_1\cap\underbrace{ (L_1L_2)^{Gal(L_1L_2|L_2)}}_{=L_2}$
+    $L_1\cap L_2 = L_1^{Gal(L_1|L_1\cap L_2)}$ => $H= Gal(L_1|L_1\cap L_2)$
+
+    Analog mit $Phi_2: Gal(L_1L_2|L_1)\rightarrow Gal(L_2|K), \sigma \mapsto \sigma_{|L_2}$
+
+    * $Gal(L_1L_2|K)\geq Gal(L_1L_2|L_i)$ => $\Phi$ ist surjektiv
+\end{proof}
+\begin{example}
+    $L_1=\Q(\sqrt[4]{2},i)$
+    $L_2=\Q(\sqrt{11})$ Zerfällungskörper von $X^2-11$.
+    $L_1\cdot L_2 = \Q(\sqrt[4]{2},i,\sqrt{11})$
+    $L_1\cap L_2 = \Q$
+    Damit gilt $Gal(L|\Q)\cong \underbrace{Gal(L_1|\Q)}_{=D_4}\times \underbrace{Gal(L_2|\Q)}_{=\Z/2\Q}$
+\end{example}
+
+\subsection{Kreisteilungskörper und Einheitswurzeln}
+\begin{definition}
+    Sei $K$ Körper und $n\in \N$.
+    Ein Element $\theta\in K^\times$ mit $\theta^n=1$ heißt \emph{$n$-te Einheitswulzel (EW)}. Hat $\theta$ die Ordnung $n$, so nennt man $\theta$ \emph{primitive $n$-te EW}.
+    $\mu_n(K)\coloneqq\{\text{n-te EW in K}\}\leq K^\times$ zyklische Untergruppe.
+    $\card{\mu_n(K)}\leq n$
+    $\mu_n^*(K) \coloneqq \{\text{primitive n-te EW in K}\}$
+\end{definition}
+\begin{example*}
+    $\mu_n(\C) = \{exp(2\pi i\frac{k}{n})\mid k=0,\dots,n-1\}$
+    $exp(2\pi i \frac{2}{4} = exp(2\pi i \frac{1}{2})$
+    $\theta\in \mu_n(\C)$ ist primitiv $\Leftrightarrow ggT(k,n)=1$
+
+    $theta\in \mu_n(K)\setminus\trivGO \Rightarrow (X^n-1)/(X-1) = X^{n-1}+X^{n-2}+\dots+X+1$ hat $\theta$ als Nullstelle
+    \TODO[bild]
+\end{example*}
+Definition:
+$K$ Körper, $n\in \N$
+$K_n$ ist definiert als Zerfällungskörper von $X^n-1$ über $K$.
+\begin{theorem}
+    $K$ Körper, $n\in \N$, $char(K)\not\div n$
+    \begin{enumerate}[label=\alph*)]
+        \item $(K_n|K)$ ist Galoiserweiterung, $\card{\mu_n(K_n)}=n$, $\phi_n\coloneqq \card{\mu_n^*(K_n)}= \card{(\Z/n\Z)^\times}$
+        $K_n = K(\theta)$ für $\theta \in \mu_n^*(K_n)$
+        \item $Gal(K_n|K)$ ist isomorph zu einer Untergruppe von $(\Z/n\Z)^\times$
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Zu a)
+    $(K_n|K)$ ist normal als Zerfällungskörper.
+    Es ist $D(X^n-1) = nX^{n-1}$, d.h. $X^n-1$ und $D(X^n-1)$ haben keine gemeinsamen NS d.h. $X^n-1$ ist separabel $\overset{2.48}{\Rightarrow}$ $K_n|K$ ist separabel.
+    Insbesondere hat $X^n-1$ $n$ verschiedene NS, d.h. $\card{\mu_n(K_n)} = n$.
+    Gruppe der $n$-ten EW ist zyklisch (mit Argument wie in \todo{2.49} (e????)), also $\card{\mu_n^*(K_n)} = \card{\Z/n\Z}$
+
+    Zu b)
+    $\sigma \in Gal(K_n|K)$, $theta \in \mu_n^*(K_n)$
+    $\sigma(\theta) = \theta^m$ für m teilerfremd zu $n$.
+    $\sigma$ ist durch $m$ eindeutig bestimmt.
+    $\Phi: Gal(K_n|K) \rightarrow (\Z/n\Z)^\times, \sigma \mapsto m+n\Z$ ist ein injektiver Gruppenhomomorphismus.
+\end{proof}
+
+\begin{definition}
+    Der Körper $\Q(\theta_n)$ für $\theta_n\in\mu_n^*(\C)$ heißt $n$-ter \emph{Kreisteilungskörper}.
+    Das Polynom $\phi_n=\Pi_{\theta\in\mu_n^*(\C)} (X-\theta)$ heißt $n$-tes \emph{Kreisteilungspolynom}
+\end{definition}
+
+\begin{lemma}
+    $\phi_n\in\Z[X]$
+\end{lemma}
+\begin{proof}
+    Beweis mit Induktion über $n$:
+    IA: $\phi_1 = X-1$ \checkmark
+    $n\geq 2$: Wir verwenden, dass für $d<n$ $\phi_d\in \Z[X]$.
+    Es ist $\mu_n(\C) = \bigcup_{d|n}\mu_d^*(\C)$ (disjukt).
+    $X^n-1 = \Pi_{\theta\in\mu_n(\C)} (X-\theta) = \Pi_{d|n}\underbrace{\Pi_{\theta\in\mu_d^*(\C)}(X-\theta)}_{=\phi_d}$
+    Setze $f = \Pi_{d|n,d<n}\phi_d \overset{(IV)}{\in}\Z[X]$, f ist normiert.
+    $X^n-1=qf+r$ mit $q,r\in \Z[X]$, $\deg(r)<deg(f)$.
+    In $\C[X]$ $X^n-1=\phi_n f$, d.h. $r = (q-\phi_n) f$.
+    Da $\deg(r)<\deg(f)$ gilt $\phi_n=q\in \Z[X]$
+\end{proof}
+\begin{remark}
+    Rekursive Bestimmung der Kreisteilungspolynome mittels $X^n-1 = \Pi_{d|n}\phi_d$.
+    Wenn $n =p$ prim: $\phi_p \cdot \phi_1 = X^p-1$ -> $\phi_p = \sum_{k=0}^{p-1} X^k$.
+
+    $\phi_2 = X+1$, $\phi_3 = X^2+X+1$
+    $\phi_4 \cdot \phi_2 \cdot \phi_1 = X^4 -1$ -> $\phi_4 =X^2+1$.
+    $\phi_6\cdot\phi_3\cdot\phi_2\cdot\phi_1$ -> $\phi_6 = X^2-X+1$.
+
+    Für $p\in \N$ Primzahl und $\alpha\in\N$ gilt
+    $$X^{p^\alpha}-1 = \Pi_{d|p^\alpha} \phi_d = \phi_{p^\alpha} \underbrace{\Pi_{d|p^{\alpha-1}} \phi_d}_{X^{p^{\alpha-1}}-1}=\phi_{p^\alpha} (X^{p^{\alpha-1}})$$
+    $$\phi_{p^\alpha} = \phi_p(X^{p^{\alpha-1}}) = \sum_{k=0}^{p-1} (X^{p^{\alpha -1}})^k$$
+\end{remark}
 \end{document}
