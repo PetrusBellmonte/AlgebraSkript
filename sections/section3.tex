@@ -155,23 +155,27 @@ VL vom 1.12.2023:
 
 \begin{theorem}[Produktsatz]
 Sei $K$ Körper
-    $L_1,L_2\subset \overline{K}$ zwei Teilkörper sodass $(L_1|K)$ und $(L_2|K)$ endlich und galoissch.
-    Dann ist das Kompositum $L_1L_2$ Galois-Erweiterung von $K$.
-    Die Zuordnung $\Phi\colon Gal(L_1L_2|K)\rightarrow Gal(L_1|K)\times Gal(L_2|K), \sigma \mapsto (\sigma_{|L_1},\sigma_{|L_2})$. ist injektiver Gruppenhomomorphismus.
+    $L_1,L_2\subset \overline{K}$ zwei Teilkörper sodass $(L_1|K)$ und $(L_2|K)$ endlich und galois'sch.
+    Dann ist das Kompositum $L_1L_2$ eine Galois-Erweiterung von $K$.
+    Die Zuordnung 
+    \begin{align*}
+        \Phi\colon Gal(L_1L_2|K))&\rightarrow Gal(L_1|K)\times Gal(L_2|K)\\
+        \sigma &\mapsto (\sigma_{|L_1},\sigma_{|L_2})
+    \end{align*}
+    ist ein injektiver Gruppenhomomorphismus.
     Falls $L_1\cap L_2 = K$, so ist $\Phi$ ein Isomorphismus.
 \end{theorem}
 \begin{proof}
-    galois, also normal und separabel:
-    * $L_i$ ist Zerfällungskörper von $w_i\subset K[X]\setminus K$ ($i\in\{1,2\}$)=> $L_1L_2$ ist Zerfällungskörper von $w_1\cup w_2$ => $(L_1L_2|K$ ist normal.
-    * Nach Satz 2.50 gilt $L_1 = K(a_1)$, $L_2=K(a_2)$ mit $a_i\in L_i$.
-    Sie sind separabel über $K$ => $L_1L_2 = K(a_1,a_2)$ ist separabel über K (nach 2.47)
+    Damit $L_1L_2$ galois ist, muss es normal und separabel sein:
+    \begin{itemize}
+        \item[normal] $L_i$ ist Zerfällungskörper von $w_i\subset K[X]\setminus K$ ($i\in\{1,2\}$)=> $L_1L_2$ ist Zerfällungskörper von $w_1\cup w_2$ => $(L_1L_2|K)$ ist normal.
+        \item[separabel] Nach Satz \ref{theo:2.50} gilt $L_1 = K(a_1)$, $L_2=K(a_2)$ mit $a_i\in L_i$.
+        Sie sind separabel über $K$ => $L_1L_2 = K(a_1,a_2)$ ist separabel über K (nach \ref{theo:2.47})
+    \end{itemize}
 
-    Damit ist das Kompositum eine galois-erweiterung
-
-    Fall $K = L_1\cap L_2$:
-    injektiv:
-    * $\Phi$ ist injektiv, denn $\sigma\in \ker(\Phi) \Rightarrow \sigma_{|L_1} =id$,$\sigma_{|L_2} = id$ => $\sigma = id$, da $L_1L_2$ erzeugt wird von $L_1\cup L_2$
+    $\Phi$ ist injektiv, denn $\sigma\in \ker(\Phi) \Rightarrow \sigma_{|L_1} =id$,$\sigma_{|L_2} = id$ => $\sigma = id$, da $L_1L_2$ erzeugt wird von $L_1\cup L_2$.
     
+    Fall $K = L_1\cap L_2$:
     surjektivität:
     * Surjektivität von $\Phi$ im Fall $K= L_1\cap L_2$:
     $(L_1L_2|L_1), (L_1L_2|L_2)$ sind Galoiserweiterungen.
@@ -267,4 +271,113 @@ $K_n$ ist definiert als Zerfällungskörper von $X^n-1$ über $K$.
     $$X^{p^\alpha}-1 = \Pi_{d|p^\alpha} \phi_d = \phi_{p^\alpha} \underbrace{\Pi_{d|p^{\alpha-1}} \phi_d}_{X^{p^{\alpha-1}}-1}=\phi_{p^\alpha} (X^{p^{\alpha-1}})$$
     $$\phi_{p^\alpha} = \phi_p(X^{p^{\alpha-1}}) = \sum_{k=0}^{p-1} (X^{p^{\alpha -1}})^k$$
 \end{remark}
+
+\begin{flushright}
+VL vom 7.12.2023:
+\end{flushright}
+
+\begin{theorem}
+    Das $n$ste Kreisteilungspolynom $\phi_n$ ist irreduzibel in $\Q[X]$, d.h.
+    $$\phi_n=m_{\xi,\Q}$$ für $\xi\in \mu_n^*(\C)$
+\end{theorem}
+\begin{proof}
+    Sei $\xi \in \mu_n^*(\C)$. Sei $f\coloneqq m_{\xi,\Q} \in \Q[X]$.
+    Wir zeigen, dass jede primitive $n$-te EW eine Nullstelle von $f$ ist.
+    Dies imliziert $\phi_n |f$ und somit $\phi_n =f$ irreduzibel.
+    
+    Da $\xi$ Nullstelle von $X^n-1$ ist, existiert ein $h\in\Q[X]$ mit $X^n-1=f\cdot h$.
+    Weiter gilt, dass $f,h\in \Z[X]$ aus folgendem Grund:
+    \begin{reminder*}[Gauß-Lemma 2.5 b]
+        $$c(f)\cdot c(h) = c(f\cdot h) = c(X^n-1) = 1$$
+        
+    \end{reminder*}
+    Weiter ist $\underbrace{c(f)}_{ =\Tilde{c}(a\cdot f) a^{-1}},c(h)\in \{\frac{1}{k}\mid k\in \N\}$.
+    Also folgt $c(f) = c(h)=1$. => $f,g\in \Z[X]$
+
+    Sei $p$ eine Primzahl, die $n$ nicht teilt.
+    Dann ist $\xi^p$ auch eine primimtive $n$-te EW.
+    Wir behaupten, dass $\xi^p$ eine Nullstelle von $f$ ist.
+
+    Ist das nicht der Fall, dann ist $h(\xi^p)=0$, also ist $xi$ eine Nullstelle von $h(X^p)$.
+    Somit $f|h(X^p)$. Es existiert $g\in \Q[X]$ mit $h(X^p) = f\cdot g$.
+    Ähnlich wie oben ist sogar $g\in \Z[X]$.
+    Betrachte die Reduktion $\mod p$:
+    $$\Z[X] \rightarrow \F_p[X], \sum_i c_i X^i \mapsto \sum_i \overline{c}_i X^i$$.
+    Dann ist $\overline{h}^p = \overline{h}^p(X^p)= \overline{f}\cdot \overline{g}$, weil $p$-te Potenz Homomorphismus in $char=p$ und nach Euler?? $c^p\equiv c \mod p$.
+    Somit sind $f$ und $h$ nicht teilerfremd $\mod p$.
+    Dann ist $X^n-1 = \overline{f}\cdot\overline{h}\in \F_p[X]$ nicht separabel im Widerspruch zu $D(X^n-1) = nX^{n-1} \neq 0$.
+    Somit ist $\xi^p$ Nullstelle von $f$.
+
+    Ist $\xi'$ eine andere primitive $n$-te EW, dann ist $\xi' = \xi^m$ mit $(m,n)=1$ und man erhält $\xi'$ durch wiederholtes Bilden von Primpotenzen von $\xi$, wobei die Primexponenten zu $n$ teilerfremd sind.
+    Durch Wiederholhung des obigen Alguments bekommt man $f(\xi)=0$.
+\end{proof}
+\begin{corollary}
+    Sei $\xi\in \mu_n^*(\C)$.
+     Dann ist $[\Q(\xi):\Q] = \phi(n)$ und $Gal(\Q(\xi)|\Q)\cong (\Z/n\Z)^\times$
+\end{corollary}
+\begin{proof}
+    Kombination von 3.10 und 3.14
+\end{proof}
+\begin{remark*}[Satz von Kronecker-Weber ('Kroneckers Jugendtraum')]
+      Jede endliche abelsche Erweiterung\footnote{Erweiterung mit abelscher Galoisgruppe} von $\Q$ in einem Kreisteilungskörper enthalten.
+      \TODO[Optional: Ausblick über dessen Konsequenzen (inc Graphik)]
+\end{remark*}
+\subsection{Charaktere und Normalbasen}
+\begin{definition}
+    Sei $\Gamma$ eine Gruppe, $K$ ein Körper.
+    Ein \emph{Charakter} (von $\Gamma$ nach $K$) ist ein Homomorphismus $\Gamma\rightarrow K^\times$.
+\end{definition}
+Für jede Menge $M$ ist die Menge $Abb(M,K)$ der Abbildungen von $M$ nach $K$ ein $K$-Vektorraum bez punktweiser Addition und skalarer Multiplikation.
+
+\begin{lemma}
+    $K, \Gamma$ wie zuvor.
+    Paarweise verschiedene Charakterer $\chi_1,\dots,\chi_n$ von $\Gamma$ nach $K$ sind in $Abb(\Gamma,K)$ linear unabhängig.
+\end{lemma}
+\begin{proof}
+    Durch Induktion über $n$.
+    \begin{itemize}
+        \item[IA ($n=1$)] $\chi = \chi_1\neq 0$, da $\chi$ Werte in $K^\times$ annimmt
+        \item[$n\geq2$] 
+        Annahme: Je $n-1$ verschiedene Charaktere sind linear unabhängig.
+        Angenommen $\sum_{i=1}^n c_i \chi_i = 0$, wobei nicht alle $c_i$ Null sind.
+        Sei $\mu\in \Gamma$ mit $\chi_1(\mu) \neq \chi_2(\mu)$.
+        Dann gilt für alle $\gamma \in \Gamma$:
+        \begin{align*}
+            (1):& 0 = \sum_{i=1}^n c_i\chi_i(\mu\gamma) = \sum_{i=1} ^n c_i \chi_i(\mu) \chi_i(\gamma)\\
+            (2):& 0 = \chi_1(\mu)\sum_{i=1}^n c_i \chi_i(\gamma) = \sum_{i=1}^n c_i \chi_1(\mu)\chi_i(\gamma)\\
+            (1) - (2):& 0= \sum_{i=2}^n c_i (\underbrace{\chi_i(\mu) - \chi_1(\mu)}_{\neq 0 für i=2}) \cdot \chi_i(\gamma)
+        \end{align*}
+        \Lightning zu I-Annahme
+    \end{itemize}
+\end{proof}
+\begin{corollary}
+    Paarweise verschiedene Automorphismen eines Körpers $K$ sind linear unabhängig in $Abb(K,K)$
+\end{corollary}
+\begin{proof}
+    Sei $\sigma_1,\dots,\sigma_n\in Aut(K)$. Dann wende 3.17 auf ${\sigma_1}_{|K^\times},\dots, {\sigma_n}_{|K^\times}$ an.
+\end{proof}
+\begin{lemma}
+    Sei $L|K$ endliche und separabel. Sei $n= [L:K]$.
+    Seien $\sigma_1,\dots,\sigma_n:L\rightarrow \overline{K}$ paarweise verschiedene $K$-Homomorphismen.
+    Dann sind äquivalent:
+    \begin{enumerate}% i) ii)
+        \item $v_1,\dots,v_n\in L$ bilden eine $K$-Basis von $L$
+        \item $det\left((\sigma_i(v_j))_{ij}\right)\neq 0$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}$ $
+    \begin{itemize}
+        \item[(ii)=>(i)] Sei $\sum_{j=0}^n \lambda_i v_i = 0$, wobei nicht alle $\lambda_j$ Null sind.
+        Dann ist $\sum_{j=0}^n \lambda_j \sigma_i(v_j) = 0$ für alle i.
+        D.h. die Spalte von $(\sigma_i(v_j))_{ij}$ sind linear abhängig.
+        \item[(i)=>(ii)] Sei $\det = 0$. Dann gibt es $\mu_1,\dots,\mu_n\in \overline{K}$ mit $\sum_{i=1}^n\mu_i \sigma_i(v_j) = 0$ für alle $j$ (Zeilen lin. abh).
+        Nach 3.17 sind ${\sigma_1}_{|L^\times},\dots,{\sigma_n}_{|L^\times}$ linear unabhängig.
+        Falls $<\{v_1,\dots,v_n\}> = L$, dann gilt $\sum_{i=1}^n \mu_i\sigma_i = 0$ im Widerspruch zur linearen Unabhängigkeit.
+        Also ist $v_1,\dots v_n$ keine Basis.
+    \end{itemize}
+\end{proof}
+\begin{theorem}[Satz von der Normalbasis]
+    Sei $L|K$ eine endliche Galois-Erweiterung. Sei $n = [L:K]$ und $Gal(L|K) = \{\sigma_1,\dots,\sigma_n\}$.
+    Es existiert ein $a\in L$, sodass $\sigma_1(a),\dots,\sigma_n(a)$ eine $K$-Basis von $L$ bilden.
+\end{theorem}
 \end{document}
