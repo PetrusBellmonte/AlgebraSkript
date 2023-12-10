@@ -73,10 +73,10 @@ VL vom 30.11.2023:
             \Gamma(E) = Gal(L|E) &\longmapsfrom  E 
         \end{align*}
         $Fix$ und $\Gamma$ sind enthaltungsumkehrend:
-        \begin{align*}
-            H_1\leq H_2\;&\Rightarrow\; Fix(H_1) \supseteq Fix(H_2)\\
-            E_1\subset E_2\;&\Rightarrow\; \Gamma(E_1) \geq \Gamma(E_2)
-        \end{align*}
+        \begin{alignat*}{3}
+            H_1\leq H_2\;&\Rightarrow\; Fix(H_1) &&\supseteq Fix(H_2)\\
+            E_1\subset E_2\;&\Rightarrow\; \Gamma(E_1) &&\geq \Gamma(E_2)
+        \end{alignat*}
         \item Sei $E \in Z$, dann ist $E|K$ normal g.d.w. $Gal(L|E)$ ein Normalteiler von $Gal(L|K)$ ist.
         $$ Gal(E|K) \cong Gal(L|K)/Gal(L|E)$$
     \end{enumerate}
@@ -151,8 +151,6 @@ VL vom 30.11.2023:
 \begin{flushright}
 VL vom 1.12.2023:
 \end{flushright}
-\TODO[Die Stunde muss korrigiert und formatiert werden!!!]
-
 \begin{theorem}[Produktsatz]
 Sei $K$ Körper
     $L_1,L_2\subset \overline{K}$ zwei Teilkörper sodass $(L_1|K)$ und $(L_2|K)$ endlich und galois'sch.
@@ -173,23 +171,32 @@ Sei $K$ Körper
         Sie sind separabel über $K$ => $L_1L_2 = K(a_1,a_2)$ ist separabel über K (nach \ref{theo:2.47})
     \end{itemize}
 
-    $\Phi$ ist injektiv, denn $\sigma\in \ker(\Phi) \Rightarrow \sigma_{|L_1} =id$,$\sigma_{|L_2} = id$ => $\sigma = id$, da $L_1L_2$ erzeugt wird von $L_1\cup L_2$.
+    \begin{description}
+        \item[$\Phi$ ist injektiv], denn für $\sigma\in \ker(\Phi)$ gilt $\sigma_{|L_1} =id$,$\sigma_{|L_2} = id$ und damit $\sigma = id$, da $L_1L_2$ erzeugt wird von $L_1\cup L_2$.
+        \item[Surjektivität von $\Phi$ im Fall $K = L_1\cap L_2$]:
+        
+        $(L_1L_2|L_1), (L_1L_2|L_2)$ sind Galoiserweiterungen.
+        \begin{align*}
+            \Phi_1: Gal(L_1L_2|L_2)&\rightarrow Gal(L_1|K)\\
+            \sigma &\mapsto \sigma_{|L_1}
+        \end{align*}
+         ist injektiv, denn für $\sigma \in \ker(\Phi_1)$ gilt $\sigma_{|L_1} = id$.
+        Außerdem ist $\sigma_{|L_2} = id$, da $\sigma$ $L_2$-Homomorphismus. $\Rightarrow$ $\sigma = id$
     
-    Fall $K = L_1\cap L_2$:
-    surjektivität:
-    * Surjektivität von $\Phi$ im Fall $K= L_1\cap L_2$:
-    $(L_1L_2|L_1), (L_1L_2|L_2)$ sind Galoiserweiterungen.
-    $\Phi_1: Gal(L_1L_2|L_2)\rightarrow Gal(L_1|K), \sigma \mapsto \sigma_{|L_1}$ ist injektiv, denn $\sigma \in \ker(\Phi_1)\Rightarrow \sigma_{|L_1} = id$.
-    Außerdem ist $\sigma_{|L_2} = id$, da $\sigma$ $L_2$-Homomorphismus. => $\sigma = id$
-
-    $\Phi_1$ ist surjektiv, falls $K = L_1 \cap L_2$:
-    Sei $H=Bild(\Phi_1)\leq Gal(L_1|K)$.
-    $L_1^H=\{x\in L_1\mid\forall \sigma\in Gal(L_1L_2|L_2)\colon \sigma_{|L_1}(x) = x\} = L_1\cap\underbrace{ (L_1L_2)^{Gal(L_1L_2|L_2)}}_{=L_2}$
-    $L_1\cap L_2 = L_1^{Gal(L_1|L_1\cap L_2)}$ => $H= Gal(L_1|L_1\cap L_2)$
-
-    Analog mit $Phi_2: Gal(L_1L_2|L_1)\rightarrow Gal(L_2|K), \sigma \mapsto \sigma_{|L_2}$
-
-    * $Gal(L_1L_2|K)\geq Gal(L_1L_2|L_i)$ => $\Phi$ ist surjektiv
+        $\Phi_1$ ist surjektiv (falls $K = L_1 \cap L_2$):
+        Sei $H=Bild(\Phi_1)\leq Gal(L_1|K)$.
+        \begin{align*}
+            L_1^H&=\{x\in L_1\mid\forall \sigma\in Gal(L_1L_2|L_2)\colon \sigma_{|L_1}(x) = x\}\\
+            &= L_1\cap (L_1L_2)^{Gal(L_1L_2|L_2)}\\
+            &= L_1\cap L_2\\
+            &= L_1^{Gal(L_1|L_1\cap L_2)}
+        \end{align*}
+         $\Rightarrow H= Gal(L_1|L_1\cap L_2)$
+    
+        Analog mit $Phi_2: Gal(L_1L_2|L_1)\rightarrow Gal(L_2|K), \sigma \mapsto \sigma_{|L_2}$
+    
+        $Gal(L_1L_2|K)\geq Gal(L_1L_2|L_i)$ => $\Phi$ ist surjektiv
+    \end{description}
 \end{proof}
 \begin{example}
     $L_1=\Q(\sqrt[4]{2},i)$
@@ -352,7 +359,7 @@ Für jede Menge $M$ ist die Menge $Abb(M,K)$ der Abbildungen von $M$ nach $K$ ei
         \Lightning Widerspruch zu I-Annahme.
     \end{itemize}
 \end{proof}
-\begin{corollary}
+\begin{corollary} \label{theo:3.18}
     Paarweise verschiedene Automorphismen eines Körpers $K$ sind linear unabhängig in $Abb(K,K)$
 \end{corollary}
 \begin{proof}
@@ -449,18 +456,17 @@ VL vom 8.12.2023:
     Sei $K$ eine Körper, $a\in K$.
     Eine Nullstelle von $X^n-a$ nennt man \emph{Radikal} von $a$.
 \end{definition}
-\TODO[Formatting...]
 Die Nullstellen von $X^n-a$ in $\overline{K}$ sind $$\{\xi\cdot \sqrt[n]{a}\mid \xi \in \mu_n(\overline{K})\}$$.
 Der Zerfällungskörper ist $K(\xi,\sqrt[n]{a})$, wobei $\xi$ eine primitive $n$-te EW ist.
 
 \begin{theorem}
-    Sei $K$ ein Körper, $n\in \N$ mit $char(K)\nmid n$ (0 teilt keine zahl!!).
+    Sei $K$ ein Körper, $n\in \N$ mit $char(K)\nmid n$.\footnote{0 teilt keine Zahl}
     Es enthalte $K$ eine primitive $n$-te EW $\xi$
     \begin{enumerate}[label=(\alph*)]
-        \item $K(\sqrt[n]{a}|K$ eine endliche Galois-Erweiterung.
+        \item $K(\sqrt[n]{a})|K$ eine endliche Galois-Erweiterung.
         Die Galoisgruppe $Gal(K(\sqrt[n]{a})|K)$ ist zyklisch und ihre Ordnung teit n.
-        \item Ist $L|K$ eine endliche Galois-Erweiterung mit $[L:K] = n$ und zyklische Galoisgruppe,
-        dann ist $L=K(\sqrt[n]{a})$0fürr ein $a\in K$.
+        \item Ist $L|K$ eine endliche Galois-Erweiterung mit $[L:K] = n$ und zyklischer Galoisgruppe,
+        dann ist $L=K(\sqrt[n]{a})$ für ein $a\in K$.
     \end{enumerate}
 \end{theorem}
 \begin{proof}$ $
@@ -469,7 +475,7 @@ Der Zerfällungskörper ist $K(\xi,\sqrt[n]{a})$, wobei $\xi$ eine primitive $n$
         Sei $\sigma\in Gal(K(\sqrt[n]{a})|K)$.
         Dann ist $\sigma(\sqrt[n]{a}) =w_\sigma \cdot \sqrt[n]{a}$, wobei $\omega_\sigma = \xi^{m_\sigma}$ eine $n$-te EW ist.
         Die Abbildung 
-         $\psi: Gal(K(\sqrt[n]{a})|;)\rightarrow \mu_n(K), \sigma \mapsto \omega_\sigma = \frac{\sigma(\sqrt[n]{a})}{\sqrt[n]{a}}$ ist eine injektiver Gruppenhomomorphismus:
+         $\psi: Gal(K(\sqrt[n]{a})|K)\rightarrow \mu_n(K), \sigma \mapsto \omega_\sigma = \frac{\sigma(\sqrt[n]{a})}{\sqrt[n]{a}}$ ist eine injektiver Gruppenhomomorphismus:
          \begin{itemize}[align=left]
              \item[Gruppenhomomorphismus]
              $$\psi(\sigma\tau) = \frac{\sigma(\tau(\sqrt[n]{a}))}{\sqrt[n]{a}} = \frac{\sigma(\omega_\tau \cdot \sqrt[n]{a})}{\sqrt[n]{a}} = \omega_\tau \cdot \frac{\sigma(\sqrt[n]{a})}{\sqrt[n]{a}} = \omega_\tau \cdot \omega_\sigma = \psi(\tau)\psi(\sigma)$$
@@ -477,13 +483,13 @@ Der Zerfällungskörper ist $K(\xi,\sqrt[n]{a})$, wobei $\xi$ eine primitive $n$
              , weil $\sigma$ durch $\omega_\sigma$ eindeutig feistgelegt wird, da $\sqrt[n]{a}$ prim Element von $K(\sqrt[n]{a})$.
          \end{itemize}
 
-        Wegen $\mu_n(K) \cong (\Z/n\Z)^\times$ nach 3.10.a ist $Gal(K(\sqrt[n]{a}|K))$ auch zyklisch
+        Wegen $\mu_n(K) \cong (\Z/n\Z)^\times$ nach \ref{theo:3.10} a) ist $Gal(K(\sqrt[n]{a}|K))$ auch zyklisch
         
-        \item[b)] $L|K$ Galois mit $Gal(L|K) = <\sigma>$.
+        \item[b)] $L|K$ Galois mit $Gal(L|K) = \langle\sigma\rangle$.
         Langrange-Resolvente: $\phi = \sum_{i=0}^{n-1} \xi^{-i}\cdot \sigma^i\in Abb(L,L)$
-        Nach 3.18 sind $\sigma^0,...,\sigma^n$ linear unabhängig in $Abb(L,L)$.
+        Nach \ref{theo:3.18} sind $\sigma^0,...,\sigma^{n-1}$ linear unabhängig in $Abb(L,L)$.
         Somit ist $\phi\neq 0$. Also existiert ein $c\in L$ mit $b\coloneqq\phi(c) \neq 0$.
-        Eis gilt $\sigma(b) = \sum_{i=0}^{n-1} \xi^{-i}\cdot \sigma^{i+1}(c) =\xi \sum_{i=0}^{n-1} \xi^{-(i+1)}\cdot \sigma^{i+1} = \xi \cdot b$.
+        Es gilt $\sigma(b) = \sum_{i=0}^{n-1} \xi^{-i}\cdot \sigma^{i+1}(c) =\xi \sum_{i=0}^{n-1} \xi^{-(i+1)}\cdot \sigma^{i+1} = \xi \cdot b$, weil $\xi^{-((n-1)+1)}=\xi^{-n}=\xi^{0}$ und $\sigma^{(n-1)+1} = \sigma^0$.
         Das Minimalpolynom von $b$ hat die Nullstellen $b, \xi\cdot b, \xi^2\cdot b,\dots,\xi^{n-1} \cdot b$ und Grad $\leq n$.
         Also $m_{b,K} = \prod_{i=0}^{n-1} (X-\xi^i\cdot b) = X^n-b^n\in K[X]$.
         Wähle $a=b^n$.
