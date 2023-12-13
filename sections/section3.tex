@@ -33,7 +33,7 @@
     \begin{enumerate}
         \item $L|L^H$ galois'sch
         \item $[L:L^H] = \card{H}$
-        \item $Gal(L|L^H)\cong H$
+        \item $Gal(L|L^H) = H$
     \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -209,7 +209,7 @@ Sei $K$ Körper
 \subsection{Kreisteilungskörper und Einheitswurzeln}
 \begin{definition}
     Sei $K$ Körper und $n\in \N$.
-    Ein Element $\theta\in K^\times$ mit $\theta^n=1$ heißt \emph{$n$-te Einheitswulzel (EW)}. Hat $\theta$ die Ordnung $n$, so nennt man $\theta$ \emph{primitive $n$-te EW}.
+    Ein Element $\xi\in K^\times$ mit $\xi^n=1$ heißt \emph{$n$-te Einheitswulzel (EW)}. Hat $\xi$ die Ordnung $n$, so nennt man $\xi$ \emph{primitive $n$-te EW}.
     $\mu_n(K)\coloneqq\{\text{n-te EW in K}\}\leq K^\times$ zyklische Untergruppe.
     $\card{\mu_n(K)}\leq n$
     $\mu_n^*(K) \coloneqq \{\text{primitive n-te EW in K}\}$
@@ -217,9 +217,9 @@ Sei $K$ Körper
 \begin{example*}
     $\mu_n(\C) = \{exp(2\pi i\frac{k}{n})\mid k=0,\dots,n-1\}$
     $exp(2\pi i \frac{2}{4} = exp(2\pi i \frac{1}{2})$
-    $\theta\in \mu_n(\C)$ ist primitiv $\Leftrightarrow ggT(k,n)=1$
+    $\xi\in \mu_n(\C)$ ist primitiv $\Leftrightarrow ggT(k,n)=1$
 
-    $theta\in \mu_n(K)\setminus\trivGO \Rightarrow (X^n-1)/(X-1) = X^{n-1}+X^{n-2}+\dots+X+1$ hat $\theta$ als Nullstelle
+    $theta\in \mu_n(K)\setminus\trivGO \Rightarrow (X^n-1)/(X-1) = X^{n-1}+X^{n-2}+\dots+X+1$ hat $\xi$ als Nullstelle
     \TODO[bild]
 \end{example*}
 Definition:
@@ -228,8 +228,8 @@ $K_n$ ist definiert als Zerfällungskörper von $X^n-1$ über $K$.
 \begin{theorem}\label{theo:3.10}
     $K$ Körper, $n\in \N$, $char(K)\nmid n$
     \begin{enumerate}[label=\alph*)]
-        \item $(K_n|K)$ ist Galoiserweiterung, $\card{\mu_n(K_n)}=n$, $\phi_n\coloneqq \card{\mu_n^*(K_n)}= \card{(\Z/n\Z)^\times}$
-        $K_n = K(\theta)$ für $\theta \in \mu_n^*(K_n)$
+        \item $(K_n|K)$ ist Galoiserweiterung, $\card{\mu_n(K_n)}=n$, $\phi_n\coloneqq \card{\mu_n^*(K_n)}= \card{(\Z/n\Z)^\times}$ und
+        $K_n = K(\xi)$ für $\xi \in \mu_n^*(K_n)$
         \item $Gal(K_n|K)$ ist isomorph zu einer Untergruppe von $(\Z/n\Z)^\times$
     \end{enumerate}
 \end{theorem}
@@ -242,14 +242,14 @@ $K_n$ ist definiert als Zerfällungskörper von $X^n-1$ über $K$.
 
     Zu b)
     $\sigma \in Gal(K_n|K)$, $theta \in \mu_n^*(K_n)$
-    $\sigma(\theta) = \theta^m$ für m teilerfremd zu $n$.
+    $\sigma(\xi) = \xi^m$ für m teilerfremd zu $n$.
     $\sigma$ ist durch $m$ eindeutig bestimmt.
     $\Phi: Gal(K_n|K) \rightarrow (\Z/n\Z)^\times, \sigma \mapsto m+n\Z$ ist ein injektiver Gruppenhomomorphismus.
 \end{proof}
 
 \begin{definition}
-    Der Körper $\Q(\theta_n)$ für $\theta_n\in\mu_n^*(\C)$ heißt $n$-ter \emph{Kreisteilungskörper}.
-    Das Polynom $\phi_n=\prod_{\theta\in\mu_n^*(\C)} (X-\theta)$ heißt $n$-tes \emph{Kreisteilungspolynom}
+    Der Körper $\Q(\xi_n)$ für $\xi_n\in\mu_n^*(\C)$ heißt $n$-ter \emph{Kreisteilungskörper}.
+    Das Polynom $\phi_n=\prod_{\xi\in\mu_n^*(\C)} (X-\xi)$ heißt $n$-tes \emph{Kreisteilungspolynom}
 \end{definition}
 
 \begin{lemma}
@@ -260,7 +260,7 @@ $K_n$ ist definiert als Zerfällungskörper von $X^n-1$ über $K$.
     IA: $\phi_1 = X-1$ \checkmark
     $n\geq 2$: Wir verwenden, dass für $d<n$ $\phi_d\in \Z[X]$.
     Es ist $\mu_n(\C) = \bigcup_{d|n}\mu_d^*(\C)$ (disjukt).
-    $X^n-1 = \prod_{\theta\in\mu_n(\C)} (X-\theta) = \prod_{d|n}\underbrace{\prod_{\theta\in\mu_d^*(\C)}(X-\theta)}_{=\phi_d}$
+    $X^n-1 = \prod_{\xi\in\mu_n(\C)} (X-\xi) = \prod_{d|n}\underbrace{\prod_{\xi\in\mu_d^*(\C)}(X-\xi)}_{=\phi_d}$
     Setze $f = \prod_{d|n,d<n}\phi_d \overset{(IV)}{\in}\Z[X]$, f ist normiert.
     $X^n-1=qf+r$ mit $q,r\in \Z[X]$, $\deg(r)<deg(f)$.
     In $\C[X]$ $X^n-1=\phi_n f$, d.h. $r = (q-\phi_n) f$.
@@ -344,7 +344,7 @@ Für jede Menge $M$ ist die Menge $Abb(M,K)$ der Abbildungen von $M$ nach $K$ ei
     Durch Induktion über $n$.
     \begin{itemize}
         \item[IA ($n=1$)] $\chi = \chi_1\neq 0$, da $\chi$ Werte in $K^\times$ annimmt
-        \item[$n\geq2$] 
+        \item[IS $n\geq2$] 
         Annahme: Je $n-1$ verschiedene Charaktere sind linear unabhängig.
         Angenommen $\sum_{i=1}^n c_i \chi_i = 0$, wobei nicht alle $c_i$ Null sind (Sei \obda insbesondere $c_2 \neq 0$).
         Sei $\mu\in \Gamma$ mit $\chi_1(\mu) \neq \chi_2(\mu)$.

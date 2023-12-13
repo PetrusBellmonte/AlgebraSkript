@@ -370,7 +370,7 @@ VL vom 13.11.2023:
 \end{remark}
 
 \begin{definition} \label{theo:2.43}
-    Sei $L|K$ eine alg. $K$-Erweiterung.
+    Sei $L|K$ eine algebraische $K$-Erweiterung.
     Ein Element $a\in L$ ist separabel, wenn $m_{a,K}$ separabel ist.
     Sind alle $a\in L$ separabel, dann nennt man $L|K$ separabel.
 \end{definition}
@@ -552,17 +552,18 @@ VL vom 24.11.2023:
 \begin{proof} $ $
     \begin{enumerate}[align=left]
         \item [1.Fall: $K$ ist ein Endlicher Körper] 
-        Dann ist auch $L$ endlich. Nach \cref{theo:2.55} ist $L^*$ zyklisch, d.h. $L^*=<a>$. 
+        Dann ist auch $L$ endlich. Nach \cref{theo:2.55} ist $L^*$ zyklisch, d.h. $L^*=\langle a\rangle$. 
         Somit $L=K(a)$.
+        
         \item [2. Fall $K$ ist unendlich]
         Schreibe $L=K(a_1, \dots, a_n)$. Durch eine Induktion über $n$ reicht es den Fall $n=2$ zu zeigen.
-        Sei $L = K(a_1,a_2)$Seien $\phi_1,\dots,\phi_m: L\rightarrow \overline{K}$ seien die verschiedenen $K$-Einbettungen $L\rightarrow \overline{K}$, wobei $m=[L:K]_S=[L:K]$ weil separabel.
-        Das Polynom $$g = \Pi_{i<j} \left((\phi_i(a_1)-\phi_j(a_1))\cdot X + (\phi_i(a_2)-\phi_j(a_2))\right)\in \overline{K}[X]$$
+        Sei $L = K(a_1,a_2)$ und $\phi_1,\dots,\phi_m: L\rightarrow \overline{K}$ seien die verschiedenen $K$-Einbettungen $L\rightarrow \overline{K}$, wobei $m=[L:K]_S=[L:K]$ weil separabel.
+        Das Polynom $$g = \prod_{i<j} \left(\left(\phi_i\left(a_1\right)-\phi_j\left(a_1\right)\right)\cdot X + \left(\phi_i\left(a_2\right)-\phi_j\left(a_2\right)\right)\right)\in \overline{K}[X]$$
         Für $i<j$ ist $\phi_i(a_1)\neq \phi_j(a_1)$ oder $\phi_i(a_2)\neq\phi_j(a_2)$.
         Somit $g\neq 0$.
         Da $K$ unendlich, gibt es ein $c\in K$ mit $g(c)\neq 0$.
-        Aslo $(\phi_i(a_1)-\phi_j(a_1))\cdot c + (\phi_i(a_2)-\phi_j(a_2)) \neq = 0$ für alle $i<j$.
-        Das ist $\phi_i(a_1 \cdot c + a_2)- \phi_i(a_1\cdot c + a_2)$ und $\phi_i(a) \neq \phi_j(a)$ mit $a := a_1c+a_l\in L$ für $i<j$.
+        Also $(\phi_i(a_1)-\phi_j(a_1))\cdot c + (\phi_i(a_2)-\phi_j(a_2)) \neq 0$ für alle $i<j$.
+        Das ist $\phi_i(a_1 \cdot c + a_2)- \phi_j(a_1\cdot c + a_2) \neq 0$ und $\phi_i(a) \neq \phi_j(a)$ mit $a := a_1c+a_2\in L$ für $i<j$.
         Damit sind $\phi_1(a),\dots,\phi_m(a)$ sind verschiedene Nullstellen von $m_{a,k}$.
         Damit $[L:K] \geq [K(a):K] = \deg(m_{a,K}) \geq = m = [L:K]$, also $[L:K] = [K(a):K]$ und $L=K(a)$
     \end{enumerate}
