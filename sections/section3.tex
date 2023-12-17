@@ -509,4 +509,65 @@ Der Zerfällungskörper ist $K(\xi,\sqrt[n]{a})$, wobei $\xi$ eine primitive $n$
 Bedeutung:
 Die Nullstellen von $f$ lassen sich mittels Körperoperationen (+ and *) und (iterierte) Wurzeln schreiben.
 
+\begin{flushright}
+VL vom 15.12.2023:
+\end{flushright}
+\begin{lemma}
+    $K$ Körper mit $char(K)=0$
+    \begin{enumerate}[label=\alph*)]
+        \item Wenn $L|K$ durch Radikale auflösbar, dann existiert ein Radikalturm $K\subseteq K_1\subseteq\dots\subseteq K_r$ mit $L\subseteq K_r$ und $K_r|K$ galois'sch.
+        \item Sei $\xi \in \overline{K}$  eine EW, dann ist $L|K$ durch Radikale auflösbar g.d.w. $L(\xi)|K(\xi)$ durch Radikale auflösbar ist.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    \begin{enumerate}[label=\alph*)]
+        \item Induktion über die Länge des Turms:
+        Der Induktionsanfang mit Länge $0$ ist gegeben \checkmark.
+        Für den Induktionsschritt betrachte den Turm $K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_n$, wobei $K_n = K_{n-1}(u)$ mit $u^m \in K_{n-1}$ und nach Induktionsvorraussetzung $K_{n-1}|K$ galoisch ist.
+        Betrachte $$f = \prod_{\sigma\in Gal(K_{n-1}|K)} \left(X^m-\sigma(u^m)\right)\in K[X]$$.
+        $f\in K[X]$, weil $\sigma\circ f=f$ (die Linearfaktoren werden nur permutiert) und somit alle Koeffizienten in $K_{n-1}^{Gal(K_{n-1}|K)}=K$ liegen müssen.
+        Seien $u_1,\dots,u_t$ die Nullstellen von $f$ in $M$, dem Zerfällungskörper von $f$.
+        $$K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_{n-1}(u_1)\subseteq K_{n-1}(u_1,u_2)\subseteq\dots\subseteq K_{n-1}(u_1,\dots,u_t)=M$$
+        Wenn $K_{n-1}$ Zerfällungskörper von $W\subseteq K[X]$, dann ist $M$ Zerfällungskörper von $W\cup \{f\}$.
+        
+        \TODO[Ist f überhaupt irreduzibel? Was bringt es uns etwas bzgl $M$ zu zeigen, wenn eig zz ist, dass $K_n|K$ galois ist]
+        \item $ $
+        \begin{itemize}
+            \item[$\Leftarrow$] Sei $K(\xi) \subseteq K_1\subseteq K_r\supseteq L(\xi)$ ein Radikalturm für $L(\xi)|K(\xi)$.
+            Erhalte neuen Turm mit $K\subseteq K(\xi)\subseteq K_1\subseteq\dots\subseteq K_r \supseteq L(\xi)\supseteq L$ einen neuen Radikalturm für $L|K$.
+            \TODO[Ist $L|K$ denn auch überhaupt galoisch?]
+            \item[$\Rightarrow$]
+            Sei $K\subseteq K_1\subseteq \dots\subseteq K_r\supset L$ ein Radikalturm für $L|K$.
+            Dann ist $K(\xi)\subseteq K_1(\xi)\subseteq\dots\subseteq K_r(\xi)\supseteq L(\xi)$.
+            \TODO[Ist $L(\xi)|K(\xi)$ denn auch galoisch]
+        \end{itemize}
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    $K$ Körper, $char(K)=0$, $L|K$ endliche Erweiterung. Dann sind äquivalent:
+    \begin{enumerate}
+        \item $L|K$ ist durch Radikale auflösbar
+        \item Es existiert eine endliche galois'sche Erweiterung $M|K$ mit $L\subseteq M$ und $Gal(M|K)$ auflösbar.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    \TODO[Proof]
+\end{proof}
+
+\begin{corollary}
+    $K$ Körper mit $char(K)=0$. Dann $f\in K[X]\setminus K$ auflösbar durch Radikale gdw. Galoisgruppe des Zerfällungskörper auflösbar ist.
+\end{corollary}
+\begin{proof}
+    \TODO[Proof]
+\end{proof}
+
+\begin{example}
+    \begin{enumerate}
+        \item $S_5$ nicht auflösbar ($A_5 \leq S_5$ einfach, also nicht auflösbar).
+        Wenn Polynom $f$ so geartet ist, dass für dessen Zerfällungskörper $M$  gilt $Gal(M|K) \cong S_5$, dann lassen sich die Nullstellen von $f$ nicht durch iterierte Wurzeln sind.
+        Z.B $f=X^5-25X+5\in \Q[X]$.
+        \item Alle Untergruppen von $S_4$, $S_3$ sind auflösbar.
+    \end{enumerate}
+\end{example}
 \end{document}
