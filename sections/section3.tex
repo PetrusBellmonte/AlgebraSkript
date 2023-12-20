@@ -523,14 +523,18 @@ VL vom 15.12.2023:
     \begin{enumerate}[label=\alph*)]
         \item Induktion über die Länge des Turms:
         Der Induktionsanfang mit Länge $0$ ist gegeben \checkmark.
-        Für den Induktionsschritt betrachte den Turm $K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_n$, wobei $K_n = K_{n-1}(u)$ mit $u^m \in K_{n-1}$ und nach Induktionsvorraussetzung $K_{n-1}|K$ galoisch ist.
+        Für den Induktionsschritt betrachte einen Turm $K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_n$, wobei $K_n = K_{n-1}(u)$ mit $u^m \in K_{n-1}$ und $K_{n-1}|K$ galoisch ist.
+        Nach Induktionsvorraussetzung muss ein solcher Turm existieren.
         Betrachte $$f = \prod_{\sigma\in Gal(K_{n-1}|K)} \left(X^m-\sigma(u^m)\right)\in K[X]$$.
         $f\in K[X]$, weil $\sigma\circ f=f$ (die Linearfaktoren werden nur permutiert) und somit alle Koeffizienten in $K_{n-1}^{Gal(K_{n-1}|K)}=K$ liegen müssen.
-        Seien $u_1,\dots,u_t$ die Nullstellen von $f$ in $M$, dem Zerfällungskörper von $f$.
+        Seien $u_1,\dots,u_t$ die Nullstellen von $f$ in $M$, dem Zerfällungskörper von $f$:\footnote{Wenn $K_{n-1}$ Zerfällungskörper von $W\subseteq K[X]$, dann ist $M$ Zerfällungskörper von $W\cup \{f\}$}
         $$K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_{n-1}(u_1)\subseteq K_{n-1}(u_1,u_2)\subseteq\dots\subseteq K_{n-1}(u_1,\dots,u_t)=M$$
-        Wenn $K_{n-1}$ Zerfällungskörper von $W\subseteq K[X]$, dann ist $M$ Zerfällungskörper von $W\cup \{f\}$.
+
+        Die zu beweisende Aussage gilt mit $K_r\coloneqq M$:
+        $M|K$ ist normal (weil Zerfällungskörper) und separarabel (da $char(K)=0)$ und damit galois'sch.
+        Offensichtlich ist auch $L\subseteq M$ und $M$ lässt sich durch einen Radikalturm darstellen.
         
-        \TODO[Ist f überhaupt irreduzibel? Nope... Was bringt es uns etwas bzgl $M$ zu zeigen, wenn eig zz ist, dass $K_n|K$ galois ist...]
+
         \item $ $
         \begin{itemize}
             \item[$\Leftarrow$] Sei $K(\xi) \subseteq K_1\subseteq K_r\supseteq L(\xi)$ ein Radikalturm für $L(\xi)|K(\xi)$.
