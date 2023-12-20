@@ -60,7 +60,7 @@
 \begin{flushright}
 VL vom 30.11.2023:
 \end{flushright}
-\begin{theorem}[Hauptsatz]
+\begin{theorem}[Hauptsatz]\label{theo:3.4}
     $L|K$ endliche Galoiserweiterung.
     $$U \coloneqq \{H\leq Gal(L|K) \mid H \text{ Untergruppe}\}$$
     $$Z\coloneqq \{E\subseteq L \mid K\subseteq E \subseteq L \text{ Zwischenkörper}\}$$
@@ -459,7 +459,7 @@ VL vom 8.12.2023:
 Die Nullstellen von $X^n-a$ in $\overline{K}$ sind $$\{\xi\cdot \sqrt[n]{a}\mid \xi \in \mu_n(\overline{K})\}$$.
 Der Zerfällungskörper ist $K(\xi,\sqrt[n]{a})$, wobei $\xi$ eine primitive $n$-te EW ist.
 
-\begin{theorem}
+\begin{theorem} \label{theo:3.22}
     Sei $K$ ein Körper, $n\in \N$ mit $char(K)\nmid n$.\footnote{0 teilt keine Zahl}
     Es enthalte $K$ eine primitive $n$-te EW $\xi$
     \begin{enumerate}[label=(\alph*)]
@@ -512,7 +512,7 @@ Die Nullstellen von $f$ lassen sich mittels Körperoperationen (+ and *) und (it
 \begin{flushright}
 VL vom 15.12.2023:
 \end{flushright}
-\begin{lemma}
+\begin{lemma}\label{theo:3.24}
     $K$ Körper mit $char(K)=0$
     \begin{enumerate}[label=\alph*)]
         \item Wenn $L|K$ durch Radikale auflösbar, dann existiert ein Radikalturm $K\subseteq K_1\subseteq\dots\subseteq K_r$ mit $L\subseteq K_r$ und $K_r|K$ galois'sch.
@@ -530,7 +530,7 @@ VL vom 15.12.2023:
         $$K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_{n-1}(u_1)\subseteq K_{n-1}(u_1,u_2)\subseteq\dots\subseteq K_{n-1}(u_1,\dots,u_t)=M$$
         Wenn $K_{n-1}$ Zerfällungskörper von $W\subseteq K[X]$, dann ist $M$ Zerfällungskörper von $W\cup \{f\}$.
         
-        \TODO[Ist f überhaupt irreduzibel? Was bringt es uns etwas bzgl $M$ zu zeigen, wenn eig zz ist, dass $K_n|K$ galois ist]
+        \TODO[Ist f überhaupt irreduzibel? Nope... Was bringt es uns etwas bzgl $M$ zu zeigen, wenn eig zz ist, dass $K_n|K$ galois ist...]
         \item $ $
         \begin{itemize}
             \item[$\Leftarrow$] Sei $K(\xi) \subseteq K_1\subseteq K_r\supseteq L(\xi)$ ein Radikalturm für $L(\xi)|K(\xi)$.
@@ -544,22 +544,60 @@ VL vom 15.12.2023:
     \end{enumerate}
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theo:3.25}
     $K$ Körper, $char(K)=0$, $L|K$ endliche Erweiterung. Dann sind äquivalent:
-    \begin{enumerate}
+    \begin{enumerate}[label=(\roman*)]
         \item $L|K$ ist durch Radikale auflösbar
         \item Es existiert eine endliche galois'sche Erweiterung $M|K$ mit $L\subseteq M$ und $Gal(M|K)$ auflösbar.
     \end{enumerate}
 \end{theorem}
-\begin{proof}
-    \TODO[Proof]
+\begin{reminder*}
+    $G$ Gruppe auflösbar, wenn eine Normalreihe $\trivGO=G_0\nteq G_1 \nteq\dots\nteq G_r = G$ und $G_{i+1}/G_i$ abelsch existiert bzw. $G' = [G,G]$ terminiert in $\trivGO$ nach endlich vielen Schritten.
+\end{reminder*}
+\begin{proof} $ $
+    \begin{itemize}
+        \item[(ii) $\Rightarrow$ (i)]
+        Sei $n=[M:K]$ und $\xi\in\overline{K}$ eine primitive $n$-te Einheitswurzel.
+        Nach \ref{theo:3.24} genügt es zu zeigen, dass $M(\xi)|K(\xi)$.\TODO[Jaa, und beweisen wir das noch? Oder nehmen wir das an?]
+        Bemerke $M(\xi)|K(\xi)$ galois'sch \TODO[Nehmen wir das an? Zeigen wir das?]
+        $$Gal(M(\xi)|K(\xi)) \leq Gal(M|K)$$
+        gilt, da sich Automorphismen aus $G(M(\xi)|K(\xi))$ auf $Gal(M|K)$ eingeschränkt werden kann.
+        Die ist möglich, da die evtl.\footnote{$\xi$ könnte bereits in $M$ sein. In dem Fall ist $Gal(M(\xi)|K(\xi))$ die Menge der Automorphismen in $Gal(M|K)$ ist, die $xi$ fix halten.} zusätzliche Nullstellen $\xi^i$ (als Elemente in $K(\xi)$ ) fix gehalten werden und die Automorphismen in $Gal(M(\xi)|K(\xi))$ höchstens auf den verbleibenden Nullstellen/Elementen in $M$ nicht-fix agieren können.
+        
+        Nach \cref{theo:1.12} sind die Untergruppen auflösbarer Gruppen auflösbar. Damit ist auch $Gal(M(\xi)|K(\xi))$ auflösbar, da $Gal(M|K)$ nach Vorraussetzung auflösbar.
+
+        Sei $\trivGO = G_0\nteq G_1\nteq \dots\nteq G_r = Gal(M(\xi)|K(\xi))$ mit $G_i/G_{i-1}$ abelsch, nach \ref{theo:1.13} sogar zyklisch.
+        Definiere $K_i=M(\xi)^{G_{r-i}}$.
+        $$K(\xi) = K_0\subseteq K_1\subseteq \dots\subseteq K_r = M(\xi)$$
+        Nach Haupsatz der Galoistheorie ist $M(\xi)|K_i$ galois'sch mit $Gal(M(\xi)|K_i) = G_{r-i}$.
+        Nach \ref{theo:3.4} und wegen $G_{i-1}\nteq G_i$ folgt $Gal(K_{i+1}|K_i) = G_{r-i}/G_{r-i-1}$, was zyklisch ist "siehe oben"??\TODO[What?].
+        Sei $m=[K_{i+1}:K_i]|n$ und $K$ enthält eine primitive $n$-te EW.
+        Dann gilt nach 3.22b) $K_{i+1}=K_i(\sqrt[n]{a})$ für ein $a\in K_{i-1}$
+        \item[(i) $\Rightarrow$ (ii)]
+        Beweisidee: Gruppenturm aus Körperturm umsetzen.
+        Mit \cref{theo:3.24} finde Radikalturm $K=K_0\subseteq\dots\subseteq K_r$ mit $K_r|K$ galios'sch und $K_i=K_{i-1}(u)$ wobei $u_i^{m_i}\in K_{i-1}$ für geeignete $m_i\in \N$.
+        Sei $n$ eine Vielfaches von $m_1,\dots,m_r$ und $\xi$ eine primitive $n$-te EW und $M=K_r(\xi)$ galois'sch\TODO[$M|K$ oder $M|K(\xi)$ galois'sch].
+        Setze $G_i = Gal(M|K_{r-i}(\xi))\leq Gal(M|K)$.
+        $K_{r-i}(\xi)$ ist Radikalerweiterung von $K_{r-i-1}$.
+        Nach \ref{theo:3.22} gilt/gibt es? $\trivGO=G_0\nteq G_1\nteq \dots \nteq G_r = Gal(M|K(\xi))\leq Gal(M|K)$
+        Nach \ref{theo:3.22}a) ist $G_i/G_{i-1}$ für alle $i$ zyklisch.
+        Da $K(\xi)|K$ galois'sch, folg aus \ref{theo:3.4}, dass normal Untergruppe und nach \ref{theo:3.10} ist die Faktorgruppe ablsch.
+    \end{itemize}
 \end{proof}
 
 \begin{corollary}
     $K$ Körper mit $char(K)=0$. Dann $f\in K[X]\setminus K$ auflösbar durch Radikale gdw. Galoisgruppe des Zerfällungskörper auflösbar ist.
 \end{corollary}
-\begin{proof}
-    \TODO[Proof]
+\begin{proof} $ $
+    \begin{itemize}
+        \item[$\Leftarrow$]
+        $L$ Zerfällungskörper, $Gal(L|K)$ auflösbar, setze $M=L$ in \ref{theo:3.25}
+        \item[$\Rightarrow$]
+        Sei $L|K$ durch Radikale auflösbar.
+        Nach \ref{theo:3.25} ist $K\subseteq L \subseteq M$.
+        Da $L|K$ galois'sch, ist $Gal(M|L)\nteq Gal(M|K)$ und $Gal(M|K)/Gal(M|K) = Gal(L|K)$.
+        Nach \ref{theo:3.25} ist $Gal(M|K)$ auflösbar und damit ist $Gal(L|K)$ als dessen Faktor auch auflösbar.
+    \end{itemize}
 \end{proof}
 
 \begin{example}
