@@ -539,11 +539,10 @@ VL vom 15.12.2023:
         \begin{itemize}
             \item[$\Leftarrow$] Sei $K(\xi) \subseteq K_1\subseteq K_r\supseteq L(\xi)$ ein Radikalturm für $L(\xi)|K(\xi)$.
             Erhalte neuen Turm mit $K\subseteq K(\xi)\subseteq K_1\subseteq\dots\subseteq K_r \supseteq L(\xi)\supseteq L$ einen neuen Radikalturm für $L|K$.
-            \TODO[Ist $L|K$ denn auch überhaupt galoisch?]
+            
             \item[$\Rightarrow$]
             Sei $K\subseteq K_1\subseteq \dots\subseteq K_r\supset L$ ein Radikalturm für $L|K$.
             Dann ist $K(\xi)\subseteq K_1(\xi)\subseteq\dots\subseteq K_r(\xi)\supseteq L(\xi)$.
-            \TODO[Ist $L(\xi)|K(\xi)$ denn auch galoisch]
         \end{itemize}
     \end{enumerate}
 \end{proof}
@@ -562,8 +561,8 @@ VL vom 15.12.2023:
     \begin{itemize}
         \item[(ii) $\Rightarrow$ (i)]
         Sei $n=[M:K]$ und $\xi\in\overline{K}$ eine primitive $n$-te Einheitswurzel.
-        Nach \ref{theo:3.24} genügt es zu zeigen, dass $M(\xi)|K(\xi)$.\TODO[Jaa, und beweisen wir das noch? Oder nehmen wir das an?]
-        Bemerke $M(\xi)|K(\xi)$ galois'sch \TODO[Nehmen wir das an? Zeigen wir das?]
+        Nach \ref{theo:3.24} genügt es zu zeigen, dass $M(\xi)|K(\xi)$ durch Radikale auflösbar ist.
+        Bemerke $M(\xi)|K(\xi)$ galois'sch, da $M|K$ bereits galois'sch nach Vorraussetzung.
         $$Gal(M(\xi)|K(\xi)) \leq Gal(M|K)$$
         gilt, da sich Automorphismen aus $G(M(\xi)|K(\xi))$ auf $Gal(M|K)$ eingeschränkt werden kann.
         Die ist möglich, da die evtl.\footnote{$\xi$ könnte bereits in $M$ sein. In dem Fall ist $Gal(M(\xi)|K(\xi))$ die Menge der Automorphismen in $Gal(M|K)$ ist, die $xi$ fix halten.} zusätzliche Nullstellen $\xi^i$ (als Elemente in $K(\xi)$ ) fix gehalten werden und die Automorphismen in $Gal(M(\xi)|K(\xi))$ höchstens auf den verbleibenden Nullstellen/Elementen in $M$ nicht-fix agieren können.
@@ -574,13 +573,13 @@ VL vom 15.12.2023:
         Definiere $K_i=M(\xi)^{G_{r-i}}$.
         $$K(\xi) = K_0\subseteq K_1\subseteq \dots\subseteq K_r = M(\xi)$$
         Nach Haupsatz der Galoistheorie ist $M(\xi)|K_i$ galois'sch mit $Gal(M(\xi)|K_i) = G_{r-i}$.
-        Nach \ref{theo:3.4} und wegen $G_{i-1}\nteq G_i$ folgt $Gal(K_{i+1}|K_i) = G_{r-i}/G_{r-i-1}$, was zyklisch ist "siehe oben"??\TODO[What?].
+        Nach \ref{theo:3.4} und wegen $G_{i-1}\nteq G_i$ folgt $Gal(K_{i+1}|K_i) = G_{r-i}/G_{r-i-1}$, was zyklisch ist (siehe oben).
         Sei $m=[K_{i+1}:K_i]|n$ und $K$ enthält eine primitive $n$-te EW.
         Dann gilt nach 3.22b) $K_{i+1}=K_i(\sqrt[n]{a})$ für ein $a\in K_{i-1}$
         \item[(i) $\Rightarrow$ (ii)]
         Beweisidee: Gruppenturm aus Körperturm umsetzen.
-        Mit \cref{theo:3.24} finde Radikalturm $K=K_0\subseteq\dots\subseteq K_r$ mit $K_r|K$ galios'sch und $K_i=K_{i-1}(u)$ wobei $u_i^{m_i}\in K_{i-1}$ für geeignete $m_i\in \N$.
-        Sei $n$ eine Vielfaches von $m_1,\dots,m_r$ und $\xi$ eine primitive $n$-te EW und $M=K_r(\xi)$ galois'sch\TODO[$M|K$ oder $M|K(\xi)$ galois'sch].
+        Mit \cref{theo:3.24} finde Radikalturm $K=K_0\subseteq\dots\subseteq K_r$ mit $K_r|K$ galios'sch und $K_i=K_{i-1}(u_i)$ wobei $u_i^{m_i}\in K_{i-1}$ für geeignete $m_i\in \N$.
+        Sei $n$ eine Vielfaches von $m_1,\dots,m_r$ und $\xi$ eine primitive $n$-te EW und $M=K_r(\xi)|K$ galois'sch.
         Setze $G_i = Gal(M|K_{r-i}(\xi))\leq Gal(M|K)$.
         $K_{r-i}(\xi)$ ist Radikalerweiterung von $K_{r-i-1}$.
         Nach \ref{theo:3.22} gilt/gibt es? $\trivGO=G_0\nteq G_1\nteq \dots \nteq G_r = Gal(M|K(\xi))\leq Gal(M|K)$
@@ -612,4 +611,144 @@ VL vom 15.12.2023:
         \item Alle Untergruppen von $S_4$, $S_3$ sind auflösbar.
     \end{enumerate}
 \end{example}
+
+\subsection{Spur und Norm}
+\begin{definition}
+    Sei $L|K$ endlich.
+    Sei $a\in L$. Die \emph{Spur} $Sp_{L/K}(a)\in K$ ist die Spur des $K$-lin. Endomorphismus $\phi_a:L\rightarrow L, \phi_a(x) = a\cdot x$.
+    Ähnlich definiert man die \emph{Norm} $N_{L/K}(a) \in K$ als $\det(\phi_a)$.
+    Das char. Polynom von $\phi_a$ bezeichnen wir mit $X_{a,L
+    /K}\in K[X]$.
+    
+    Offensichtlich ist $Sp_{L/K}:L\rightarrow K$ $K$-linear.
+    Weiter ist $N_{L/K}(a\cdot b) = N_{L/K}(a)\cdot N_{L/K}(b)$.
+\end{definition}
+\begin{example}
+    $L=\Q(\sqrt{3})$, $K=\Q$.
+    Sei $a = a_1+\sqrt{3}a_2\in L$, $a_i \in \Q$.
+    Die darstellende Matrix von $\phi_a$ bez. der $\Q$ -Basis $1,\sqrt{3}$ ist.
+    \begin{equation}
+        a_1 3a_2
+        a_2 a_1
+    \end{equation}
+
+    Also gilt $Sp_{L/K}(a)=2a_1$ und $N_{L/K}(a) = a_1^2-3a_2^2$
+\end{example}
+\begin{lemma}
+    Sei $M$ ein Zwischenkörper der endlichen Körperweiterungen $L|K$. dann ist
+    $\chi_{a,L/K} = \chi_{a,L/K}^{[L:M]}$ für $a\in M$.
+\end{lemma}
+\begin{proof}
+    Wähle VR-Basen
+    $v_1,\dots,v_n$ von $M$ über $K$,
+    $w_1,\dots,w_m$ von $L$ über $M$
+    bilden die Produkte $w_k\cdot v_i$ eine vR-Basis von $L$ über $K$. Sei $A$ die darstellende Matrix von $\phi_a$ bez. $(v_1,\dots,v_n)$. Dann gilt
+    $$\chi_{a,M/L} = \det(X\cdot I_n-A)$$
+    ´Die darstellende Martix von $\phi_a:L\rightarrow L$ bez der Basis $w_k\cdot v_i$ ($k=1,\dots,m$, $i=1,\dots,n$) ist.
+    \TODO[Matrix-bild]
+    $\Rightarrow \chi_{a,L/K} =\chi_{M/L}^m$, $m=[L:M]$
+\end{proof}
+\begin{remark}
+    Unter der Vorraussetzung von 3.30 erhält man für $a\in M$, dass $Sp_{L/K}(a) = [L:M]\cdot Sp_{M/K}(a)$
+    $N_{L/K}(a) = N_{M/K}(a)$
+\end{remark}
+\begin{theorem}
+    Sei $L|K$ endlich und $a\in L$.
+    Es sei $m_{a,K} = X^n+\alpha_{n-1}X^{n-1}+\dots +\alpha_0$.
+    Dann gelten
+    $$Sp_{L/K}(a) = -[L:K(a)]\alpha_{n-1}$$
+    $$N_{L/K} (a) = ((-1)^n\cdot \alpha_0)^{[L:K(a)]}$$
+\end{theorem}
+\begin{proof}
+    Nach Lemma 3.30/3.31 reicht es den Fall $L=K(a)$ zu betrachten.
+    In diesem Fall hat $L$ die Basis $1,a,\dots,a^{n-1}$ über $K$.
+    Die dazugehörige Matrix von $\phi_a$ lautet
+    \begin{equation}
+        0 0 ... 0       -\alpha_0
+        1 0     \vdots
+        0 1     \vdots
+        \vdots  \vdots
+        0 \dots 0
+        0\dots  1       -\alpha_{n-1}
+    \end{equation}
+    $\Rightarrow$ $Sp_{L/K}(a) = -\alpha_{n-1}$
+    $\Rightarrow$ $N_{L/K} (a) = (-1)^n \alpha_0$
+\end{proof}
+\begin{remark}
+    Es gilt sogar $\chi_{a,K(a)/K} = m_{a,K}$.
+    Cayley Hamilton:
+    $\chi_{a,K(a)/K}(\phi_a) = 0$.
+    Andererseits ist $0=\chi_{a,K(a)/K}(\phi_a)(1) = \chi_{a,K(a)/K}(\underbrace{\phi_a(1)}_{=a}) $. Da $\deg(\chi_{a,K(a)/K})=\deg(m_{a,K})$ ist $m_{a,K} = \chi_{a,K(a)/K}$.
+\end{remark}
+
+\begin{theorem}
+    Sei $L|K$ endlich und separabel.
+    Sei $n=[L:K]$ und $\{\sigma_1,\dots,\sigma_n\} = Hom_K(L,\overline{K})$.
+    Dann gilt $Sp_{L/K} = \sum_{i=1}^n \sigma_i(a)$
+    $N_{L/K} (a) = \prod_{i=1}^n \sigma_i(a)$.
+\end{theorem}
+\begin{proof}
+    $m_{a,K} = X^r+\alpha_{r-1}X^{r-1}+\dots + \alpha_0$
+    das Minimalpolynom.
+    Nach lemma 2.44 $K(a)|K$ isti auch separabel.
+    Folglich gibt es $r$ verschiedene $K$-Homomorphismen $\tau_1,\dots,\tau_r$ von $K(a)$ nach $\overline{K}$.
+    Weiter ist $m_{a,K} = \prod_{i=1}^r (X-\tau_i(a))$.
+    => $\sum_{i=1}^r\tau_i(a) = -\alpha_{r-1}$ (\TODO[why?]), $\prod_{i=1}^r \tau_i(a) = (-1)^r \cdot \alpha_0$.
+
+    Es ist $\{{\sigma_1}_{|K(a)}, \dots, {\sigma_n}_{|K(a)}\} = \{\tau_1,\dots,\tau_r\}$.
+    Für jedes $i$ ist die Anzahl der $j$'s mit ${\sigma_j}_{|K(a)} = \tau_i$ gleich $[L:K(a)]_S = [L:K(a)]$
+    Daher folgt $\sum_{j=1}^n\sigma_j(a) = [L:K(a)]\cdot \sum_{i=1}^r \tau_i(a) = -[L:K(a)]\alpha_{r-1} \overset{Satz...}{ =} Sp_{L|K}(a)$.
+\end{proof}
+\begin{theorem}
+    Sei $M$ ein Zwischenkörper der endlichen Erweiterung $L|K$.
+    Dann gelten $Sp_{L|K} = Sp_{M|K}\circ Sp_{L|M}$
+    $N_{L|K} = N_{M|K}\circ N_{L|M}$
+\end{theorem}
+\begin{proof}nur für separable Erweiterungen:
+    Seien $hom_M(L,\overline{K}) = \{\tau_1,\dots,\tau_m\}$, $m=[L:M]$
+    $hom_K(M,\overline{K}) = \{\sigma_1,\dots,\sigma_l\}$, $l = [M:K]$.
+    Dann ist $\{\overline{\sigma}_j\circ\tau_i\mid i \in \{1,\dots,m\}, j\in \{1,\dots,l\}\} = hom_K(L,\overline{K})$, wobei $\overline{\sigma}_j$ Erweiterung vorn $\sigma_j$ zu $\overline{K}\rightarrow \overline{K}$ (siehe Beweis von 2.46)
+    \begin{align*}
+        Sp_{L|K}(a) &= \sum_{i,j} \overline{\sigma}_j(\tau_i(a))\\
+        &=\sum_j\overline{\sigma}_j(\underbrace{\sum_i \tau_i (a)}_{Sp_{L|M}(a)\in M})\\
+        &= \sum_j \sigma_j (Sp_{L|M} (a))//
+        &= Sp_{M|K}(Sp_{L|M}(a))
+    \end{align*}
+\end{proof}
+\begin{theorem}
+    Sei $L|K$ endlich und separabel.
+    \begin{enumerate}%a)
+        \item Es gibt ein $a\in L$ mit $Sp_{L|K}(a)\neq 0$
+        \item Durch $(v,w)\coloneqq Sp_{L|K}(v\cdot w)$ wird eine symmetirsche Bilienarform des $K$-VR $L$ definiert, die nicht ausgeartet ist.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+Zu a)
+    Die Homom. $\{\tau_1,\dots,\tau_n\} = hom_K(L|\overline{K})$ sind lin. unabhöngig als Elemente von $Abb(L^\times,\overline{K})$ und somit  von $Hom_K(L,\overline{K})$.
+    Da $Sp_{L|K} = \sum_{i=1}^n \tau_i$ kann $Sp_{L|K}$ nicht die Nullabbildung sein.
+
+    zu b)
+    Sei $a\in L$ mit $Sp_{L|K}(a)\neq 0$. Dann gilt $(v, av^{-1}) = Sp_{L|K}(a) \neq 0$ => nicht ausgeartet
+\end{proof}
+\subsection{Anwendungen der Galoistheorie}
+\begin{reminder*}[Fundamentalsatz der Algebra]
+    $\C$ ist algebraisch abgeschlossen.
+\end{reminder*}
+\begin{proof}
+    Sei $\R\subseteq\C\subseteq L$ eine Kette von endlichen Erweiterungen.
+    Zu zeigen: $L= \C$.
+    Durch Vergrößern von $L$ können wir annehmen, dass $L|\R$ eine Galoiserweiterung ist.
+    Sei $G\coloneqq Gal(L|\R)$.
+    Es ist $[L:\R] = \card{G} = 2^k\cdot m$ mit $2\nmid m$.
+    Es sei $H\leq G$ eine $2$-Sylowuntergruppe von $G$.
+    \TODO[Bild]
+    Satz vom primitiven Element: $L^H= \R(\alpha)$.
+    Da $m_{\alpha,\R}$ eine Nullstelle in $\R$ besitzt (Zwischenwertsatz!), ist $m_{\alpha,\R}$ linear, also $m=1$ und $L^H= \R$.
+    $\Rightarrow$ $[L:\R] = 2^k$, $[L:\C] = 2^{k-1}$
+
+    Ang. $k\geq 2$. Dann existiert $H'\leq G' = Gal(L|\C)$ mit $\card{H'} = 2^{k-2}$ (allg. Aussage über $p$-Gruppen)
+    \TODO[bild]
+    Da jedes quadratische Polynom in $C[X]$ zerfällt in $\C$, folgt ähnlich wie oben ein Widerspruch (bet $m_{a,\C}$ für die $L^H=\C(a)$)
+\end{proof}
+
 \end{document}
