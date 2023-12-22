@@ -615,82 +615,96 @@ VL vom 15.12.2023:
 \begin{flushright}
 VL vom 21.12.2023:
 \end{flushright}
-\TODO[All contants from this lecture are in dire need of formating! Proceed with caution]
 \subsection{Spur und Norm}
-\begin{definition}
+\begin{definition}\label{theo:3.28}
     Sei $L|K$ endlich.
-    Sei $a\in L$. Die \emph{Spur} $Sp_{L/K}(a)\in K$ ist die Spur des $K$-lin. Endomorphismus $\phi_a:L\rightarrow L, \phi_a(x) = a\cdot x$.
-    Ähnlich definiert man die \emph{Norm} $N_{L/K}(a) \in K$ als $\det(\phi_a)$.
-    Das char. Polynom von $\phi_a$ bezeichnen wir mit $X_{a,L
-    /K}\in K[X]$.
-    
-    Offensichtlich ist $Sp_{L/K}:L\rightarrow K$ $K$-linear.
-    Weiter ist $N_{L/K}(a\cdot b) = N_{L/K}(a)\cdot N_{L/K}(b)$.
+    Sei $a\in L$. Die \emph{Spur} $Sp_{L|K}(a)\in K$ ist die Spur des $K$-lin. Endomorphismus $\phi_a:L\rightarrow L, \phi_a(x) = a\cdot x$.
+    Ähnlich definiert man die \emph{Norm} $N_{L|K}(a) \in K$ als $\det(\phi_a)$.
+    Das char. Polynom von $\phi_a$ bezeichnen wir mit $\chi_{a,L
+    |K}\in K[X]$.
 \end{definition}
+Offensichtlich ist $Sp_{L|K}:L\rightarrow K$ $K$-linear.
+Weiter ist $N_{L|K}(a\cdot b) = N_{L|K}(a)\cdot N_{L|K}(b)$.
+
 \begin{example}
     $L=\Q(\sqrt{3})$, $K=\Q$.
     Sei $a = a_1+\sqrt{3}a_2\in L$, $a_i \in \Q$.
-    Die darstellende Matrix von $\phi_a$ bez. der $\Q$ -Basis $1,\sqrt{3}$ ist.
-    \begin{equation}
-        a_1 3a_2
-        a_2 a_1
-    \end{equation}
-
-    Also gilt $Sp_{L/K}(a)=2a_1$ und $N_{L/K}(a) = a_1^2-3a_2^2$
+    Die darstellende Matrix von $\phi_a$ bez. der $\Q$-Basis $1,\sqrt{3}$ ist.
+    $$\begin{pmatrix}
+        a_1& 3a_2\\
+        a_2& a_1\\
+    \end{pmatrix}$$
+    Also gilt $Sp_{L|K}(a)=2a_1$ und $N_{L|K}(a) = a_1^2-3a_2^2$
 \end{example}
-\begin{lemma}
-    Sei $M$ ein Zwischenkörper der endlichen Körperweiterungen $L|K$. dann ist
-    $\chi_{a,L/K} = \chi_{a,L/K}^{[L:M]}$ für $a\in M$.
+\begin{lemma}\label{theo:3.30}
+    Sei $M$ ein Zwischenkörper der endlichen Körperweiterungen $L|K$. Dann ist
+    $\chi_{a,L|K} = \chi_{a,M|K}^{[L:M]}$ für $a\in M$.
 \end{lemma}
 \begin{proof}
-    Wähle VR-Basen
+    Wähle VR-Basen % make it aligne??
     $v_1,\dots,v_n$ von $M$ über $K$,
-    $w_1,\dots,w_m$ von $L$ über $M$
-    bilden die Produkte $w_k\cdot v_i$ eine vR-Basis von $L$ über $K$. Sei $A$ die darstellende Matrix von $\phi_a$ bez. $(v_1,\dots,v_n)$. Dann gilt
+    $w_1,\dots,w_m$ von $L$ über $M$.
+    Dann bilden die Produkte $w_k\cdot v_i$ eine VR-Basis von $L$ über $K$. 
+    Sei $A$ die darstellende Matrix von $\phi_a$ bezüglich $(v_1,\dots,v_n)$.
+    Dann gilt
     $$\chi_{a,M/L} = \det(X\cdot I_n-A)$$
-    ´Die darstellende Martix von $\phi_a:L\rightarrow L$ bez der Basis $w_k\cdot v_i$ ($k=1,\dots,m$, $i=1,\dots,n$) ist.
-    \TODO[Matrix-bild]
-    $\Rightarrow \chi_{a,L/K} =\chi_{M/L}^m$, $m=[L:M]$
+    Die darstellende Martix von $\phi_a:L\rightarrow L$ bezüglich der Basis $w_k\cdot v_i$ ($k=1,\dots,m$, $i=1,\dots,n$) ist.
+    $$\begin{pmatrix}
+        A& 0 & \cdots & 0\\
+        0& A &   & \vdots\\
+        \vdots&  & \ddots & 0\\
+        0& \cdots & 0 & A\\
+    \end{pmatrix}$$
+    $\Rightarrow \chi_{a,L|K} =\chi_{a,M|L}^m$, $m=[L:M]$
 \end{proof}
 \begin{remark}
-    Unter der Vorraussetzung von 3.30 erhält man für $a\in M$, dass $Sp_{L/K}(a) = [L:M]\cdot Sp_{M/K}(a)$
-    $N_{L/K}(a) = N_{M/K}(a)$
+    Unter der Vorraussetzung von \ref{theo:3.30} erhält man für $a\in M$, dass 
+    \begin{align*}
+        Sp_{L|K}(a) &= [L:M]\cdot Sp_{M|K}(a)\\
+        N_{L|K}(a) &= N_{M|K}(a)
+    \end{align*}
 \end{remark}
-\begin{theorem}
+\begin{theorem} \label{theo:3.32}
     Sei $L|K$ endlich und $a\in L$.
     Es sei $m_{a,K} = X^n+\alpha_{n-1}X^{n-1}+\dots +\alpha_0$.
     Dann gelten
-    $$Sp_{L/K}(a) = -[L:K(a)]\alpha_{n-1}$$
-    $$N_{L/K} (a) = ((-1)^n\cdot \alpha_0)^{[L:K(a)]}$$
+    \begin{align*}
+        Sp_{L|K}(a) &= -[L:K(a)]\alpha_{n-1}\\
+        N_{L|K} (a) &= \left(\left(-1\right)^n\cdot \alpha_0\right)^{[L:K(a)]}
+    \end{align*}
 \end{theorem}
 \begin{proof}
-    Nach Lemma 3.30/3.31 reicht es den Fall $L=K(a)$ zu betrachten.
+    Nach Lemma \ref{theo:3.30}/3.31 reicht es den Fall $L=K(a)$ zu betrachten.
     In diesem Fall hat $L$ die Basis $1,a,\dots,a^{n-1}$ über $K$.
     Die dazugehörige Matrix von $\phi_a$ lautet
-    \begin{equation}
-        0 0 ... 0       -\alpha_0
-        1 0     \vdots
-        0 1     \vdots
-        \vdots  \vdots
-        0 \dots 0
-        0\dots  1       -\alpha_{n-1}
-    \end{equation}
-    $\Rightarrow$ $Sp_{L/K}(a) = -\alpha_{n-1}$
-    $\Rightarrow$ $N_{L/K} (a) = (-1)^n \alpha_0$
+    $$\begin{pmatrix}
+        0& 0 &\cdots &\cdots & 0 & -\alpha_0\\
+        1& 0 & &  & \vdots& -\alpha_1\\
+        0& 1 & \ddots && \vdots&-\alpha_2\\
+        \vdots&&  &\ddots&\vdots&\vdots\\
+        0&0& \dots& \dots &0& -\alpha_{n-2}\\
+        0&0&\dots & \dots& 1   &    -\alpha_{n-1}
+    \end{pmatrix}$$
+    $\Rightarrow$ $Sp_{L|K}(a) = -\alpha_{n-1}\quad$%TODO Format that shit
+    $\Rightarrow$ $N_{L|K} (a) = (-1)^n \alpha_0$
 \end{proof}
 \begin{remark}
-    Es gilt sogar $\chi_{a,K(a)/K} = m_{a,K}$.
+    Es gilt sogar $\chi_{a,K(a)|K} = m_{a,K}$.
     Cayley Hamilton:
-    $\chi_{a,K(a)/K}(\phi_a) = 0$.
-    Andererseits ist $0=\chi_{a,K(a)/K}(\phi_a)(1) = \chi_{a,K(a)/K}(\underbrace{\phi_a(1)}_{=a}) $. Da $\deg(\chi_{a,K(a)/K})=\deg(m_{a,K})$ ist $m_{a,K} = \chi_{a,K(a)/K}$.
+    $\chi_{a,K(a)|K}(\phi_a) = 0$.
+    Andererseits ist $0=\chi_{a,K(a)|K}(\phi_a)(1) = \chi_{a,K(a)/K}(\underbrace{\phi_a(1)}_{=a}) $. Da $\deg(\chi_{a,K(a)|K})=\deg(m_{a,K})$ ist $m_{a,K} = \chi_{a,K(a)|K}$.
 \end{remark}
 
 \begin{theorem}
     Sei $L|K$ endlich und separabel.
     Sei $n=[L:K]$ und $\{\sigma_1,\dots,\sigma_n\} = Hom_K(L,\overline{K})$.
-    Dann gilt $Sp_{L/K} = \sum_{i=1}^n \sigma_i(a)$
-    $N_{L/K} (a) = \prod_{i=1}^n \sigma_i(a)$.
+    Dann gilt
+    \begin{align*}
+        Sp_{L|K} &= \sum_{i=1}^n \sigma_i(a)\\
+        N_{L|K} (a) &= \prod_{i=1}^n \sigma_i(a)
+    \end{align*}
 \end{theorem}
+\TODO[All contants from this lecture are in dire need of formating! Proceed with caution]
 \begin{proof}
     $m_{a,K} = X^r+\alpha_{r-1}X^{r-1}+\dots + \alpha_0$
     das Minimalpolynom.
@@ -755,4 +769,70 @@ Zu a)
     Da jedes quadratische Polynom in $C[X]$ zerfällt in $\C$, folgt ähnlich wie oben ein Widerspruch (bet $m_{a,\C}$ für die $L^H=\C(a)$)
 \end{proof}
 
+\begin{flushright}
+VL vom 22.12.2023: (Weihnachtsvorlesung)
+\end{flushright}
+\subsection{Transzendenz von $e$ und $\pi$}
+\begin{theorem}
+    $e$ ist transzendent (über $\Q$)
+\end{theorem}
+\begin{lemma}
+    Ist $F\in \Z[X]$ ein Polynom, das bei Stelle $s\in\N$ eine $k$-fache Nullstelle hat, so ist $$T\coloneqq e^s\cdot \int_s^\infty F(x)e^{-x} dx$$
+    eine durch $k!$ teilbare ganze Zahl.
+    Weiter gilt: $\frac{T}{k!} \equiv \frac{F}{(x-s)^k}_{|x=s} \mod k+1$
+\end{lemma}
+\begin{proof}
+    Zunächst sei $s=0$. 
+    Der allgemeine Fall folgt dann duch Substitution $x=x'+s$.
+    man hat $\int_0^\infty x^n e^{-x} dx = n!$.
+    Da $F$ eine $Z$-Linearkomibination von Polynomen $x^{k+j}$ ist, folgt daraus die erste Aussage.
+
+    $$\frac{1}{k!}\int_0^\infty x^{k+j}e^{-x}dx = \frac{(k+j)!}{k!} = \begin{cases}
+        1 &  j=0\\
+        (k+1)\dots(k+j) & j\geq 1
+    \end{cases}$$
+    $$\frac{x^{k+j}}{x^k}_{|x=0} = \begin{cases}
+        1&j=0\\
+        0 & j \geq 1
+    \end{cases}$$
+    Beide sind kongruent $\mod k+1$
+\end{proof}
+\begin{proof}
+    Angenommen $e$ wäre algebraisch über $\Q$.
+    Dann gilt $a_0,\dots,a_n\in \Z$ mit $a_0+a_1\cdot e+\dots+a_n e^n = 0$, $a_0 \neq 0$.
+    Für ein noch festzulegendes $F\in \Z[X]$ multipliziert mit $\int_0^\infty F(x)e^{-x}dx$:
+    -> $$0\overset{(*)}{=} \sum_{s=0}^n a_s e^s \int_0^\infty F(x)e^{-x}dx = \underbrace{\sum_{s=0}^n a_s e^s \int_0^s F(x)e^{-x}dx}_{P_2\coloneqq} + \underbrace{\sum_{s=0}^n a_s e^s \int_s^\infty F(x) e^{-x}dx}_{P_1\coloneqq}$$
+    Besitzt $F$ in 0 eine $k$-fache Nullstelle und in den Stellen $1,2,\dots,n$ eine $(k+1)$-fache Nullstelle besitzt, dann $\Z\ni P_1\equiv 0 \mod k!$\footnote{Richtig, weil richtig in jedem summanden??} und $\frac{P_1}{k!}\equiv a_0\cdot \frac{F}{x^k}_{|x=0} \mod k+1$.\footnote{Lemma -> erster Summand in $P_1$. Die anderen summanden sind $0 \mod k+1$}
+    Für eine geeignete Wahl von $F$ erhalten wir $\frac{P_1}{k!}\not\equiv 0\mod k$ und somit $\frac{P_1}{k!} \neq 0$.
+    Wähle $F(x) = x^k(x-1)^{k+1}\dots (x-n)^{k+1}$ für ein $k$, das ein Vielfaches von $a_0\cdot n!$.
+    Für diese Wahl ist $a_0\frac{F}{x^k}_{|x=0}\not\equiv 0 \mod k+1$.
+    Somit $P_1\neq 0$, also $\card{P_1}\geq 1$.
+
+    Für den gewünschten Wiederspruch zeigen wir nun  $\card{\frac{P_2}{k!}}<1$ für $k \gg 1$.
+    Beh: Für die obrige Wahl von $F$ gibt es von $k$ unabhängig Konstanten $C,M\geq 0$ mit $\card{P_2} \leq C\cdot M^k$.
+
+    My notes: $P_2$ lässt sich durch $n\cdot n^{n\cdot (k+1)+k}$, weil $s\leq n$, $e^{-x} \leq 1$.
+    Dann ist $M = n^{n+1}$, $C=n^{n+1}$.
+    
+    =>$\frac{P_2}{k!}\rightarrow 0$ für $k\rightarrow \infty$ (Stirling)\Lightning.
+\end{proof}
+Ähnlich aber kompilizierter beweist man:
+Satz(Hilbert): Ist $P\in\Q[X]$ von Grad $n$ und sind $s_1,\dots,s_n\in \C$ seine Nullstellen, dann $a+e^{s_1}+\dots + e^{s_n}\neq 0$ für alle natürlichen Zahlen $a$.
+[mult. die angenommene Gleichung mit $\int_0^\infty F(x)e^{-x}dx$ für ein geeignetes $F\in \Z[X]$]
+
+\begin{proof}[Transzendenz von $\pi$]
+    Ang. $\pi$ wäre algrbaisch über $\Q$.
+    Dann ist auch $x_1\coloneqq i\cdot \pi$ algebraische.
+    Sei $0\neq Q\in \Z[X]$ sodass $Q(x_1) = 0$.
+    Es seien $x_2,\dots,x_n$ die anderen Nullstellen von $Q$.
+    Wegen $e^{x_1} = -1$ ist dann $$0 = \prod_{i=1}^n (1+e^{x_i}) = 1 + e^{s_1} + e^{s_2}+\dots +e^{s_m}$$
+    wobei jedes $s_i$ genau die Summe einer bestimmten Anzahl von $x_i$'s ist und $m = 2^n-1$.
+    Betrachte nun das Polynom $P = (X-s_1)\cdot\dots\cdot (X-s_m)\in \C[X]$.
+    Da $s_i\in \Q(x_1,\dots,x_n)$, ist $P\in\Q(x_1,\dots,x_n)[X]$ und $G=Gal(\Q(x_1,\dots,x_n)|\Q)$.
+    Jeges $\sigma \in G$ permutiert die $x_i$ und somit die $s_j$.
+    Daher gilt $P\in \Q(x_1,\dots,x_n)^G[X] = \Q[x]$.
+    Fun fact: P ist nicht irreduzibel.
+
+    Daher ergibt sich ein Widerspruch zum Satz von Hilbert
+\end{proof}
 \end{document}
