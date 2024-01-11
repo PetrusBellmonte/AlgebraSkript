@@ -1,0 +1,138 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+\TODO[right-flush und rework]
+\subsection{Beträge}
+\begin{definition}
+    Ein \emph{Betrag} auf einem Körper $K$ ist eine $\card{.}: K\rightarrow \R_{\geq0}$ mit den Eigenschaften
+    \begin{enumerate}
+        \item $\card{x} = 0 \Leftrightarrow x =0$
+        \item $\card{x\cdot y} = |x| \cdot |y|$
+        \item $|x+y| \leq |x| + |y|$
+    \end{enumerate}
+    Aus ii) folgt $|1| = 1$.
+\end{definition}
+\begin{example}
+    \begin{enumerate}[label=\roman*)] %i ii
+        \item $\R$ mit dem gewöhnlichen Absolutbetrag
+        \item $K$ beliebig. Dann definiere 
+        $$|x|_{trivial} = \begin{cases}
+            1 & falls x\neq 0\\
+            0 & falls x= 0
+        \end{cases}$$
+        ein Betrag (genannt: \emph{trivialer Betrag})
+        \item $\C$ mit dem komplexen Betrag
+        \item Ist $|.|$ ein Betrag auf $L$ und $K$ ein Teilkörper von $L$, so ist $|.|_{|K}$ ein Betrag auf $K$.
+    \end{enumerate}
+\end{example}
+\begin{definition} [p-adischer Betrag]
+    Sei $a\in \Z$ und $p$ prim.
+    $\nu_p(a)= \sup\{e\in \N\mid p^e|a\}\in \N_0\cup \{\infty\}$
+\end{definition}
+Beachte $\nu_p(0) = \infty$
+$a = \pm \prod_{p prim} p^{\nu_p(a)}$
+Die Funktion $\nu_p:\Z\rightarrow \N_0\cup \{\infty\}$ heißt \emph{p-adische Bewertung}. Sie hat die folgenden Eigenschaften
+\begin{enumerate}[label=\roman*)]%i, ii
+    \item $\nu_p(a) = \infty \Leftrightarrow a = 0$
+    \item $\nu_p(ab) = \nu_p(a)+\nu_p(b)$
+    \item $\nu_p(a+b) \geq \min{\nu_p(a),\nu_p(b)}$
+\end{enumerate}
+
+Sei nun $x\in \Q^\times$. Schreibe
+$$x=p^m\cdot\frac{a}{b}$$ mit $m\in \Z$, $p\nmid a$, $p\nmid b$.
+Definiere $\nu_p(x) = m$ und $\nu_p(0) = \infty$. Dies setzt die $p$-adische Berwertung von $\Z$ auf $\Q$ fort mit den gleichen Eigenschaften.
+Setze $|x|_p \coloneqq p^{-\nu_p(x)}$ mit der Konventiion $|0|_p = p^{-\infty} = 0$
+Dann definiert $|.|_p$ einen Betrag auf $\Q$, den \emph{p-adischen Betrag}\footnote{Zum 2ten mal}. Die Eigenschaften i), ii) sind offensichtlich.
+Zu iii) $|x+y|_p = p^{-\nu_p(x+y}\leq p^{\min{\nu_p(x),\nu_p(y)}} = \max{p^{-\nu_p(x)}, p^{-\nu_p(y)}} = \max{|x|_p,|y_p|}$ %Multiline???
+Dies wird \emph{ultrametische Dreiecksungleichung} genannt.
+\begin{definition}
+    Eine Bewertung $\nu$ auf einem Körper $K$ ist eine Funktion $$\nu:K\rightarrow \R\cup \{\infty\}$$
+    mit folgenden Eigenschaften
+    \begin{enumerate}[label=\roman*)]
+        \item $\nu(x) = \infty \Leftrightarrow x= 0$
+        \item $\nu(x\times y) = \nu(x)+\nu(y)$
+        \item $\nu(x+y) \geq \min{\mu(x), \nu(y)}$ 
+    \end{enumerate}
+\end{definition}
+\begin{lemma}
+    Seien $K$ ein Körper, $\nu$ eine Bewertung auf $K$ und $a\in \R_{>1}$. Dann definiert $|x| = a^{-\nu(x)}$ einen Betrag auf dei die ultimetrische Dreiecksungleichung $|x+y| \leq \max{|x|,|y|}$ erfüllt.
+    Beweis: analog zu p-adischen Betrag
+\end{lemma}
+\begin{example}
+    Sei $K$ ein Körper. Sei $K(T) = Quot(K[T])$.
+    Sei $K(T)\setminus\{0\}\ni x = \frac{f}{q}$, $f,g\in K[T]$.
+    Setze $\nu_{deg}(x) = -\deg(f)+\deg(g)$ und $\nu_{deg}(0) = \infty$.
+    Dies definiert eine Bewertung auf $K(T)$
+\end{example}
+
+\begin{definition}[Metrik und Topologie]
+    Sei $K$ ein Körper mit Betrag $|.|$.
+    Dann definiert $d(x,y)= |x-y|$ eine Metrik auf $K$.
+    Insbesondere erhalten wir eine Topologie auf $K$ vermöge 
+    $$U offen :\Leftrightarrow\forall {u\in U} \exists {\epsilon >0}: B_{\epsilon}^{|.|} = \{v\in K\mid |u-v|<\epsilon\}\subseteq U$$
+\end{definition}
+\begin{remark}
+    Die Addition und Multiplikation definieren stetige Abbildungen $K\times K \rightarrow K$.
+\end{remark}
+\begin{definition}
+    Zwei Bewertungen $|.|_1$, $|.|_2$ sind \emph{äuivalent}, wenn sie diesselbe Topologie auf $K$ induzieren.
+\end{definition}
+\begin{lemma}
+    Für zwei Beträge $|.|_1$, $|.|_2$ auf $K$ sind folgende Aussagen äquivalent (Schreibe $|.|_1 \sim|.|_2$):
+    \begin{enumerate}[label=\alph*)]
+        \item $|.|_1 \sim|.|_2$
+        \item $\forall {x\in K}: |x|_1 <1 \Leftrightarrow |x|_2<1$
+        \item $\exists {s\in \R_{>0}}: |x|_1 = |x|_2^s$ für alle $x\in K$
+    \end{enumerate}
+\end{lemma}
+\begin{proof}
+    a) => b):% Reformat that shit!! underset for all arrows!
+    Sei $x\in K$. Dann gilt $\card{x}_1<1\Leftrightarrow \card{x}_1^n\underset{n\rightarrow \infty}{\rightarrow} 0 \Leftrightarrow \card{x^n}_1 -> 0 \Leftrightarrow |x^n|_2 -> 0\Leftrightarrow ->0 ...\Leftrightarrow |x|_2 <0$
+    b) => c):
+    Falls $|.|_1$ nich trivial ist, dann gilt es ein $y\in K^\times$ mit $|y|_1 <1$.
+    Somit ist $|.|_1$ triviial gdw $|.|_2$ trivial ist.
+
+    Wir nehmen nun an, dass $|.|_1$ nicht trivial ist.
+    Sei $x\in K^\times$. Schreibe $|x|_1 = |ny|_1^\alpha$ für eine $\alpha\in \R$.
+    Beh: $|x|_2 = |y|_2^\alpha$.
+    Sei $(\frac{m_i}{n_i})_i$ eine Folge rationaler Zahlen, die von oben gegen $\alpha$ konvergiert.
+    $$|x|_1< |y|_2^{\frac{m_i}{n_i}} \Rightarrow |x^{n_i}| < |y^{m_i}| \Rightarrow |x^{n_i}y^{-m_i}| <1$$
+     Damit folgt mit b), dass $|x^{n_i}y^{-m_i}|_2 <1$ und somit (ählich wie für $|.|_1$) $|x|_2< |y|_2^{\frac{m_i}{n_i}}$.
+     Limes $i\rightarrow\infty$ ergibt, dass $|x|_2\leq |y|_2^\alpha$.
+      Das selbe Argument mit $\frac{m_i}{n_i} pfeil nach oben \alpha$ liefert $|x|_2 \geq |y|_2^\alpha$.
+      Sei $s\in \R_{>0}$ mit $|y|_2 = |y|_1^s$.
+      Dann folgt:
+      $$|x|_2 = |y|_2^\alpha = |y|_1^{s\cdot \alpha} = |x|_1^s$$.
+      c) => a)
+      Sei $\epsilon >0$ und $u\in K$.
+      $$B_\epsilon^{|.|_1}(u) = \{u\in K\mid |x-u|_1<\epsilon\} = \{x\in K\mid |x-u|<\epsilon^{-s}\} = B_{\epsilon^{-s}}^{|.|_2}(u)$$
+      => $||_1\sim||_2$
+\end{proof}
+
+\begin{corollary}
+    Seien $||,||$ zwei nicht triviale, nicht äquivalente Beträge auf $K$. Dann gibt es ein $u\in K$ mit $|u|_1 < 1$0und $|u|_2 > 1$.
+\end{corollary}
+\begin{proof}
+    nach 4.10 b) finden wir $y\in K$ mit $|y|_1 <1$ und $|y|_2\geq 1$.
+     Falls $|y|_2 = 1$, wähle $w\in K$ mit $|w|_2>1$.
+     Setze $u=y^m\cdot w$ für hinreichend großes $m$ eine geeignete Wahl.
+\end{proof}
+
+\begin{theorem}[Approximationssatz]
+    Seien $|.|_1, \dots,|.|_n$ nicht trivial, paarweise inäquivalente Beträge auf $K$.
+    Für alle $a_1,\dots, a_n\in K$ und $\epsilon > 0$ existiert ein $x\in K$ mit $$|a_i-x|_i <\epsilon \text{ für alle } i\in \{1,\dots,n\}$$
+\end{theorem}
+
+\begin{proof}
+    1. Schritt: $\exists z\in K: |z|_j > 1$ für alle $j\in \{2,\dots,n\}$.
+    Durch Induktion: * $n=2$ ist 4.11 \checkmark
+    * Induktionannahme: $\Tilde{z}\in K$, $|\Tilde{z}| < 1$ und $|\Tilde{}{z}|_j > 1$ für $j\in \{2,\dots, n-1\}$
+    Falls $|\Tilde{z}|_n > 1$, setze $z\coloneqq \Tilde{z}$
+    Falls $|\Tilde{z}|_n = 1$: Finde ein $u\in K$ mit $|u|_1 >1$ und $|u|_n <1$ (siehe 4.11)
+    Dann ist $z = u\cdot \Tilde{z}^m$ für $m>>1$ eine geeignete Wahl.
+    Falls $|\Tilde{z}|_n >1$: bann betracheten wir die Folge $t_m = \frac{\Tilde{z}^m}{\Tilde{z}^m +1}$. Es Gilt $t_m \underset{\longrightarrow}{m\rightarrow\infty} 0$ bez. $|.|_1$ und $|.|_n$.
+    $t_m \underset{\longrightarrow}{m\rightarrow\infty} 1$ bez $|.|_j$ für $j\notin \{1,n\}$.
+
+    Wähle $n\in K$ mit $|u|_1<1$ und $|u|_n>1$ und definiere $z=u\cdot t_m$ für $m>>1$
+\end{proof}
+\end{document}
