@@ -1,6 +1,9 @@
 \documentclass[../main.tex]{subfiles}
 \graphicspath{{\subfix{../images/}}}
 \begin{document}
+\begin{flushright}
+VL vom 11.1.2024:
+\end{flushright}
 \TODO[right-flush und rework]
 \subsection{Beträge}
 \begin{definition}
@@ -126,7 +129,7 @@ Dies wird \emph{ultrametische Dreiecksungleichung} genannt.
 \begin{proof}
     1. Schritt: $\exists z\in K: |z|_j > 1$ für alle $j\in \{2,\dots,n\}$.
     Durch Induktion: * $n=2$ ist 4.11 \checkmark
-    * Induktionannahme: $\Tilde{z}\in K$, $|\Tilde{z}| < 1$ und $|\Tilde{}{z}|_j > 1$ für $j\in \{2,\dots, n-1\}$
+    * Induktionannahme: $\Tilde{z}\in K$, $|\Tilde{z}| < 1$ und $|\Tilde{z}|_j > 1$ für $j\in \{2,\dots, n-1\}$
     Falls $|\Tilde{z}|_n > 1$, setze $z\coloneqq \Tilde{z}$
     Falls $|\Tilde{z}|_n = 1$: Finde ein $u\in K$ mit $|u|_1 >1$ und $|u|_n <1$ (siehe 4.11)
     Dann ist $z = u\cdot \Tilde{z}^m$ für $m>>1$ eine geeignete Wahl.
@@ -134,5 +137,119 @@ Dies wird \emph{ultrametische Dreiecksungleichung} genannt.
     $t_m \underset{\longrightarrow}{m\rightarrow\infty} 1$ bez $|.|_j$ für $j\notin \{1,n\}$.
 
     Wähle $n\in K$ mit $|u|_1<1$ und $|u|_n>1$ und definiere $z=u\cdot t_m$ für $m>>1$
+
+
+\TODO[Merge different versions of the first part]
+
+
+    
+    Behauptung: $\exists z\in K: |z|_1 > 1$ und $|z|_j<1$ für $j\in \{2,...,n\}$
+    Durch Induktion: $n=2$ \checkmark (nach 4.11)
+
+    Angenommen es gibt $\Tilde{z}\in K$ mit $|\Tilde{z}|_1 > 1$ und $|\Tilde{z}|_j <1$ für $j\in \{2,...,n-1\}$.
+    Wähle $u\in K$ mit $|u|_1>1$ und $|u|_n<1$ nach 4.11.
+    Falls $|\Tilde{z}|_n<1$, dann ist $z=\Tilde{z}$ das gesuchte Element.
+    Falls $|\Tilde{z}|_n = 1$, dann ist $z=u\Tilde{z}^m$ für hinreichend großes $m$ das gesuchte Element.
+    <Argumentation, dass z gewünschte Eigenschaften hat...>
+    Falls $|\Tilde{z}|_n > 1$, dann betrachtet man die Folge $t_m\coloneqq \frac{\Tilde{z}^m}{1+\Tilde{z}^m}$., für die die 
+    $t_m\rightarrow 1$ bez. $|.|_1$ und $|.|_n$
+    $t_m\rightarrow 0$ bez. $|.|_2,\dots,|.|_{n-1}$ gelten.
+    Dann ist $z=u\cdot t_m$ für hinreihend großes $m$ das gesuchte Element.
+    <Argumentation, dass z gewünschte Eigenschaften hat...>
+
+    Für ein $z\in K$ wie in der obigen beh. konvergiert die Folge $(\frac{z^m}{1+z^m})_m$ gegen $1$ bez $|.|_1$ und gegen $0$ bez $|.|_2,\dots,|.|_n$.
+
+    Für jedes $i\in \{1,\dots,n\}$ können wir somit ein $z_i\in K$ konstrieren, das sehr nahe bei $1$ bez $|.|_i$ und sehr nahe $0$ bez der restlichen Beträge.
+    Das Element $x=a_1\cdot z_1 + \dots +a_n\cdot z_n$ erfüllt die Anforderungen des Approximationssatzes. 
 \end{proof}
+\begin{flushright}
+VL vom 11.1.2024:
+\end{flushright}
+
+\begin{definition}
+    Ein Betrag $|.|$ auf $K$ heißt \emph{archimedisch}, wenn 
+    $$\{|n\cdot1_K| \mid n\in \N\}$$
+    nicht beschränkt ist.
+\end{definition}
+
+\begin{theorem}
+    Ein Betrag ist genau dann nicht-archimedisch, wenn er die ultrametrische Dreiecksungleichung erfüllt.
+\end{theorem}
+\begin{proof}
+    "<=":
+    $|n\cdot 1_K|= |1_K+\dots+1_K| \leq |1_K| = 1$ also ist $|.|$ nicht -archimedisch
+
+    "=>":
+    Seien $x,y\in K$ mit $|x|\geq|y|$.Sei $B>0$ eine obere Schranke für $\{|n\cdot1_K| \mid n\in \N\}$.
+    $|x+y|^n = |(x+y)^n| = |\sum_{k=0}^n \binom{n}{k} x^k y^{n-k}| \leq \sum_{k=0}^n |\binom{n}{k}\cdot 1_K| \cdot |x|^n\leq (n+1)\cdot B\cdot |x|^n$
+    => $|x+y| \leq ((n+1)B)^{1/n} \cdot |x| \overset{n\rightarrow \infty}{\Rightarrow} |x+y| \leq |x|$
+\end{proof}
+Der Trick am Ende für "schlechte"/ungenaue ungleichungen:
+Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere Ungleichungen bringen.
+\begin{remark}$ $
+    \begin{enumerate}[label=\alph*)]
+        \item Ist $|.|$ ein nicht-archimedischr Betrag, denn ist $\nu(x) = -\log(|x|)$ eine Bewertung auf $K$
+        \item Ist $|.|$ nicht-archimedisch, $|x|> |y|$, dann folgt 
+        $$|x|\leq |x-y+y|\leq \max\{|x-y|,|y|\} = |x-y| \leq |x|$$
+        und somit Gleichheit.
+    \end{enumerate}
+\end{remark}
+
+\begin{theorem}[Satz von Ostrowski]
+    Jeder nicht-triviale Betrag auf $\Q$ ist äquivalent zu $|.|_p$ für eine Primzahl $p$ oder zum Absolutbetrag $|.|_\infty$.
+\end{theorem}
+\begin{proof}
+    Sei $||.||$ ein nicht-trivialer Betrag auf $\Q$.
+
+    1. Fall: Sei $||.||$ nicht-archimedisch, d.h. $||n||\leq 1$ für alle $n\in \N$.
+    Sei $\mathcal{A}\coloneqq \{n\in \Z\mid ||n|| <1\}$.
+    Dann ist $\mathcal{A}$ ein Ideal in $\Z$.
+    Es gibt eine Primzahl $p$ mit $p\in \mathcal{A}$, ansonsten würe $||.||$ trivial wegen Primfaktorenzerlegung. Also
+    $$p\Z\subseteq\mathcal{A}\subset \Z$$ (da $1\notin \mathcal{A}$).
+    Da $p\Z$ maximales Ideal ist, ist $p\Z = \mathcal{A}$.
+    Sei $q\in \Q^\times$ und schreibe $q=p^m\cdot \frac{a}{b}$ mit $p\nmid a$, $p\nmid b$.
+    Dann gilt $||q|| = ||p||^m$ wegen $||a|| = ||b|| =1$.
+    Sei $s>0$ so, dass $p^{-s} = ||p||$.
+    Dann folgt $||p|| =p^{-s} = (p^{-1})^s= |p|_p^s$ => $||q| = ||p^m|| = |q|_p^s$.
+    => $||.|| \sim |.|_p$
+    
+
+    2. Fall: Sei $||.||$ archimedisch.
+    Beh.: Für alle natürlichen $n,m>1$ gilt
+    $$||n||^{\frac{1}{\log(n)}} = ||m||^{\frac{1}{\log(m)}}\quad (*)$$
+    Somit $c\coloneqq||n||^{\frac{1}{\log(n)}}$ unabhängig von $n>1$.
+    => $||m|| = c^{\log(m)}$ für jedes $m\in \N\setminus\{1\}$.
+    Wenn wir $e = e^s$, $s>0$, schreibe, dann ergibt sich für jedes positive rationale Zahl $x=\frac{a}{b}$
+    $$||x|| = e^{s\log(x)} = |x|_\infty^s$$
+    Damit folgt $||.||\sim |.|_\infty$.
+
+    Nun zu $(*)$:
+    Schreibe $m$ zur Basis $n$ (OBdA $n<m$):
+    $$m= a_0 + a_1 n+\dots+a_rn^r$$
+    mit $a_i\in \{0,\dots,n-1\}$, $a_r = 0$.
+    Somit $n^r\leq m$, also $r\leq \frac{\log(m)}{\log(n)}$.
+    Weiter $||a_i|| \leq a_i ||1|| = a_i<n$.
+    Es folgt $$||m||\leq \sum_{i=0}^r ||a_i|| \cdot ||n||^i\leq \sum_{i=0}^r n \cdot ||n||^r \leq \left(1+\frac{\log(m)}{\log(n)}\right) \cdot n \cdot ||n||^{\frac{\log(m)}{\log(n)}}$$
+    Wir ersetzen in dieser Ungleichung $m$ durch $m^k$ und ziehen die $k$-te Wurzel:
+    $$||m|| \leq \sqrt[k]{\left(1+\frac{k\cdot\log(m)}{\log(n)}\right)}\cdot n^{1^k} \cdot ||n||^{\frac{\log(m)}{\log(n)}}$$
+    => $||m||^{\frac{1}{\log(m)}} \leq ||n||^{\frac{1}{\log(n)}}$
+    Da die Rollen von $m$ und $n$ vertauschbar sind, folgt Gleichheit.
+\end{proof}
+\subsection{Vervollständigungen}
+\begin{definition}
+    Ein Körper mit Betrag ist \emph{vollständig}, wenn jede Cauchyfolge in $K$ konvergiert.
+\end{definition}
+\begin{example}
+    \begin{itemize}
+        \item $(R,|.|_\infty)$, $(\C, |.|_\C)$ sind vollständig
+        \item $(\Q, |.|_5)$ nicht vollständig\footnote{Das Argument gilt für alle Prmzahlen $p\equiv 1\mod 4$}
+        Sei $a_k + 5^k\Z$ ein Element in $(\Z/5^k\Z)^\times$ dei Ordnung $4$.\footnote{Wegen $\phi(5^k) = 5^k-5^{k-1}  = 5^{k-1} \cdot 4$ ($k\geq 2$) und der Tatsache, dass $(\Z/5^k\Z)^\times$ yzklisch ist gilt, dass $(\Z/5^k\Z)^\times \cong \Z/4\Z \times \Z/5^{k-1}\Z$. Bei Hartnick gab es mehr dazu.}
+        Wir können erreichen, dass $a_k\equiv a_{k+1}\mod 5^k$
+        => $|a_k-a_{k+1}|_5 < \frac{1}{5^k}$, also ist $(a_k)_k$ eine Cauchyfolge bez $|.|_5$.
+
+        $a_k + 5^5\Z$ hat Ordnung $2$, also $a_k^2 \equiv -1 \mod 5^k$.
+        => $\lim_{k\rightarrow \infty} a_k^2 = -1$ bez $|.|_5$.
+        Also müsste ein Grenzwert $a=\lim_{k\rightarrow \infty} a_k$ in $\Q$ die Gleichung $a^2= -1$ erfüllen \Lightning
+    \end{itemize}
+\end{example}
 \end{document}
