@@ -4,63 +4,73 @@
 \begin{flushright}
 VL vom 11.1.2024:
 \end{flushright}
-\TODO[right-flush und rework]
 \subsection{Beträge}
-\begin{definition}
-    Ein \emph{Betrag} auf einem Körper $K$ ist eine $\card{.}: K\rightarrow \R_{\geq0}$ mit den Eigenschaften
-    \begin{enumerate}
+\begin{definition} % \gaf Generic absolut function
+    Ein \emph{Betrag} auf einem Körper $K$ ist eine $\gaf: K\rightarrow \R_{\geq0}$ mit den Eigenschaften
+    \begin{enumerate}[label=\roman*)]
         \item $\card{x} = 0 \Leftrightarrow x =0$
         \item $\card{x\cdot y} = |x| \cdot |y|$
         \item $|x+y| \leq |x| + |y|$
     \end{enumerate}
-    Aus ii) folgt $|1| = 1$.
+    Aus ii) folgt $|1|\cdot |1| =|1| = 1$.
 \end{definition}
-\begin{example}
+\begin{example}$ $
     \begin{enumerate}[label=\roman*)] %i ii
         \item $\R$ mit dem gewöhnlichen Absolutbetrag
-        \item $K$ beliebig. Dann definiere 
+        \item $K$ beliebig. Dann definiert 
         $$|x|_{trivial} = \begin{cases}
             1 & falls x\neq 0\\
             0 & falls x= 0
         \end{cases}$$
         ein Betrag (genannt: \emph{trivialer Betrag})
         \item $\C$ mit dem komplexen Betrag
-        \item Ist $|.|$ ein Betrag auf $L$ und $K$ ein Teilkörper von $L$, so ist $|.|_{|K}$ ein Betrag auf $K$.
+        \item Ist $\gaf$ ein Betrag auf $L$ und $K$ ein Teilkörper von $L$, so ist $\gaf_{|K}$ ein Betrag auf $K$.
     \end{enumerate}
 \end{example}
 \begin{definition} [p-adischer Betrag]
-    Sei $a\in \Z$ und $p$ prim.
+    Sei $a\in \Z$ und $p$ prim. Dann ist
     $\nu_p(a)= \sup\{e\in \N\mid p^e|a\}\in \N_0\cup \{\infty\}$
+    die \emph{p-adische Betrag}.
+Beachte $\nu_p(0) = \infty$.
 \end{definition}
-Beachte $\nu_p(0) = \infty$
-$a = \pm \prod_{p prim} p^{\nu_p(a)}$
+Damit gilt:
+$$a = \pm \prod_{p\text{ prim}} p^{\nu_p(a)}$$
 Die Funktion $\nu_p:\Z\rightarrow \N_0\cup \{\infty\}$ heißt \emph{p-adische Bewertung}. Sie hat die folgenden Eigenschaften
 \begin{enumerate}[label=\roman*)]%i, ii
     \item $\nu_p(a) = \infty \Leftrightarrow a = 0$
     \item $\nu_p(ab) = \nu_p(a)+\nu_p(b)$
-    \item $\nu_p(a+b) \geq \min{\nu_p(a),\nu_p(b)}$
+    \item $\nu_p(a+b) \geq \min\left\{\nu_p(a),\nu_p(b)\right\}$
 \end{enumerate}
 
 Sei nun $x\in \Q^\times$. Schreibe
 $$x=p^m\cdot\frac{a}{b}$$ mit $m\in \Z$, $p\nmid a$, $p\nmid b$.
 Definiere $\nu_p(x) = m$ und $\nu_p(0) = \infty$. Dies setzt die $p$-adische Berwertung von $\Z$ auf $\Q$ fort mit den gleichen Eigenschaften.
-Setze $|x|_p \coloneqq p^{-\nu_p(x)}$ mit der Konventiion $|0|_p = p^{-\infty} = 0$
-Dann definiert $|.|_p$ einen Betrag auf $\Q$, den \emph{p-adischen Betrag}\footnote{Zum 2ten mal}. Die Eigenschaften i), ii) sind offensichtlich.
-Zu iii) $|x+y|_p = p^{-\nu_p(x+y}\leq p^{\min{\nu_p(x),\nu_p(y)}} = \max{p^{-\nu_p(x)}, p^{-\nu_p(y)}} = \max{|x|_p,|y_p|}$ %Multiline???
-Dies wird \emph{ultrametische Dreiecksungleichung} genannt.
+Setze $|x|_p \coloneqq p^{-\nu_p(x)}$ mit der Konvention $|0|_p = p^{-\infty} = 0$.
+Dann definiert $\gaf_p$ einen Betrag auf $\Q$, den \emph{p-adischen Betrag}\footnote{Zum 2ten mal}. Die Eigenschaften i), ii) sind offensichtlich.
+Zu iii):
+\begin{align*}
+    |x+y|_p &= p^{-\nu_p(x+y)}\\
+    &\leq p^{-\min\{\nu_p(x),\nu_p(y)\}} \\
+    &= \max\{p^{-\nu_p(x)}, p^{-\nu_p(y)}\} \\&
+    = \max\{|x|_p,|y_p|\}
+\end{align*}
+%Multiline???
+Dies wird \emph{ultrametrische Dreiecksungleichung} genannt.
 \begin{definition}
     Eine Bewertung $\nu$ auf einem Körper $K$ ist eine Funktion $$\nu:K\rightarrow \R\cup \{\infty\}$$
     mit folgenden Eigenschaften
     \begin{enumerate}[label=\roman*)]
         \item $\nu(x) = \infty \Leftrightarrow x= 0$
         \item $\nu(x\times y) = \nu(x)+\nu(y)$
-        \item $\nu(x+y) \geq \min{\mu(x), \nu(y)}$ 
+        \item $\nu(x+y) \geq \min\{\mu(x), \nu(y)\}$ 
     \end{enumerate}
 \end{definition}
 \begin{lemma}
-    Seien $K$ ein Körper, $\nu$ eine Bewertung auf $K$ und $a\in \R_{>1}$. Dann definiert $|x| = a^{-\nu(x)}$ einen Betrag auf dei die ultimetrische Dreiecksungleichung $|x+y| \leq \max{|x|,|y|}$ erfüllt.
-    Beweis: analog zu p-adischen Betrag
+    Seien $K$ ein Körper, $\nu$ eine Bewertung auf $K$ und $a\in \R_{>1}$. Dann definiert $|x| = a^{-\nu(x)}$ einen Betrag auf dem die ultimetrische Dreiecksungleichung $|x+y| \leq \max\{|x|,|y|\}$ erfüllt.
 \end{lemma}
+\begin{proof}
+    analog zu p-adischen Betrag
+\end{proof}
 \begin{example}
     Sei $K$ ein Körper. Sei $K(T) = Quot(K[T])$.
     Sei $K(T)\setminus\{0\}\ni x = \frac{f}{q}$, $f,g\in K[T]$.
@@ -69,170 +79,179 @@ Dies wird \emph{ultrametische Dreiecksungleichung} genannt.
 \end{example}
 
 \begin{definition}[Metrik und Topologie]
-    Sei $K$ ein Körper mit Betrag $|.|$.
+    Sei $K$ ein Körper mit Betrag $\gaf$.
     Dann definiert $d(x,y)= |x-y|$ eine Metrik auf $K$.
     Insbesondere erhalten wir eine Topologie auf $K$ vermöge 
-    $$U offen :\Leftrightarrow\forall {u\in U} \exists {\epsilon >0}: B_{\epsilon}^{|.|} = \{v\in K\mid |u-v|<\epsilon\}\subseteq U$$
+    $$U\text{ offen }:\Leftrightarrow\forall {u\in U} \exists {\epsilon >0}: B_{\epsilon}^{\gaf} = \{v\in K\mid |u-v|<\epsilon\}\subseteq U$$
 \end{definition}
 \begin{remark}
     Die Addition und Multiplikation definieren stetige Abbildungen $K\times K \rightarrow K$.
 \end{remark}
 \begin{definition}
-    Zwei Bewertungen $|.|_1$, $|.|_2$ sind \emph{äuivalent}, wenn sie diesselbe Topologie auf $K$ induzieren.
+    Zwei Bewertungen $\gaf_1$, $\gaf_2$ sind \emph{äquivalent}, wenn sie diesselbe Topologie auf $K$ induzieren.
 \end{definition}
 \begin{lemma}
-    Für zwei Beträge $|.|_1$, $|.|_2$ auf $K$ sind folgende Aussagen äquivalent (Schreibe $|.|_1 \sim|.|_2$):
+    Für zwei Beträge $\gaf_1$, $\gaf_2$ auf $K$ sind folgende Aussagen äquivalent (schreibe $\gaf_1 \sim\gaf_2$):
     \begin{enumerate}[label=\alph*)]
-        \item $|.|_1 \sim|.|_2$
+        \item $\gaf_1 \sim\gaf_2$
         \item $\forall {x\in K}: |x|_1 <1 \Leftrightarrow |x|_2<1$
         \item $\exists {s\in \R_{>0}}: |x|_1 = |x|_2^s$ für alle $x\in K$
     \end{enumerate}
 \end{lemma}
-\begin{proof}
-    a) => b):% Reformat that shit!! underset for all arrows!
-    Sei $x\in K$. Dann gilt $\card{x}_1<1\Leftrightarrow \card{x}_1^n\underset{n\rightarrow \infty}{\rightarrow} 0 \Leftrightarrow \card{x^n}_1 -> 0 \Leftrightarrow |x^n|_2 -> 0\Leftrightarrow ->0 ...\Leftrightarrow |x|_2 <0$
-    b) => c):
-    Falls $|.|_1$ nich trivial ist, dann gilt es ein $y\in K^\times$ mit $|y|_1 <1$.
-    Somit ist $|.|_1$ triviial gdw $|.|_2$ trivial ist.
-
-    Wir nehmen nun an, dass $|.|_1$ nicht trivial ist.
-    Sei $x\in K^\times$. Schreibe $|x|_1 = |ny|_1^\alpha$ für eine $\alpha\in \R$.
-    Beh: $|x|_2 = |y|_2^\alpha$.
-    Sei $(\frac{m_i}{n_i})_i$ eine Folge rationaler Zahlen, die von oben gegen $\alpha$ konvergiert.
-    $$|x|_1< |y|_2^{\frac{m_i}{n_i}} \Rightarrow |x^{n_i}| < |y^{m_i}| \Rightarrow |x^{n_i}y^{-m_i}| <1$$
-     Damit folgt mit b), dass $|x^{n_i}y^{-m_i}|_2 <1$ und somit (ählich wie für $|.|_1$) $|x|_2< |y|_2^{\frac{m_i}{n_i}}$.
-     Limes $i\rightarrow\infty$ ergibt, dass $|x|_2\leq |y|_2^\alpha$.
-      Das selbe Argument mit $\frac{m_i}{n_i} pfeil nach oben \alpha$ liefert $|x|_2 \geq |y|_2^\alpha$.
-      Sei $s\in \R_{>0}$ mit $|y|_2 = |y|_1^s$.
-      Dann folgt:
-      $$|x|_2 = |y|_2^\alpha = |y|_1^{s\cdot \alpha} = |x|_1^s$$.
-      c) => a)
-      Sei $\epsilon >0$ und $u\in K$.
-      $$B_\epsilon^{|.|_1}(u) = \{u\in K\mid |x-u|_1<\epsilon\} = \{x\in K\mid |x-u|<\epsilon^{-s}\} = B_{\epsilon^{-s}}^{|.|_2}(u)$$
-      => $||_1\sim||_2$
+\begin{proof}$ $
+    \begin{itemize}
+        \item[a) => b)]
+        Sei $x\in K$. Dann gilt
+        \begin{align*}
+            \card{x}_1<1&\Leftrightarrow \card{x}_1^n\underset{n\rightarrow \infty}{\longrightarrow} 0\\
+            &\Leftrightarrow \card{x^n}_1 \underset{n\rightarrow \infty}{\longrightarrow} 0\\
+            &\Leftrightarrow \card{x^n}_2 \underset{n\rightarrow \infty}{\longrightarrow} 0\\
+            &\Leftrightarrow \card{x}_2^n \underset{n\rightarrow \infty}{\longrightarrow} 0\\
+            &\Leftrightarrow |x|_2 <1
+        \end{align*}
+        \TODO[Wieso folgt das in der Mitte aus äquivalenz?]
+        \item[b) => c)]
+        Falls $\gaf_1$ nicht trivial ist, dann gilt es ein $y\in K^\times$ mit $|y|_1 <1$.
+        Somit ist $\gaf_1$ trivial gdw $\gaf_2$ trivial ist.
+    
+        Wir nehmen nun an, dass $\gaf_1$ nicht trivial ist.
+        Sei $x\in K^\times$. Schreibe $|x|_1 = |y|_1^\alpha$ für eine $\alpha\in \R$.
+        Beh: $|x|_2 = |y|_2^\alpha$.
+        Sei $(\frac{m_i}{n_i})_i$ eine Folge rationaler Zahlen, die von oben gegen $\alpha$ konvergiert.
+        $$|x|_1\leq |y|_1^{\frac{m_i}{n_i}} \Rightarrow |x^{n_i}|_1 < |y^{m_i}|_1 \Leftrightarrow |x^{n_i}y^{-m_i}|_1 <1$$
+        Damit folgt mit b), dass $|x^{n_i}y^{-m_i}|_2 <1$ und somit (ähnlich wie für $\gaf_1$) $|x|_2\leq |y|_2^{\frac{m_i}{n_i}}$.\footnote{\TODO[Wieso gilt die Rückrichtung?]}
+        Limes $i\rightarrow\infty$ ergibt, dass $|x|_2\leq |y|_2^\alpha$.
+        Das selbe Argument mit von unten gegen $\alpha$ konvergierende $\frac{m_i}{n_i}$ liefert $|x|_2 \geq |y|_2^\alpha$.
+        Sei $s\in \R_{>0}$ mit $|y|_2 = |y|_1^s$.
+        Dann folgt:
+        $$|x|_2 = |y|_2^\alpha = |y|_1^{s\cdot \alpha} = |x|_1^s$$.
+        \item[c) => a)]
+        Sei $\epsilon >0$ und $u\in K$.
+        $$B_\epsilon^{\gaf_1}(u) = \{u\in K\mid |x-u|_1<\epsilon\} = \{x\in K\mid |x-u|<\epsilon^{-s}\} = B_{\epsilon^{-s}}^{\gaf_2}(u)$$
+        => $\gaf_1\sim\gaf_2$
+    \end{itemize}
 \end{proof}
 
-\begin{corollary}
-    Seien $||,||$ zwei nicht triviale, nicht äquivalente Beträge auf $K$. Dann gibt es ein $u\in K$ mit $|u|_1 < 1$0und $|u|_2 > 1$.
+\begin{corollary}\label{theo:4.11}
+    Seien $\gaf_1,\gaf_2$ zwei nicht triviale, nicht äquivalente Beträge auf $K$. Dann gibt es ein $u\in K$ mit $|u|_1 < 1$ und $|u|_2 > 1$.
 \end{corollary}
 \begin{proof}
-    nach 4.10 b) finden wir $y\in K$ mit $|y|_1 <1$ und $|y|_2\geq 1$.
+    nach 4.10 b) finden wir $y\in K$ mit $|y|_1 <1$ und $|y|_2\geq 1$.\footnote{Sollten die Ungleichheiten vertauscht sind, kann das Inverse betrachtet werden.}
      Falls $|y|_2 = 1$, wähle $w\in K$ mit $|w|_2>1$.
      Setze $u=y^m\cdot w$ für hinreichend großes $m$ eine geeignete Wahl.
 \end{proof}
 
 \begin{theorem}[Approximationssatz]
-    Seien $|.|_1, \dots,|.|_n$ nicht trivial, paarweise inäquivalente Beträge auf $K$.
+    Seien $\gaf_1, \dots,\gaf_n$ nicht trivial, paarweise inäquivalente Beträge auf $K$.
     Für alle $a_1,\dots, a_n\in K$ und $\epsilon > 0$ existiert ein $x\in K$ mit $$|a_i-x|_i <\epsilon \text{ für alle } i\in \{1,\dots,n\}$$
 \end{theorem}
 
-\begin{proof}
-    1. Schritt: $\exists z\in K: |z|_j > 1$ für alle $j\in \{2,\dots,n\}$.
-    Durch Induktion: * $n=2$ ist 4.11 \checkmark
-    * Induktionannahme: $\Tilde{z}\in K$, $|\Tilde{z}| < 1$ und $|\Tilde{z}|_j > 1$ für $j\in \{2,\dots, n-1\}$
-    Falls $|\Tilde{z}|_n > 1$, setze $z\coloneqq \Tilde{z}$
-    Falls $|\Tilde{z}|_n = 1$: Finde ein $u\in K$ mit $|u|_1 >1$ und $|u|_n <1$ (siehe 4.11)
-    Dann ist $z = u\cdot \Tilde{z}^m$ für $m>>1$ eine geeignete Wahl.
-    Falls $|\Tilde{z}|_n >1$: bann betracheten wir die Folge $t_m = \frac{\Tilde{z}^m}{\Tilde{z}^m +1}$. Es Gilt $t_m \underset{\longrightarrow}{m\rightarrow\infty} 0$ bez. $|.|_1$ und $|.|_n$.
-    $t_m \underset{\longrightarrow}{m\rightarrow\infty} 1$ bez $|.|_j$ für $j\notin \{1,n\}$.
-
-    Wähle $n\in K$ mit $|u|_1<1$ und $|u|_n>1$ und definiere $z=u\cdot t_m$ für $m>>1$
-
-
-\TODO[Merge different versions of the first part]
-
-
-    
-    Behauptung: $\exists z\in K: |z|_1 > 1$ und $|z|_j<1$ für $j\in \{2,...,n\}$
-    Durch Induktion: $n=2$ \checkmark (nach 4.11)
-
-    Angenommen es gibt $\Tilde{z}\in K$ mit $|\Tilde{z}|_1 > 1$ und $|\Tilde{z}|_j <1$ für $j\in \{2,...,n-1\}$.
-    Wähle $u\in K$ mit $|u|_1>1$ und $|u|_n<1$ nach 4.11.
-    Falls $|\Tilde{z}|_n<1$, dann ist $z=\Tilde{z}$ das gesuchte Element.
-    Falls $|\Tilde{z}|_n = 1$, dann ist $z=u\Tilde{z}^m$ für hinreichend großes $m$ das gesuchte Element.
-    <Argumentation, dass z gewünschte Eigenschaften hat...>
-    Falls $|\Tilde{z}|_n > 1$, dann betrachtet man die Folge $t_m\coloneqq \frac{\Tilde{z}^m}{1+\Tilde{z}^m}$., für die die 
-    $t_m\rightarrow 1$ bez. $|.|_1$ und $|.|_n$
-    $t_m\rightarrow 0$ bez. $|.|_2,\dots,|.|_{n-1}$ gelten.
-    Dann ist $z=u\cdot t_m$ für hinreihend großes $m$ das gesuchte Element.
-    <Argumentation, dass z gewünschte Eigenschaften hat...>
-
-    Für ein $z\in K$ wie in der obigen beh. konvergiert die Folge $(\frac{z^m}{1+z^m})_m$ gegen $1$ bez $|.|_1$ und gegen $0$ bez $|.|_2,\dots,|.|_n$.
-
-    Für jedes $i\in \{1,\dots,n\}$ können wir somit ein $z_i\in K$ konstrieren, das sehr nahe bei $1$ bez $|.|_i$ und sehr nahe $0$ bez der restlichen Beträge.
-    Das Element $x=a_1\cdot z_1 + \dots +a_n\cdot z_n$ erfüllt die Anforderungen des Approximationssatzes. 
-\end{proof}
 \begin{flushright}
 VL vom 11.1.2024:
 \end{flushright}
 
+\begin{proof}
+    Behauptung: $\exists z\in K: |z|_1 > 1$ und $|z|_j<1$ für $j\in \{2,...,n\}$
+    Durch Induktion: Der Induktionsanfang $n=2$ ist nach \ref{theo:4.11}\checkmark.
+
+    Angenommen es gibt $\Tilde{z}\in K$ mit $|\Tilde{z}|_1 > 1$ und $|\Tilde{z}|_j <1$ für $j\in \{2,...,n-1\}$.
+    Wähle $u\in K$ mit $|u|_1>1$ und $|u|_n<1$ nach \ref{theo:4.11}.
+    Falls $|\Tilde{z}|_n<1$, dann ist $z=\Tilde{z}$ das gesuchte Element.
+    Falls $|\Tilde{z}|_n = 1$, dann ist $z=u\Tilde{z}^m$ für hinreichend großes $m$ das gesuchte Element.
+    <Argumentation, dass z gewünschte Eigenschaften hat...>
+    Falls $|\Tilde{z}|_n > 1$, dann betrachtet man die Folge $t_m\coloneqq \frac{\Tilde{z}^m}{1+\Tilde{z}^m}$., für die die
+    \begin{align*}
+        t_m\rightarrow 1\quad &\text{ bez. }\gaf_1\text{ und }\gaf_n\\
+        t_m\rightarrow 0\quad&\text{ bez. }\gaf_2,\dots,\gaf_{n-1}
+    \end{align*}
+    gelten.
+    Dann ist $z=u\cdot t_m$ für hinreihend großes $m$ das gesuchte Element.
+    <Argumentation, dass z gewünschte Eigenschaften hat...>
+
+    Für ein $z\in K$ wie in der obigen beh. konvergiert die Folge $(\frac{z^m}{1+z^m})_m$ gegen $1$ bez $\gaf_1$ und gegen $0$ bez $\gaf_2,\dots,\gaf_n$.
+
+    Für jedes $i\in \{1,\dots,n\}$ können wir somit ein $z_i\in K$ konstrieren, das sehr nahe bei $1$ bez $\gaf_i$ und sehr nahe $0$ bez der restlichen Beträge.
+    Das Element $x=a_1\cdot z_1 + \dots +a_n\cdot z_n$ erfüllt die Anforderungen des Approximationssatzes. 
+\end{proof}
+
 \begin{definition}
-    Ein Betrag $|.|$ auf $K$ heißt \emph{archimedisch}, wenn 
+    Ein Betrag $\gaf$ auf $K$ heißt \emph{archimedisch}, wenn 
     $$\{|n\cdot1_K| \mid n\in \N\}$$
-    nicht beschränkt ist.
+    nicht beschränkt ist.\footnote{Nach Übung: Wenn ein Betrag $\gaf$ nicht-archimedisch, gilt $\sup\{|n\cdot1_K| \mid n\in \N\} = 1$, wegen $|1| = 1$ und der ultrametrischen Dreiecksungleichung nach \ref{theo:4.14}}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{theo:4.14}
     Ein Betrag ist genau dann nicht-archimedisch, wenn er die ultrametrische Dreiecksungleichung erfüllt.
 \end{theorem}
 \begin{proof}
-    "<=":
-    $|n\cdot 1_K|= |1_K+\dots+1_K| \leq |1_K| = 1$ also ist $|.|$ nicht -archimedisch
-
-    "=>":
-    Seien $x,y\in K$ mit $|x|\geq|y|$.Sei $B>0$ eine obere Schranke für $\{|n\cdot1_K| \mid n\in \N\}$.
-    $|x+y|^n = |(x+y)^n| = |\sum_{k=0}^n \binom{n}{k} x^k y^{n-k}| \leq \sum_{k=0}^n |\binom{n}{k}\cdot 1_K| \cdot |x|^n\leq (n+1)\cdot B\cdot |x|^n$
-    => $|x+y| \leq ((n+1)B)^{1/n} \cdot |x| \overset{n\rightarrow \infty}{\Rightarrow} |x+y| \leq |x|$
+    \begin{itemize}
+        \item[$\Leftarrow$]
+        $|n\cdot 1_K|= |1_K+\dots+1_K| \leq |1_K| = 1$ also ist $\gaf$ nicht -archimedisch
+        \item[$\Rightarrow$]
+        Seien $x,y\in K$ mit \obda $|x|\geq|y|$.
+        Sei $B>0$ eine obere Schranke für $\{|n\cdot1_K| \mid n\in \N\}$.
+        \begin{align*}
+            |x+y|^n &= |(x+y)^n| = |\sum_{k=0}^n \binom{n}{k} x^k y^{n-k}|\\
+            &\leq \sum_{k=0}^n |\binom{n}{k}\cdot 1_K| \cdot |x|^k \cdot |y|^{n-k} \leq \sum_{k=0}^n |\binom{n}{k}\cdot 1_K| \cdot |x|^n\\
+            &\leq (n+1)\cdot B\cdot |x|^n
+        \end{align*}
+        $\Longrightarrow\;|x+y| \leq \sqrt[n]{(n+1)B} \cdot |x| \overset{n\rightarrow \infty}{\Rightarrow} |x+y| \leq |x|$
+    \end{itemize}
 \end{proof}
-Der Trick am Ende für "schlechte"/ungenaue ungleichungen:
+Der Trick am Ende für 'schlechte'/ungenaue Ungleichungen:
 Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere Ungleichungen bringen.
 \begin{remark}$ $
     \begin{enumerate}[label=\alph*)]
-        \item Ist $|.|$ ein nicht-archimedischr Betrag, denn ist $\nu(x) = -\log(|x|)$ eine Bewertung auf $K$
-        \item Ist $|.|$ nicht-archimedisch, $|x|> |y|$, dann folgt 
+        \item Ist $\gaf$ ein nicht-archimedischer Betrag, dann ist $\nu(x) = -\log(|x|)$ eine Bewertung auf Körper $K$
+        \item Ist $\gaf$ nicht-archimedisch, $|x|> |y|$, dann folgt 
         $$|x|\leq |x-y+y|\leq \max\{|x-y|,|y|\} = |x-y| \leq |x|$$
         und somit Gleichheit.
     \end{enumerate}
 \end{remark}
 
 \begin{theorem}[Satz von Ostrowski]
-    Jeder nicht-triviale Betrag auf $\Q$ ist äquivalent zu $|.|_p$ für eine Primzahl $p$ oder zum Absolutbetrag $|.|_\infty$.
+    Jeder nicht-triviale Betrag auf $\Q$ ist äquivalent zu $\gaf_p$ für eine Primzahl $p$ oder zum Absolutbetrag $\gaf_\infty$.
 \end{theorem}
 \begin{proof}
-    Sei $||.||$ ein nicht-trivialer Betrag auf $\Q$.
+    Sei $\|.\|$ ein nicht-trivialer Betrag auf $\Q$.
+    \begin{itemize}
+        \item[1.Fall]
+        Sei $\|.\|$ nicht-archimedisch, d.h. $\|n\|\leq 1$ für alle $n\in \N$.
+        Sei $\mathcal{A}\coloneqq \{n\in \Z\mid \|n\| <1\}$.
+        Dann ist $\mathcal{A}$ ein Ideal in $\Z$.
+        Es gibt eine Primzahl $p$ mit $p\in \mathcal{A}$, ansonsten würe $\|.\|$ trivial wegen Primfaktorenzerlegung. Also
+        $$p\Z\subseteq\mathcal{A}\subset \Z$$ (da $1\notin \mathcal{A}$).
+        Da $p\Z$ maximales Ideal ist, ist $p\Z = \mathcal{A}$.
+        Sei $q\in \Q^\times$ und schreibe $q=p^m\cdot \frac{a}{b}$ mit $p\nmid a$, $p\nmid b$.
+        Dann gilt $\|q\| = \|p\|^m$ wegen $\|a\| = \|b\| =1$.
+        Sei $s>0$ so, dass $p^{-s} = \|p\|$.
+        Dann folgt $\|p\| =p^{-s} = (p^{-1})^s= |p|_p^s$\\
+        $\Longrightarrow\|q\| = \|p^m\| = |q|_p^s$.\\
+        $\Longrightarrow\;\|.\| \sim |.|_p$
 
-    1. Fall: Sei $||.||$ nicht-archimedisch, d.h. $||n||\leq 1$ für alle $n\in \N$.
-    Sei $\mathcal{A}\coloneqq \{n\in \Z\mid ||n|| <1\}$.
-    Dann ist $\mathcal{A}$ ein Ideal in $\Z$.
-    Es gibt eine Primzahl $p$ mit $p\in \mathcal{A}$, ansonsten würe $||.||$ trivial wegen Primfaktorenzerlegung. Also
-    $$p\Z\subseteq\mathcal{A}\subset \Z$$ (da $1\notin \mathcal{A}$).
-    Da $p\Z$ maximales Ideal ist, ist $p\Z = \mathcal{A}$.
-    Sei $q\in \Q^\times$ und schreibe $q=p^m\cdot \frac{a}{b}$ mit $p\nmid a$, $p\nmid b$.
-    Dann gilt $||q|| = ||p||^m$ wegen $||a|| = ||b|| =1$.
-    Sei $s>0$ so, dass $p^{-s} = ||p||$.
-    Dann folgt $||p|| =p^{-s} = (p^{-1})^s= |p|_p^s$ => $||q| = ||p^m|| = |q|_p^s$.
-    => $||.|| \sim |.|_p$
-    
+        \item[2.Fall]
+        Sei $\|.\|$ archimedisch.
+        Beh.: Für alle natürlichen $n,m>1$ gilt
+        $$\|n\|^{\frac{1}{\log(n)}} = \|m\|^{\frac{1}{\log(m)}}\quad (*)$$
+        Somit $c\coloneqq\|n\|^{\frac{1}{\log(n)}}$ unabhängig von $n>1$.
+        => $\|m\| = c^{\log(m)}$ für jedes $m\in \N\setminus\{1\}$.
+        Wenn wir $e = e^s$, $s>0$, schreibe, dann ergibt sich für jedes positive rationale Zahl $x=\frac{a}{b}$
+        $$\|x\| = e^{s\log(x)} = |x|_\infty^s$$
+        \TODO[What? $e=e^s$????]
+    \end{itemize}
+    Damit folgt $\|.\|\sim \gaf_\infty$.
 
-    2. Fall: Sei $||.||$ archimedisch.
-    Beh.: Für alle natürlichen $n,m>1$ gilt
-    $$||n||^{\frac{1}{\log(n)}} = ||m||^{\frac{1}{\log(m)}}\quad (*)$$
-    Somit $c\coloneqq||n||^{\frac{1}{\log(n)}}$ unabhängig von $n>1$.
-    => $||m|| = c^{\log(m)}$ für jedes $m\in \N\setminus\{1\}$.
-    Wenn wir $e = e^s$, $s>0$, schreibe, dann ergibt sich für jedes positive rationale Zahl $x=\frac{a}{b}$
-    $$||x|| = e^{s\log(x)} = |x|_\infty^s$$
-    Damit folgt $||.||\sim |.|_\infty$.
-
-    Nun zu $(*)$:
+\TODO[rework from here]
+    Zu $(*)$:
     Schreibe $m$ zur Basis $n$ (OBdA $n<m$):
     $$m= a_0 + a_1 n+\dots+a_rn^r$$
     mit $a_i\in \{0,\dots,n-1\}$, $a_r = 0$.
     Somit $n^r\leq m$, also $r\leq \frac{\log(m)}{\log(n)}$.
-    Weiter $||a_i|| \leq a_i ||1|| = a_i<n$.
-    Es folgt $$||m||\leq \sum_{i=0}^r ||a_i|| \cdot ||n||^i\leq \sum_{i=0}^r n \cdot ||n||^r \leq \left(1+\frac{\log(m)}{\log(n)}\right) \cdot n \cdot ||n||^{\frac{\log(m)}{\log(n)}}$$
+    Weiter $\|a_i\| \leq a_i \|1\| = a_i<n$.
+    Es folgt $$\|m\|\leq \sum_{i=0}^r \|a_i\| \cdot \|n\|^i\leq \sum_{i=0}^r n \cdot \|n\|^r \leq \left(1+\frac{\log(m)}{\log(n)}\right) \cdot n \cdot \|n\|^{\frac{\log(m)}{\log(n)}}$$
     Wir ersetzen in dieser Ungleichung $m$ durch $m^k$ und ziehen die $k$-te Wurzel:
-    $$||m|| \leq \sqrt[k]{\left(1+\frac{k\cdot\log(m)}{\log(n)}\right)}\cdot n^{1^k} \cdot ||n||^{\frac{\log(m)}{\log(n)}}$$
-    => $||m||^{\frac{1}{\log(m)}} \leq ||n||^{\frac{1}{\log(n)}}$
+    $$\|m\| \leq \sqrt[k]{\left(1+\frac{k\cdot\log(m)}{\log(n)}\right)}\cdot n^{1^k} \cdot \|n\|^{\frac{\log(m)}{\log(n)}}$$
+    => $\|m\|^{\frac{1}{\log(m)}} \leq \|n\|^{\frac{1}{\log(n)}}$
     Da die Rollen von $m$ und $n$ vertauschbar sind, folgt Gleichheit.
 \end{proof}
 \subsection{Vervollständigungen}
@@ -241,14 +260,14 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
 \end{definition}
 \begin{example}
     \begin{itemize}
-        \item $(R,|.|_\infty)$, $(\C, |.|_\C)$ sind vollständig
-        \item $(\Q, |.|_5)$ nicht vollständig\footnote{Das Argument gilt für alle Prmzahlen $p\equiv 1\mod 4$}
+        \item $(R,_\infty)$, $(\C, _\C)$ sind vollständig
+        \item $(\Q, _5)$ nicht vollständig\footnote{Das Argument gilt für alle Prmzahlen $p\equiv 1\mod 4$}
         Sei $a_k + 5^k\Z$ ein Element in $(\Z/5^k\Z)^\times$ dei Ordnung $4$.\footnote{Wegen $\phi(5^k) = 5^k-5^{k-1}  = 5^{k-1} \cdot 4$ ($k\geq 2$) und der Tatsache, dass $(\Z/5^k\Z)^\times$ yzklisch ist gilt, dass $(\Z/5^k\Z)^\times \cong \Z/4\Z \times \Z/5^{k-1}\Z$. Bei Hartnick gab es mehr dazu.}
         Wir können erreichen, dass $a_k\equiv a_{k+1}\mod 5^k$
-        => $|a_k-a_{k+1}|_5 < \frac{1}{5^k}$, also ist $(a_k)_k$ eine Cauchyfolge bez $|.|_5$.
+        => $|a_k-a_{k+1}|_5 < \frac{1}{5^k}$, also ist $(a_k)_k$ eine Cauchyfolge bez $_5$.
 
         $a_k + 5^5\Z$ hat Ordnung $2$, also $a_k^2 \equiv -1 \mod 5^k$.
-        => $\lim_{k\rightarrow \infty} a_k^2 = -1$ bez $|.|_5$.
+        => $\lim_{k\rightarrow \infty} a_k^2 = -1$ bez $_5$.
         Also müsste ein Grenzwert $a=\lim_{k\rightarrow \infty} a_k$ in $\Q$ die Gleichung $a^2= -1$ erfüllen \Lightning
     \end{itemize}
 \end{example}
