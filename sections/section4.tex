@@ -235,9 +235,8 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
         $$\|n\|^{\frac{1}{\log(n)}} = \|m\|^{\frac{1}{\log(m)}}\quad (*)$$
         Somit $c\coloneqq\|n\|^{\frac{1}{\log(n)}}$ unabhängig von $n>1$.
         => $\|m\| = c^{\log(m)}$ für jedes $m\in \N\setminus\{1\}$.
-        Wenn wir $e = e^s$, $s>0$, schreibe, dann ergibt sich für jedes positive rationale Zahl $x=\frac{a}{b}$
+        Wenn wir $c = e^s$, $s>0$, schreibe, dann ergibt sich für jedes positive rationale Zahl $x=\frac{a}{b}$
         $$\|x\| = e^{s\log(x)} = |x|_\infty^s$$
-        \TODO[What? $e=e^s$????]
     \end{itemize}
     Damit folgt $\|.\|\sim \gaf_\infty$.
 
@@ -271,4 +270,119 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
         Also müsste ein Grenzwert $a=\lim_{k\rightarrow \infty} a_k$ in $\Q$ die Gleichung $a^2= -1$ erfüllen \Lightning
     \end{itemize}
 \end{example}
+
+\begin{flushright}
+VL vom 18.1.2024:
+\end{flushright}
+
+\begin{definition}% K^ statt tilde
+    Sei $(K,\gaf)$ ein Körper mit Betrag. Eine \emph{Vervollständigung} von $(K,\gaf)$ ist ein Tripel $\Tilde{K},\|.\|,i)$ bestehend aus:
+    \begin{itemize}
+        \item einem vollständigen Körper $\Tilde{K}$ mit Betrag $\|.\|$
+        \item einem Homomorphismus $i:K (injektiver right arrow) \Tilde{K}$so, dass
+        \begin{enumerate}
+            \item $\|i(x)\| = |x|$ für alle $x\in K$ ("betragserhaltend")
+            \item $i(k)\subseteq \Tilde{K}$ ist dicht
+        \end{enumerate}
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    Jeder Körper mit Betrag $(K,\gaf)$ besitzt eine Vervollständigung $(\Tilde{K}, \|.\|,i)$, die bis auf kanonische Isomorphie\footnote eindeutig ist.
+\end{theorem}
+Letzteres bedeutet:
+Ist $(\Tilde{K}_2, \|.\|_2,i_2)$ eine andere Vervollständigung von $(K,\gaf)$, dann existiert ein Isomorphismus $\phi:\Tilde{K}\overset{\cong}{\rightarrow} \Tilde{K}_2$ do, dass 
+* \TODO[Bild] kommutiert und 
+* $\phi$ ist betragserhaltend.
+
+Für den Beweis im Falle der $p$-adischen Betrags siehe Goueva: "p-adic numbers" S. 64-68.
+Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchyfolgen in der Analysis.
+\begin{proof}[Beweisskizze]
+    Zur Eindeutigkeit:
+    Für $x\in \Tilde{K}$ wähle $(x_n)_n$ in $K$ mit $\lim_{n\rightarrow \infty} i(x_n) = x$ (Dichtheit).
+    Setze $\phi(x)\coloneqq \lim_{n\rightarrow\infty} i_2(x_n)\in \Tilde{K}_2$.
+    Grenzwert ex., da $(i(x_n))_n$ genau dann eine Cauchyfolge ist, wenn $(i_2(x))_n$ eine ist, weil $i$,$i_2$ betragserhaltend sind.
+
+    Z.Z * $\phi$ Homomorphismus
+    * $\phi$ betragserhaltend
+    * die Umkehrabbildung wird ähnlich konstruiert
+
+    Zur Existenz:
+    Sei $\mathcal{R}\coloneqq \{\text{Cauchyfolgen in $K$}\}$
+    Durch punktweise Addition und Multiplikation wird $\mathcal{R}$ ein Ring mit Null $(0)_n$ und Eins $(1)_n$.
+    Sei $I = \{(x_n)_n\in \mathcal{R}\mid \lim_{n\rightarrow \infty} x_n = 0\}$.
+    Dann ist I ein Ideal.
+    Setze $\Tilde{K}\coloneqq \mathcal{R}/I$.
+    $\Tilde{K}$ ist ein Körper: Sei $x+I\in \Tilde{K}\setminus \{0\}$ d.h.
+    $x= (x_n)_n$ mit $(x_n)_n \notin I$.
+    Insb. existiert $n_0\in\N$ mit $x_n\neq 0$ für $x_n>n_0$.
+    Setze $y_n\begin{cases}
+        1\quad&n\leq n_0\\
+        x_n^{-1}\quad &n>n_0
+    \end{cases}$.
+    Dann ist $(y_n)_n$ eine Cauchyfolge.
+    Also $(y_n)_n\in \R$.
+    Weiter gilt $(x_n)_n\cdot(y_n)_n = (x_n\cdot y_n)_n = (1)_n + (u_n)_n$ mit $u_n =0$ für $n>n_0$, $(u_n)_n\in I$.
+    => $(y_n)_n+I$ Inverses von $(x_n)_n+I$ in $\Tilde{K}$.
+    Der Betrag auf $\Tilde{K}$ ist definiert durch $\|(x_n)_n+I\| \coloneqq \lim_{n\rightarrow \infty} |x_n|$ (wohldefiniert).
+
+    Definiere $i(x) = (x)_n+I\in \Tilde{K}$.
+    \begin{itemize}
+        \item $i$ offensichtlich betragserhaltend
+        \item $i(K)\subseteq\Tilde{K}$ dicht: Ist $(x_n)_n$ eine Cauchyfolge in $K$, dann $$\lim_{n\rightarrow\infty} i(x_n) = (x_n)_n+I$$.
+        \item $\Tilde{K}$ ist vollständig:
+        Ist $(y_n)_n$ eine Cauchyfolge in $\Tilde{K}$, dann wählen wir $x_n\in K$ mit $\|y_n-i(x_n)\|<\frac{1}{n}$.
+        Dann gilt $$\lim_{n\rightarrow\infty} y_n = \lim_{n\rightarrow\infty} i(x_n) = (x_n)_n +I$$.
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    Die Vervollständigung von $\Q$ bezüglich des p-adischen Betrags $\gaf_p$ nennt man den \emph{Körper der $p$-adischen Zahlen} $\Q_p$
+\end{definition}
+
+\begin{remark}
+    Es gilt forgender Satz:\\
+    Ein Körper, der vollständig bez. eines archimdischen Betrags ist, ist isomorph zu $\R$ oder $\C$. Der Betrag ist äquivalent zum gewöhnlichen Betrag.
+\end{remark}
+
+\subsection{Bewertungen und Bewertungsringe}
+\begin{theorem}
+    Sei $K$ ein Körper mit Bewertung $\nu:K\rightarrow\R\cup \{\infty\}$.
+    Dann ist $\mathcal{O}_\nu = \{x\in K\mid \nu(x)\geq0\}$ [$\mathcal{O}_\nu = \{x\in K\mid \|x\|_\nu \leq 1\}$ für $\|x\|_\nu = a^{-\nu(x)}$] ein Ring (genannt \emph{Bewertungsring}).
+    Der Ring $\mathcal{O}_\nu$ hat genau ein Maximales Ideal $m_\nu = \{x\in K\mid \nu(x)>0\}$ [$m_\nu = \{x\in K\mid \|x\|_\nu <1\}$]
+    und die Einheitengruppe $\mathcal{O}_\nu^\times = \{x\in K\mid \nu(x) = 0\}$ [$\mathcal{O}_\nu^\times = \{x\in K\mid \|x\|_\nu = 1\}$]
+\end{theorem}
+\begin{proof}
+    $\mathcal{O}_\nu$ ist ein Ring wegen der ultrametrischen Dreicksungleichung.
+    Die Aussagee über $\mathcal{O}_\nu^\times$ folgt aus $\|x^{-1}\|_\nu = \|x\|_\nu^{-1}$.
+    $m_\nu$ ist ein Ideal: Für $a\in \mathcal{O}_\nu$ und $x\in m_\nu$ ist $\|ax\|_\nu = \|a\|_\nu \cdot \|x\|_\nu < 1$
+    Für $x,y\in m_\nu$ ist $\|x+y\|_\nu \leq \max\left\{\|x\|_\nu, \|y\|_\nu\right\} < 1$.
+
+    Sei $I\subset \mathcal{O}_\nu.$. dann $I\cap \mathcal{O}_\nu = \emptyset$.
+    => $I\subseteq m_\nu$.
+    Somit ist $m_\nu$ das eindeutige maximale Ideal.
+\end{proof}
+
+\begin{definition}
+    Ein kommultiver Ring $R$ mit genau einem maximalen Ideal $m$ heißt \emph{lokaler Ring}. Der Körper $R/m$ ist der \emph{Restklassenkörper} vorn $R$.
+\end{definition}
+
+\begin{example}
+    Betrachet $\Q$ mit der $p$-adischen Bewertung $\nu_p$.
+    $$\mathcal{O}_{\nu_p} =\{\frac{a}{b}\in \Q\mid a,b\in \Z, p\nmid b\} = \Z_{(p)}$$\footnote{Siehe A3 auf Blatt 10}
+    $$m_{\nu_p} = \{\frac{a}{b}\in \Q\mid p|a, p\nmid b\} = p\cdot \mathcal{O}_{\nu_p} =p\Z_{(p)}$$% algihn
+    Weiter ist $\mathcal{O}_{\nu_p}/m_{\nu_p} \overset{\cong}{\longrightarrow} \F_p$
+    $$[\frac{a}{b}] \mapsto \overline{a} \cdot \overline{b}^{-1}$$ % align stuff
+    
+\end{example}
+
+\begin{lemma}
+    Sei $R$ ein lokaler Ring mit maximalem Ideal $m$. Dann gilt $R^\times = R/m$.
+\end{lemma}
+\begin{proof}
+    * $x\in R^\times$ =>$xR = R$ => $x\notin m$.
+    * $x\in R\setminus m$. Dann ist das Ideal $xR$ nicht in $m$ enhalten.
+    Da $m$ das einzige maximale Ideal und jedes Ideal $\neq R$ in einem maximalen Ideal enthalten ist, ist $xR = R$ und somit $x\in R^\times$.
+\end{proof}
+
 \end{document}
