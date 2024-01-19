@@ -385,4 +385,133 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
     Da $\mathcal{m}$ das einzige maximale Ideal und jedes Ideal $\neq R$ in einem maximalen Ideal enthalten ist, ist $xR = R$ und somit $x\in R^\times$.
 \end{proof}
 
+\begin{flushright}
+VL vom 19.1.2024:
+\end{flushright}
+
+\begin{definition}
+    Man nennt eine Bewertung \emph{diskret}, wenn sie Werte in $\Z\cup \{\infty\}$ annimmt.
+    Ein Element $\pi$ mit Bewertung $\nu(\pi) = 1$ heißt \emph{uniformisierndes Element}.
+\end{definition}
+\begin{remark}
+    Sei $\pi$ uniformisierendes Element von $K$ mit Bewertung $\nu$. Dann kann man jedes $x\in K^\times$ schreiben als $x=\pi^m\cdot u$ mit $m=\nu(x)$, $u\in \mathcal{O}_\nu^\times$.
+    Denn $\nu(x\pi^{-m}) = -m + \nu(x) = 0$
+\end{remark}
+
+\begin{theorem}%Satz und Definition
+    Für einen Kommutativen Ring $A$ sind folgende Aussagen äquivalent:
+    \begin{enumerate}[label=(\alph*)]
+        \item $A$ ist Bewertungsring einer diskreten Bewertung auf einem Körper.
+        \item $A$ ist ein lokaler Hauptidealring, aber kein Körper
+    \end{enumerate}
+    Jeder Ring, der diese Bedingungen erfüllt, heißt \emph{diskreter Bewertungsring}.
+\end{theorem}
+\begin{proof}
+    (a) => (b):
+    Sei $A=\mathcal{O}_\nu$ für eine diskrete Bewertung $\nu$ auf $K$.
+    4.23 => $A$ lokaler Ring
+    $A$ ist kein Körper, weil ein uniformisierendes Element nicht invertierbar ist.
+    Sei $I\subseteq$ ein Ideal mit $I\neq (0)$.
+    Beh: $I=\pi^n\cdot A$ für ein $n\in \N$, wobei $\pi$ uniformisierend.
+    Sei $y\in A\setminus\{0\}$. Schreibe $y=\pi^m\cdot u$ mit $m=\nu(y)$, $u\in A^\times = \mathcal{0}_\nu^\times$.
+    Daher gilt $y\in I\Leftrightarrow u^{-1}y\in I \Leftrightarrow \pi^m = \pi^{\nu(y)}\in I$.
+    Sei $n\in \N_0$ minimal mit $x^n\in I$.
+    Dann $I = \pi^n\cdot A = \{x\in A\mid \nu(x)\geq n\}$.
+
+    (b) => (a):
+    Setze $K\coloneqq Quot(A)$. Sei $\mathcal{m}\subseteq A$ das (eindeutige) maximale Ideal.
+    Sei $\pi\in \mathcal{m}$ ein Erzeuger, d.h. $\pi A = \mathcal{m}$.
+    $A$ ist kein Körper => $\mathcal{m}\neq (0)$ => $\pi\neq 0$.
+    $\mathcal{m}$ ist auch das einzige Primideal, da in Hauptidealringen sind Primideale maximal.
+    Eindeutige Primfaktorzerlegung und 4.26:
+    $$A\setminus\{0\} \ni a = \pi^n\cdot u, n\in \N_0, u\in A^\times$$
+    Jedes $x\in K\setminus\{0\}$ schreibt sich eindeutig als
+    $$x = \pi^m\cdot u,m\in \Z, u\in A^\times$$
+    Definiere $\nu(x)\coloneqq m = \max \{k\in \Z\mid x\in \pi^kA\}$ und $\nu(0) = \infty$.
+    $\nu$ ist eine Bewertung auf $K$ (A3 auf Blatt 10).
+    Es ist dann $A=\mathcal{O}_\nu$.
+\end{proof}
+
+\begin{remark}
+    Sei $K$ ein Körper mit diskreter Bewertung $\nu$.
+    Sei $|x| = a^{-\nu(x)}$ ein zug. Betrag mit $a>1$.
+    Eine Folge $(x_n)_n$ in $K$ ist eine Cauchy bez. $\gaf$ gdw.
+    $\forall B>0\exists N\in \N \forall n,m>N: \nu(x_n-x_m)>B$.
+    Ist $K$ vollständig bez. $\gaf$, dann ist $K$ vollständig bezüglich aller von $\nu$ induzierten Beträge, und wir sagen, dass $K$ \emph{vollständig bez. $\nu$} ist.
+\end{remark}
+
+\begin{theorem}[Satz über Reihendarstellung]
+    Sei $K$ vollständig mit disketer Bewertung $\nu$.
+    Seien $\pi\in \mathcal{0}_\nu$ ein uniformisierendes Element und $\Omega\subseteq \mathcal{0}_\nu$ ein Repräsentantensystem für $\mathcal{0}_\nu/\mathcal{m} = \mathcal{0}_\nu/\pi \mathcal{0}_\nu$.
+    \begin{enumerate}[label=(\alph*)]
+        \item Jede Laurentreihe $\sum_{n=m}^\infty a_n\cdot \pi^n$ mit $m\in \Z, a_n\in \Omega$, konvergiert in $K$.
+        \item Jedes $x\in K^\times$ lässt sich eindeutig schreiben als $x=\sum_{n = \nu(x)}^\infty a_n\cdot \pi^n$ mit $a_n\in \Omega$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    \begin{enumerate}[label=(\alph*)]
+        \item Betrachte die Partialsumme $S_k = \sum_{n=m}^k a_n\cdot \pi^n$.
+        Z.z. $(S_k)$ ist eine Cauchyfolge bez $\nu$.
+        $\nu(S_k-S_e) = \nu(\sum_{n=l+1}^k a_n\cdot \pi^n)\geq \min\{\nu(a_n\pi^n)\mid l+1\leq n\leq k\}= \min\{n\cdot \underbrace{\nu(\pi)}_{=1}+\underbrace{\nu(a_n)}_{\geq 0}\mid l+1\leq n \leq k\} \geq \min\{n\mid l+1\leq n \leq k\} >l$
+        impliziert Cauchy.
+        \item Wir zeigen per Induktion: %zunächst existenz, dann eindeutigkeit
+        Es gibt $a_{\nu(x)},\dots,a_k\in \Omega$ mit $\nu(x-\sum_{n=\nu(x)}^k a_n\pi^n)\geq k+1$.
+        Anfang: $k<\nu(x)$
+        $\nu(x+0)\geq k+1$\checkmark.
+        Induktionsschritt: Seien $a_{\nu(x)}, \dots, a_k$ wie oben bekannt.
+        Es gibt ein eindeutiges $a_{k+1}\in \Omega$ mit $(\underbrace{x-\sum_{n=\nu(x)}^k a_n\pi^n}_{\in \pi^{k+1}\mathcal{O}_\nu nach 4.28})\pi^{-(k+1)}-a_{k+1}\in\pi \mathcal{O}_\nu$.\footnote{Wähle $a_{k+1}$ sodass es die passende nebenklasse in $\pi\mathcal{O}_\nu$}
+        => $x-\sum_{n=\nu(x)}^{k+1} a_n\pi^n\in \pi^{k+2}\mathcal{O}_\nu$
+        => $\nu(x-\sum_{n=\nu(x)}^{k+1} a_n\pi^n)\geq k+2$
+
+        Sei $x=\sum_{n=\nu(x)}^\infty b_n \pi^n$ eine ander solche Darstellung.
+        Sei $k$ minimal mit $a_k\neq b_k$.
+        => $0=(a_k-b_k)\pi^k + r\pi^{k+1}$ für ein $r\in \mathcal{O}_\nu$.
+        => $a_k\equiv b_k \mod \pi\mathcal{O}_\nu$.
+        => $a_k = b_k$, weil $\Omega$ ein Repräsentantensystem von $\mathcal{O}_\nu/\pi \mathcal{O}_\nu$ ist.
+    \end{enumerate}
+\end{proof}
+\TODO[Change $q_\times$ to $q_*$]
+\begin{lemma}[Henselsches Lemma]
+    Sei $K$ ein vollständiger Körper mit diskreter Bewertung $\nu$. Sei $q: \mathcal{O}_\nu\rightarrow \mathcal{O}_\nu/\mathcal{m}_\nu$ die Projektion.
+    Sei $f\in \mathcal{O}_\nu[X]$. Hat $q_\times(f)\in \mathcal{O}_\nu/\mathcal{m}_\nu [X]$ eine einfache Nullstelle in $\mathcal{O}_\nu/\mathcal{m}_\nu$, dann hat $f$ eine Nullstelle in $\mathcal{O}_\nu$.
+\end{lemma}
+\begin{example*}
+    $f(x)= x^2+1\in\Q_5[X]$ (siehe 4.18)
+    $q_\times(f)(x) = x^2+1\in \F_5[X]$ hat Nullstelle $\overline{2}\in \F_5$. Diese ist einfach, weil $D_{q_\times}(f)(\overline{2}) = 2\cdot \overline{2}\neq 0$ in $\F_5$.
+    Hensel => $f$ hat Nullstelle in $\Q_5$
+\end{example*}
+\begin{proof}
+    Wir zeigen induktiv:
+    Für alle $n\in \N$ gibt es $a_n\in \mathcal{O}_\nu$ gilt
+    (i) $f(a_n) \equiv 0 \mod \pi^n\mathcal{O}_\nu$
+    (ii) $a_n\equiv a_{n+1} \mod \pi^n\mathcal{O}_\nu$.
+    Wähle $a_1\in \mathcal{O}_\nu$ so, dass $q_\times(f)(\overline{a}_1) = 0\in \mathcal{O}_\nu/\pi \mathcal{O}_\nu$. <=> $f(a_1) \equiv 0\mod \pi \mathcal{O}_\nu$.
+    Angenommen wir haben $a_n\in \mathcal{O}_\nu$ wie oben.
+    Ansatz: $a_{n+1} = a_n + \pi^n \cdot b$ für $b\in \mathcal{O}_\nu$.
+    Beobachtung: $(a_n+\pi]n\cdot b)^m = a_n^m + m\cdot \pi^m\cdot b\cdot a_n^{m-1} \mod \pi^{n+1}\mathcal{O}_\nu$.
+    -> $f(a_n+\pi^nb) \equiv f(a_n) + \pi\cdot b\cdot D(f(a_n)) \mod \pi^{n+1} \mathcal{O}_\nu$.
+    Da $\overline{a}_1 \in \mathcal{O}_\nu/ \pi \mathcal{O}_\nu$ eine einfache Nullstelle von $q_\times f$, gilt $0\neq q_\times D(f)(\overline{a}_1) = q_\times D(f)(\overline{a}_n)$. Somit $D(f)(a_n)\in \mathcal{O}_\nu^\times$.
+    Nach (i) ist $f(a_n) = \pi^n\cdot u$ mit $u\in \mathcal{O}_\nu$. Setze $b\coloneqq -u\cdot D(f)(a_n)^{-1}$.
+    Dann $f(a_{n+1}) \equiv 0 \mod \pi^{n+1}\mathcal{O}_\nu$
+\end{proof}
+
+Fortsetzung des Beispiels? (Lose formatiert)
+$a_1=2$ 
+$(2+b\cdot 5)^2\equiv -1 \mod 5^2$
+$4+4\cdot 5\cdot b \equiv -1 \mod 5^2$
+=> $5^2| 5+4\cdot 5\cdot b = 5(1+4\cdot b)$
+<=> $5| 1+4\cdot b$
+$b=1$ ist Lösung
+
+$a_2 = 2 \cdot 5^0+1\cdot 5^1$
+$(2+1\cdot 5 + c\cdot 5^2)^2\equiv-1 \mod 5^3$
+$7^2+2\cdot 7\cdot c \cdot 5^2\equiv -1\mod 5^3$
+<=> $50+2\cdot 7 \cdot c \cdot 5^2$
+<=>
+$5| 2+2\cdot 7\cdot c$
+$c = 2$ Lösung
+
+
+$a_3 = 2\cdot 5^0+ 1\cdot 5^1 + 2\cdot 5^3+\dots$
 \end{document}
