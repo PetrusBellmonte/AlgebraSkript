@@ -100,7 +100,7 @@ Dies wird \emph{ultrametrische Dreiecksungleichung} genannt.
 \end{lemma}
 \begin{proof}$ $
     \begin{itemize}
-        \item[a) => b)]
+        \item[a) $\Rightarrow$ b)]
         Sei $x\in K$. Dann gilt
         \begin{align*}
             \card{x}_1<1&\Leftrightarrow \card{x}_1^n\underset{n\rightarrow \infty}{\longrightarrow} 0\\
@@ -110,7 +110,7 @@ Dies wird \emph{ultrametrische Dreiecksungleichung} genannt.
             &\Leftrightarrow |x|_2 <1
         \end{align*}
         \TODO[Wieso folgt das in der Mitte aus äquivalenz?]
-        \item[b) => c)]
+        \item[b) $\Rightarrow$ c)]
         Falls $\gaf_1$ nicht trivial ist, dann gilt es ein $y\in K^\times$ mit $|y|_1 <1$.
         Somit ist $\gaf_1$ trivial gdw $\gaf_2$ trivial ist.
     
@@ -125,10 +125,10 @@ Dies wird \emph{ultrametrische Dreiecksungleichung} genannt.
         Sei $s\in \R_{>0}$ mit $|y|_2 = |y|_1^s$.
         Dann folgt:
         $$|x|_2 = |y|_2^\alpha = |y|_1^{s\cdot \alpha} = |x|_1^s$$.
-        \item[c) => a)]
+        \item[c) $\Rightarrow$ a)]
         Sei $\epsilon >0$ und $u\in K$.
         $$B_\epsilon^{\gaf_1}(u) = \{u\in K\mid |x-u|_1<\epsilon\} = \{x\in K\mid |x-u|<\epsilon^{-s}\} = B_{\epsilon^{-s}}^{\gaf_2}(u)$$
-        => $\gaf_1\sim\gaf_2$
+        $\Longrightarrow$ $\gaf_1\sim\gaf_2$
     \end{itemize}
 \end{proof}
 
@@ -231,7 +231,7 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
 
         \item[2.Fall]
         Sei $\|.\|$ archimedisch.
-        Beh.: Für alle natürlichen $n,m>1$ gilt
+        Beh.: Für alle natürlichen $n,m\in\N_{>1}$ gilt
         $$\|n\|^{\frac{1}{\log(n)}} = \|m\|^{\frac{1}{\log(m)}}\quad (*)$$
         Somit $c\coloneqq\|n\|^{\frac{1}{\log(n)}}$ unabhängig von $n>1$.
         => $\|m\| = c^{\log(m)}$ für jedes $m\in \N\setminus\{1\}$.
@@ -240,33 +240,33 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
     \end{itemize}
     Damit folgt $\|.\|\sim \gaf_\infty$.
 
-\TODO[rework from here]
-    Zu $(*)$:
-    Schreibe $m$ zur Basis $n$ (OBdA $n<m$):
+    Zu $(*)$:\\
+    Schreibe $m\in \N$ zur Basis $n\in\N$ (\obda\ $n<m$):
     $$m= a_0 + a_1 n+\dots+a_rn^r$$
-    mit $a_i\in \{0,\dots,n-1\}$, $a_r = 0$.
+    mit $a_i\in \{0,\dots,n-1\}$, $a_r \neq 0$.
     Somit $n^r\leq m$, also $r\leq \frac{\log(m)}{\log(n)}$.
     Weiter $\|a_i\| \leq a_i \|1\| = a_i<n$.
     Es folgt $$\|m\|\leq \sum_{i=0}^r \|a_i\| \cdot \|n\|^i\leq \sum_{i=0}^r n \cdot \|n\|^r \leq \left(1+\frac{\log(m)}{\log(n)}\right) \cdot n \cdot \|n\|^{\frac{\log(m)}{\log(n)}}$$
     Wir ersetzen in dieser Ungleichung $m$ durch $m^k$ und ziehen die $k$-te Wurzel:
     $$\|m\| \leq \sqrt[k]{\left(1+\frac{k\cdot\log(m)}{\log(n)}\right)}\cdot n^{1^k} \cdot \|n\|^{\frac{\log(m)}{\log(n)}}$$
-    => $\|m\|^{\frac{1}{\log(m)}} \leq \|n\|^{\frac{1}{\log(n)}}$
+    \TODO[wo geht das $\cdot n\cdot$ hin?]
+    $\Longrightarrow$ $\|m\|^{\frac{1}{\log(m)}} \leq \|n\|^{\frac{1}{\log(n)}}$\\
     Da die Rollen von $m$ und $n$ vertauschbar sind, folgt Gleichheit.
 \end{proof}
 \subsection{Vervollständigungen}
 \begin{definition}
-    Ein Körper mit Betrag ist \emph{vollständig}, wenn jede Cauchyfolge in $K$ konvergiert.
+    Ein Körper mit Betrag ist \emph{vollständig}, wenn jede Cauchyfolge\footnote{Eine Folge $(a_n)_{n\in\N}$ ist eine \emph{Cauchy-Folge}, wenn $\forall\epsilon>0\;\exists N\in \N\;\forall m,n\geq N\colon |a_m - a_n| <\epsilon$} in $K$ konvergiert.
 \end{definition}
-\begin{example}
+\begin{example} $ $
     \begin{itemize}
-        \item $(R,_\infty)$, $(\C, _\C)$ sind vollständig
-        \item $(\Q, _5)$ nicht vollständig\footnote{Das Argument gilt für alle Prmzahlen $p\equiv 1\mod 4$}
+        \item $(R,\gaf_\infty)$, $(\C, \gaf_\C)$ sind vollständig
+        \item $(\Q, \gaf_5)$ nicht vollständig\footnote{Das Argument gilt für alle Primzahlen $p\equiv 1\mod 4$}
         Sei $a_k + 5^k\Z$ ein Element in $(\Z/5^k\Z)^\times$ dei Ordnung $4$.\footnote{Wegen $\phi(5^k) = 5^k-5^{k-1}  = 5^{k-1} \cdot 4$ ($k\geq 2$) und der Tatsache, dass $(\Z/5^k\Z)^\times$ yzklisch ist gilt, dass $(\Z/5^k\Z)^\times \cong \Z/4\Z \times \Z/5^{k-1}\Z$. Bei Hartnick gab es mehr dazu.}
         Wir können erreichen, dass $a_k\equiv a_{k+1}\mod 5^k$
-        => $|a_k-a_{k+1}|_5 < \frac{1}{5^k}$, also ist $(a_k)_k$ eine Cauchyfolge bez $_5$.
+        => $|a_k-a_{k+1}|_5 < \frac{1}{5^k}$, also ist $(a_k)_k$ eine Cauchyfolge bez $\gaf_5$.
 
-        $a_k + 5^5\Z$ hat Ordnung $2$, also $a_k^2 \equiv -1 \mod 5^k$.
-        => $\lim_{k\rightarrow \infty} a_k^2 = -1$ bez $_5$.
+        \TODO[Stimmt Ordnung?? Sollte sie nicht 4 sein?]
+        $a_k + 5^5\Z$ hat Ordnung\footnote{Ordnung $ord_G(a) = \min\{i\in\N\mid a^i = 1\}$} $2$, also $a_k^2 \equiv -1 \mod 5^k$ $\Longrightarrow$ $\lim_{k\rightarrow \infty} a_k^2 = -1$ bez $\gaf_5$.
         Also müsste ein Grenzwert $a=\lim_{k\rightarrow \infty} a_k$ in $\Q$ die Gleichung $a^2= -1$ erfüllen \Lightning
     \end{itemize}
 \end{example}
@@ -276,38 +276,45 @@ VL vom 18.1.2024:
 \end{flushright}
 
 \begin{definition}% K^ statt tilde
-    Sei $(K,\gaf)$ ein Körper mit Betrag. Eine \emph{Vervollständigung} von $(K,\gaf)$ ist ein Tripel $(\hat{K},\|.\|,i)$ bestehend aus:
+    Sei $(K,\gaf)$ ein Körper mit Betrag. Eine \emph{Vervollständigung} von $(K,\gaf)$ ist ein Tripel $(\hat{K},\ggaf,i)$ bestehend aus:
     \begin{itemize}
-        \item einem vollständigen Körper $\hat{K}$ mit Betrag $\|.\|$
-        \item einem Homomorphismus $i:K \hookrightarrow \hat{K}$so, dass
+        \item einem vollständigen Körper $\hat{K}$ mit Betrag $\ggaf$
+        \item einem Homomorphismus $i:K \hookrightarrow \hat{K}$ so, dass
         \begin{enumerate}
             \item $\|i(x)\| = |x|$ für alle $x\in K$ ("betragserhaltend")
-            \item $i(k)\subseteq \hat{K}$ ist dicht
+            \item $i(K)\subseteq \hat{K}$ ist dicht\footnote{
+            Eine Menge $M\subseteq X$ ist dicht in $X$, wenn eine der folgenden äquivalenten Aussagen zutrifft:
+            \begin{itemize}
+                \item Zu jedem $x\in X$ und jedem $r>0$ existiert ein Punkt $y\in M$, sodass $|x-y|<r$
+                \item Zu jedem $x\in X$ existiert eine Folge $(x_n)_{n\in\N}$ von Punkten aus $M$, sodass $\lim_{n\rightarrow\infty} x_n = x$.
+            \end{itemize}
+            }
         \end{enumerate}
     \end{itemize}
 \end{definition}
 
 \begin{theorem}
-    Jeder Körper mit Betrag $(K,\gaf)$ besitzt eine Vervollständigung $(\hat{K}, \|.\|,i)$, die bis auf kanonische Isomorphie eindeutig ist.
+    Jeder Körper mit Betrag $(K,\gaf)$ besitzt eine Vervollständigung $(\hat{K}, \ggaf,i)$, die bis auf kanonische Isomorphie eindeutig ist.
 \end{theorem}
 Letzteres bedeutet:
-Ist $(\hat{K}_2, \|.\|_2,i_2)$ eine andere Vervollständigung von $(K,\gaf)$, dann existiert ein Isomorphismus $\phi:\hat{K}\overset{\cong}{\rightarrow} \hat{K}_2$ do, dass 
-* \TODO[Bild] kommutiert und 
-* $\phi$ ist betragserhaltend.
+Ist $(\hat{K}_2, \ggaf_2,i_2)$ eine andere Vervollständigung von $(K,\gaf)$, dann existiert ein Isomorphismus $\phi:\hat{K}\overset{\cong}{\rightarrow} \hat{K}_2$ so, dass 1. \TODO[Bild] kommutiert und 2. $\phi$ ist betragserhaltend.
 
 Für den Beweis im Falle der $p$-adischen Betrags siehe Goueva: "p-adic numbers" S. 64-68.
 Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchyfolgen in der Analysis.
-\begin{proof}[Beweisskizze]
-    Zur Eindeutigkeit:
+\begin{proof}[Beweisskizze]$ $\\
+    Zur Eindeutigkeit:\\
     Für $x\in \hat{K}$ wähle $(x_n)_n$ in $K$ mit $\lim_{n\rightarrow \infty} i(x_n) = x$ (Dichtheit).
     Setze $\phi(x)\coloneqq \lim_{n\rightarrow\infty} i_2(x_n)\in \hat{K}_2$.
-    Grenzwert ex., da $(i(x_n))_n$ genau dann eine Cauchyfolge ist, wenn $(i_2(x))_n$ eine ist, weil $i$,$i_2$ betragserhaltend sind.
+    Grenzwert ex., da $(i(x_n))_n$ genau dann eine Cauchyfolge ist, wenn $\left(i_2(x)\right)_n$ eine ist, weil $i$, $i_2$ betragserhaltend sind.
+    Zu zeigen:
+    \begin{itemize}[noitemsep]
+        \item $\phi$ Homomorphismus
+        \item $\phi$ betragserhaltend
+        \item die Umkehrabbildung wird ähnlich konstruiert
+    \end{itemize}
 
-    Z.Z * $\phi$ Homomorphismus
-    * $\phi$ betragserhaltend
-    * die Umkehrabbildung wird ähnlich konstruiert
-
-    Zur Existenz:
+    \noindent
+    Zur Existenz:\\
     Sei $\mathcal{R}\coloneqq \{\text{Cauchyfolgen in $K$}\}$
     Durch punktweise Addition und Multiplikation wird $\mathcal{R}$ ein Ring mit Null $(0)_n$ und Eins $(1)_n$.
     Sei $I = \{(x_n)_n\in \mathcal{R}\mid \lim_{n\rightarrow \infty} x_n = 0\}$.
@@ -315,19 +322,19 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
     Setze $\hat{K}\coloneqq \mathcal{R}/I$.
     $\hat{K}$ ist ein Körper: Sei $x+I\in \hat{K}\setminus \{0\}$ d.h.
     $x= (x_n)_n$ mit $(x_n)_n \notin I$.
-    Insb. existiert $n_0\in\N$ mit $x_n\neq 0$ für $x_n>n_0$.
+    Insbesondere existiert $n_0\in\N$ mit $x_n\neq 0$ für $x_n>n_0$.
     Setze $y_n\begin{cases}
         1\quad&n\leq n_0\\
         x_n^{-1}\quad &n>n_0
     \end{cases}$.
-    Dann ist $(y_n)_n$ eine Cauchyfolge.
+    Dann ist $(y_n)_n$ eine Cauchyfolge\footnote{\TODO[Is it??]}.
     Also $(y_n)_n\in \R$.
     Weiter gilt $(x_n)_n\cdot(y_n)_n = (x_n\cdot y_n)_n = (1)_n + (u_n)_n$ mit $u_n =0$ für $n>n_0$, $(u_n)_n\in I$.
-    => $(y_n)_n+I$ Inverses von $(x_n)_n+I$ in $\hat{K}$.
+    $\Longrightarrow$ $(y_n)_n+I$ Inverses von $(x_n)_n+I$ in $\hat{K}$.
     Der Betrag auf $\hat{K}$ ist definiert durch $\|(x_n)_n+I\| \coloneqq \lim_{n\rightarrow \infty} |x_n|$ (wohldefiniert).
 
     Definiere $i(x) = (x)_n+I\in \hat{K}$.
-    \begin{itemize}
+    \begin{itemize}[noitemsep]
         \item $i$ offensichtlich betragserhaltend
         \item $i(K)\subseteq\hat{K}$ dicht: Ist $(x_n)_n$ eine Cauchyfolge in $K$, dann $$\lim_{n\rightarrow\infty} i(x_n) = (x_n)_n+I$$.
         \item $\hat{K}$ ist vollständig:
@@ -341,26 +348,27 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
 \end{definition}
 
 \begin{remark}
-    Es gilt forgender Satz:\\
+    Es gilt folgender Satz:\\
     Ein Körper, der vollständig bez. eines archimdischen Betrags ist, ist isomorph zu $\R$ oder $\C$. Der Betrag ist äquivalent zum gewöhnlichen Betrag.
 \end{remark}
 
 \subsection{Bewertungen und Bewertungsringe}
-\begin{theorem}
+\begin{theorem}\label{theo:4.23}
     Sei $K$ ein Körper mit Bewertung $\nu:K\rightarrow\R\cup \{\infty\}$.
-    Dann ist $\mathcal{O}_\nu = \{x\in K\mid \nu(x)\geq0\}$ [$\mathcal{O}_\nu = \{x\in K\mid \|x\|_\nu \leq 1\}$ für $\|x\|_\nu = a^{-\nu(x)}$] ein Ring (genannt \emph{Bewertungsring}).
-    Der Ring $\mathcal{O}_\nu$ hat genau ein Maximales Ideal $\mathcal{m}_\nu = \{x\in K\mid \nu(x)>0\}$ [$\mathcal{m}_\nu = \{x\in K\mid \|x\|_\nu <1\}$]
-    und die Einheitengruppe $\mathcal{O}_\nu^\times = \{x\in K\mid \nu(x) = 0\}$ [$\mathcal{O}_\nu^\times = \{x\in K\mid \|x\|_\nu = 1\}$]
+    Dann ist $$\mathcal{O}_\nu = \{x\in K\mid \nu(x)\geq0\}$$ [$\mathcal{O}_\nu = \{x\in K\mid \|x\|_\nu \leq 1\}$ für $\|x\|_\nu = a^{-\nu(x)}$] ein Ring (genannt \emph{Bewertungsring}).
+    Der Ring $\mathcal{O}_\nu$ hat genau ein Maximales Ideal $$\mathcal{m}_\nu = \{x\in K\mid \nu(x)>0\}$$ [$\mathcal{m}_\nu = \{x\in K\mid \|x\|_\nu <1\}$]
+    und die Einheitengruppe $$\mathcal{O}_\nu^\times = \{x\in K\mid \nu(x) = 0\}$$ [$\mathcal{O}_\nu^\times = \{x\in K\mid \|x\|_\nu = 1\}$]
 \end{theorem}
 \begin{proof}
     $\mathcal{O}_\nu$ ist ein Ring wegen der ultrametrischen Dreicksungleichung.
-    Die Aussagee über $\mathcal{O}_\nu^\times$ folgt aus $\|x^{-1}\|_\nu = \|x\|_\nu^{-1}$.
+    Die Aussage über $\mathcal{O}_\nu^\times$ folgt aus $\|x^{-1}\|_\nu = \|x\|_\nu^{-1}$.
     $\mathcal{m}_\nu$ ist ein Ideal: Für $a\in \mathcal{O}_\nu$ und $x\in \mathcal{m}_\nu$ ist $\|ax\|_\nu = \|a\|_\nu \cdot \|x\|_\nu < 1$
     Für $x,y\in \mathcal{m}_\nu$ ist $\|x+y\|_\nu \leq \max\left\{\|x\|_\nu, \|y\|_\nu\right\} < 1$.
 
-    Sei $I\subset \mathcal{O}_\nu.$. dann $I\cap \mathcal{O}_\nu = \emptyset$.
-    => $I\subseteq \mathcal{m}_\nu$.
+    Sei $\emptyset\neq I\subset \mathcal{O}_\nu$. Dann $I\cap \mathcal{O}_\nu^\times = \emptyset$, sonst $1\in I$ und $I=\mathcal{O}_\nu$.
+    $\Longrightarrow$ $I\subseteq \mathcal{m}_\nu$.
     Somit ist $\mathcal{m}_\nu$ das eindeutige maximale Ideal.
+    \TODO[Wieso sind alle Elemente $x\in K$ mit $\nu(x)=0$ invertierbar? Es ist klar, dass alle in $\mathcal{O}_\nu$ invertierbaren Elemente $\nu(x)=0$ haben, aber $x\in K$??]
 \end{proof}
 
 \begin{definition}
@@ -369,20 +377,25 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
 
 \begin{example}
     Betrachet $\Q$ mit der $p$-adischen Bewertung $\nu_p$.
-    $$\mathcal{O}_{\nu_p} =\{\frac{a}{b}\in \Q\mid a,b\in \Z, p\nmid b\} = \Z_{(p)}$$\footnote{Siehe A3 auf Blatt 10}
-    $$\mathcal{m}_{\nu_p} = \{\frac{a}{b}\in \Q\mid p|a, p\nmid b\} = p\cdot \mathcal{O}_{\nu_p} =p\Z_{(p)}$$% algihn
+    $$\mathcal{O}_{\nu_p} =\left\{\frac{a}{b}\in \Q \mathrel{\Big|} a,b\in \Z, p\nmid b\right\} = \Z_{(p)}\footnote{Siehe A3 auf Blatt 10}$$
+    $$\mathcal{m}_{\nu_p} = \left\{\frac{a}{b}\in \Q \mathrel{\Big|} p|a, p\nmid b\right\} = p\cdot \mathcal{O}_{\nu_p} =p\Z_{(p)}$$% algihn
     Weiter ist $\mathcal{O}_{\nu_p}/\mathcal{m}_{\nu_p} \overset{\cong}{\longrightarrow} \F_p$
     $$\left[\frac{a}{b}\right] \mapsto \overline{a} \cdot \overline{b}^{-1}$$ % align stuff
     
 \end{example}
 
 \begin{lemma}
-    Sei $R$ ein lokaler Ring mit maximalem Ideal $\mathcal{m}$. Dann gilt $R^\times = R/\mathcal{m}$.
+    Sei $R$ ein lokaler Ring mit maximalem Ideal $\mathcal{m}$. Dann gilt $R^\times = R\setminus\mathcal{m}$.
+    \TODO[Ich habe hier $/$ durch $\setminus$ ersetzt... Stimmt das?]
 \end{lemma}
-\begin{proof}
-    * $x\in R^\times$ =>$xR = R$ => $x\notin \mathcal{m}$.
-    * $x\in R\setminus \mathcal{m}$. Dann ist das Ideal $xR$ nicht in $\mathcal{m}$ enhalten.
-    Da $\mathcal{m}$ das einzige maximale Ideal und jedes Ideal $\neq R$ in einem maximalen Ideal enthalten ist, ist $xR = R$ und somit $x\in R^\times$.
+\begin{proof} $ $
+    \begin{itemize}
+        \item[$\subseteq$]
+        $x\in R^\times\;\Rightarrow\;xR = R\;\Rightarrow\;x\notin \mathcal{m}$
+        \item[$\supseteq$]
+        $x\in R\setminus \mathcal{m}$. Dann ist das Ideal $xR$ nicht in $\mathcal{m}$ enhalten.
+        Da $\mathcal{m}$ das einzige maximale Ideal und jedes Ideal $\neq R$ in einem maximalen Ideal enthalten ist, ist $xR = R$ $\Longrightarrow\; x\in R^\times$
+    \end{itemize}
 \end{proof}
 
 \begin{flushright}
@@ -394,8 +407,9 @@ VL vom 19.1.2024:
     Ein Element $\pi$ mit Bewertung $\nu(\pi) = 1$ heißt \emph{uniformisierndes Element}.
 \end{definition}
 \begin{remark}
-    Sei $\pi$ uniformisierendes Element von $K$ mit Bewertung $\nu$. Dann kann man jedes $x\in K^\times$ schreiben als $x=\pi^m\cdot u$ mit $m=\nu(x)$, $u\in \mathcal{O}_\nu^\times$.
-    Denn $\nu(x\pi^{-m}) = -m + \nu(x) = 0$
+    Sei $\pi$ uniformisierendes Element von $K$ mit Bewertung $\nu$.
+    Dann kann man jedes $x\in K^\times$ schreiben als $x=\pi^m\cdot u$ mit $m=\nu(x)$, $u\in \mathcal{O}_\nu^\times$, denn $\nu(\pi^m x^{-1}) = 0$ damit $\pi^m x^{-1} \in \mathcal{O}_\nu^\times$ und damit existiert $(\pi^m x^{-1})^{-1} = x\pi^{-m}\eqcolon u$.
+    \TODO[Wieso sollte $\pi^{-m}$ existieren? Wenn die Definition von $\mathcal{O}_\nu^\times$ oben stimmt, passt meine Erklärung hier, aber wenn nicht...]
 \end{remark}
 
 \begin{theorem}%Satz und Definition
@@ -406,30 +420,34 @@ VL vom 19.1.2024:
     \end{enumerate}
     Jeder Ring, der diese Bedingungen erfüllt, heißt \emph{diskreter Bewertungsring}.
 \end{theorem}
-\begin{proof}
-    (a) => (b):
-    Sei $A=\mathcal{O}_\nu$ für eine diskrete Bewertung $\nu$ auf $K$.
-    4.23 => $A$ lokaler Ring
-    $A$ ist kein Körper, weil ein uniformisierendes Element nicht invertierbar ist.
-    Sei $I\subseteq$ ein Ideal mit $I\neq (0)$.
-    Beh: $I=\pi^n\cdot A$ für ein $n\in \N$, wobei $\pi$ uniformisierend.
-    Sei $y\in A\setminus\{0\}$. Schreibe $y=\pi^m\cdot u$ mit $m=\nu(y)$, $u\in A^\times = \mathcal{0}_\nu^\times$.
-    Daher gilt $y\in I\Leftrightarrow u^{-1}y\in I \Leftrightarrow \pi^m = \pi^{\nu(y)}\in I$.
-    Sei $n\in \N_0$ minimal mit $x^n\in I$.
-    Dann $I = \pi^n\cdot A = \{x\in A\mid \nu(x)\geq n\}$.
-
-    (b) => (a):
-    Setze $K\coloneqq Quot(A)$. Sei $\mathcal{m}\subseteq A$ das (eindeutige) maximale Ideal.
-    Sei $\pi\in \mathcal{m}$ ein Erzeuger, d.h. $\pi A = \mathcal{m}$.
-    $A$ ist kein Körper => $\mathcal{m}\neq (0)$ => $\pi\neq 0$.
-    $\mathcal{m}$ ist auch das einzige Primideal, da in Hauptidealringen sind Primideale maximal.
-    Eindeutige Primfaktorzerlegung und 4.26:
-    $$A\setminus\{0\} \ni a = \pi^n\cdot u, n\in \N_0, u\in A^\times$$
-    Jedes $x\in K\setminus\{0\}$ schreibt sich eindeutig als
-    $$x = \pi^m\cdot u,m\in \Z, u\in A^\times$$
-    Definiere $\nu(x)\coloneqq m = \max \{k\in \Z\mid x\in \pi^kA\}$ und $\nu(0) = \infty$.
-    $\nu$ ist eine Bewertung auf $K$ (A3 auf Blatt 10).
-    Es ist dann $A=\mathcal{O}_\nu$.
+\begin{proof} $ $
+    \begin{itemize}
+        \item[(a) $\Rightarrow$ (b)]
+        Sei $A=\mathcal{O}_\nu$ für eine diskrete Bewertung $\nu$ auf $K$.
+        Nach \ref{theo:4.23} ist $A$ lokaler Ring
+        $A$ ist kein Körper, weil ein uniformisierendes Element nicht invertierbar ist.\TODO[Wieso muss ein solches Element existieren?]
+        Sei $I\subseteq$ ein Ideal mit $I\neq (0)$.
+        Beh: $I=\pi^n\cdot A$ für ein $n\in \N$, wobei $\pi$ uniformisierend.
+        Sei $y\in A\setminus\{0\}$. Schreibe $y=\pi^m\cdot u$ mit $m=\nu(y)$, $u\in A^\times = \mathcal{O}_\nu^\times$.\TODO[Wieso sollte es das geben? 4.28 gibt uns derartige Konstruktionen nur für $y\in K^\times$]
+        Daher gilt $y\in I\Leftrightarrow u^{-1}y\in I \Leftrightarrow \pi^m = \pi^{\nu(y)}\in I$.
+        Sei $n\in \N_0$ minimal mit $x^n\in I$.
+        Dann $I = \pi^n\cdot A = \{x\in A\mid \nu(x)\geq n\}$.
+        
+\TODO[rework from here]
+        \item[(b) $\Rightarrow$ (a)]
+        Setze $K\coloneqq Quot(A)$. Sei $\mathcal{m}\subseteq A$ das (eindeutige) maximale Ideal.
+        Sei $\pi\in \mathcal{m}$ ein Erzeuger, d.h. $\pi A = \mathcal{m}$.
+        $A$ ist kein Körper => $\mathcal{m}\neq (0)$ => $\pi\neq 0$.
+        $\mathcal{m}$ ist auch das einzige Primideal, da in Hauptidealringen sind Primideale maximal.
+        Eindeutige Primfaktorzerlegung und 4.26:
+        $$A\setminus\{0\} \ni a = \pi^n\cdot u, n\in \N_0, u\in A^\times$$
+        Jedes $x\in K\setminus\{0\}$ schreibt sich eindeutig als
+        $$x = \pi^m\cdot u,m\in \Z, u\in A^\times$$
+        Definiere $\nu(x)\coloneqq m = \max \{k\in \Z\mid x\in \pi^kA\}$ und $\nu(0) = \infty$.
+        $\nu$ ist eine Bewertung auf $K$ (A3 auf Blatt 10).
+        Es ist dann $A=\mathcal{O}_\nu$.
+    \end{itemize}
+    
 \end{proof}
 
 \begin{remark}
@@ -471,14 +489,14 @@ VL vom 19.1.2024:
         => $a_k = b_k$, weil $\Omega$ ein Repräsentantensystem von $\mathcal{O}_\nu/\pi \mathcal{O}_\nu$ ist.
     \end{enumerate}
 \end{proof}
-\TODO[Change $q_\times$ to $q_*$]
+
 \begin{lemma}[Henselsches Lemma]
     Sei $K$ ein vollständiger Körper mit diskreter Bewertung $\nu$. Sei $q: \mathcal{O}_\nu\rightarrow \mathcal{O}_\nu/\mathcal{m}_\nu$ die Projektion.
-    Sei $f\in \mathcal{O}_\nu[X]$. Hat $q_\times(f)\in \mathcal{O}_\nu/\mathcal{m}_\nu [X]$ eine einfache Nullstelle in $\mathcal{O}_\nu/\mathcal{m}_\nu$, dann hat $f$ eine Nullstelle in $\mathcal{O}_\nu$.
+    Sei $f\in \mathcal{O}_\nu[X]$. Hat $q_*(f)\in \mathcal{O}_\nu/\mathcal{m}_\nu [X]$ eine einfache Nullstelle in $\mathcal{O}_\nu/\mathcal{m}_\nu$, dann hat $f$ eine Nullstelle in $\mathcal{O}_\nu$.
 \end{lemma}
 \begin{example*}
     $f(x)= x^2+1\in\Q_5[X]$ (siehe 4.18)
-    $q_\times(f)(x) = x^2+1\in \F_5[X]$ hat Nullstelle $\overline{2}\in \F_5$. Diese ist einfach, weil $D_{q_\times}(f)(\overline{2}) = 2\cdot \overline{2}\neq 0$ in $\F_5$.
+    $q_*(f)(x) = x^2+1\in \F_5[X]$ hat Nullstelle $\overline{2}\in \F_5$. Diese ist einfach, weil $D_{q_*}(f)(\overline{2}) = 2\cdot \overline{2}\neq 0$ in $\F_5$.
     Hensel => $f$ hat Nullstelle in $\Q_5$
 \end{example*}
 \begin{proof}
@@ -486,12 +504,12 @@ VL vom 19.1.2024:
     Für alle $n\in \N$ gibt es $a_n\in \mathcal{O}_\nu$ gilt
     (i) $f(a_n) \equiv 0 \mod \pi^n\mathcal{O}_\nu$
     (ii) $a_n\equiv a_{n+1} \mod \pi^n\mathcal{O}_\nu$.
-    Wähle $a_1\in \mathcal{O}_\nu$ so, dass $q_\times(f)(\overline{a}_1) = 0\in \mathcal{O}_\nu/\pi \mathcal{O}_\nu$. <=> $f(a_1) \equiv 0\mod \pi \mathcal{O}_\nu$.
+    Wähle $a_1\in \mathcal{O}_\nu$ so, dass $q_*(f)(\overline{a}_1) = 0\in \mathcal{O}_\nu/\pi \mathcal{O}_\nu$. <=> $f(a_1) \equiv 0\mod \pi \mathcal{O}_\nu$.
     Angenommen wir haben $a_n\in \mathcal{O}_\nu$ wie oben.
     Ansatz: $a_{n+1} = a_n + \pi^n \cdot b$ für $b\in \mathcal{O}_\nu$.
     Beobachtung: $(a_n+\pi]n\cdot b)^m = a_n^m + m\cdot \pi^m\cdot b\cdot a_n^{m-1} \mod \pi^{n+1}\mathcal{O}_\nu$.
     -> $f(a_n+\pi^nb) \equiv f(a_n) + \pi\cdot b\cdot D(f(a_n)) \mod \pi^{n+1} \mathcal{O}_\nu$.
-    Da $\overline{a}_1 \in \mathcal{O}_\nu/ \pi \mathcal{O}_\nu$ eine einfache Nullstelle von $q_\times f$, gilt $0\neq q_\times D(f)(\overline{a}_1) = q_\times D(f)(\overline{a}_n)$. Somit $D(f)(a_n)\in \mathcal{O}_\nu^\times$.
+    Da $\overline{a}_1 \in \mathcal{O}_\nu/ \pi \mathcal{O}_\nu$ eine einfache Nullstelle von $q_* f$, gilt $0\neq q_* D(f)(\overline{a}_1) = q_* D(f)(\overline{a}_n)$. Somit $D(f)(a_n)\in \mathcal{O}_\nu^\times$.
     Nach (i) ist $f(a_n) = \pi^n\cdot u$ mit $u\in \mathcal{O}_\nu$. Setze $b\coloneqq -u\cdot D(f)(a_n)^{-1}$.
     Dann $f(a_{n+1}) \equiv 0 \mod \pi^{n+1}\mathcal{O}_\nu$
 \end{proof}
