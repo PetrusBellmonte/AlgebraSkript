@@ -18,7 +18,7 @@ Ansatz: Verstehe eine Gruppe $G$, indem man Normalteiler $\{e\} \neq N \nt G$ un
 Eine Gruppe $(G,*)$ heißt \emph{einfach}, wenn $G \neq \{1\}$ und die trivialen Normalteiler $\{1\}, G$ die einzigen Normalteiler von $G$ sind.
 \end{definition}
 \begin{example}
-    $\Z/n\Z$ ist einfach gdw. $n$ prim ist. Andernfalls folgt mit dem chinesischen Restsatz für alle $d \mid n$, dass $\mathbb{Z}/d\mathbb{Z} \trianglelefteq \mathbb{Z}/n\mathbb{Z}$.
+    $\Z/n\Z$ ist einfach gdw. $n$ prim ist. Andernfalls folgt mit dem chinesischen Restsatz für alle $d \mid n$, dass $\mathbb{Z}/d\mathbb{Z} \nteq \mathbb{Z}/n\mathbb{Z}$.
 \end{example}
 Wir verfolgen das Ziel, Gruppen zu verstehen, indem wir sie in einfache Normalteiler zerlegen und diese sowie deren Quotientengruppen separat untersuchen, welche hoffentlich eine simplere Struktur haben. Für endliche Gruppen haben die nichttrivialen Normalteiler bspw. echt kleinere Kardinalität.
 \begin{theorem}[$A_5$]
@@ -56,8 +56,8 @@ VL vom 27.10.2023:
 \begin{example}[Kompositionsreihen von $(G := (\Z,+)$]
     Alle Untergruppen von $G$ sind Normalteiler, da es sich um eine abelsche Gruppe handelt (\cref{lem:found:2}). Weiterhin haben alle Untergruppen von $G$ die Form $n\mathbb{Z}$ für ein $n \in \mathbb{N}_0$.
     Sei nun $n \in \mathbb{N}$. Dann ist
-    $$\mathcal{G}: \{0\} = G_0 \; \triangleleftneq \; n\mathbb{Z} \; \triangleleftneq \; \mathbb{Z} = G$$ eine Normalreihe in $G$ mit den Faktoren $$G_1/G_0 = \{\{k\} \mid k \in n\mathbb{Z}\} \; \cong \; n\mathbb{Z} \; \cong \; \mathbb{Z}, \; G/G_1 = \mathbb{Z}/n\mathbb{Z}$$
-    $G$ besitzt allerdings keine Kompositionsreihe, denn für jede Normalreihe $$\{0\} \; \triangleleftneq \; n\mathbb{Z} \; \triangleleftneq \; ... \; \triangleleftneq \; \mathbb{Z} = G$$ ist für alle $1 < k \in \mathbb{N}$ eine echte Verfeinerung gegeben durch $$\{0\} \; \triangleleftneq \; (kn)\mathbb{Z} \; \triangleleftneq \; n\mathbb{Z} \; \triangleleftneq \; \; ... \; \triangleleftneq \; \mathbb{Z} = G$$
+    $$\mathcal{G}: \{0\} = G_0 \; \nt \; n\mathbb{Z} \; \nt \; \mathbb{Z} = G$$ eine Normalreihe in $G$ mit den Faktoren $$G_1/G_0 = \{\{k\} \mid k \in n\mathbb{Z}\} \; \cong \; n\mathbb{Z} \; \cong \; \mathbb{Z}, \; G/G_1 = \mathbb{Z}/n\mathbb{Z}$$
+    $G$ besitzt allerdings keine Kompositionsreihe, denn für jede Normalreihe $$\{0\} \; \nt \; n\mathbb{Z} \; \nt \; ... \; \nt \; \mathbb{Z} = G$$ ist für alle $1 < k \in \mathbb{N}$ eine echte Verfeinerung gegeben durch $$\{0\} \; \nt \; (kn)\mathbb{Z} \; \nt \; n\mathbb{Z} \; \nt \; \; ... \; \nt \; \mathbb{Z} = G$$
     wobei $n\mathbb{Z}/(kn)\mathbb{Z} \; \cong \; k\mathbb{Z}$ \TODO.
 \end{example}
 \begin{theorem} Es gelten die folgenden Charakterisierungen von Kompositionsreihen:
@@ -69,7 +69,7 @@ VL vom 27.10.2023:
 \begin{proof}
     Zu (a): 
     \begin{itemize}
-        \item[$\Rightarrow$] Der Beweis erfolgt durch Kontraposition. Sei dazu $$\mathcal{G}: \{1\} = G_0 \; \triangleleftneq \; G_1 \; \triangleleftneq \; ... \; \triangleleftneq \; G_i \; \triangleleftneq \; ... \; \triangleleftneq \; G$$ so dass $G_i/G_{i-1}$ nicht einfach ist. Sei weiterhin $\pi_i: G_i \rightarrow G_i/G_{i-1}$ die kanonische Projektion. Per Definition existiert dann ein nichttrivialer Normalteiler $N$ von $G_i/G_{i-1}$, also $(\{G_{i-1}\} =) \{1_{G_i/G_{i-1}}\} \; \neq N \; \triangleleftneq \; G_i/G_{i-1}$. Dann ist mit \cref{lem:found:4} (beachte, dass die kanon. Projektion surjektiv ist und $\pi^{-1}(\{G_{i-1}\}) = G_{i-1}, \; \pi^{-1}(G_i/G_{i-1}) = G_i$) $$\{1\} = G_0 \; \triangleleftneq \; G_1 \; \triangleleftneq \; ... \; \triangleleftneq G_{i-1} \; \triangleleftneq \; \pi_i^{-1}(N) \; \triangleleftneq \; G_i \; \triangleleftneq \; ... \; \triangleleftneq \; G$$ eine echte Verfeinerung von $\mathcal{G}$, also ist $\mathcal{G}$ keine Kompositionsreihe.
+        \item[$\Rightarrow$] Der Beweis erfolgt durch Kontraposition. Sei dazu $$\mathcal{G}: \{1\} = G_0 \; \nt \; G_1 \; \nt \; ... \; \nt \; G_i \; \nt \; ... \; \nt \; G$$ so dass $G_i/G_{i-1}$ nicht einfach ist. Sei weiterhin $\pi_i: G_i \rightarrow G_i/G_{i-1}$ die kanonische Projektion. Per Definition existiert dann ein nichttrivialer Normalteiler $N$ von $G_i/G_{i-1}$, also $(\{G_{i-1}\} =) \{1_{G_i/G_{i-1}}\} \; \neq N \; \nt \; G_i/G_{i-1}$. Dann ist mit \cref{lem:found:4} (beachte, dass die kanon. Projektion surjektiv ist und $\pi^{-1}(\{G_{i-1}\}) = G_{i-1}, \; \pi^{-1}(G_i/G_{i-1}) = G_i$) $$\{1\} = G_0 \; \nt \; G_1 \; \nt \; ... \; \nt G_{i-1} \; \nt \; \pi_i^{-1}(N) \; \nt \; G_i \; \nt \; ... \; \nt \; G$$ eine echte Verfeinerung von $\mathcal{G}$, also ist $\mathcal{G}$ keine Kompositionsreihe.
         \item[$\Leftarrow$] Sei $\mathcal{G}$ eine Normalreihe mit einfachen Faktoren und $\mathcal{H}$ eine Verfeinerung. Z.z. $\mathcal{H} = \mathcal{G}$, d.h. $G_i = H_i$ für alle $i$. Beiweis durch Induktion.
 
         IA  $i=0$: $G_0=\trivG=H_0$ \checkmark
@@ -125,12 +125,12 @@ Sei $G$ Gruppe, $A,B <G$ Untergruppen und $A_0 \nteq A$, $B_0 \nteq B$. Dann
 VL vom 02.11.2023:
 \end{flushright}
 \begin{example}
-    a) Insbesondere ist jede abelsche Gruppe auflösbar: Für die triviale Gruppe $\{1\}$ existieren keine Faktoren, ansonsten setze $$G_0 := \{1\} \; \triangleleftneq \; G_1 := G$$
+    a) Insbesondere ist jede abelsche Gruppe auflösbar: Für die triviale Gruppe $\{1\}$ existieren keine Faktoren, ansonsten setze $$G_0 := \{1\} \; \nt \; G_1 := G$$
 
     b) Sei weiterhin $\mathbb{K}$ ein Körper. Die Matrixgruppe $$(B = \{\begin{pmatrix} a & c \\ 0 & b \end{pmatrix} \in GL_2(\mathbb{K}) \mid a,b,c \in \mathbb{K}\}, \cdot)$$ ist nicht abelsch, aber dennoch auflösbar. Sei dafür $$\mathbb{K}^* = \mathbb{K}\setminus\{0\}$$ und $$\phi: B \rightarrow \mathbb{K}^* \times \mathbb{K}^*, \begin{pmatrix} a & c \\ 0 & b
     \end{pmatrix} \mapsto (a,b)$$ Dann ist $N = ker(\phi) = \{\begin{pmatrix}
         1 & c \\ 0 & 1
-    \end{pmatrix} \mid c \in \mathbb{K}\} \cong (\mathbb{K},+)$ Somit ist $$\{id\} \triangleleftneq N \triangleleftneq B$$ eine Normalreihe mit abelschen Faktoren. (Geht auch für $GL_n(K)$, Beweis komplizierter)
+    \end{pmatrix} \mid c \in \mathbb{K}\} \cong (\mathbb{K},+)$ Somit ist $$\{id\} \nt N \nt B$$ eine Normalreihe mit abelschen Faktoren. (Geht auch für $GL_n(K)$, Beweis komplizierter)
 
     c) (Semidirektes Produkt von Gruppen) \TODO
 \end{example}
@@ -139,7 +139,7 @@ VL vom 02.11.2023:
 \end{theorem}
 \begin{proof}
     Sei G auflösbar mit abelscher Normalreihe (abelsche Faktoren) 
-    $$G_0 := \{1\} \; \triangleleftneq \; ... \; \triangleleftneq \; G_n := G$$
+    $$G_0 := \{1\} \; \nt \; ... \; \nt \; G_n := G$$
     Sei $H < G$ Untergruppe. Dann ist $$H_0 := \{1\} \; \triangleleft \; ... \; \triangleleft \; H_n := H$$ mit $H_i := G_i \cap H$ eine abelsche Normalreihe von $H$ (nach Streichen gleicher Elemente):
     $$H_{i+1}/_{H_i} < G_{i+1}/_{G_i}$$
 \end{proof}
@@ -147,7 +147,7 @@ VL vom 02.11.2023:
     Sei $G$ eine endliche Gruppe und $\mathcal{G}$ eine Kompositionsreihe von $G$. Dann ist $G$ auflösbar gdw. jeder Faktor von $\mathcal{G}$ zyklisch von Primzahlordnung ist.
 \end{theorem}
 \begin{proof}
-    "$\Rightarrow$": Sei $G$ auflösbar. Nach Def. von Kompositionsreihen sind dann die $G_i/_{G_{i-1}}$ einfach und nach \cref{thm:ug:aufloesbar} auflösbar. Insbesondere existiert also eine Normalreihe von  $G_i/_{G_{i-1}}$. Dies impliziert, dass $G_i/_{G_{i-1}}$ abelsch ist, da $G_i/_{G_{i-1}}$ in einer solchen Normalreihe vorkommt (Begründung aus VL: da  $\{1\} \triangleleftneq G_i/_{G_{i-1}}$ die einzige Normalreihe ist - wird aber nicht benötigt?)
+    "$\Rightarrow$": Sei $G$ auflösbar. Nach Def. von Kompositionsreihen sind dann die $G_i/_{G_{i-1}}$ einfach und nach \cref{thm:ug:aufloesbar} auflösbar. Insbesondere existiert also eine Normalreihe von  $G_i/_{G_{i-1}}$. Dies impliziert, dass $G_i/_{G_{i-1}}$ abelsch ist, da $G_i/_{G_{i-1}}$ in einer solchen Normalreihe vorkommt (Begründung aus VL: da  $\{1\} \nt G_i/_{G_{i-1}}$ die einzige Normalreihe ist - wird aber nicht benötigt?)
     $G_i/_{G_{i-1}}$ ist als endliche abelsche Gruppe isomorph zu
     $$\mathbb{Z}/_{p_1^{\alpha_1}\mathbb{Z}} \times ... \times \mathbb{Z}/_{p_m^{\alpha_m}\mathbb{Z}}, \alpha_t \geq 1$$
     Wegen Einfachheit gilt $m = 1$ (ansonsten $\mathbb{Z}/_{p_1^{\alpha_1}\mathbb{Z}} \times \{0\} \times ... \times \{0\}$ nichttrivialer NT). Also $G_i/_{G_{i-1}} \cong \mathbb{Z}/_{p^\alpha\mathbb{Z}}$. Wieder wegen Einfachheit ist $\alpha = 1$ (ansonsten $p \mathbb{Z}/_{p^\alpha\mathbb{Z}}$ nichttrivialer NT).
@@ -159,10 +159,10 @@ VL vom 02.11.2023:
 \end{definition}
 \begin{lemma}
     Die Kommutatoruntergruppe D(G) einer Gruppe G ist ein NT von G. Die Faktorgruppe $G^m = G/_{D(G)}$ ist abelsch und heißt \emph{Abelisierung} von G.
-    Ist $N \trianglelefteq G$ und $G/_N$ abelsch, dann ist $D(G) \subseteq N$ (d.h. $G/_{D(G)} ->> G/_N$ ist surjektiv)
+    Ist $N \nteq G$ und $G/_N$ abelsch, dann ist $D(G) \subseteq N$ (d.h. $G/_{D(G)} ->> G/_N$ ist surjektiv)
 \end{lemma}
 \begin{proof}
-    Es ist $g^{-1}[x,y]g = g^{-1}x^{-1}y^{-1}xyg = (g^{-1}x^{-1}g)(g^{-1}yg)(g^{-1}xg)(g^{-1}yg) = [g^{-1}xg, g^{-1}yg]$. Somit ist $g^{-1}D(G)g = <[g^{-1}xg, g^{-1}yg] \mid x,g \in G> = D(G)$.
+    Es ist $g^{-1}[x,y]g = g^{-1}x^{-1}y^{-1}xyg = (g^{-1}x^{-1}g)(g^{-1}yg)(g^{-1}xg)(g^{-1}yg) = [g^{-1}xg, g^{-1}yg]$. Somit ist $g^{-1}D(G)g = \langle[g^{-1}xg, g^{-1}yg] \mid x,g \in G\rangle = D(G)$.
     
     Seien $xD(F), yD(G) \in G/D(G)$. Es ist dann $xyD(G) = xy[y,x]D(G) = xyy^{-1}x^{-1}yxD(G) = yxD(G)$. 
     
@@ -181,7 +181,7 @@ VL vom 02.11.2023:
     "$\Leftarrow$": ist klar (good one).
 
     "$\Rightarrow$": Sei G auflösbar. Dann gibt es eine abelsche Normalreihe
-    $$\{1\} = G_0 \triangleleftneq ... \triangleleftneq G_n = G$$
+    $$\{1\} = G_0 \nt ... \nt G_n = G$$
     Wir zeigen induktiv über die Länge $n$ der Normalreihe: $D^j(G) \subseteq G_{n-j}, j \in [n]_0$.
     IA: $n=0$. Klar: $D^0(G) = G = G_0 = G_n$
     ISt: Angenommen $D^j(G) \subseteq G_{n-j}$. Dann $D^{j+1}(G) = D(D^j(G)) \subseteq D(G_{n-j}) \subseteq G_{n-j-1}$. Die letzte Inklusion folgt aus TODO

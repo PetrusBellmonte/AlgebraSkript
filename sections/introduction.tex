@@ -83,14 +83,14 @@ Sei $(G,*)$ eine abelsche Gruppe. Dann ist jede Untergruppe $H \leq G$ bereits e
 \end{proof}
     
 \begin{lemma}\label{lem:found:3}
-    Sei $(G,*)$ eine Gruppe, $N \trianglelefteq G$ und $U \leq G$. Dann ist $U*N := \{u*n \mid u \in U, n \in N\} = N*U$ eine Untergruppe von G.
+    Sei $(G,*)$ eine Gruppe, $N \nteq G$ und $U \leq G$. Dann ist $U*N := \{u*n \mid u \in U, n \in N\} = N*U$ eine Untergruppe von G.
 \end{lemma}
 \begin{proof}
     \TODO
 \end{proof}
     
 \begin{lemma}\label{lem:found:4}
-    Seien $(G,*), (H,\cdot)$ Gruppen, $U \leq H, \; N \trianglelefteq U$ und $\phi: G \rightarrow H$ ein Gruppenhomomorphismus. Dann ist $\phi^{-1}(N) \trianglelefteq \phi^{-1}(U)$. Ist $\phi$ zusätzlich surjektiv, so gilt Gleichheit gdw. $U = N$.
+    Seien $(G,*), (H,\cdot)$ Gruppen, $U \leq H, \; N \nteq U$ und $\phi: G \rightarrow H$ ein Gruppenhomomorphismus. Dann ist $\phi^{-1}(N) \nteq \phi^{-1}(U)$. Ist $\phi$ zusätzlich surjektiv, so gilt Gleichheit gdw. $U = N$.
 \end{lemma}
 \begin{proof} 
     Die Untergruppenrelation ist klar. Wir zeigen also noch, dass das Urbild $\phi^{-1}(N)$ konjugationsinvariant ist. Sei dafür $g \in G$. Dann ist $\phi(g\phi^{-1}(N)g^{-1}) = \phi(g)\phi^{-1}(N)\phi(g)^{-1} = N$, also $g\phi^{-1}(N)g^{-1} \subseteq \phi^{-1}(N)$. Außerdem ist für $a \in \phi^{-1}(N)$: $\phi(g^{-1}ag) = \phi(g)^{-1}\phi(a)\phi(g) \in \phi(g)^{-1}N\phi(g) = N$, also $g^{-1}ag \in \phi^{-1}(N)$ und damit $a = gg^{-1}agg^{-1} \in g\phi^{-1}(N)g^{-1}$, was die andere Inklusionsrichtung und damit die Konjugationsinvarianz zeigt.
@@ -98,7 +98,7 @@ Sei $(G,*)$ eine abelsche Gruppe. Dann ist jede Untergruppe $H \leq G$ bereits e
 \end{proof}
     
 \begin{lemma}\label{lem:found:5}
-        Seien $(G,*), (H,\cdot)$ Gruppen, $N \trianglelefteq G$ und $\phi: G \rightarrow H$ ein surjektiver Gruppenhomomorphismus. Dann ist auch $\phi(N) \trianglelefteq H$.
+        Seien $(G,*), (H,\cdot)$ Gruppen, $N \nteq G$ und $\phi: G \rightarrow H$ ein surjektiver Gruppenhomomorphismus. Dann ist auch $\phi(N) \nteq H$.
 \end{lemma}
     \begin{proof}
         \TODO
