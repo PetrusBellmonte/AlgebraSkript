@@ -546,11 +546,10 @@ $a_3 = 2\cdot 5^0+ 1\cdot 5^1 + 2\cdot 5^3+\dots$
 \end{flushright}
 
 
-\TODO[rework from here]
 \begin{theorem}
     Sei $K$ ein vollständiger Körper bezüglich einer Bewertung $\nu$.
     Dann besitzt $\nu$ eine eindeutige Bewertungsfortsetzung auf jeder endlichen Erweiterung $L|K$.
-    Diese ist durch $$\nu_L(\alpha) = \sqrt[n]{\nu(N_{L|K}(a)}$$ gegeben, wobei $n=[L:K]$. Weiter ist $L$ bezüglich $\nu_L$ vollständig.
+    Diese ist durch $$\nu_L(\alpha) = \sqrt[n]{\nu\left(N_{L|K}(a)\right)}$$ gegeben, wobei $n=[L:K]$. Weiter ist $L$ bezüglich $\nu_L$ vollständig.
 \end{theorem}
 Bachte, dass für $\alpha\in K$:
 $N_{L|K}(\alpha) = \alpha^n $ und
@@ -558,35 +557,34 @@ $\nu(N_{L|K}(\alpha)) = \nu(\alpha)^n$.
 
 \begin{remark}[Die $p$-adischen Zahlen]
     $\Q_p$ mit $\nu_p$ bezüglich $\gaf_p$ $p$-adische (rationale) Zahlen.
-    Eiinnerung: $|x|_p = p^{-\nu_p(x)}$, wobei ${\nu_p}_{|\Q}$ gegeben ist durch $\nu_p(p^n\frac{a}{b}) = n$, wobei $p\nmid a$, $p\nmid b$.
+    Einnerung: $|x|_p = p^{-\nu_p(x)}$, wobei ${\nu_p}_{|\Q}$ gegeben ist durch $\nu_p(p^n\frac{a}{b}) = n$ mit $p\nmid a$, $p\nmid b$.
     $p$ ist uniformisierendes Element.
 
     Der Bewertungsring $\Z_p\coloneqq \mathcal{O}_{\nu_p}$ heißt der \emph{Ring der ganzen $p$-adischen Zahlen}.
-    Es gilt $$\Z_p\cap \Q = \{x\in\Q\mid \nu_p(x)\geq 0\} = \Z_{(p)}$$
-    Teilmenge $\Z_p\subseteq\Q_p$ ist offen und abgeschlossen:
-    Denn: 
-    $\Z_p = \{x\in\Q_p\mid |x|_p \leq 1\} = \overline{B_1(0)}$ und
-    $\Z_p = \{x\in\Q_p\mid |x|_p<p\} = B_p(0)$ % Alinge mee?
+    Es gilt $$\Z_p\cap \Q = \{x\in\Q\mid \nu_p(x)\geq 0\} = \Z_{(p)}\footnote{$A_{(p)} \coloneqq \left\{x\in K\mid x = \frac{a}{b}\text{ mit } a\in A \text{ und } b\in A\setminus (p)\right\}$ nach Blatt 10 Aufgabe 3}$$
+    Teilmenge $\Z_p\subseteq\Q_p$ ist offen und abgeschlossen, denn:
+    $$\Z_p = \{x\in\Q_p\mid |x|_p \leq 1\} = \overline{B_1(0)} \text{ und }\Z_p = \{x\in\Q_p\mid |x|_p<p\} = B_p(0)$$
 
+\TODO[rework from here]
     Da $\Z_p\subseteq \Q_p$ offen und $\Q\subseteq \Q_p$ dicht, ist auch $\Z_{(p)} = \Z_p\cap \Q \subseteq \Z_p$ dicht.
     Es ist sogar $\Z$ in $\Z_p$ dicht.
     Sei $x\in \Z_p$ und $\epsilon>0$. Dann gibt es $\frac{a}{b}\in \Z_{(p)}$ mit $\card{x-\frac{a}{b}}<\epsilon$.
     Sei $\overline{b}\in \Z$ so, dass $\overline{b}\cdot b \equiv 1\mod p^n$ für $n\in \N$ mit $p^{-n} < \frac{\epsilon}{|a|_p}$. Dann $|x-\underbrace{a\overline{b}}_{\in \Z}|_p \leq \max \{\card{x-\frac{a}{b}}_p, \card{\frac{a}{b}-a\overline{b}}_p\}$.
-    Wir haben $|\frac{a}{b}-a\overline{b}|_p = |a|_p\cdot |\frac{1}{b}-\overline{b}| \leq |a|_p \cdot |b|_p^{-1} \cdot |\frac{1}{b}-\overline{b}|_p = |a|_p\cdot |1-b\overline{b}|_p$
-    => $|x-a\overline{b}|_p < \epsilon$
+    Wir haben $|\frac{a}{b}-a\overline{b}|_p = |a|_p\cdot |\frac{1}{b}-\overline{b}| \leq\footnote{\TODO[Sollte das nicht = sein? $|b|_p$ sollte ja 1 sein]} |a|_p \cdot |b|_p^{-1} \cdot |\frac{1}{b}-\overline{b}|_p = |a|_p\cdot |1-b\overline{b}|_p \leq |a|_p \cdot p^{-n} < \epsilon$\\
+    $\Longrightarrow$ $|x-a\overline{b}|_p < \epsilon$
 
     Für den Restklassenring der Körper $\Q, \Q_p$ gilt:
     $$\F_p\cong \Z_{(p)}/p\Z_{(p)}\overset{\cong}{\longrightarrow} \Z_p/p\cdot \Z_p$$
-    Die Surjektivität und damit Bijektivität/Isomorphie folgt aus der Tatsache, dass jede Nebenklasse $x+p\Z_p$ offen ist und somit Elemente aus $\Z_{(p)}$ enthält.
+    Die Surjektivität und damit Bijektivität/Isomorphie folgt aus der Tatsache, dass jede Nebenklasse $x+p\Z_p$ offen ist und somit Elemente aus $\Z_{(p)}$ enthält.\TODO[Injektivität?]
 
     Reihendarstellung( 4.31):
     Jedes Element $x\in \Q_p$ lässt sich eindeutig schreiben als $$x=\sum_{i=\nu_p(x)}^\infty a_i\cdot p^i\text{, } a_i\in \{0,\dots,p-1\}$$
     Bsp: $-1 = (p-1) + (p-1) \cdot p + (p-1)\cdot +p^2+\dots$
-    sieht man eintweder durch $\underbrace{(p-1)+\dots + (p-1) p^n}_{(p-1)(1+\dots+p^n)} = p^{n+1}-1\equiv -1\mod p^{n+1}$ oderr durch geometrische Reihe $\frac{-1}{p-1}=\sum_{i=0}^\infty p^i$.
+    sieht man eintweder\\ durch $\underbrace{(p-1)+\dots + (p-1) p^n}_{(p-1)(1+\dots+p^n)} = p^{n+1}-1\equiv -1\mod p^{n+1}$ oder\\ durch geometrische Reihe $\frac{-1}{p-1}=\sum_{i=0}^\infty p^i$.
 
-    $\Q_p$ enthält primitive $(p-1)$-ste Einnheitswurzeln:
-    Sei $\Pi_{p-1}\in \Z[x]\subset \Z_p[x]$ das $(p-1)$-te Kreisteilungspolynom.
-    Da $p\nmid (p-1)$ und $Phi_{p-1}|X^{p-1}-1$ ist $\Phi_{p-1}$ separabel über $\F_p$.
+    $\Q_p$ enthält primitive $(p-1)$-ste Einheitswurzeln:
+    Sei $\Phi_{p-1}\in \Z[x]\subset \Z_p[x]$ das $(p-1)$-te Kreisteilungspolynom.
+    Da $p\nmid (p-1)$ und $\Phi_{p-1}|X^{p-1}-1$ ist $\Phi_{p-1}$ separabel über $\F_p$.
     Weiter besitzt $\F_p$ eine primitive $(p-1)$-te Einheitswurzel.
     => $\Phi_{p-1}$ besitzt eine einfache Nullstelle über $\F_p$.
     Hensels Lemma: $\Phi_{p-1}$ hat eine Nullstelle in $\Z_p\subseteq \Q_p$.
@@ -597,22 +595,26 @@ $\nu(N_{L|K}(\alpha)) = \nu(\alpha)^n$.
     Sei $p$ prim. Die Kongruenz $$F(x_1,\dots,x_n) \equiv 0\mod p^m$$
     ist genau dann für begliebiges $m \in \N$ lösbar, wenn $$F(x_1,\dots,x_n)=0$$ in $\Z_p$ lösbar ist.
 \end{theorem}
-\begin{proof}
-    =>?
-    Sei $(x_1,\dots,x_n)\in \Z_p^n$ eine Lösung. 
-    Betrchte Reihendarstellung $x_i=\sum_{\alpha=0}^\infty a_{i,\alpha} p^\alpha$.
-    Dann ist $(\underbrace{\sum_{\alpha =0}^{m-1} a_{1,\alpha} p^\alpha}_{\in\Z}, \dots,\underbrace{\sum_{\alpha = 0}^{m-1} a_{n,\alpha}p^\alpha}_{\in\Z})$
-    eine Lösung von $F$ modulo $p^m$.
-
-    <=?
-    Sei umgekehrt $(x_1^m, \dots, x_n^m) \in \Z^n$ eine Lösung $\mod p^m$.
-    \obda sei $n=1$, also $(x^m)_m$ Lösung von $F(x) \equiv 0\mod p^m$.
-    Wähle Teilfolge $(y_1^m)_m$ von $(x^m)_m$ und $y_1\in \Z$ mit $$y_1^m \equiv y_1\mod p$$
-    $$F(y_1^m)\equiv 0 \mod p$$.
-    Im nächsten Schritt wähle eine Teilfolge $(y_2^m)_m$ von $(y_1^m)_m$, die $\mod p^2$ konstant ist, d.h. $$y_2^m\equiv y_2\mod p^2$$
-    $$F(y_2^m) \equiv 0\mod p^2$$
-
-    Dann konvergiert die Folge $y_1,y_2,\dots$ gegen eine Lösung von $F$ in $\Z_p$.
+\begin{proof}$ $
+    \begin{itemize}
+        \item[$\Leftarrow$]
+        Sei $(x_1,\dots,x_n)\in \Z_p^n$ eine Lösung. 
+        Betrachte Reihendarstellung $x_i=\sum_{\alpha=0}^\infty a_{i,\alpha} p^\alpha$.
+        Dann ist $(\underbrace{\sum_{\alpha =0}^{m-1} a_{1,\alpha} p^\alpha}_{\in\Z}, \dots,\underbrace{\sum_{\alpha = 0}^{m-1} a_{n,\alpha}p^\alpha}_{\in\Z})$
+        eine Lösung von $F$ modulo $p^m$.
+        \item[$\Rightarrow$]
+        Sei umgekehrt $(x_1^m, \dots, x_n^m) \in \Z^n$ eine Lösung modulo $p^m$.
+        \obda\footnote{Da Validität des \obda zeigt sich erst im Laufe des Beweises.} sei $n=1$, also $(x^m)_{m\in\N}$ Lösung von $F(x) \equiv 0\mod p^m$.
+        Wähle Teilfolge $(y_1^m)_m$ von $(x^m)_m$ und $y_1\in \Z$ mit $$y_1^m \equiv y_1\mod p$$
+        $$F(y_1^m)\equiv 0 \mod p$$
+        Eine solche Teilfolge muss existieren, da es nur $p$ mögliche Reste für die $x_i$ gibt und so mindestens einen Rest $y_1$ unendlich häufig volkommt und eine Teilfolge gebildet werden kann.
+        
+        Im nächsten Schritt wähle eine Teilfolge $(y_2^m)_m$ von $(y_1^m)_m$, die $\mod p^2$ konstant ist, d.h. $$y_2^m\equiv y_2\mod p^2$$
+        $$F(y_2^m) \equiv 0\mod p^2$$
+    
+        Dann konvergiert die Folge $y_1,y_2,\dots$ gegen eine Lösung von $F$ in $\Z_p$.
+    \end{itemize}
+    
 \end{proof}
 
 \TODO[Vorlesung vom 26.01 kommt sobald ich sie selber nachgearbeitet habe]
