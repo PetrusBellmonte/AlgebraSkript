@@ -248,8 +248,7 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
     Weiter $\|a_i\| \leq a_i \|1\| = a_i<n$.
     Es folgt $$\|m\|\leq \sum_{i=0}^r \|a_i\| \cdot \|n\|^i\leq \sum_{i=0}^r n \cdot \|n\|^r \leq \left(1+\frac{\log(m)}{\log(n)}\right) \cdot n \cdot \|n\|^{\frac{\log(m)}{\log(n)}}$$
     Wir ersetzen in dieser Ungleichung $m$ durch $m^k$ und ziehen die $k$-te Wurzel:
-    $$\|m\| \leq \sqrt[k]{\left(1+\frac{k\cdot\log(m)}{\log(n)}\right)}\cdot n^{1^k} \cdot \|n\|^{\frac{\log(m)}{\log(n)}}$$
-    \TODO[wo geht das $\cdot n\cdot$ hin?]
+    $$\|m\| \leq \sqrt[k]{\left(1+\frac{k\cdot\log(m)}{\log(n)}\right)}\cdot n^{1/k} \cdot \|n\|^{\frac{\log(m)}{\log(n)}}$$
     $\Longrightarrow$ $\|m\|^{\frac{1}{\log(m)}} \leq \|n\|^{\frac{1}{\log(n)}}$\\
     Da die Rollen von $m$ und $n$ vertauschbar sind, folgt Gleichheit.
 \end{proof}
@@ -257,7 +256,7 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
 \begin{definition}
     Ein Körper mit Betrag ist \emph{vollständig}, wenn jede Cauchyfolge\footnote{Eine Folge $(a_n)_{n\in\N}$ ist eine \emph{Cauchy-Folge}, wenn $\forall\epsilon>0\;\exists N\in \N\;\forall m,n\geq N\colon |a_m - a_n| <\epsilon$} in $K$ konvergiert.
 \end{definition}
-\begin{example} $ $
+\begin{example} \label{theo:4.18}$ $
     \begin{itemize}
         \item $(R,\gaf_\infty)$, $(\C, \gaf_\C)$ sind vollständig
         \item $(\Q, \gaf_5)$ nicht vollständig\footnote{Das Argument gilt für alle Primzahlen $p\equiv 1\mod 4$}
@@ -383,7 +382,7 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
     
 \end{example}
 
-\begin{lemma}
+\begin{lemma}\label{theo:4.26}
     Sei $R$ ein lokaler Ring mit maximalem Ideal $\mathcal{m}$. Dann gilt $R^\times = R\setminus\mathcal{m}$.
 \end{lemma}
 \begin{proof} $ $
@@ -404,7 +403,7 @@ VL vom 19.1.2024:
     Man nennt eine Bewertung \emph{diskret}, wenn sie Werte in $\Z\cup \{\infty\}$ annimmt.
     Ein Element $\pi$ mit Bewertung $\nu(\pi) = 1$ heißt \emph{uniformisierndes Element}.
 \end{definition}
-\begin{remark}
+\begin{remark} \label{theo:4.28}
     Sei $\pi$ uniformisierendes Element von $K$ mit Bewertung $\nu$.
     Dann kann man jedes $x\in K^\times$ schreiben als $x=\pi^m\cdot u$ mit $m=\nu(x)$, $u\in \mathcal{O}_\nu^\times$, denn $\nu(\pi^m x^{-1}) = 0$ also $\pi^m x^{-1} \in \mathcal{O}_\nu^\times$ und damit existiert $\mathcal{O}_\nu^\times\ni(\pi^m x^{-1})^{-1} = x\pi^{-m}\eqcolon u$.
     
@@ -431,14 +430,13 @@ VL vom 19.1.2024:
         Sei $n\in \N_0$ minimal mit $\pi^n\in I$.
         Dann $I = \pi^n\cdot A = \{x\in A\mid \nu(x)\geq n\}$.
         
-\TODO[rework from here]
         \item[(b) $\Rightarrow$ (a)]
         Setze $K\coloneqq Quot(A)$. Sei $\mathcal{m}\subseteq A$ das (eindeutige) maximale Ideal.
         Sei $\pi\in \mathcal{m}$ ein Erzeuger, d.h. $\pi A = \mathcal{m}$.
-        $A$ ist kein Körper => $\mathcal{m}\neq (0)$ => $\pi\neq 0$.
-        $\mathcal{m}$ ist auch das einzige Primideal, da in Hauptidealringen sind Primideale maximal.
-        Eindeutige Primfaktorzerlegung und 4.26:
-        $$A\setminus\{0\} \ni a = \pi^n\cdot u, n\in \N_0, u\in A^\times$$
+        $A$ ist kein Körper $\Longrightarrow$ $\mathcal{m}\neq (0)$ $\Longrightarrow$ $\pi\neq 0$.
+        $\mathcal{m}$ ist auch das einzige Primideal, da in Hauptidealringen Primideale maximal sind.\\
+        Eindeutige Primfaktorzerlegung und \ref{theo:4.26}\footnote{\TODO[Wieso gibt es eine solche Primfaktorzerlegung?] Gegeben eine Primfaktorzerlegung $a=\epsilon\cdot q_1\cdot\dots q_n$ mit $\epsilon\in A^\times$ und $q_i\in A\setminus A^\times$ irreduzibel, ist nach \ref{theo:4.26} $q_i\in \mathcal{m}$ $\Rightarrow$ $q_i = a_i \cdot \pi$. Wenn $a_i\notin A^\times$, wäre $q_i = \underbrace{a_i}_{\notin A^\times}\cdot \underbrace{\pi}_{\notin A^\times}$ nicht irreduzibel \Lightning $\Rightarrow\ a_i\in A^\times$. Damit ergibt sich $a=\underbrace{\epsilon\cdot a_1\cdot \dots \cdot a_n}_{=:u\in A^\times} \cdot \pi^{n}$}:
+        $$A\setminus\{0\} \ni a = \pi^n\cdot u\text{ mit }n\in \N_0\text{, }u\in A^\times$$
         Jedes $x\in K\setminus\{0\}$ schreibt sich eindeutig als
         $$x = \pi^m\cdot u,m\in \Z, u\in A^\times$$
         Definiere $\nu(x)\coloneqq m = \max \{k\in \Z\mid x\in \pi^kA\}$ und $\nu(0) = \infty$.
@@ -450,15 +448,15 @@ VL vom 19.1.2024:
 
 \begin{remark}
     Sei $K$ ein Körper mit diskreter Bewertung $\nu$.
-    Sei $|x| = a^{-\nu(x)}$ ein zug. Betrag mit $a>1$.
-    Eine Folge $(x_n)_n$ in $K$ ist eine Cauchy bez. $\gaf$ gdw.
-    $\forall B>0\exists N\in \N \forall n,m>N: \nu(x_n-x_m)>B$.
-    Ist $K$ vollständig bez. $\gaf$, dann ist $K$ vollständig bezüglich aller von $\nu$ induzierten Beträge, und wir sagen, dass $K$ \emph{vollständig bez. $\nu$} ist.
+    Sei $|x| = a^{-\nu(x)}$ ein Betrag mit $a>1$.
+    Eine Folge $(x_n)_n$ in $K$ ist eine Cauchy bezüglich $\gaf$ gdw.
+    $$\forall B>0\ \exists N\in \N\ \forall n,m>N: \nu(x_n-x_m)>B$$
+    Ist $K$ vollständig bezüglich $\gaf$, dann ist $K$ vollständig bezüglich aller von $\nu$ induzierten Beträge, und wir sagen, dass $K$ \emph{vollständig bez. $\nu$} ist.
 \end{remark}
 
 \begin{theorem}[Satz über Reihendarstellung]
     Sei $K$ vollständig mit disketer Bewertung $\nu$.
-    Seien $\pi\in \mathcal{0}_\nu$ ein uniformisierendes Element und $\Omega\subseteq \mathcal{0}_\nu$ ein Repräsentantensystem für $\mathcal{0}_\nu/\mathcal{m} = \mathcal{0}_\nu/\pi \mathcal{0}_\nu$.
+    Seien $\pi\in \mathcal{O}_\nu$ ein uniformisierendes Element und $\Omega\subseteq \mathcal{O}_\nu$ ein Repräsentantensystem für $\mathcal{O}_\nu/\mathcal{m} = \mathcal{O}_\nu/\pi \mathcal{O}_\nu$.
     \begin{enumerate}[label=(\alph*)]
         \item Jede Laurentreihe $\sum_{n=m}^\infty a_n\cdot \pi^n$ mit $m\in \Z, a_n\in \Omega$, konvergiert in $K$.
         \item Jedes $x\in K^\times$ lässt sich eindeutig schreiben als $x=\sum_{n = \nu(x)}^\infty a_n\cdot \pi^n$ mit $a_n\in \Omega$.
@@ -468,23 +466,29 @@ VL vom 19.1.2024:
 \begin{proof}
     \begin{enumerate}[label=(\alph*)]
         \item Betrachte die Partialsumme $S_k = \sum_{n=m}^k a_n\cdot \pi^n$.
-        Z.z. $(S_k)$ ist eine Cauchyfolge bez $\nu$.
-        $\nu(S_k-S_e) = \nu(\sum_{n=l+1}^k a_n\cdot \pi^n)\geq \min\{\nu(a_n\pi^n)\mid l+1\leq n\leq k\}= \min\{n\cdot \underbrace{\nu(\pi)}_{=1}+\underbrace{\nu(a_n)}_{\geq 0}\mid l+1\leq n \leq k\} \geq \min\{n\mid l+1\leq n \leq k\} >l$
+        Z.z. $(S_k)_{k\in\N}$ ist eine Cauchyfolge bezüglich $\nu$.
+        \begin{align*}
+            \nu(S_k-S_l) =& \nu\left(\sum_{n=l+1}^k a_n\cdot \pi^n\right)
+            \geq \min\{\nu\left(a_n\pi^n\right)\mid l+1\leq n\leq k\}\\
+            =& \min\{n\cdot \underbrace{\nu(\pi)}_{=1}+\underbrace{\nu(a_n)}_{\geq 0}\mid l+1\leq n \leq k\} 
+            \geq \min\{n\mid l+1\leq n \leq k\} >l
+        \end{align*}
         impliziert Cauchy.
-        \item Wir zeigen per Induktion: %zunächst existenz, dann eindeutigkeit
-        Es gibt $a_{\nu(x)},\dots,a_k\in \Omega$ mit $\nu(x-\sum_{n=\nu(x)}^k a_n\pi^n)\geq k+1$.
-        Anfang: $k<\nu(x)$
-        $\nu(x+0)\geq k+1$\checkmark.
+        \item Wir zeigen per Induktion zunächst Existenz: 
+        Es gibt $a_{\nu(x)},\dots,a_k\in \Omega$ mit $\nu\left(x-\sum_{n=\nu(x)}^k a_n\pi^n\right)\geq {k+1}$.\\
+        Induktionsanfang $k<\nu(x)$: 
+        $\nu(x-0)\geq k+1$\checkmark.\\
         Induktionsschritt: Seien $a_{\nu(x)}, \dots, a_k$ wie oben bekannt.
-        Es gibt ein eindeutiges $a_{k+1}\in \Omega$ mit $(\underbrace{x-\sum_{n=\nu(x)}^k a_n\pi^n}_{\in \pi^{k+1}\mathcal{O}_\nu nach 4.28})\pi^{-(k+1)}-a_{k+1}\in\pi \mathcal{O}_\nu$.\footnote{Wähle $a_{k+1}$ sodass es die passende nebenklasse in $\pi\mathcal{O}_\nu$}
-        => $x-\sum_{n=\nu(x)}^{k+1} a_n\pi^n\in \pi^{k+2}\mathcal{O}_\nu$
-        => $\nu(x-\sum_{n=\nu(x)}^{k+1} a_n\pi^n)\geq k+2$
+        Es gibt ein eindeutiges ${a_{k+1}\in \Omega}$ mit $(\underbrace{x-\sum_{n=\nu(x)}^k a_n\pi^n}_{\in \pi^{k+1}\mathcal{O}_\nu\text{ nach \ref{theo:4.28}}})\pi^{-(k+1)}-a_{k+1}\in\pi \mathcal{O}_\nu$.\footnote{Wähle $a_{k+1}$ sodass es die passende nebenklasse in $\pi\mathcal{O}_\nu$}\\
+        $\Longrightarrow$ $x-\sum_{n=\nu(x)}^{k+1} a_n\pi^n\in \pi^{k+2}\mathcal{O}_\nu$
+        $\Longrightarrow$ $\nu(x-\sum_{n=\nu(x)}^{k+1} a_n\pi^n)\geq k+2$
 
-        Sei $x=\sum_{n=\nu(x)}^\infty b_n \pi^n$ eine ander solche Darstellung.
-        Sei $k$ minimal mit $a_k\neq b_k$.
-        => $0=(a_k-b_k)\pi^k + r\pi^{k+1}$ für ein $r\in \mathcal{O}_\nu$.
-        => $a_k\equiv b_k \mod \pi\mathcal{O}_\nu$.
-        => $a_k = b_k$, weil $\Omega$ ein Repräsentantensystem von $\mathcal{O}_\nu/\pi \mathcal{O}_\nu$ ist.
+        Zur Eindeutigkeit:
+        Sei $x=\sum_{n=\nu(x)}^\infty b_n \pi^n$ eine andere solche Darstellung.
+        Sei $k$ minimal mit $a_k\neq b_k$.\\
+        $\Longrightarrow$ $0=(a_k-b_k)\pi^k + r\pi^{k+1}$ für ein $r\in \mathcal{O}_\nu$.\\
+        $\Longrightarrow$ $a_k\equiv b_k \mod \pi\mathcal{O}_\nu$.\\
+        $\Longrightarrow$ $a_k = b_k$, weil $\Omega$ ein Repräsentantensystem von $\mathcal{O}_\nu/\pi \mathcal{O}_\nu$ ist.
     \end{enumerate}
 \end{proof}
 
@@ -493,49 +497,56 @@ VL vom 19.1.2024:
     Sei $f\in \mathcal{O}_\nu[X]$. Hat $q_*(f)\in \mathcal{O}_\nu/\mathcal{m}_\nu [X]$ eine einfache Nullstelle in $\mathcal{O}_\nu/\mathcal{m}_\nu$, dann hat $f$ eine Nullstelle in $\mathcal{O}_\nu$.
 \end{lemma}
 \begin{example*}
-    $f(x)= x^2+1\in\Q_5[X]$ (siehe 4.18)
+    Betrachte $f(x)= x^2+1\in\Q_5[X]$ (siehe \ref{theo:4.18}).
     $q_*(f)(x) = x^2+1\in \F_5[X]$ hat Nullstelle $\overline{2}\in \F_5$. Diese ist einfach, weil $D_{q_*}(f)(\overline{2}) = 2\cdot \overline{2}\neq 0$ in $\F_5$.
-    Hensel => $f$ hat Nullstelle in $\Q_5$
+    Nach Hensel hat $f$ eine Nullstelle in $\Z_5$.
 \end{example*}
 \begin{proof}
     Wir zeigen induktiv:
     Für alle $n\in \N$ gibt es $a_n\in \mathcal{O}_\nu$ gilt
-    (i) $f(a_n) \equiv 0 \mod \pi^n\mathcal{O}_\nu$
-    (ii) $a_n\equiv a_{n+1} \mod \pi^n\mathcal{O}_\nu$.
-    Wähle $a_1\in \mathcal{O}_\nu$ so, dass $q_*(f)(\overline{a}_1) = 0\in \mathcal{O}_\nu/\pi \mathcal{O}_\nu$. <=> $f(a_1) \equiv 0\mod \pi \mathcal{O}_\nu$.
-    Angenommen wir haben $a_n\in \mathcal{O}_\nu$ wie oben.
-    Ansatz: $a_{n+1} = a_n + \pi^n \cdot b$ für $b\in \mathcal{O}_\nu$.
-    Beobachtung: $(a_n+\pi]n\cdot b)^m = a_n^m + m\cdot \pi^m\cdot b\cdot a_n^{m-1} \mod \pi^{n+1}\mathcal{O}_\nu$.
-    -> $f(a_n+\pi^nb) \equiv f(a_n) + \pi\cdot b\cdot D(f(a_n)) \mod \pi^{n+1} \mathcal{O}_\nu$.
-    Da $\overline{a}_1 \in \mathcal{O}_\nu/ \pi \mathcal{O}_\nu$ eine einfache Nullstelle von $q_* f$, gilt $0\neq q_* D(f)(\overline{a}_1) = q_* D(f)(\overline{a}_n)$. Somit $D(f)(a_n)\in \mathcal{O}_\nu^\times$.
+    \begin{enumerate}[label=(\roman*),noitemsep]
+        \item $f(a_n) \equiv 0 \mod \pi^n\mathcal{O}_\nu$
+        \item $a_n\equiv a_{n+1} \mod \pi^n\mathcal{O}_\nu$.
+    \end{enumerate}
+    Wähle $a_1\in \mathcal{O}_\nu$ so, dass $q_*(f)(\overline{a}_1) = 0\in \mathcal{O}_\nu/\pi \mathcal{O}_\nu \Leftrightarrow f(a_1) \equiv 0\mod \pi \mathcal{O}_\nu$.
+    Angenommen wir haben $a_n\in \mathcal{O}_\nu$ wie oben.\\
+    Ansatz: $a_{n+1} = a_n + \pi^n \cdot b$ für $b\in \mathcal{O}_\nu$.\\
+    Beobachtung:
+    \begin{enumerate}[noitemsep]
+        \item $(a_n+\pi^n\cdot b)^m = a_n^m + m\cdot \pi^n\cdot b\cdot a_n^{m-1} \mod \pi^{n+1}\mathcal{O}_\nu$.\\
+        $\Longrightarrow$ $f(a_n+\pi^nb) \equiv f(a_n) + \pi^n\cdot b\cdot D(f(a_n)) \mod \pi^{n+1} \mathcal{O}_\nu$.
+        \item Da $\overline{a}_1 \in \mathcal{O}_\nu/ \pi \mathcal{O}_\nu$ eine einfache Nullstelle von $q_* f$, gilt $0\neq q_* D(f)(\overline{a}_1) \overset{(ii)}{=} q_* D(f)(\overline{a}_n)$. Somit $D(f)(a_n)\in \mathcal{O}_\nu^\times$.
+    \end{enumerate}
+    
     Nach (i) ist $f(a_n) = \pi^n\cdot u$ mit $u\in \mathcal{O}_\nu$. Setze $b\coloneqq -u\cdot D(f)(a_n)^{-1}$.
-    Dann $f(a_{n+1}) \equiv 0 \mod \pi^{n+1}\mathcal{O}_\nu$
+    Dann $f(a_{n+1}) \equiv 0 \mod \pi^{n+1}\mathcal{O}_\nu$ 
 \end{proof}
 
-Fortsetzung des Beispiels? (Lose formatiert)
-$a_1=2$ 
-$(2+b\cdot 5)^2\equiv -1 \mod 5^2$
-$4+4\cdot 5\cdot b \equiv -1 \mod 5^2$
-=> $5^2| 5+4\cdot 5\cdot b = 5(1+4\cdot b)$
-<=> $5| 1+4\cdot b$
-$b=1$ ist Lösung
+Fortsetzung des Beispiels? (Lose formatiert)\\
+$a_1=2$ \\
+$(2+b\cdot 5)^2\equiv -1 \mod 5^2$\\
+$4+4\cdot 5\cdot b \equiv -1 \mod 5^2$\\
+=> $5^2| 5+4\cdot 5\cdot b = 5(1+4\cdot b)$\\
+<=> $5| 1+4\cdot b$\\
+$b=1$ ist Lösung\\
 
-$a_2 = 2 \cdot 5^0+1\cdot 5^1$
-$(2+1\cdot 5 + c\cdot 5^2)^2\equiv-1 \mod 5^3$
-$7^2+2\cdot 7\cdot c \cdot 5^2\equiv -1\mod 5^3$
-<=> $50+2\cdot 7 \cdot c \cdot 5^2$
+$a_2 = 2 \cdot 5^0+1\cdot 5^1$\\
+$(2+1\cdot 5 + c\cdot 5^2)^2\equiv-1 \mod 5^3$\\
+$7^2+2\cdot 7\cdot c \cdot 5^2\equiv -1\mod 5^3$\\
+<=> $50+2\cdot 7 \cdot c \cdot 5^2$\\
 <=>
-$5| 2+2\cdot 7\cdot c$
+$5| 2+2\cdot 7\cdot c$\\
 $c = 2$ Lösung
 
 
 $a_3 = 2\cdot 5^0+ 1\cdot 5^1 + 2\cdot 5^3+\dots$
 
-
 \begin{flushright}
     14.1.2024
 \end{flushright}
 
+
+\TODO[rework from here]
 \begin{theorem}
     Sei $K$ ein vollständiger Körper bezüglich einer Bewertung $\nu$.
     Dann besitzt $\nu$ eine eindeutige Bewertungsfortsetzung auf jeder endlichen Erweiterung $L|K$.
@@ -603,4 +614,6 @@ $\nu(N_{L|K}(\alpha)) = \nu(\alpha)^n$.
 
     Dann konvergiert die Folge $y_1,y_2,\dots$ gegen eine Lösung von $F$ in $\Z_p$.
 \end{proof}
+
+\TODO[Vorlesung vom 26.01 kommt sobald ich sie selber nachgearbeitet habe]
 \end{document}
