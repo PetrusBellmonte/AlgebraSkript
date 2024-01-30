@@ -325,17 +325,17 @@ VL vom 13.11.2023:
 
 \subsection{Serperable Erweiterungen}
 \begin{definition}
-    Ein irreduzibles Polynom in $K[X]$ heißt \emph{separabel}, wenn es im $\overline{K}$ nur einfache Nullstellen hat. (allg. heizt ein allg. Polynom separabel, wenn alle irreduzieblen Faktoren separabel sind)
+    Ein irreduzibles Polynom in $K[X]$ heißt \emph{separabel}, wenn es im $\overline{K}$ nur einfache Nullstellen hat. (allgemein heißt ein Polynom separabel, wenn alle irreduzieblen Faktoren separabel sind)
 \end{definition}
 
 \begin{definition}
     Die $K$-lineare Abbildung $D:K[X]\rightarrow K[X], \sum a_ix^i \mapsto \sum ia_iX^{i-1}$ heißt \emph{(formal) Ableitung}.
-    Es gilt die Leibnizregel $D(fg) = D(f)g+fD(g)$.\footnote{Präziser $\sum a_ix^i \mapsto \sum \pi(i)a_iX^{i-1}$ mit $\pi\colon \Z\rightarrow K$ definiert durch $1\mapsto 1_K$. Daher ist die $Char(K)$ auch relevant.}
+    Es gilt die Leibnizregel $D(fg) = D(f)g+fD(g)$.\footnote{Präzieser $\sum a_ix^i \mapsto \sum \pi(i)a_iX^{i-1}$ mit $\pi\colon \Z\rightarrow K$ definiert durch $1\mapsto 1_K$. Daher ist die $Char(K)$ auch relevant.}
 \end{definition}
 \begin{theorem}
     Ein irreduzibles Polynom $f$ ist genau dann separabel, wenn $D(f)\neq 0$.
 \end{theorem}
-(Die mehrfache Nullstellen eines bel. Polynoms $f$ sind die gemeinsamen Nullstellen von $f$ und $D(f)$)
+(Die mehrfachen Nullstellen eines beliebigen Polynoms $f$ sind die gemeinsamen Nullstellen von $f$ und $D(f)$)
 \begin{example}
     $K = \F_p(T) = Quot(\F_p[T])$ (rationaler Funktionenkörper)
     Betrachte $f=X^p-T\in K[X]$.
