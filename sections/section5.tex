@@ -1,0 +1,121 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+\begin{flushright}
+VL vom 26.1.2024:
+\end{flushright}
+\subsection{Grundlagen der Modultheorie}
+Sei $R$ ein Ring mit Eins (aber nicht zwingend kommutativ)
+
+\begin{definition}
+    Ein \emph{Linksmodul} über $R$ ist eine abelsche Gruppe $(M,+)$ zusammen mit einer Skalarmultiplikation
+    $$R\times M\rightarrow M,\quad (r,m)\mapsto r * m$$
+    mit den Eigenschaften
+    \begin{enumerate}[label=(\roman*)]
+        \item $r\cdot (x+y) = r\cdot x + r\cdot y$
+        \item $(r+s)* x = r * x + s * x$
+        \item $(r\cdot s) * x = r * (s*x)$
+        \item $1_R * x = x$
+    \end{enumerate}
+    für alle $r,s\in R$ und $x,y\in M$.\\
+    Analog ist ein \emph{Rechtsmodul} definiert mit Skalarprodukt $M\times R\rightarrow M\quad (m,r)\mapsto m * r$
+\end{definition}
+
+\begin{remark}
+    Auf der $R$ zugrundeliegenden abelschen Grupp erhalten wir eine neue Ringstruktur, indem wir die Multiplikation durch $r\odot s \coloneqq s\cdot r$ ersetzten.
+    Man nennt diese den entgegengesetzten Ring $R^{Op}$. Ist $M$ bezüglich $M\times R\rightarrow M$ ein $R$-Rechtsmodul, dann ist $M$ bezüglich $R^{Op}\times M\rightarrow M, r\odot m= m\cdot r$, ein $R^{Op}$-Linksmodul.
+\end{remark}
+Wir betrachten in Zukunft Linksmoduln und nennen sie einfach Moduln.
+\begin{example} $ $
+    \begin{enumerate}[label=(\arabic*)]
+        \item $R=K$ Körper. Dann sind $K$-Moduln genau die $K$-Vektorräume
+        \item $M$ abelsche Gruppe
+        $$End(M) = \{f:M\rightarrow M \text{ Homomorphismus}\}$$
+        ist ein Ring bezüglich $(f+g)(x) = f(x) + g(x)$ und $(f\cdot g)(x) = f(g(x))$ mit der Skalarmultiplikation $End(M)\times M \rightarrow M\quad (f,m)\mapsto f(m)$ wird $M$ ein $End(M)$-Modul.
+        \item Abesche Gruppen sind genau die $\Z$-Moduln:
+        Ist $M$ eine abelsche Gruppe, dann ist $M$ ein $\Z$-Modul vermöge
+        $$n\cdot x = \underbrace{x+\dots+x}_{n\text{-fach}} \quad (-1)\cdot x = -x$$
+    \end{enumerate}
+\end{example}
+
+\begin{definition}$ $
+    \begin{enumerate}[label=(\alph*)]
+        \item Eine Abbildung $f:M\rightarrow N$ zwischen $R$-Moduln ist \emph{$R$-Linear}, wenn für $x,y\in M$, $r\in R$ gilt
+        $$f(x+y) = f(x) + f(y) \quad f(r\cdot x) = r\cdot f(x)$$
+        $Hom_R(M,N) \coloneqq \{\text{$R$-lineare Abbildung $M\rightarrow N$}\}$
+        \item Isomorphismus
+        \item Untermodul
+    \end{enumerate}
+\end{definition}
+\begin{example} $ $
+    \begin{enumerate}[label=(\alph*)]
+        \item Ist $f\in Hom_R(M,N)$, dann sind $\ker(f)$ und $f(M)$ Untermoduln.
+        \item $R$ ist ein Links- und Rechtsmodul bzüglich der Ringmultiplikation $R\times R \rightarrow R$. Dann (Links-) Ideale $\hat{=}$ Untermodul (in Linksmodulstruktur). Für Rechts- analog.
+    \end{enumerate}
+\end{example}
+
+Ilias (angeblich)
+
+\setcounter{theorem}{8}
+\begin{definition}
+    Sei $(M_i)_{i\in I}$ eine Familie von $R$-Moduln. Das kartesische Produkt $\prod_{i\in I} M_i$ ist ein $R$-Modul bezüglich $(x_i)_{i\in I} + (y_i)_{i\in I} = (x_i + y_i)_{i\in I}$ und $r\cdot (x_i)_{i\in I} = (rx_i)_{i\in I}$.
+    Wir sagen $\prod_{i\in I} M_i$ ist das \emph{direkte Produkt der $M_i$}. Für jedes $i\in I$ ist die Projektion $pr_i: \prod_{j\in I} M_i \rightarrow M_i$ $R$-linear.
+    Die Zuordnung $\phi\mapsto (pr_i \circ \phi)_{i\in I}$ definiert einen Isomorphismus abelscher Gruppen
+    $$Hom_R(M,\prod_{i\in I} M_i)\overset{\cong}{\rightarrow} \prod_{i\in I} Hom_R(M,M_i)$$
+    (Ist $R$ kommutativ ist die Struktur wieder ein Modul)
+\end{definition}
+\begin{remark*}
+    \TODO[Timos remark]
+\end{remark*}
+
+\begin{definition}[Direkte Summe von $R$-Modul]
+    Sei $(M_i)_{i\in I}$ eine Familie von $R$-Moduln. Definiere $\bigoplus_{i\in I} M_i = \{(x_i)_{i\in I}\in \prod_{i\in I} M_i \mid x_i = 0 \text{ bis auf endlich viele $i$}\}$ die \emph{direkte Summe der $M_i$} alse Untermodul von $\prod_{i\in I} M_i$.
+    Für jedes $j\in I$ ist $\iota_j : M_j \rightarrow \oplus_{i\in I} M_i$, $\iota_j (x) = (0,\dots, 0,\underbrace{x}_{\text{Position $j$}},0,\dots,0)$ eine injektive $R$-lineare Abbildung.
+    Die Zuordnung $\phi \mapsto (\phi \circ \iota_i)_{i\in I}$ definiert einen Isomorphismus abelscher Gruppen
+    $$Hom_R \left(\bigoplus_{i\in I} M_i,M\right)\overset{\cong}{\rightarrow} \prod_{i\in I} Hom_R(M_i, M)$$
+    Die Umkehrabbildung ist 
+    $$(f_i: M_i\rightarrow M)_{i\in I} \mapsto \begin{cases}
+        \bigoplus_{i\in I} M_i\rightarrow M,\\
+        (x_i)_{i\in I} \mapsto \sum_{i\in I} f_i(x_i)
+    \end{cases}$$
+    Gewöhnlich schreiben wir $(x_i)_{i\in I} \in \bigoplus_{i\in I} M_i$ auch als $\sum_{i\in I} x_i$.\\
+    Notation: Ist $M_i = M$, dann schreiben wir $\bigoplus_{i\in I}M_i = M^{(I)}$ und $\prod_{i\in I} M_i = M^I$
+\end{definition}
+
+\begin{definition}
+    Sei $S\subseteq M$ eine Teilmenge in einem $R$-Modul $M$. Dann heißt $S$
+    \begin{itemize}
+        \item \emph{Erzeugendensystem}, wenn $M\coloneqq \langle S\rangle_R = \{\sum_{s\in J} r_s\cdot s \mid J\subseteq S \text{ endlich}, r_s\in R\} = \bigcap\{N\mid N\subseteq M\text{ Untermodul mit }S\subseteq N\}$
+        \item \emph{$R$-linear unabhängig}, wenn für alle $s_1,\dots,s_m \in S$ und $r_1,\dots,r_m\in R$ die Implikation $\sum_{i=1}^m r_i\cdot s_i = 0 \Rightarrow r_1 = \dots = r_m = 0$ gilt.
+        \item \emph{Basis}, wenn $s$ ein linear unabhängiges Erzeugendensystem ist
+        \item $M$ heißt
+        \begin{itemize}
+            \item \emph{endlich erzeugt}, wenn $M$ ein endliches Erzeugendensystem besitzt
+            \item \emph{frei}, wenn $M$ eine Basis besitzt
+        \end{itemize}
+    \end{itemize}
+\end{definition}
+
+\begin{remark}$ $
+    \begin{enumerate}[label=\alph*)]
+        \item Jeder VR hat eine Basis, ist also frei.
+        Aber $\Q$, $\Z/n$ alse $\Z$-Modul ist nicht frei:
+        Betrachte $q_1 = \frac{a_1}{b_1},q_2=\frac{a_2}{b_2}\in \Q$. Dann gilt $(b_1a_2)\cdot q_1 - (b_2a_1)\cdot q_2 = 0$ (nicht triviale linearkombination).
+        Somit ist $S\subseteq \Q$ mit $|S|\geq 2$ nicht linear unabhängig.
+        Weiter kann ein einziges Element $q=\frac{a}{b}$ nicht $\Q$ erzeugen als $\Z$-Modul, denn $\langle q\rangle_\Z = \Z_q = \Z\cdot \frac{a}{b}\subseteq \Z\cdot \frac{1}{b} \subset \Q$
+        \item Die Kardinalität einer Basis ist im Allgemeinen keine Invariante feier Moduln.
+    \end{enumerate}
+\end{remark}
+
+\begin{lemma}
+    Ein $R$-Modul $M$ ist frei genau dann, wenn er zu einem Modul $R^{(I)}$ für eine Menge $I$ isomorph ist.
+\end{lemma}
+\begin{proof}
+    \begin{itemize}
+        \item[$\Rightarrow$]
+        Sei $S$ eine Basis. Betrachte die Abbildung $R^{(S)}\overset{\cong}{\rightarrow} M,\; (r_s)_{s\in S} \mapsto \sum_{s\in S} r_s\cdot s$. Diese ist ein Isomorphismus.
+        \item[$\Leftarrow$]
+        $R^{(I)}$ ist frei bezüglich der Basis $\{e_i =\iota_i(1_R)\mid i\in I\}$
+    \end{itemize}
+\end{proof}
+\end{document}
