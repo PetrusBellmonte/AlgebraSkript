@@ -110,12 +110,137 @@ Ilias (angeblich)
 \begin{lemma}
     Ein $R$-Modul $M$ ist frei genau dann, wenn er zu einem Modul $R^{(I)}$ für eine Menge $I$ isomorph ist.
 \end{lemma}
-\begin{proof}
+\begin{proof} $ $
     \begin{itemize}
         \item[$\Rightarrow$]
         Sei $S$ eine Basis. Betrachte die Abbildung $R^{(S)}\overset{\cong}{\rightarrow} M,\; (r_s)_{s\in S} \mapsto \sum_{s\in S} r_s\cdot s$. Diese ist ein Isomorphismus.
         \item[$\Leftarrow$]
         $R^{(I)}$ ist frei bezüglich der Basis $\{e_i =\iota_i(1_R)\mid i\in I\}$
     \end{itemize}
+\end{proof}
+
+\begin{flushright}
+    01.02.2023
+\end{flushright}
+\begin{definition}
+    Ein Untermodul $N\subseteq M$ heißt \emph{direkter Summand}, wenn es einen Untermodul $C\subseteq M$ gibt so, dass
+    \begin{enumerate}[label=(\roman*)]
+        \item $C\cap N = \{0\}$
+        \item $C+N=M$
+    \end{enumerate}
+    In diesem Fall gilt $M\cong C\oplus N$.
+    Man schreibt dann $M=C \oplus N$.
+\end{definition}
+\begin{example*}
+    $2\Z \subset \Z$ ist kein direkter Summand
+\end{example*}
+
+\begin{definition}[Exakte Folgen]
+    Es seien $M,M',M''$ $R$-Moduln.
+    Es seien $f:M'\rightarrow M, g:M\rightarrow M''$ $R$-lineare Abbildungen.
+    man sagt, dass die Folge $$M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M''$$
+    \emph{exakt} ist, wenn $Bild(f) = \ker(g)$.
+
+    Eine Folge der Form $$0\rightarrow M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$$ nennt man \emph{kurz exakte Folge}, wenn sie exakt an jeder Stelle ist, d.h. $f$ injektiv, $g$ surjektiv und $Bild(f) = \ker(g)$.
+
+    Homomorphiesatz liefert, dass
+    $$M/f(M') \cong M''$$.
+\end{definition}
+\begin{example*}
+    $0\rightarrow \Z\overset{\cdot 2}{\rightarrow} \Z \rightarrow \Z/2\Z \rightarrow 0$ kurz exakt.
+\end{example*}
+
+\begin{theorem}%Satz und Definition
+    Für eine kurze exakte Folge $\rightarrow M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$ sind die folgeneden Aussagen äquivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $f(M')\subseteq M$ ist ein direkter Summand
+        \item $\exists s\in Hom_R(M'',M): g\circ s = id_{M''}$
+        \item $\exists t\in Hom_R(M,M'): t\circ f = id_{M'}$
+    \end{enumerate}
+    Sind diese Bedingungen erfüllt, so sagt man, dass die Folge \emph{spaltet}.
+\end{theorem}
+\begin{proof}$ $
+    \begin{itemize}
+        \item[(i)$\Rightarrow$ (ii)]
+        Angenommen $f(M')\oplus C = M$.
+        Dann ist $g_{|C}$ ein Isomorphismus:
+        * $\ker(g_{|C}) = \ker{g}\cap C = f(M')\cap C = 0$
+        * $Bild(g_{|C}) = g(C) = g(f(M')\oplus C) = g(M) = g(M) = M''$
+        Definiere $s(x) = g_{|C}^{-1}(x)\in M$ für $x\in M''$.
+        Dann ist $g\circ s = id_{M''}$.
+        \item[(ii) $\Rightarrow$ (iii)]
+        Für $y\in M$ ist $y-(s\circ g) (y) \in \ker(g)$, weil $$g(y-(s\circ g) (y)) = g(y)- (\underbrace{g\circ s}_{= id}\circ g) (y) = g(y) - g(y) = 0$$.
+        Definiere $t(y) = f^{-1}(y- s\circ g (y)$ wobei $f$ als Abbildung aufs Bild batrachtet wird.
+        
+        Dann $t\circ f = id_{M'}$, wegen
+        $t(f(x)) = f^{-1}(f(x) - s\circ \underbrace{g \circ f}_{ = 0} (x)) = x$.
+        \item[(iii) $\Rightarrow$ (i)]
+        Setze $C\coloneqq \ker(t)$.
+        Dann ist $C\cap f(M') = \{0\}$. Sei $x\in C\cap f(M')$. Insbesonderer $x=f(y)$ für ein $y\in M'$. Dann $0 = t(x) = t(f(y)) = y$ $\Longrightarrow$ $x = f(y) = 0$.
+
+        Weiter ist $C+f(M') = M$. Sei $m\in M$.
+        Betrachet $t(m-f\circ t(m)) = t(m) - \underbrace{t\circ f}_{=id} \circ t(m) = t(m)-t(m) = 0$, also $m-\underbrace{f\circ t(m)}_{\in Bild(f)} \in C$
+    \end{itemize}
+\end{proof}
+\begin{definition}$ $
+    \begin{enumerate}[label=\alph*)]
+        \item 
+        Ein $R$-Modul heißt \emph{projektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow M' \rightarrow M \rightarrow P\rightarrow 0$ spaltet.
+        \item 
+        Ein $R$-Modul $I$ heißt \emph{injektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow I\rightarrow M \rightarrow M'' \rightarrow 0$ spaltet.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    Jede kurze exakte Folge von VR über einem Körper $K$ spaltet, weil jeder Unter-VR ein Komplement besitzt.
+    => Alle VR sind projektiv und injektiv.
+\end{remark}
+
+\subsection{Bilineare Abbildungen und Tensorprodukte}
+In diesem Abschnitt ist $R$ ein kommutativer Ring.
+\begin{definition}
+    Seien $L,M,N$ drei $R$-Moduln.
+    Eine Abbildung $f:M\times N\rightarrow L$ heißt \emph{$R$-bilinear} wenn gelten
+    \begin{enumerate}
+        \item $f(rx+sy,u) = rf(x,u)+sf(y,u)$
+        \item $f(x,ru+sv) = rf(x,u) + sf(x,v)$
+    \end{enumerate}
+    für $x,y\in M$, $u,v \in N$, $r,s\in R$.
+\end{definition}
+
+\begin{definition}
+    Ein \emph{Tensorprodukt} zweier $R$-Moduln $M$ und $N$ ist ein Paar $(T,\beta)$ bestehend aus einem $R$-Modul $T$ und einer $R$-bilinearen Abbildung $\beta:M\times N\rightarrow T$ so, dass eine \emph{universelle} Eigenschaft eifüllt ist:
+    
+    Für jeden $R$ -Modul L und jede $R$-bilneare Abbildung $f:M\times N\rightarrow L$ existiert ein eindeutiger $R$-Homomorphismus $\phi:T\rightarrow L$ mit $\phi\circ\beta = f$
+    \TODO[Diagramm]
+\end{definition}
+\begin{lemma}
+    Sind $(T,\beta)$ und $(T',\beta')$ zwei Tensorprodukte von $M\times N$, dann existiert ein eindeutiger Isomorphismus $\phi: T\rightarrow T'$ mit
+    \TODO[Bild]
+\end{lemma}
+\begin{proof}
+    \TODO[Viele viele (nicht) bunte Bilder]
+\end{proof}
+
+\begin{theorem}[Satz von der Existenz des Tensorprodukts]
+    Für je zwei $R$-Moduln existiert ein Tensorprodukt.
+\end{theorem}
+\begin{proof}
+    Sei $M,N$ zwei $R$-Moduln. Sei $I=M\times N$.
+    Betrachte den freien $R$-Modul $F\coloneqq R^{(I)} = \bigoplus_{(x,u)\in I} R$.
+    Für $(x,u)\in I$ sei $i_{(x,u)}:R\rightarrow F$ die jeweilige Inklusion.
+    Schreibe $[x,u] \coloneqq i_{(x,u)} (1)\in F$.
+    Die Menge $\{[x,u]\mid x\in M, u\in N\}$ ist eine Basis von $F$.
+    Sei $Z$ der Untermodul von $F$, der von allen Elementen der Form $[rx+sy,u] - r[x,u] - s[y,u]$
+    $[x, ru+sv] - r\cdot [x,u] - s\cdot [x,v]$ mit $r,s\in R$ ,$x,y\in M$, $u,v\in N$ erzeugt wird.
+    Setze $T\coloneqq F/Z.$
+
+    Die Abbildung $\beta:M\times N \rightarrow T, \beta(m,n) = [m,n]+Z$ ist bilinear nach Konstruktion.
+
+    $\beta$ erfüllt die Universelle Eigenschaft:
+    Betrachte \TODO[Mehr Bilder]
+    Definiere $\overline{\phi}:F\rightarrow L$ durch $\overline{\phi} ([m,n]) = f(m,n)$.
+    Z.z. $\overline{\phi}_{|Z} \equiv 0$. Dann induziert $\overline{\phi}$ einen Homomorphismus $\phi: T\rightarrow L$.
+    $\overline{\phi}_{|Z}$ folgt sofort aus der Bilinearität von $f$.
 \end{proof}
 \end{document}
