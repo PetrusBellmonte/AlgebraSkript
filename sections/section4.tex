@@ -296,7 +296,15 @@ VL vom 18.1.2024:
     Jeder Körper mit Betrag $(K,\gaf)$ besitzt eine Vervollständigung $(\hat{K}, \ggaf,i)$, die bis auf kanonische Isomorphie eindeutig ist.
 \end{theorem}
 Letzteres bedeutet:
-Ist $(\hat{K}_2, \ggaf_2,i_2)$ eine andere Vervollständigung von $(K,\gaf)$, dann existiert ein Isomorphismus $\phi:\hat{K}\overset{\cong}{\rightarrow} \hat{K}_2$ so, dass 1. \TODO[Bild] kommutiert und 2. $\phi$ ist betragserhaltend.
+Ist $(\hat{K}_2, \ggaf_2,i_2)$ eine andere Vervollständigung von $(K,\gaf)$, dann existiert ein Isomorphismus $\phi:\hat{K}\overset{\cong}{\rightarrow} \hat{K}_2$ so, dass
+\begin{enumerate}[noitemsep]
+    \item $% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAGkQBfU9TXfIRQAGUsKq1GLNgB0ZACzo5g7Lt14gM2PASIAmMRPrNWiEHMXLVAfT3cJMKAHN4RUADMAThAC2SUSA4EEhkkiZsWCDUOHRYDGzyEBAA1uoe3n6IAUFIBmHSZli2USAMdABGMAwACvw6QiCeWE7yOCUxcQlJqTzpviHRwYh5xgXmMgDGBE72XEA
+    \begin{tikzcd}[column sep=0.3cm, row sep=0.4cm]
+    \hat{K} \arrow[rr, "\cong", "\phi"'] & & \hat{K}_2 \\
+                                & K \arrow[lu, "i", hook] \arrow[ru, "i_2"', hook] &          
+    \end{tikzcd}$ kommutiert und
+    \item $\phi$ ist betragserhaltend.
+\end{enumerate}
 
 Für den Beweis im Falle der $p$-adischen Betrags siehe Goueva: "p-adic numbers" S. 64-68.
 Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchyfolgen in der Analysis.

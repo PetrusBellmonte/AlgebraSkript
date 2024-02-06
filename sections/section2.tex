@@ -78,7 +78,10 @@
 \begin{definition}[Körpererweiterung]
     Sei $(L, +, \cdot)$ ein Körper. Sei K ein Teilkörper von L, d.h. $K \subseteq L$ und $(K,+|_K,\cdot|_K)$ ist selbst Körper. Dann bezeichnet man L als Erweiterungskörper von K. Man sagt, dass L über K eine Körpererweiterung (oder auch "K-Erweiterung") ist. 
 
-    Notation: $L | K$, $(L - K)^T$ (\TODO[Graphic with tikz?])
+    Notation: $L | K$, $(L - K)^T$ $\begin{tikzcd}[row sep=0.2cm]
+L \arrow[d, no head] \\
+K          
+\end{tikzcd}$
 \end{definition}
 \begin{example*} $\mathbb{R}|\mathbb{Q}, \mathbb{C}|\mathbb{R},\mathbb{C}|\mathbb{Q},\mathbb{Q}(\sqrt{2}) | \mathbb{Q}, \mathbb{C}(\mathbb{Z}) | \mathbb{C}$ \end{example*}
 \begin{definition}[Endliche Erweiterung]
@@ -398,16 +401,25 @@ VL vom 13.11.2023:
         \item Ist $L:K$ endlich, so ist $[L:K]_S \leq [L:K]$
     \end{enumerate}
 \end{lemma}
-\begin{proof}
-    Wir betten K, M, L in einen gemeinsamen alg. Abschluss $\overline{K}$ ein.
-    Seien $(\sigma_i)_{i\in I}$ die paarweise verschiedenen $K$-Homomorphismen $L\rightarrow \overline{K}$.
-    Seien $(\tau_j)_{j\in J}$ die paarweise verschiedenen $L$-Homomorphismen $M\rightarrow \overline{K}$.
-    Also $\card{I} = [L:K]_S$ and $\card{J}=[M:L]_S$.
-    Die $K$-Homomorphismen $\overline{\sigma_i} \circ \tau_j = f_{ij}$ sind genau die paarweise verschiedenen $K$-Homom. 
-    $M\rightarrow \overline{K}$, wobei $\overline{\sigma_i}$ eine Fortsetzung von $\sigma_i$ zu einem $K$-Homomorphismus $\overline{K} \rightarrow \overline{K}$ ist (Fortsetzungssatz \cref{theo:2.31}). 
-    Angenommen $\overline{\sigma_i} \circ \tau_j = \overline{\sigma_s} \circ \tau_r$, dann ist $\overline{\sigma_i}_{|L} = (\overline{\sigma_i} \circ \tau_j)_{|L} =(\overline{\sigma_s} \circ \tau_s)_{|L} = \sigma_s$, also $i=s$.
-    Da $\overline{\sigma_i},\overline{\sigma_s}$ automatisch inj. sind\footnote{Alle Körperhomomorphismen sind $0$ oder injektiv. Wäre $\phi(a)=0$, dann $0 = \phi(a) = \phi(a)\phi(a^{-1}) = \phi(1)=1$}, ist $\tau_j = \tau_r$ also $j = r$.
-    Damit ist a) bewiesen.
+\begin{proof}$ $\\
+    $\begin{tikzcd}
+    \overline{K} \arrow[rd, "\overline{\sigma}_i \text{ $K$-Hom}", bend left] \arrow[d, no head] &\\
+    M \arrow[r, "\tau_j", "\text{$L$-Hom}"'] \arrow[d, no head] & \overline{K} \\
+    L \arrow[ru, "\sigma_i \text{$K$-Hom}"', bend right] \arrow[d, no head] &\\
+    K&
+    \end{tikzcd}$
+    \begin{minipage}{0.8\textwidth}
+        Wir betten K, M, L in einen gemeinsamen alg. Abschluss $\overline{K}$ ein.
+        Seien $(\sigma_i)_{i\in I}$ die paarweise verschiedenen $K$-Homomorphismen $L\rightarrow \overline{K}$.
+        Seien $(\tau_j)_{j\in J}$ die paarweise verschiedenen $L$-Homomorphismen $M\rightarrow \overline{K}$.
+        Also $\card{I} = [L:K]_S$ and $\card{J}=[M:L]_S$.
+        Die $K$-Homomorphismen $\overline{\sigma_i} \circ \tau_j = f_{ij}$ sind genau die paarweise verschiedenen $K$-Homom. 
+        $M\rightarrow \overline{K}$, wobei $\overline{\sigma_i}$ eine Fortsetzung von $\sigma_i$ zu einem $K$-Homomorphismus $\overline{K} \rightarrow \overline{K}$ ist (Fortsetzungssatz \cref{theo:2.31}). 
+        Angenommen $\overline{\sigma_i} \circ \tau_j = \overline{\sigma_s} \circ \tau_r$, dann ist $\overline{\sigma_i}_{|L} = (\overline{\sigma_i} \circ \tau_j)_{|L} =(\overline{\sigma_s} \circ \tau_s)_{|L} = \sigma_s$, also $i=s$.
+        Da $\overline{\sigma_i},\overline{\sigma_s}$ automatisch inj. sind\footnotemark, ist $\tau_j = \tau_r$ also $j = r$.
+        Damit ist a) bewiesen.
+    \end{minipage}
+    \footnotetext{Alle Körperhomomorphismen sind $0$ oder injektiv. Wäre $\phi(a)=0$, dann $0 = \phi(a) = \phi(a)\phi(a^{-1}) = \phi(1)=1$}%Otherwise the minipage does stupid shit
 
     Zu b)
     Es gilt $L=K(a_1, \dots, a_n)$ für gewisse $a_i\in L$. Wegen a) wird der Gradformel \cref{theo:2.12} genügt es $L=K(a)$ zu betrachten.
@@ -494,7 +506,11 @@ Ein Körper $K$ ist \emph{perfekt}, wenn jede alg. Erweiterung von $K$ separabel
     \item $char(K)=0$, d.h. $\Q \subseteq K$. Dann ist $K$ perfekt, weil jedes irreduzible Polynom $f$ über $K$ separabel ist. (denn $D(f) = 0$) Es gibt aber alg., nicht normale Erweiterungen von $\Q$ (Bsp. \cref{theo:2.36} \TODO[does this reference make sense???])
     \item $\F_p(t)$ ist nicht perfekt. Die Erweiterung $\F_p(t)[t^{\frac{1}{p}}] = \F_p(t^{\frac{1}{p}})$ ist normal aber nicht separabel. (Bsp. 2.41)
     Sei $p=5$. Betrachte die alg. Erweiterung
-    \TODO[bild]
+    $$\begin{tikzcd}[row sep=0.4cm,column sep=0cm]
+\F_5(t^{\frac{1}{15}}) \arrow[d, no head] \arrow[dd, "\substack{\text{nicht normal} \\ \text{nicht separabel}}"', bend right, shift right=2, no head] &\cong \F_5(t^{\frac{1}{5}})/(X^3-t^{\frac{1}{5}})\\
+\F_5(t^{\frac{1}{5}}) \arrow[d,"\text{nicht separabel}", no head] &\cong \F_5(t)/(X^5-t)\;\;\;\;\\
+\F_5(t)&
+\end{tikzcd}$$
     Warum ist $\F_5(t^{1/15})|\F(t)$ nicht normal?
     Ansonsten wären alle Nullstellen von $X^3-t^{1/5}$ in $\F_5(t^{1/15})$.\footnote{man bekommt die dritten Einheitswurzeln aus den nullstellen raus}
     Somit auch alle Nullstellen von $X^3-1= (X-1)(X^2+X+1)$.
@@ -568,16 +584,24 @@ VL vom 24.11.2023:
         Damit $[L:K] \geq [K(a):K] = \deg(m_{a,K}) \geq = m = [L:K]$, also $[L:K] = [K(a):K]$ und $L=K(a)$
     \end{enumerate}
 \end{proof}
-\begin{example}
-    Die Separabilität im Satz \cref{theo:2.56} ist essenziell.
+\begin{example}$ $\\
+$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAGkAKAHW7gEcATjmRoKwOAF9SvAcNHickgJQhp6TLnyEUZAIxVajFmy6yhIsRJVrSG7HgJEyAJkP1mrRBzWGYUAHN4IlAAM0EIAFskPWocCCQXag8TbzRbMIjoxDIQeJjk4y8QdMkKSSA
+\begin{tikzcd}
+{K(\sqrt[p]{s},\sqrt[p]{t})} \arrow[d, "p"] \\
+{K(\sqrt[p]{s})} \arrow[d, "p"]             \\
+K                                          
+\end{tikzcd}$
+\begin{minipage}{0.8\textwidth}
+Die Separabilität im Satz \cref{theo:2.56} ist essenziell.
     $K=\F_p(s,t)$ rationaler Funktionenkörper in zwei Variablen.
-    $L=K(\sqrt[p]{s},\sqrt[p]{t})$ und damit $[L:K] = p^2$. \TODO[Graphik]
-
+    $L=K(\sqrt[p]{s},\sqrt[p]{t})$ und damit $[L:K] = p^2$.
+    
     Sei $a\in L$.
     Schreibe $a = \sum_{l,k} a_{l,k} (\sqrt[p]{s})^l(\sqrt[p]{t})^k$ mit $a_{l,k}\in K$.
     Dann ist $a^p=\sum_{l,k} a_{l,k}^p s^l t^k =: c\in K$, da $(*)^p$ eine Homomorphismus ist.
     Somit ist $a$ Nullstelle von $X^p-c\in K[X]$ und $\deg(m_{a,K}) \leq p$.
     Damit ist $K(a)\subset L$.
+\end{minipage}
 \end{example}
 
 

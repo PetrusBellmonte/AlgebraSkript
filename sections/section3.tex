@@ -759,13 +759,24 @@ Zu a)
     Sei $G\coloneqq Gal(L|\R)$.
     Es ist $[L:\R] = \card{G} = 2^k\cdot m$ mit $2\nmid m$.
     Es sei $H\leq G$ eine $2$-Sylowuntergruppe von $G$.
-    \TODO[Bild]
+    $$
+    \begin{tikzcd}[row sep=0.2cm,column sep=0.5cm]
+& L \arrow[ld, "2^k"', no head] \arrow[rd, no head] &\\
+L^H \arrow[rd, "m"', no head] & & \C \arrow[ld, no head] \\
+& \R&
+\end{tikzcd}$$
     Satz vom primitiven Element: $L^H= \R(\alpha)$.
     Da $m_{\alpha,\R}$ eine Nullstelle in $\R$ besitzt (Zwischenwertsatz!), ist $m_{\alpha,\R}$ linear, also $m=1$ und $L^H= \R$.
     $\Rightarrow$ $[L:\R] = 2^k$, $[L:\C] = 2^{k-1}$
 
     Ang. $k\geq 2$. Dann existiert $H'\leq G' = Gal(L|\C)$ mit $\card{H'} = 2^{k-2}$ (allg. Aussage über $p$-Gruppen)
-    \TODO[bild]
+    $$
+    \begin{tikzcd}[row sep=0.2cm,column sep=0.5cm]
+                     & L \arrow[ld, "2^{k-2}"', no head] \\
+L^H \arrow[rd, "2"', no head] &                          \\
+                     & \C \arrow[d, no head]             \\
+                     & \R                      
+\end{tikzcd}$$
     Da jedes quadratische Polynom in $C[X]$ zerfällt in $\C$, folgt ähnlich wie oben ein Widerspruch (bet $m_{a,\C}$ für die $L^H=\C(a)$)
 \end{proof}
 

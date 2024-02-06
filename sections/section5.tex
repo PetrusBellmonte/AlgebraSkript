@@ -138,12 +138,12 @@ Ilias (angeblich)
 \begin{definition}[Exakte Folgen]
     Es seien $M,M',M''$ $R$-Moduln.
     Es seien $f:M'\rightarrow M, g:M\rightarrow M''$ $R$-lineare Abbildungen.
-    man sagt, dass die Folge $$M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M''$$
+    Man sagt, dass die Folge $$M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M''$$
     \emph{exakt} ist, wenn $Bild(f) = \ker(g)$.
 
     Eine Folge der Form $$0\rightarrow M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$$ nennt man \emph{kurz exakte Folge}, wenn sie exakt an jeder Stelle ist, d.h. $f$ injektiv, $g$ surjektiv und $Bild(f) = \ker(g)$.
 
-    Homomorphiesatz liefert, dass
+    Homomorphiesatz liefert\footnote{Das sollte für alle $M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$ gelten. $g$ muss surjektiv sein, damit $g(M) = M''$, aber $f$ nicht injektiv, weil das nichts an $Bild(f)=\ker(g)$ ändert}, dass
     $$M/f(M') \cong M''$$.
 \end{definition}
 \begin{example*}
@@ -151,7 +151,7 @@ Ilias (angeblich)
 \end{example*}
 
 \begin{theorem}%Satz und Definition
-    Für eine kurze exakte Folge $\rightarrow M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$ sind die folgeneden Aussagen äquivalent:
+    Für eine kurze exakte Folge $0\rightarrow M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$ sind die folgeneden Aussagen äquivalent:
     \begin{enumerate}[label=(\roman*)]
         \item $f(M')\subseteq M$ ist ein direkter Summand
         \item $\exists s\in Hom_R(M'',M): g\circ s = id_{M''}$
@@ -164,28 +164,31 @@ Ilias (angeblich)
         \item[(i)$\Rightarrow$ (ii)]
         Angenommen $f(M')\oplus C = M$.
         Dann ist $g_{|C}$ ein Isomorphismus:
-        * $\ker(g_{|C}) = \ker{g}\cap C = f(M')\cap C = 0$
-        * $Bild(g_{|C}) = g(C) = g(f(M')\oplus C) = g(M) = g(M) = M''$
+        \begin{itemize}[noitemsep]
+            \item $\ker(g_{|C}) = \ker{(g)}\cap C = f(M')\cap C = 0$
+            \item $Bild(g_{|C}) = g(C) = g(f(M')\oplus C) = g(M) = g(M) = M''$
+        \end{itemize}
         Definiere $s(x) = g_{|C}^{-1}(x)\in M$ für $x\in M''$.
         Dann ist $g\circ s = id_{M''}$.
         \item[(ii) $\Rightarrow$ (iii)]
-        Für $y\in M$ ist $y-(s\circ g) (y) \in \ker(g)$, weil $$g(y-(s\circ g) (y)) = g(y)- (\underbrace{g\circ s}_{= id}\circ g) (y) = g(y) - g(y) = 0$$.
-        Definiere $t(y) = f^{-1}(y- s\circ g (y)$ wobei $f$ als Abbildung aufs Bild batrachtet wird.
+        Für $y\in M$ ist $y-(s\circ g) (y) \in Bild(f) = \ker(g)$, weil $$g(y-(s\circ g) (y)) = g(y)- (\underbrace{g\circ s}_{= id_{M''}}\circ g) (y) = g(y) - g(y) = 0$$.
+        Definiere $t(y) = f^{-1}(y- s\circ g (y))$ wobei $f$ als Abbildung aufs Bild batrachtet wird.
         
         Dann $t\circ f = id_{M'}$, wegen
         $t(f(x)) = f^{-1}(f(x) - s\circ \underbrace{g \circ f}_{ = 0} (x)) = x$.
         \item[(iii) $\Rightarrow$ (i)]
-        Setze $C\coloneqq \ker(t)$.
-        Dann ist $C\cap f(M') = \{0\}$. Sei $x\in C\cap f(M')$. Insbesonderer $x=f(y)$ für ein $y\in M'$. Dann $0 = t(x) = t(f(y)) = y$ $\Longrightarrow$ $x = f(y) = 0$.
+        Setze $C\coloneqq \ker(t)$
+        Dann ist $C\cap f(M') = \{0\}$: Sei $x\in C\cap f(M')$.
+        Insbesonderer $x=f(y)$ für ein $y\in M'$. Dann $0 = t(x) = t(f(y)) = y$ $\Longrightarrow$ $x = f(y) = 0$.
 
         Weiter ist $C+f(M') = M$. Sei $m\in M$.
-        Betrachet $t(m-f\circ t(m)) = t(m) - \underbrace{t\circ f}_{=id} \circ t(m) = t(m)-t(m) = 0$, also $m-\underbrace{f\circ t(m)}_{\in Bild(f)} \in C$
+        Betrachet $t(m-f\circ t(m)) = t(m) - \underbrace{t\circ f}_{=id_{M'}} \circ t(m) = t(m)-t(m) = 0$, also $m-\underbrace{f\circ t(m)}_{\in Bild(f)} \in C$
     \end{itemize}
 \end{proof}
 \begin{definition}$ $
     \begin{enumerate}[label=\alph*)]
         \item 
-        Ein $R$-Modul heißt \emph{projektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow M' \rightarrow M \rightarrow P\rightarrow 0$ spaltet.
+        Ein $R$-Modul $P$ heißt \emph{projektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow M' \rightarrow M \rightarrow P\rightarrow 0$ spaltet.
         \item 
         Ein $R$-Modul $I$ heißt \emph{injektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow I\rightarrow M \rightarrow M'' \rightarrow 0$ spaltet.
     \end{enumerate}
@@ -209,17 +212,51 @@ In diesem Abschnitt ist $R$ ein kommutativer Ring.
 \end{definition}
 
 \begin{definition}
-    Ein \emph{Tensorprodukt} zweier $R$-Moduln $M$ und $N$ ist ein Paar $(T,\beta)$ bestehend aus einem $R$-Modul $T$ und einer $R$-bilinearen Abbildung $\beta:M\times N\rightarrow T$ so, dass eine \emph{universelle} Eigenschaft eifüllt ist:
+    Ein \emph{Tensorprodukt} zweier $R$-Moduln $M$ und $N$ ist ein Paar $(T,\beta)$ bestehend aus einem $R$-Modul $T$ und einer $R$-bilinearen Abbildung $\beta:M\times N\rightarrow T$ so, dass eine \emph{universelle} Eigenschaft erfüllt ist:
     
     Für jeden $R$ -Modul L und jede $R$-bilneare Abbildung $f:M\times N\rightarrow L$ existiert ein eindeutiger $R$-Homomorphismus $\phi:T\rightarrow L$ mit $\phi\circ\beta = f$
-    \TODO[Diagramm]
+    $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFkAdTvAW3gAEAORABfUuky58hFAEZyVWoxZsAKmIkgM2PASJk5S+s1aIQAGTFKYUAObwioAGYAnCLyRkQOCEgBM1Caq5s4g1Ax0AEYwDAAKUnqyIK5YdgAWOJou7p6I3r5ICsqmbNwxOHTZIG4eRdSFiIElISDcMAAeWHA4cAIAhNxo6VjhIAxYYGYgUBA4OLZjMWBQSADMxKIUokA
+\begin{tikzcd}
+M\times N \arrow[d, "f"'] \arrow[r, "\beta"] & T \arrow[ld, "\exists !\phi", dotted, bend left] \\
+L                                            &                                                 
+\end{tikzcd}$$
 \end{definition}
 \begin{lemma}
     Sind $(T,\beta)$ und $(T',\beta')$ zwei Tensorprodukte von $M\times N$, dann existiert ein eindeutiger Isomorphismus $\phi: T\rightarrow T'$ mit
-    \TODO[Bild]
+$$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRABUQBfU9TXfIRQAmclVqMWbdgHJuvEBmx4CRAIyk14+s1aIQAWQA6RvAFt4AAgBy3cTCgBzeEVAAzAE4QzSMiBwQSBoSumwmaAAWWPLuXj6Iov6BiH46UvomAEYwOHQxIJ7eSIkBQdRpeiBZOXRy1Ax02QwACvwqQiAeWI4ROHZcQA
+\begin{tikzcd}
+T \arrow[rr, "\phi", "\cong"'] &                                                     & T' \\
+                     & M\times N \arrow[lu, "\beta"] \arrow[ru, "\beta'"'] &   
+\end{tikzcd}$$
 \end{lemma}
-\begin{proof}
-    \TODO[Viele viele (nicht) bunte Bilder]
+\begin{proof} $ $
+    \begin{itemize}
+        \item $% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAFkAdTvAW3gAEAORABfUuky58hFAAZScqrUYs2AFTESQGbHgJEATIuX1mrRCHUByMcphQA5vCKgAZgCcIvJApA4IJDIVczZuACMYHDotdy8fRD8ApGMQtUsIqLpbagY6SIYABSl9WRAPLEcACxxYkE9vIOpkxFSGLDALECgIHBwHEGozdJBuGAAPLDgcOAEAQgFuNCqsO1EgA
+\begin{tikzcd}
+T \arrow[rr, "\exists ! \phi", dotted] &                                                     & T' \\
+                                       & M\times N \arrow[lu, "\beta"] \arrow[ru, "\beta'"'] &   
+\end{tikzcd}$ universelle Eigenschaften von $(T,\beta)$
+        \item
+        $% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBpiBdUkANwEMAbAVxiRAFkAdTvAW3gAEAORABfUuky58hFAAZScqrUYs2AFTESQGbHgJEATIuX1mrRCHUByMcphQA5vCKgAZgCcIvJApA4IJDIVczZuACMYHDotdy8fRD8ApGMQtUsIqLpbagY6SIYABSl9WRAPLEcACxxYkE9vFOpkxGCGLDALECgIHBwHEGozdJBuGAAPLDgcOAEAQgFuNGxBkDyC4r0ZNgrq2tEKUSA
+\begin{tikzcd}
+T &                                                     & T' \arrow[ll, "\exists ! \psi"', dotted] \\
+  & M\times N \arrow[lu, "\beta"] \arrow[ru, "\beta'"'] &                                         
+\end{tikzcd}$ universelle Eigenschaft von $(T',\beta')$
+        \item $% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAVAchAF9T0mXPkIpyFanSat2HPgJAZseAkQBMEmgxZtEneYOUiiZYpO0y9AWQA6NvAFt4AAgByfSTCgBzeEVAAZgBOEA5IZCA4EEjiUjrsdmgAFlgGIMGhMTRRSBpxliCJ2GkZYYgROYh5AEYwYFBIAMyxcCkBOEgAtBEWuiBYUAD6cjSM9LWMAApCKqIgjDDtJSFljdnRVVrSfXa1OPQgo+MwUzPGekFY3kkd-IErTevhW-F6uzD7HrxAA
+\begin{tikzcd}
+T \arrow[r, "\phi"] \arrow[rr, "id_T", bend left, shift left] & T' \arrow[r, "\psi"]                               & T \\
+& M\times N \arrow[ru, "\beta"'] \arrow[lu, "\beta"] &  
+\end{tikzcd}$ \begin{minipage}{0.5\textwidth}
+    univeselle Eigenschaft: $(T,\beta)$ -Eindeutigkeit\\ $\Rightarrow \psi\circ \phi = id_T$
+\end{minipage}
+        \item $% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZARgBoAGAXVJADcBDAGwFcYkQAVEAX1PU1z5CKchWp0mrdhwDkPPiAzY8BIgCYxNBizaJOc3v2VCiZYuO1S9AWQA6tvAFt4AAgByPcTCgBzeEVAAMwAnCEckMhAcCCRRCR12ezRseSDQ8MQ46KQNeKsQJIALLFSQELCImmzEXIAjGDAoJABmOLhiwJwkAFpIy10QLCgAfWBZbhAaRnp6xgAFARVhEEYYTtLyjOaqmJqtSQH7epx6OSmZmHnFkz1grB9CrsMy9JadyrzD22PTz24gA
+\begin{tikzcd}
+T' \arrow[r, "\psi"] \arrow[rr, "id_{T'}", bend left, shift left] & T \arrow[r, "\phi"]                                  & T' \\
+& M\times N \arrow[ru, "\beta'"'] \arrow[lu, "\beta'"] &   
+\end{tikzcd}$ \begin{minipage}{0.5\textwidth}
+    univeselle Eigenschaft: $(T',\beta')$ -Eindeutigkeit\\ $\Rightarrow \phi\circ \psi = id_{T'}$
+\end{minipage}
+    \end{itemize}
 \end{proof}
 
 \begin{theorem}[Satz von der Existenz des Tensorprodukts]
