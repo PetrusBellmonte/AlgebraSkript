@@ -237,8 +237,14 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
     b)
     Nach a) gibt es $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. Z.z. $\phi(\overline{K}) = K'$.
 
-    Das Bild $\phi(\overline{K}$ ist ein alg. abgeschlossener Körper, da $\phi$ injektiv und damit $\phi(\overline{K})$ isomorph zu $\overline{K}$.
-    \TODO[Abbildung]
+    Das Bild $\phi(\overline{K})$ ist ein alg. abgeschlossener Körper, da $\phi$ injektiv und damit $\phi(\overline{K})$ isomorph zu $\overline{K}$.
+    $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12IaYAnBrGBjAA0gHIAviAml0mXPkIoyARiq1GLNpzQALLAApO3PgKGiJASmmyQGbHgJEyAJnX1mrRCHE25DxSIVcndNLw52HBgADxxgRgBzADoAAjoAIwT4AGNdBkw4GDAJKRl-BScUYLVqDy1vTijY+IZktMycvIKi0vUYKCyEFFAAM14IAFskF2ocCCQVMpAxyYXZ+cQyDU9tSJi4xKSpagYMmAYABXlHJRBeLATdHD9l8anN9enqdKKoJABaADMWzq4Ua+xayWOIFOP0u10C3nuj2eEgoEiAA
+\begin{tikzcd}[column sep=0cm]
+\overline{K'} \arrow[dd, "\text{alg.}"', bend right=50, no head] & \text{alg. abgeschlossen} \\
+\phi(\overline{K}) \arrow[u, "\text{alg.}"', no head]         & \text{alg. abgeschlossen}  \\
+K' \arrow[u, no head]                                         &                           
+\end{tikzcd}
+$$
     Wegen \cref{theo:2.22} und der Algebraizität von $\overline{K'}|\phi(\overline{K})$ folgt $\phi(\overline{K}) = \overline{K'}$.
 \end{proof}
 \begin{flushright}
@@ -260,6 +266,13 @@ VL vom 13.11.2023:
     Dann ist $L=K(\alpha_1, \dots, \alpha_r)$, wobei $\alpha_1,\dots,\alpha_r$ Nullstellen von $f$ in $L$ sind ($r\leq m$).
     Es gilt $[L:K]< m^r$.
     Tatsächlich gilt $[L:K] \leq m!$ (Übung).
+    \begin{align*}
+        L&=K(\alpha_1,\dots,\alpha_r)\\
+        |&\\
+        K&(\alpha_1,\dots,\alpha_{r-1})\\
+        \vdots&\\
+        K&
+    \end{align*}
     Natürlich \TODO[graphik] und $[K(\alpha_1,\dots,\alpha_i):K(\alpha_1,\dots,\alpha_{i-1})] \leq [K(\alpha_i):K] \leq m$.
 \end{remark}
 
