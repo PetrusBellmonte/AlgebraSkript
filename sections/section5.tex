@@ -389,4 +389,128 @@ Bsp: * $\Q$ ist ein flacher $Z$-Modul.
     Eine $R$-Algebra ist ein Ring $A$ (mit 1, nicht unbedingt kommutativ) mit einer $R$-Modulstruktur $R\times A \rightarrow A$ so, dass die Ringmultiplikation $A\times A\rightarrow A$ $R$-bilinear ist.
     [d.h. $\forall a,b\in A,\ r\in R: r(a._Ab) = (ra)._A b = a._A(rb)$]
 \end{definition}
+\begin{flushright}
+    08.02.2024
+\end{flushright}
+\begin{minipage}{0.3\textwidth}
+    $(ra)\cdot b = a\cdot (rb) = r(a\cdot b)$
+\end{minipage}
+\begin{example}$ $
+    \begin{enumerate}[label=(\roman*)]
+        \item $M_n (R)$ $R$-Algebra
+        \item $L|K$ Körpererweiterung. Dann ist $L$ eine $K$-Algebra.
+        \item $R$ nullteierfrei. Dann ist $Quot(R)$ eine $R$-Algebra.
+        \item Jeder Ring ist eine $\Z-Algebra$
+        \item $R[X_1,\dots,X_n]$ ist $R$-Algebra
+    \end{enumerate}
+\end{example}
+
+\begin{remark}
+    Sei $A$ eine $R$-Algebra. Definiere $i:R\rightarrow A, r\mapsto r1_A$.
+    $i$ ist ein Ringhomomorphismus.
+    Weiter $i(R)\subseteq Z(A)\coloneqq \{a\in A \mid \forall b \in A: ab = ba\}$ ("Zentrum").
+    Denn: $b\cdot i(r) = b \cdot (r1_A) = rb$\\
+    $i(r)\cdot b = (r1_A)\cdot b = r(1_A\cdot b) = rb$
+
+    Umgekehrt:
+    Ist $A$ ein Ring und $i:R\rightarrow Z(A) \subseteq A$ ein Ringhomomorphismus, dann wird $A$ eine $R$-Algebra bezüglich der Skalamultiplikation: $ra\coloneqq i(r)\cdot a$.
+\end{remark}
+\begin{theorem}[Skalarerweiterung]
+    Es seien $A$ eine $R$-Algebra und $M$ ein $R$-Modul.
+    Es gibt genau eine Skalarmultiplikation von $A$ auf $A\ot_R M$ mit $a(b\ot x) = ab \ot x$ für $a,b\in A$, $x\in M$, die $A\ot_R M$ zu einem $A$-Modul macht.
+    Man sagt: $A\ot_R M$ entsteht durch \emph{Skalarerweiterung}.
+    Ist $f:M\rightarrow N$ $R$-linear, dann ist $id_A \ot f: A\ot_R M \rightarrow A\ot_R N$ $A$-linear.
+\end{theorem}
+\begin{proof}
+    Beweisskizze:
+    Sei $l_a:A\rightarrow A$ die Linksmultiplikation mit $a\in A$. Dann ist $l_a$ $R$-linear:
+    $rl_a(b) = r(a\cdot b) = a \cdot (rb) = l_a(rb).$
+    -> induziert die Skalarmultiplikation $l_a\ot id_M:A\ot_R M\rightarrow A\ot_R M, b\ot x\mapsto ab\ot x$.
+    Der Rest ist Nachrechnen
+\end{proof}
+\begin{example}
+    Ist $f:V\rightarrow W$ eine $\R$ -lineare Abbildung
+    zwischen endlichdimensionalen $\R$-VR, dann ist $id_\C \ot f: \C\ot_\R V \rightarrow \C\ot_R W$ eine $\C$-lineare Abbidlung mit der gleichen Abbildungsmatix\footnote{Wenn $w$ und $V$ die Basen $\{v_1\dots,\}$ und $\{w_1,\dots\}$, dann wäre $\{1\ot v_1,1\ot v_2,\dots\}$ und $\{1\ot w_1,\dots\}$ Basen zu $\C\ot_R V$ und $\C\ot_R W$.}.
+\end{example}
+
+\begin{theorem}
+    Es seien $M$ und $N$ freie $R$-Moduln mit Basen $\{x_1,\dots,x_m\}$ für $M$ und $\{y_1,\dots,y_n\}$ für $N$. Sei weiter $A$ eine $R$-Algebra.
+    \begin{enumerate}[label=(\roman*)]
+        \item $M\ot_R N$ ist ein freier $R$-Modul mit Basis $\{x_i\ot y_j\mid i \in \{1,\dots,m\}, j\in \{1,\dots,n\}\}$
+        \item $A\ot_R M$ ist ein freier $A$-Modul mit Basis $\{1\ot x_1,\dots,1\ot x_m\}$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+i)
+    Basen induzieren Isomorphismen $M\cong R^m$ und $N\cong R^n$.
+    => $M\ot_R N\cong R^m \ot_R R^n \cong \underbrace{R^m \ot_R R}_{\cong R^m} \oplus \dots \oplus R^m \ot_R R \cong \underbrace{R^m\oplus\dots\oplus R^m}_{n\text{ mal}} \cong R^{n\cdot m}$
+    Inspektion des Isomorphismuses zeigt, dass $\{x_i\ot y_i\}$ eine $R$-Basis ist.
+
+    ii)
+    $A \ot_R M \cong A \ot_R R^m \cong A\ot_R\oplus \dots \oplus A \ot_R R \cong A\oplus \dots \oplus A \cong = A^m$
+    Standardbasis in $A^m$ entspricht $\{1\ot x_i\mid i\in \{1,\dots, n\}\}$ under dem obigen Isomorphismus.
+\end{proof}
+
+\begin{corollary}
+    Sei $R$ kommutativer Ring, aber nicht der Nullring. Ist $M$ ein freier $R$-Modul mit zwei Basen $\{x_1,\dots,x_m\}$ und $\{y_1,\dots,y_n\}$, dann ist $n=m$.
+\end{corollary}
+\begin{proof}
+    Lemma 2.27 liefert uns ein maximales Ideal $\mathcal{m}\subset R$.
+    Dann ist $R/\mathcal{m} =: K$ ein Körper. $K$ ist auch eine $R$-Algebra.
+    Durch Skalarerweiterung erhält man den $K$-VR $K\ot_R M$ mit den $K$-Basen $\{1\ot x_1, 1\ot x_2,\dots\}$ und $\{1\ot y_1, 1\ot y_2,\dots\}$ (Satz 5.34),
+    Lineare Algebra => $n=m$.
+\end{proof}
+
+\begin{theorem}
+    Seien $A,B$ $R$-Algebren.
+    Auf $A\ot_R B$ existiert genau eine Struktur als $R$-Algebra so, dass $(a_1\ot b_1)\cdot (a_2 \ot b_2) = a_1a_2 \ot b_1b_2$ für alle $a_1,a_2\in A$ und $b_1,b_2\in B$.
+\end{theorem}
+\begin{proof}[Beweisskizze]
+    Sei $a\in A$ und $b\in B$.
+    Die Abbildungen $r_a:A\rightarrow A, x\mapsto xa$ und $r_b:B\rightarrow B, x\mapsto xb$ sind $R$-linear.
+    Wir erhalten somit eine $R$-lineare Abbildung $r_{(a,b)} \coloneqq r_a\ot r_b: A\ot_R B \rightarrow A\ot_R B, x\ot y\mapsto xa\ot yb$.
+    Sei $z\in A\ot_R B$. Die Abbildung $f_z: A\times B \rightarrow A\ot_R B, f_z((a,b)) = r_{(a,b)}(z)$ ist $R$-linear.
+    -> $f_z:A\ot_R B\rightarrow A\ot_R B$ 
+    -> Wohldefinierte Abbildung $A\ot_R B \times A\ot_R B \rightarrow A\ot_R B, (z,w) \mapsto f_z(w)$, die auf Elementartensoren wie folgt aussieht:
+    $(x\ot y, a\ot b)\mapsto xa\ot yb$.
+    Es verbleibt die Ringaxiome nachzuweisen!
+\end{proof}
+
+\begin{remark}
+    In der obigen Situation sind $A\rightarrow A\ot_R B, a\mapsto a\ot 1$
+    $A\rightarrow A\ot_R B,b\mapsto 1\ot b$% align
+    Homomorphismus von $R$-Algebren.
+\end{remark}
+\begin{theorem}
+    Sei $A,B$ zwei $R$-Algebren, so hat $A\ot_R B$ folgende univeselle Eigenschaft:
+    Für jede weitere $R$-Algebra $C$ und Homomorphismen $f:A\rightarrow C$, $g:B\rightarrow C$ mit der Eigenschaft $\forall a\in A, b\in B: f(a)\cdot g(b) = g(b) \cdot f(a)$
+    existiert ein eindeutiger Homomorphismus von $R$-Algebren $\phi:A\ot_R B\rightarrow C$ mit $\phi(a\ot b) = f(a)\cdot g(b)$
+    $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAEEQBfU9TXfIRRkAjFVqMWbdgB0ZEHAH0ASgAIAQt14gM2PASJkATOPrNWiEJp589goiNJjqZqZYDC3cTCgBzeESgAGYAThAAtkhkIDgQSADMLpIWIEFawWGRiNGxSCI2qZlIRtS5iPnaoRHFpXGIiRLmbL4g1Ax0AEYwDAAK-PpCICFYvgAWOOmF1eW1CUlNlnIwAB5YcDhwqgCEcmijWK0gDFhgKVB0cKM+XlxAA
+\begin{tikzcd}
+A \arrow[rd, "f"] \arrow[d]                 &   \\
+A\ot_R B \arrow[r, "\exists !\phi", dashed] & C \\
+B \arrow[u] \arrow[ru, "g"']                &  
+\end{tikzcd}$$ mit $f(a)\cdot g(b) = g(b)\cdot f(a)$
+
+$\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a)\cdot g(b)$
+\end{theorem}
+\begin{proof}
+    Die Abbildung $A\times B\rightarrow C, (a,b) \mapsto f(a)\cdot g(b)$ ist $R$-bilinear.
+    Somit erhält man $\phi: A\ot_R B \rightarrow C$ mit $\phi(a\ot b) = f(a)\cdot g(b)$ $R$-linear.
+
+    Beh: $\phi$ ist Ringhomomorphismus:
+    $\phi(a_1\ot b_1 \cdot a_2 \ot b_2) =\phi(a_1a_2\ot b_1b_2) = f(a_1a_2) \cdot g(b_1b_2)$
+    $\phi(a_1\ot b_1) \cdot \phi(a_2\ot b_2) = f(a_1)\cdot g(b_1)\cdot f(a_2)\cdot g(b_2) =f(a_1)f(a_2)g(b_1)g(b_2) = f(a_1a_2)\cdot g(b_1b_2)$
+    $f,g$ Ringhomomorphismen.
+\end{proof}
+\begin{example}
+    Sei $A$ eine $R$-Algebra mit Skalarabbildung $i:R\rightarrow Z(A)\subseteq A, r\mapsto r1_A$.
+    Beh: $A\ot_R M_n(R)\cong M_n(A)$ als $R$-Algebren.
+
+    Betrachte $f:A\in M_n(A), a\mapsto (Dialgonalmatrix mit a auf der diag)$, $g:M_n(R)\rightarrow M_n(A), (r_{ij}\mapsto (i(r_{ij}))\in M_n(Z(A)) \subseteq M(A)$.
+    dann gilt $f(a)g((r_{ij})) = g((r_{ij})) f(a)$.
+    Nach der universellen Eigenschaft existiert $A\ot_R M_n(R) \rightarrow M_n(A), a\ot (r_{ij}) \mapsto (diag-matix mit a in diag) \cdot (r_1)$ Homomorphismus.
+    Warum $\phi$ Iso? $A\ot_R \underbrace{M_n(R)}_{=R^{n^2}}\cong A^{n^2}$ und $\phi$ überführt die "Standardbasen".
+    $M_n(A)\cong A^{n^2}$
+\end{example}
 \end{document}
