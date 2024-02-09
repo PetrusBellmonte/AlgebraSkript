@@ -513,4 +513,136 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     Warum $\phi$ Iso? $A\ot_R \underbrace{M_n(R)}_{=R^{n^2}}\cong A^{n^2}$ und $\phi$ überführt die "Standardbasen".
     $M_n(A)\cong A^{n^2}$
 \end{example}
+
+\begin{flushright}
+    09.02.2024
+\end{flushright}
+\subsection{Neothersche Moduln und Ring}
+[$R$ möglicherweise nicht kommutativer Ring]
+\begin{example}
+    $R=\C[X_1, X_2,\dots]$ Polynomring in abzählbar unendlich vielen Variablen.
+    $M=R$ $R$-Modul ist endlich erzeugt: $M=\langle 1_R\langle$.
+    Sei $I=\langle X_1, X_2,\dots \rangle\subseteq M$ der von allen Varialben erzeugte Untermodul.
+    dann ist $I$ nicht endlich erzeugt.
+    
+    Seien $f_1, \dots, f_m\in I$. Sei $X_n$ eine Variable, die nicht in den Polynomen $f_1,\dots, f_m$  vorkommt.
+    Dann $x_n\notin \langle f_1,\dots,f_m\rangle = \{\sum_{i=1}^m g_i f_i \mid g_1,\dots, g_m\in R\}$.
+    Somit sind Untermoduln von endlich erzeugten $R$-Moduln i.A. nicht endlich erzeugt.
+\end{example}
+
+\begin{definition}
+    Ein $R$-Modul $M$ heißt \emph{noethersch}, wenn jeder Untermodul von $M$ endlich erzeugt ist.
+\end{definition}
+
+\begin{theorem}
+    Sei $M$ ein $R$-Modul. Dann sind folgende Aussagen äquivalent:
+    \begin{enumerate}[label=(\roman*)]
+        \item $M$ ist noethersch
+        \item Ist $M_1\subseteq M_2\subseteq \dots$ eine aufsteigende Kette von Untermoduln von $M$, dann gibt es ein $n_0\in \N$ mit $M_{n_0} = M_{n_0+1} = M_{n_0+1}=\dots$.
+        \item Jede nicht leere Menge von Untermoduln von $M$ besitzt ein maximales Element\footnote{Eine Menge $N$ ist maximal in $\mathcal{X}$, wenn für jedes Element $N'\in \mathcal{X}$ gilt $N'\supseteq N \Rightarrow N = N'$}.
+    \end{enumerate}
+\end{theorem}
+\begin{proof} $ $
+    \begin{itemize}
+        \item[(i) $\Rightarrow$ (ii)]
+        Sei $M_1\subseteq M_2\subseteq \dots$ eine aufsteigende Kette und $N\coloneqq \bigcup_{i=1}^\infty M_i$.
+        $M$ noethersch => $N$ endlich erzeugt, d.h. $N=\langle m_{i_1},\dots, m_{i_n}\rangle$ mit $m_{i_k} \in M_{i_k}$
+        Setze $n_0 = \max\{i_1,i_n\}$.
+        Dann ist $N=M_{n_0}$
+        \item[(ii) $\Rightarrow$ (iii)]
+        Durch Wiederspruch:\\
+        Sei $\mathcal{X}$ eine nicht leere Menge von Untermoduln, die kein maximales Element hat.
+        Wähle $M_1\in \mathcal{X}$. $M_1$ nicht maximal
+        =>\footnote{Gäbe es keine echte Obermenge gäbe, wäre es maximal. Wenne es eine gibt, dann ist sie nach Definition von Maximal ungleich.} es gibt $M_2\in \mathcal{X}$ mit $M_1\subset M_2$.
+        $M_2$ nicht maximal => es gibt $M_3\in \mathcal{X}$ mit $M_2\subset M_3$...
+        Wir erhalten induktiv eine strikt aufsteigende Kette von Untermoduln $M_1\subset M_2\subset M_3\subset \dots$ \Lightning
+        \item[(iii) $\Rightarrow$ (i)] Sei $N\subset M$ ein Untermodul.
+        Betrachte $\mathcal{X}=\{N'\subseteq N\mid N' \text{ endlich erzeugt}\} \neq\emptyset$, wegen $\{0\}\in \mathcal{X}$.
+        Sei $N_0\in \mathcal{X}$ ein maximales Element.
+        Beh. $N_0 = N$. Angenommen $x\in N\setminus N_0$.
+        Dann $\langle N_0\cup \{x\}\rangle\in \mathcal{X}$ im Widerspruch zur Maximalität.
+    \end{itemize}
+\end{proof}
+
+\begin{lemma}
+    Es sei $0\rightarrow M'\rightarrow M\overset{p}{\rightarrow }M''\rightarrow 0$ eine kurze exalkte Folge von $R$-Moduln.
+    Dann ist $M$ genau dann noethersch, wenn $M'$ und $M''$ noethersch sind.
+\end{lemma}
+\begin{proof} $ $
+    \begin{itemize}
+        \item[$\Rightarrow$]
+        Sei $M$ noethersch.
+        Dann ist jeder Untermodul von $M'$ isomorph zu einen Untermodul von $M$ und somit endlich erzeugt.
+        Also ist $M'$ noethersch.
+
+        Sei $N\subseteq M''$ ein Untermodul.
+        Dann ist $p^{-1}(N)\subseteq M$ endlich erzeugt.
+        Somit ist $p(p^{-1}(N)) = N$ auch endlich erzeugt. Also ist $M''$ noethersch.
+
+        \item[$\Leftarrow$]
+        Sei $W\subseteq M$ ein Untermodul.
+        Dann ist
+        $$0\rightarrow \underbrace{j^{-1}(w)}_{\subseteq M'}\overset{j}{\rightarrow} W \overset{p}{\rightarrow} \underbrace{p(W)}_{\subseteq M''}\rightarrow 0$$
+        exakt und $j^{-1}(W)$ und $p(W)$ sind endlich erzeugt.
+
+        Die Aussage folgt aus der folgenden Implikation:
+        $0\rightarrow M_1 \overset{j}{\rightarrow} M_2 \overset{p}{\rightarrow} M_3 \rightarrow 0$ kurze exakte Folge und $M_1,M_3$ endlich erzeugt => $M_2$ endlich erzeugt.
+
+        Seien $M_1 = \langle x_1,\dots, x_n\rangle$ und $M_3=\langle y_1, \dots, y_m\rangle$.
+        Dann ist $M_2 = \langle \Tilde{y}_1,\dots, \Tilde{y}_m, j(x_1),\dots,j(x_n)\rangle$ für $\Tilde{y}_i\in p^{-1}(\{y_i\})$
+
+        Sei $z\in M_z$. Dann gibt es $r_1,\dots,r_m\in R$ mit $p(z) = r_1\cdot y_1+ \dots + r_m\cdot y_m$.
+        Somit ist $z-(r_1\Tilde{y}_1 + \dots + r_m \Tilde{y}_m)\in\ker (p) = Bild(j)$.
+        => es gibt $s_1,\dots, s_n\in R$ mit $z-(r_1\Tilde{y}_1 + \dots +r_m\cdot \Tilde{y}_m) = s_1 j(x_1) + \dots + s_n j(x_n)$.
+    \end{itemize}
+\end{proof}
+
+\begin{corollary} $ $
+    \begin{enumerate}[label=(\roman*)]
+        \item Jeder Untermodul und jeder Faktormodul eines noethersch Moduls ist noethersch.
+        \item Jede endliche direkte Summe von noetherschen Moduln ist noethersch.
+    \end{enumerate}
+\end{corollary} $ $
+\begin{proof}$ $
+    \begin{enumerate}[label=(\roman*)]
+        \item direkte Konsequenz von 5.43
+        \item Es genügt zu zeigen, dass $M\oplus N$ noethersch ist, falls $M,N$ noethersch sind. Folgt aus 5.43 und der kurzen exakten Sequenz $0\rightarrow M \rightarrow M\oplus N \rightarrow N \rightarrow 0$
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Ein Ring heißt \emph{linksnoethersch}, wenn er als Linksmodul über sich selbst noethersch ist.
+
+    Analog definiert man \emph{rechtsnoethersch}.
+    Ein Ring heißt \emph{noethersch}, wenn er links- und rechtsnoethersch ist.
+\end{definition}
+\begin{example*}
+    für noethersche Ringe:
+    \begin{itemize}
+        \item $R=K$ Körper
+        \item Hauptidealringe (folgt aus dem Sturktursatz für Hauptidealringe)
+        \item $R=M_n(K)$, $K$ Körper. Jedes (Links-) Ideal in $R$ ist ein $K$-Untervektorraum von $M_n(K) = K^{n^2}$, somit endlich erzeugt als $K$-VR. Somit erst recht endlich erzeugt als $R$-Ideal
+    \end{itemize}
+    Bsp 5.40: $\C[X_1,X_2,\dots]$ nicht noethersch.
+\end{example*}
+\begin{lemma}
+    Jeder endlich erzeugte Modul über einem linksnoetherschen Ring ist noethersch
+\end{lemma}
+\begin{proof}
+    5.44 (ii) => $R^n$ ist noethersch für $n\in \N$.
+    Sei $M=\langle x_1, \dots, x_n\rangle$ ein endlich erzeugter Modul. Dann ist $R^n ->> M, e_i\mapsto x_i$ ein Epimorphismus.
+    5.44(i) => $M$ noethersch.
+\end{proof}
+\begin{lemma}
+    Sei $M$ ein noetherscher $R$-Modul. Falls $M\cong M\oplus N$ für einen $R$-Modul $N$, so gilt $N=0$.
+\end{lemma}
+\begin{theorem}
+    Sei $R$ ein linksnoetherscher Ring, aber nicht der Nullring.
+    Sei $M$ ein freier $R$-Modul mit Basen $\{x_1,\dots,x_n\}$ und $\{y_1,\dots,y_m\}$. Dann gilt $n=m$.
+\end{theorem}
+
+\begin{proof}
+    Ang. $m\leq n$. Dann gilt $R^m\cong M\cong R^n = R^m \oplus R^{n-m}$. Weiter ist $R^m$ noethersch, weil $R$ linksnoethersch ist.
+    Lemma 5.47 =d $R^{n-m} = 0$  = R nicht Nullring => n-m = 0 
+\end{proof}
 \end{document}
