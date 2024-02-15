@@ -645,4 +645,70 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     Ang. $m\leq n$. Dann gilt $R^m\cong M\cong R^n = R^m \oplus R^{n-m}$. Weiter ist $R^m$ noethersch, weil $R$ linksnoethersch ist.
     Lemma 5.47 =d $R^{n-m} = 0$  = R nicht Nullring => n-m = 0 
 \end{proof}
+
+\begin{flushright}
+    15.02.2024
+\end{flushright}
+
+\begin{proof}[Beweis zu 5.47]
+    Sei $X=\{\text{durch $M$ komplementiebare Untermoduln von $M$}\} = \{N_0\subseteq M\mid\text{$N_0$ Untermodul, es existiert ein Untermodul $C$ s.d. $N_0\oplus C = M$ und $C\cong M$} \}$.
+     Dann ist $\{0\}\in X$, also $X\neq \emptyset$. Sei $L\in X$ ein maximales Element, dass nach 5.42 existiert.
+     Dann ist $M=L\oplus C$ mit $C\cong M$.
+     Sei $f:M\oplus N\rightarrow M$ ein Isomorphismus.
+     Dann betrachte 
+     $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFkAdTiNZuAAQA5EAF9S6TLnyEUARnJVajFmy6cAxgQDmAgMJiJIDNjwEiAJkXV6zVog5ilMKNvhFQAMwBOEALZIZCA4EEgKynZs3Fpg2oZevgGI4SFIVsF0WAxsABYQEADW8SA+-oHUqYjpAEYwYFBIALQAzEG2qg5x1Ax0tQwAClJmsiAMMJ44TqJAA
+    \begin{tikzcd}
+    M\oplus N \arrow[r, "\cong", "f"'] \arrow[rr, "g", bend right] & M\cong C \arrow[r, hook] & M
+    \end{tikzcd}$$
+    Setze $L_1\coloneqq L + g(N) = L\oplus g(N)\subseteq M$.
+    Dann gilt $M=L\oplus C = L\oplus g(N)\oplus g(M) = L\oplus \overbrace{g(M)}^{\cong M}$ somit $L_1\in X$.
+    Wegen Maximaxtät und $L_1\supseteq L$ ist $g(N) = 0$ und somit $N=0$.
+\end{proof}
+
+\begin{theorem}[Hilbertscher Basissatz]
+    Ist $R$ ein linksnoetherscher Ring, dann ist dei Polynomring $R[X]$ auch linksnoethersch.
+\end{theorem}
+\begin{proof}
+    Sei $I\subseteq R[X]$ ein Linksideal.
+    Für $n\in \N$ sei $I_n = \{f\in I\mid \deg(f)\leq n\}$.
+    Dann ist $I_{\leq n}$ ein $R$-Untermodul von $I$.
+    Für $f=\sum a_i x^i$ sei $koef_n(f)\colon a_n$.
+    Dann ist $koef_n: I_{\leq n} \rightarrow R$ $R$-linear.
+    Sei $J_{\leq n} \coloneqq Koef_n(I_{\leq n}) \subseteq R$.
+    Dann ist $J_{\leq n}$ ein Linksideal von $R$.
+    Falls $f\in I_{\leq n}$ dann ist $x.f\in I_{\leq n+1}$ und $Koef_{n+1}(x\cdot f) = Koef_n(f)$.
+    Somit $J_{\leq n}\subseteq J_{\leq n+1}$.
+    da $R$ linksnoethersch ist, existiert ein $k\in \N$ mit $J_{\leq m} = J_{\leq k}$ für alle $m\geq k$.
+
+    Beh: $I = \langle I_{\leq k}\rangle_{R[X]} = R[X]\cdot I_{\leq K}$.
+    Klar ist $\supseteq$.
+    Umgekehrt sei $f\in I$ mit $\deg(f)=m$.
+    mit Induktion über den Grad $m$ zeigen wir, dass $f\in \langle I_{\leq k}\rangle_{R[X]}$.
+
+    I-Anfang: $m\leq k$ \checkmark
+    I-Schritt: $Koef_m(f)\in J_{\leq m} = J_{\leq k}$.
+    Also gibt es $g\in I_{\leq k}$ mit $koef_k(g)=koef_m(f)$.
+    Betrachte $\Tilde{f} = f- X^{m-k}\cdot g$.
+    Dann ist $\deg \Tilde{f}  < m$.
+    I-Vorrausetzung => $\Tilde{f}\in \langle I_{\leq k} \rangle_{R[X]}$.
+    => $f = \Tilde{f} + X^{m-k} \cdot \underbrace{g}_{I_{\leq k}} \in \langle I_{\leq k}\rangle_{R[X]}$.
+    Nun ist $I_{\leq k}$ ein $R$-Untermodul von $R x^k \oplus Rx^{k-1}\oplus \dots \oplus Rx \oplus R\cong R^{k+1}$.
+    Da $R$ linksnoethersch ist, folgt mit 5.46, dass $I_{\leq k}$ als $R$-Modul endlich erzeugt ist.
+    Sei $g_1,\dots, g_l\in I_{\leq k}$ ein $R$-Erzeugendensystem.
+    Dann gilt: $I=\langle I_{\leq k}\rangle_{R[X]}$ auch $I = \langle\{g_1,\dots,g_l\}\rangle_{R[X]}$
+    % Zeige dass I von einem I_{\leq n} erzeugt wird. Betrachte dafür die Menge der höchsten koeffizienten, die noethersche Untermoduln sind und damit iwann enden. Zeige dann dass auch an dei I_{\leq n} front ab diesem Punkt nichts relevanets mehr hinzukommen kann. Dann ist verbleibt noch zu zeigen, dass endlich erzeugt
+\end{proof}
+
+\begin{corollary}
+    Sei $K$ ein Körper\footnote{linksnoetherscher Ring reicht aus}. Der Polynomring $K[X_1,\dots,x_n]$ ist noethersch.
+\end{corollary}
+\begin{proof}
+    Man hat $K[X_1,\dots,X_n] = K[X_1,\dots,X_{n-1}][X_n]$ und wendet den Hilbertschen Basissatz  wiederholht an.
+\end{proof}
+\begin{corollary} % F mehr wie ein I machen
+    Sei $K$ ein Körper und sei $F\subseteq K[X_1, \dots, X_n]$ eine Menge von Polynomen. Betrachte die Verschwindungsmenge $$V(F) = \{(z_1,\dots,z_n)\in K^n\mid \forall f\in F: f(z_1,\dots,z_n) = 0\}$$
+    Dann existieren endlich viele $f_1,\dots,f_r\in K[X_1,\dots,X_n]$ mit $V(F) = V(\{f_1,\dots, f_r\})$
+\end{corollary}
+
+
 \end{document}
