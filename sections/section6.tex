@@ -52,4 +52,113 @@ Alle Ring sind kommutativ.
         => $g$ ganz
     \end{itemize}
 \end{proof}
+
+\begin{flushright}
+    16.02.2024
+\end{flushright}
+\begin{corollary}
+    $A$ Unterring von $B$
+    \begin{enumerate}[label=(\alph*)]
+        \item Sind $x_1, \dots, x_n\in B$ ganz über $A$, so ist $A[x_1,\dots,x_n]$ endlich erzeugt als $A$-Modul.
+        \item Die Menge der über $A$ ganzen Elemente von $B$ bildet einen Unterring.
+        \item Sei $B$ Unterring von $C$. Falls $B$ endlich erzeugtals $A$-Modul und $y\in C$ ganz über $B$, dann ist $y$ ganz über $A$.
+    \end{enumerate}
+\end{corollary}
+\begin{proof}
+    \begin{enumerate}[label=(\alph*)]
+        \item Induktion nach $n$:\\
+        $n=1$ $\rightarrow$ siehe 6.2\\
+        schreibe $A[x_1, \dots,x_{n+1}] = A[x_1,\dots,x_{n}][x_{n+1}]$.
+        Weil $x_{n+1}$ ganz über $A$ ist, ist $x_{n+1}$ a4uc ganz über $A[x_1,\dots,x_n]$.
+        Sei $\{f_1,\dots, f_r\}$ ein Erzeugendensystem von $A[x_1,\dots,x_n]$ als $A$-Modul, was nach Induktionsvorraussetzung existiert.
+        Sei $\{g_1,\dots,g_l\}$ ein Erzeugendensystem für $A[x_1,\dots, x_n][x_{n+1}]$ als $A[x_1,\dots,x_n]$-Modul.
+        Sei $z\in A[x_1,\dots,x_{n+1}]$. Schreibe $$z=\sum_{i=1}^l b_ig_i, b_i\in A[x_1,\dots,x_n]$$
+        und $$b_i = \sum_{j=1}^r c_{ij} f_j, c_{ij}\in A$$
+        -> $z=\sum_{i=1}^l\sum_{j=1}^r c_{ij} f_j g_i$. Also ist $\{f_j g_i\mid j\in \{1,\dots,r\}, i\in \{1,\dots,l\}\}$ ein $A$-Erzeugendensystem für $A[x_1,\dots,x_{n+1}]$.
+        \item
+        Sei $x,y\in B$ ganz über $A$.
+        Dann sind $x+y$, $x-y$, $x\cdot y \in A[x,y]$.
+        Wegen (a) und 6.2 sind $x\pm y$, $x\cdot y$ ganz über $A$.
+        \item
+        Wegen 6.2 ist $B[y]$ als $B$-Modul endlich erzeugt. Wie im Beweis von (a) sieht man, dass dann $B[y]$ als $A$-Modul endlich erzeugt ist. Also ist $y$ ganz über $A$.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Sei $A\subseteq B$ Unterring und $R=\{x\in B\mid \text{$x$ ganz über $A$}\}$.
+    $R$ heißt \emph{ganze Hülle} von $A$ in $B$.
+    Ist $R=B$, so sagt man, dass $B$ eine \emph{ganze Ringerweiterung} von $A$ ist.
+    Ist $R=A$, so sagt man, dass $A$ \emph{ganz abgeschlossen} in $B$ ist.
+    Ein Integritätsbereich, der ganz abgeschlossen in seinem Quotientenkörper ist, heißt \emph{ganz abgeschlossen}.
+\end{definition}
+\begin{lemma}
+    Jeder Hauptidealring ist ganz abgeschlossen.
+\end{lemma}
+\begin{proof}
+    Sei $A$ ein Hauptidealring und $K=Quot(A)$.
+    Sei $x=\frac{a}{b}\in K^\times$ mit $ggt(a,b) = 1$. Ist $x$ ganz, dann $x^n = -a_{n-1}x^{n-1}-\dots -a_0$ mit geeigneten $a_i\in A$.
+    => $a^n = -a_{n-1} \cdot ba^{n-1}-\dots - a_0 \cdot b^n$
+    Jeder Primteiler von $b$ teilt $a^n$, also auch $a$. Wegen $ggT(a,b)=1$, ist $b\in A^\times$. Folglich $x=\frac{a}{b}\in A$.
+\end{proof}
+\begin{theorem}
+    Sei $A$ ein ganz abgeschlossener Integritätsbereich und $K=Quot(A)$. Sei $L|K$ eine algebraische Körpererweiterung.
+    Dann gilt $y\in L$ ganz über $A$ $\Leftrightarrow$ $m_{y,K}\in A[X]$
+\end{theorem}
+\begin{proof}$ $
+    \begin{itemize}
+        \item[$\Leftarrow$] per Definintion und wegen Normiertheit des $m_{y,K}$.
+        \item[$\Rightarrow$] Sei $f\in A[X]$ normiert mit $f(y) = 0$.
+        Es gilt $m_{y,K}|f$ als Elemente von $K[X]$.
+        Sei $\overline{K}$ der algebraische Abschluss von $K$ und schreibe $m_{y,K}=\prod_{i=1}^n (X-b_i)$ mit $b_1,\dots,b_n\in \overline{K}$.
+        Es gilt $f(b_i)=0$ für jedes $i\in\{1,\dots,n\}$.
+        Also sind $b_1,\dots,b_n$ ganz über $A$.
+        Wegen 6.3 (b) sind alle Koeffizienten von $m_{y,K}$ ganz über $A$.
+        Da $A$ ganz abgeschlossen ist, ist $m_{y,K}\in A[X]$
+    \end{itemize}
+\end{proof}
+\begin{definition}
+    Einen endlichen Erweiterungskörper $K|\Q$ nennt man \emph{algebraischer Zahlkörper}.
+    Die ganze Hülle $\mathcal{O}_K$ von $\Z$ in $K$ nennt man den \emph{Ganzheitsring} von $K$.
+\end{definition}
+\begin{example*}
+    \begin{enumerate}[label=(\arabic*)]
+        \item $K=\Q(\sqrt{d})$ mit $d\in \Z$ quadratfrei, $d\neq 1$.
+        Was ist $\mathcal{O}_K$? Betrachte $K\ni x = a+\sqrt{d}\cdot b$ mit $a,b\in \Q$.
+        Angenommen $b\neq 0$. Dann ist das Minimalpolynom $$X^2-2aX+a^2-db^2$$
+        $x$ ganz über $\Z$, d.h. $x\in \mathcal{O}_K\Leftrightarrow 2a\in \Z, a^2-db^2\in \Z$k.
+        Für $x\in \mathcal{O}_K$ schreibe $a=\frac{\Tilde{a}}{2}$ mit $\Tilde{a}\in \Z$, $b=\frac{p}{q}$ mit $p\in \Z\setminus\trivGZ$, $q\in \N$ und $ggT(p,q)=1$.
+        $\Z\ni a^2 - db^2 = \frac{\Tilde{a}^2}{4}-d\frac{p^2}{q^2} = \frac{\Tilde{a}^2q^2-4dp^2}{4q^2}$.
+        Es folgt $q^2|4dp^2$. Da $ggT(p,q)=1$ und $d$ quadratfrei, ist $q^2|4$. Also $q\in \{1,2\}$.
+
+        Falls $q=1$, dann $4|\Tilde{a}^2$, also $\Tilde{a} gerade$.
+        Folglich $a\in \Z$ und $b\in \Z$k
+
+        Falls $q=2$, dann folgt $16| 4\Tilde{a}^2-4dp^2$ und $p$ ungerade. => $4|\Tilde{a}^2-dp^2$. $4\nmid \Tilde{a}^2$, da $d$ quadratfrei und $p$ ungerade.
+        Somit $\Tilde{a}^2-dp^2 \equiv 1-d\cdot 1 \equiv 0\mod 4$, also $d\equiv 1 \mod 4$.
+        Wir erhalten
+        $$\mathcal{O}_K = \begin{cases}
+            \Z+ \frac{1+\sqrt{d}}{2}\cdot \Z & d\equiv 1 \mod 4\\
+            \Z + \sqrt{d} \cdot \Z & d= 2,3 \mod 4
+        \end{cases}$$
+        
+        <Große Verwirrung....>
+        
+        $a=\frac{\Tilde{a}}{2}$ mit $\Tilde{a}$ ungerade\\
+        $b=\frac{p}{q} = \frac{p}{2}$ mit $p$ ungerade\\
+        $x=\frac{\Tilde{a}}{2}+\sqrt{d}\frac{p}{2} =\overbrace{\underbrace{\frac{\Tilde{a}-p}{2}}_{\in\Z}}^{\text{gerade}} + \frac{p}{2}+\sqrt{d}\frac{p}{2}\in \Z + \frac{1+\sqrt{d}}{2}\cdot \Z$
+        Folglich $\mathcal{O}_K\subseteq \Z + \frac{1+\sqrt{d}}{2}\Z$ im ersten Fall.
+        Für die umgekehrte Inklusion benötigen wir nun $\frac{1+\sqrt{d}}{2}\in \mathcal{O}_K$ und $\mathcal{O}_K$ ein Ring ist.
+        $m_{\frac{1+\sqrt{d}}{2},\Q} = X^2 - X - \frac{1}{4}-d\cdot \frac{1}{4}\in \Z[X]$ wegen $d\equiv 1 \mod 4$.
+        \item $d=-5$, $K=\Q(\sqrt{-5})$
+        $\mathcal{O}_K = \Z + \sqrt{-5}\Z$
+
+        $\mathcal{O}_K$ ist kein Hauptidealring:
+        $2\cdot 3 = 6 = (1-\sqrt{-5})(1+\sqrt{-5})$
+        $2,3,1\pm\sqrt{-5}$ sind irreduzibel in $\mathcal{O}_K$, aber sind nicht assoziiert.
+
+        $\mathcal{O}_K$ ist ein Beispiel eines \emph{Dedikindrings}, für die man Zahlentheorethische Betrachtungen analog zu Hauptidealringin durchführen.
+    \end{enumerate}
+\end{example*}
+
+
 \end{document}
