@@ -14,7 +14,8 @@ Alle Ring sind kommutativ.
         \item $A[x]$ ist in einem Unterring $C\subseteq B$ enthalten, der als $A$-Modul endlich erzeugt ist.
     \end{enumerate}
 \end{theorem}
-\begin{proof}
+
+\begin{proof}$ $
     \begin{itemize}
         \item[(i) $\Rightarrow$ (ii)]
         Sei $x$ ganz, d.h. $x^n = -a_{n-1}x^{n-1}-\dots - a_0\in \langle1,\dots x^{n-1}\rangle_A$.
@@ -27,11 +28,23 @@ Alle Ring sind kommutativ.
         Wegen $x\in C$ ist $xc_i\in C$ für alle $i$.
         Also ist $xc_i= \sum_{j=1}^n \gamma_{ij}\cdot c_j$ für geeignete $\gamma_{ij}\in A$.
         Die Matrix $T = x\cdot I_n- (\gamma_{ij})_{i,j\in \{1,\dots,n\}}\in M_n(A[X])$.
-        erfüllt $T\cdot (Spaltenvektor c_1 \dots c_n) = 0$.
+        erfüllt $T\cdot \begin{psmallmatrix}
+            c_1\\
+            \vphantom{\int\limits^x}\smash{\vdots}\\
+            c_n
+        \end{psmallmatrix} = 0$.
 
-        Sei $T^{adj}$ die Anjunkte\footnote{\TODO[Definition :D]} zu $T$.
+        Sei $T^{adj}$ die Anjunkte\footnote{\href{https://de.wikipedia.org/wiki/Adjunkte}{Wikipedia}: $adj(A)_{ij} = (-1)^{i+j} \cdot M_{ij} = (-1)^{i+j}\cdot \det(S_{ji})$} zu $T$.
         Es gibt $T^{adj}\dots T = \det(T)\cdot I_n$.
-        => $\dot(T)\cdot (c_1 \dots c_n) = T^{adj} \cdot T\cdot (c_1\dots c_n) = 0$
+        => $\det(T)\cdot \begin{psmallmatrix}
+            c_1\\
+            \vphantom{\int\limits^x}\smash{\vdots}\\
+            c_n
+        \end{psmallmatrix} = T^{adj} \cdot T\cdot \begin{psmallmatrix}
+            c_1\\
+            \vphantom{\int\limits^x}\smash{\vdots}\\
+            c_n
+        \end{psmallmatrix} = 0$
         => $\det(T)\cdot c_i = 0$ für jedes $i\in \{1,\dots,n\}$.
         => $\det(T)\cdot c = 0$ für jedes $c\in C$.
         $\overset{c=1}{\Rightarrow}$ $\det(T) = 0$

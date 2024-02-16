@@ -284,14 +284,15 @@ T' \arrow[r, "\psi"] \arrow[rr, "id_{T'}", bend left, shift left] & T \arrow[r, 
     02.02.2024
 \end{flushright}
 \begin{remark}[Notation]
-    Das Tensorprodukt der $R$-Moduln $M$ und $N$ notiert man $M\otimes_R N$
+    Das Tensorprodukt der $R$-Moduln $M$ und $N$ notiert man ${M\otimes_R N}$
     ($M\otimes N$, wenn $R$ aus dem Kontext klar ist).
-    ´Das Bild von $(m,n)\in M\times N$ unter der Strukturabbildung $\beta: M\times N \rightarrow M\otimes N$ notiert man als $m\otimes n\in M\otimes N$.
-    Diese Elemente $m\otimes n$, $m\in M$, $n\in N$ nennt man auch Elementartensor; diese erzeugen $M\otimes_R N$. (siehe Beweis von 5.22).
-    Beachte: Die Bilinearität von $\beta$ übersetzt sich in folgende Gleichungen für Elementartensoren:
-    $(m_1 + m_2)\otimes n = m_1\ot n + m_2 \ot n$
-    $m\ot (n_1 + n_2)=m\ot n_1 + m\ot n_2$
-    $(r\cdot m)\ot n = r\cdot (m\ot n) = m\ot (r\cdot n)$
+    Das Bild von $(m,n)\in M\times N$ unter der Strukturabbildung $\beta: M\times N \rightarrow M\otimes N$ notiert man als $m\otimes n\in M\otimes N$.
+    Diese Elemente $m\otimes n$, $m\in M$, $n\in N$ nennt man auch \emph{Elementartensor}; diese erzeugen $M\otimes_R N$. (siehe Beweis von 5.22).
+    Beachte: Die Bilinearität von $\beta$ übersetzt sich in folgende Gleichungen für Elementartensoren:$\begin{array}[t]{r}
+(m_1 + m_2)\otimes n = m_1\ot n + m_2 \ot n \\
+m\ot (n_1 + n_2)=m\ot n_1 + m\ot n_2 \\
+(r\cdot m)\ot n = r\cdot (m\ot n) = m\ot (r\cdot n)
+\end{array}$
 \end{remark}
 \begin{example}
     $\Q\ot_\Z \Z/n\Z = 0$
@@ -321,18 +322,18 @@ T' \arrow[r, "\psi"] \arrow[rr, "id_{T'}", bend left, shift left] & T \arrow[r, 
         Somit induziert sie einen $R$-Homomorphismus $R\ot_R N\rightarrow N, r\ot n\mapsto r\cdot n$.
         Die Umkehrabbildung ist $N\rightarrow R\ot_R N, n\mapsto 1\cdot n$ $R$-linear.
         \item 
-        Die Abbildung $M\times N\rightarrow N\ot_R M, (m,n)\mapsto n\ot m$ ist bilinear.Somit erhält man die induziert Abbildung $M\ot_R N \rightarrow N\ot_R M, m\ot n\mapsto n\ot m$.
-        Ähnlich erhält man die Umkehrabbildung $N\ot_R M \rightarrow M\ot_R N, n\ot m \mapsto m\ot n$.
+        Die Abbildung $M\times N\rightarrow N\ot_R M, (m,n)\mapsto n\ot m$ ist bilinear. Somit erhält man die induziert Abbildung $M\ot_R N \rightarrow N\ot_R M,\ m\ot n\mapsto n\ot m$.
+        Ähnlich erhält man die Umkehrabbildung $N\ot_R M \rightarrow M\ot_R N,\ n\ot m \mapsto m\ot n$.
         \item 
-        Sei $z\in L$. Die Abbildung $f_z:M\times N\rightarrow M\ot_R(N\ot_R L), (m,n) \mapsto m\ot (n\ot z)$ ist bilinear.
-        Darau lässt sich $f'_z:M\ot_R N \rightarrow M \ot_R(N\ot_R L), m\ot n\mapsto m\ot(n\ot z)$
-        Die Abbildung $g:(M\ot_R N)\times L \rightarrow M \ot_R ( N\ot_R L), (m\ot n,z) \mapsto f'_z (m\ot n)$ ist bilinear.
-        Daraus konstruiere $(M\ot_R N)\ot_R L \rightarrow M \ot_R (N\ot_R L), (m\ot n)\ot z \mapsto m\ot (n\ot z)$.
+        Sei $z\in L$. Die Abbildung $f_z:M\times N\rightarrow M\ot_R(N\ot_R L),\ (m,n) \mapsto m\ot (n\ot z)$ ist bilinear.
+        Daraus lässt sich $f'_z:M\ot_R N \rightarrow M \ot_R(N\ot_R L),\ m\ot n\mapsto m\ot(n\ot z)$ konstruieren.
+        Die Abbildung $g:(M\ot_R N)\times L \rightarrow M \ot_R ( N\ot_R L),\ (m\ot n,z) \mapsto f'_z (m\ot n)$ ist bilinear.
+        Daraus konstruiere $(M\ot_R N)\ot_R L \rightarrow M \ot_R (N\ot_R L),\ (m\ot n)\ot z \mapsto m\ot (n\ot z)$.
         Die Wohldefiniertheit der offensichtlichen Umkehrabbildung beweist man ähnlich.
         \item 
-        Die $R$-Homomorphismen $j_i:M_i\ot_R N \rightarrow(\bigoplus_{i\in I} M_i) \ot_R N, m\ot n\mapsto incl_i(m)\ot n$ sind induziert durch die bilineare Abbildung $M_i\times N \rightarrow (\bigoplus_{i\in I} M_i) \ot_R N, (m,n) \mapsto incl_i(m) \ot n$.
+        Die $R$-Homomorphismen $j_i:M_i\ot_R N \rightarrow\left(\bigoplus_{i\in I} M_i\right) \ot_R N,\ m\ot n\mapsto incl_i(m)\ot n$ sind induziert durch die bilineare Abbildung $M_i\times N \rightarrow (\bigoplus_{i\in I} M_i) \ot_R N,\ (m,n) \mapsto incl_i(m) \ot n$.
         Die Familie $(j_i)_i$ induziert einen $R$-Homomorphismus $\bigoplus_{i\in I} M_i\ot_R N \rightarrow (\bigoplus_{i\in I} M_i) \ot_R N$.
-        Die dazugehörige Umkehrhabbildung wird induziert durch die bilineare Abbildung $(\bigoplus_{i\in I} M_i) \times N \rightarrow \bigoplus_{i\in I} M_i \ot_R N, (\sum_i m_i,n)\mapsto \sum_i m_i\ot n$ 
+        Die dazugehörige Umkehrhabbildung wird induziert durch die bilineare Abbildung $(\bigoplus_{i\in I} M_i) \times N \rightarrow \bigoplus_{i\in I} M_i \ot_R N,\ (\sum_i m_i,n)\mapsto \sum_i m_i\ot n$ 
         
     \end{enumerate}
 \end{proof}
@@ -353,40 +354,44 @@ $(f\circ \Tilde{f}) \ot (g\circ \Tilde{g}) = (f\ot g) \circ (\Tilde{f}\ot \Tilde
     Es sei $M$ ein $R$-Modul and $$N'\overset{f}{\longrightarrow} N \overset{g}{\longrightarrow} N'' \rightarrow 0$$ eine exakte Folge von $R$-Moduln.
     Dann ist auch die Folge $$M\ot_R N'\overset{id_M\ot f}{\longrightarrow} M\ot_R N \overset{id_M\ot g}{\longrightarrow} M\ot_R N'' \rightarrow 0$$ exakt.
 \end{theorem}
-\begin{proof}
+\begin{proof} $ $
     \begin{enumerate}
         \item $id_M\ot g$ ist surjektiv:
-        Jeder Elementartensor $x\ot y\in M\ot_R N''$ liegt in $Bild(id_M\ot g)$. Denn $x\ot y = x\ot g(\Tilde{y}) = (id_M\ot g) (x\ot \Tilde{y})$ für ein $g$-Urbild $\Tilde{y}$ von $y$.
+        Jeder Elementartensor $x\ot y\in M\ot_R N''$ liegt in $Bild(id_M\ot g)$, denn $x\ot y = x\ot g(\Tilde{y}) = (id_M\ot g) (x\ot \Tilde{y})$ für ein $g$-Urbild $\Tilde{y}$ von $y$.
         Da die Elementartensoren $M\ot_R N''$ erzeugt, ist $Bild(id_M \ot g) = M\ot_R N''$.
         \item $Bild(id_m\ot f) =\ker(id_M \ot g)$:
-        "$\subseteq$" folgt aus $(id_M\ot g)\circ (id_M\ot f) (\underbrace{x\ot y}_{\in M\ot_R N'}) = x\ot g(f(y)) = x\ot 0 = 0$
-        
-        Zu zeigen "$\supseteq$":
-        Setze $B\coloneqq Bild(id_M\ot f)$.
+        \begin{itemize}
+            \item[$\subseteq$:] 
+            folgt aus $(id_M\ot g)\circ (id_M\ot f) (\underbrace{x\ot y}_{\in M\ot_R N'}) = x\ot g(f(y)) = x\ot 0 = 0$\item[$\supseteq$:]
+            Setze $B\coloneqq Bild(id_M\ot f)$.
         Definiere eine bilineare Abbildung $\beta: M\times N'' \rightarrow (M\ot N)/B$ wie folgt:
-        Für $x\in M, u'' \in N''$ wähle $u\in N$ mit $g(u) = u''$ und definiere $\beta(x,u'')\coloneqq x\ot u + B$.
-        Wohldefiniertheit? Sei $g(v) = u''$. Dann ist $u-v \in \ker(g) = Bild(f)$. Sei $u'\in N'$ mit $f(u') = u-v$. Nun folgt $x\ot v +B = x\ot v + \underbrace{x\ot f(u')}_{\in B} +B = x\ot v + x\ot (u-v) +B = x\ot v + x\ot u - x\ot v + B = x\ot u +B$.
-        Das induziret Abbildung $s:M\ot_R N'' \rightarrow (M\ot_R N)/B$ mit der Eigenschaft $m\ot g(u)\mapsto m\ot u +B$.
+        Für $x\in M, u'' \in N''$ wähle $u\in N$ mit $g(u) = u''$ und definiere $\beta(x,u'')\coloneqq x\ot u + B$.\\
+        Wohldefiniertheit? Sei $g(v) = u''$. Dann ist $u-v \in \ker(g) = Bild(f)$. Sei $u'\in N'$ mit $f(u') = u-v$. Nun folgt $$x\ot v +B = x\ot v + \underbrace{x\ot f(u')}_{\in B} +B = x\ot v + x\ot (u-v) +B = x\ot v + x\ot u - x\ot v + B = x\ot u +B$$
+        Das induziret Abbildung\footnote{Ist diese Abbildung nicht $\beta$} $s:M\ot_R N'' \rightarrow (M\ot_R N)/B$ mit der Eigenschaft $m\ot g(u)\mapsto m\ot u +B$.
         % Abschluss Wohldefiniertheit?
         Für $w\in M\ot N$ gilt somit $s\circ(id_M\ot g)(w) = w+B$.
-        Somit gilt für $w\in \ker(id_M\ot g)\subseteq M\ot_R N$ $w+B=0\in (M\ot_R N)/B$.
-        => $w\in B = Bild(id_M\ot f)$.
+        Somit gilt für $w\in \ker(id_M\ot g)\subseteq M\ot_R N$, dass $w+B=0\in (M\ot_R N)/B$.\\
+        $\Longrightarrow$ $w\in B = Bild(id_M\ot f)$.
+        \end{itemize}
     \end{enumerate}
 \end{proof}
 \begin{remark}
-    Im Allgemeinen ist der Funktor $M\ot_R -$ nicht exakt, d.h. $M\ot_-$ erhält im Allgemeinen nicht kurze exakte Folgen.
+    Im Allgemeinen ist der Funktor $M\ot_R -$ nicht exakt, d.h. $M\ot -$ erhält im Allgemeinen nicht kurze exakte Folgen.
     Bsp $0\rightarrow\Z\overset{\cdot 5}{\rightarrow} \Z\rightarrow\Z/5\Z\rightarrow 0$
     $\Z/5/Z\ot_\Z -$ liefert:
     \TODO[bild]
 \end{remark}
 
 Ein $R$-Modul $M$ ist \emph{flach}, wenn $M\ot_R -$ exakt ist.
-Bsp: * $\Q$ ist ein flacher $Z$-Modul.
-* Jeder freie $R$-Modul flach
-* Jeder projektive $R$-Modul ist flach.
+Bsp: 
+\begin{itemize}[noitemsep]
+    \item $\Q$ ist ein flacher $Z$-Modul.
+    \item Jeder freie $R$-Modul flach
+    \item Jeder projektive $R$-Modul ist flach.
+\end{itemize}
 
 \begin{definition}
-    Eine $R$-Algebra ist ein Ring $A$ (mit 1, nicht unbedingt kommutativ) mit einer $R$-Modulstruktur $R\times A \rightarrow A$ so, dass die Ringmultiplikation $A\times A\rightarrow A$ $R$-bilinear ist.
+    Eine \emph{$R$-Algebra} ist ein Ring $A$ (mit 1, nicht unbedingt kommutativ) mit einer $R$-Modulstruktur $R\times A \rightarrow A$ so, dass die Ringmultiplikation $A\times A\rightarrow A$ $R$-bilinear ist.
     [d.h. $\forall a,b\in A,\ r\in R: r(a._Ab) = (ra)._A b = a._A(rb)$]
 \end{definition}
 \begin{flushright}
@@ -397,14 +402,14 @@ Bsp: * $\Q$ ist ein flacher $Z$-Modul.
 \end{minipage}
 \begin{example}$ $
     \begin{enumerate}[label=(\roman*)]
-        \item $M_n (R)$ $R$-Algebra
+        \item $M_n (R)$ ist eine $R$-Algebra
         \item $L|K$ Körpererweiterung. Dann ist $L$ eine $K$-Algebra.
         \item $R$ nullteierfrei. Dann ist $Quot(R)$ eine $R$-Algebra.
-        \item Jeder Ring ist eine $\Z-Algebra$
+        \item Jeder Ring ist eine $\Z$-Algebra
         \item $R[X_1,\dots,X_n]$ ist $R$-Algebra
     \end{enumerate}
 \end{example}
-
+\TODO[Ab hier]
 \begin{remark}
     Sei $A$ eine $R$-Algebra. Definiere $i:R\rightarrow A, r\mapsto r1_A$.
     $i$ ist ein Ringhomomorphismus.
