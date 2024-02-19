@@ -157,17 +157,24 @@ VL vom 02.11.2023:
     Sei G eine Gruppe. Für $x,y \in G$ heißt $x^{-1}y^{-1}xy = [x,y]$ \emph{Kommutator} von x und y. Die Kommutatoruntergruppe von G ist $$D(G) = <[x,y] \mid x,y \in G>$$
     Alternativnotation: $[G,G] := D(G)$.
 \end{definition}
-\begin{lemma}
-    Die Kommutatoruntergruppe D(G) einer Gruppe G ist ein NT von G. Die Faktorgruppe $G^m = G/_{D(G)}$ ist abelsch und heißt \emph{Abelisierung} von G.
-    Ist $N \nteq G$ und $G/_N$ abelsch, dann ist $D(G) \subseteq N$ (d.h. $G/_{D(G)} ->> G/_N$ ist surjektiv)
+\begin{lemma}[Abelisierung]
+Für die Kommutatorengruppe gelten folgende Aussagen:
+\begin{itemize}
+    \item Die Kommutatoruntergruppe $D(G)$ einer Gruppe $G$ ist ein Normalteiler von $G$.
+    \item Die Faktorgruppe $G^m = G/_{D(G)}$ ist abelsch und heißt \emph{Abelisierung} von $G$.
+    \item Ist $N \nteq G$ und $G/_N$ abelsch, dann ist $D(G) \subseteq N$ (d.h. $G/_{D(G)} \twoheadrightarrow G/_N$ ist surjektiv)
+\end{itemize}
 \end{lemma}
 \begin{proof}
-    Es ist $g^{-1}[x,y]g = g^{-1}x^{-1}y^{-1}xyg = (g^{-1}x^{-1}g)(g^{-1}yg)(g^{-1}xg)(g^{-1}yg) = [g^{-1}xg, g^{-1}yg]$. Somit ist $g^{-1}D(G)g = \langle[g^{-1}xg, g^{-1}yg] \mid x,g \in G\rangle = D(G)$.
+$G$ Gruppe, $x, y \in G$
+\begin{itemize}
+    \item Es ist $g^{-1}[x,y]g = g^{-1}x^{-1}y^{-1}xyg = (g^{-1}x^{-1}g)(g^{-1}yg)(g^{-1}xg)(g^{-1}yg) = [g^{-1}xg, g^{-1}yg]$. Somit ist $g^{-1}D(G)g = \langle[g^{-1}xg, g^{-1}yg] \mid x,g \in G\rangle = D(G)$.
     
-    Seien $xD(F), yD(G) \in G/D(G)$. Es ist dann $xyD(G) = xy[y,x]D(G) = xyy^{-1}x^{-1}yxD(G) = yxD(G)$. 
+    \item Seien $xD(F), yD(G) \in G/D(G)$. Es ist dann $xyD(G) = xy[y,x]D(G) = xyy^{-1}x^{-1}yxD(G) = yxD(G)$. 
     
-    Betrachte die kanonische Projektion $\pi: G ->> G/N$. Dann ist $\pi([x,y]) = \pi(x^{-1}y^{-1}xy) = \pi(x)^{-1}\pi(y)^{-1}\pi(x)\pi(y) = [\pi(x), \pi(y)] = N = \in G/N$ abelsch.
+    \item Betrachte die kanonische Projektion $\pi: G \twoheadrightarrow G/N$. Dann ist $\pi([x,y]) = \pi(x^{-1}y^{-1}xy) = \pi(x)^{-1}\pi(y)^{-1}\pi(x)\pi(y) = [\pi(x), \pi(y)] = 1N \in G/N$ abelsch.
     Also $D(G) \subseteq N$.
+\end{itemize}
 \end{proof}
 \begin{definition}
     Setze $D^0(G) = G$ und dann induktiv $D^{i+1}(G) := D(D^i(G))$. Die Reihe 
@@ -184,7 +191,7 @@ VL vom 02.11.2023:
     $$\{1\} = G_0 \nt ... \nt G_n = G$$
     Wir zeigen induktiv über die Länge $n$ der Normalreihe: $D^j(G) \subseteq G_{n-j}, j \in [n]_0$.
     IA: $n=0$. Klar: $D^0(G) = G = G_0 = G_n$
-    ISt: Angenommen $D^j(G) \subseteq G_{n-j}$. Dann $D^{j+1}(G) = D(D^j(G)) \subseteq D(G_{n-j}) \subseteq G_{n-j-1}$. Die letzte Inklusion folgt aus TODO
+    ISt: Angenommen $D^j(G) \subseteq G_{n-j}$. Dann $D^{j+1}(G) = D(D^j(G)) \subseteq D(G_{n-j}) \subseteq G_{n-j-1}$. Die letzte Inklusion folgt aus 1.15 (dritte Aussage) TODO
 \end{proof}
 \begin{example}
     Sei G eine Gruppe und p eine Primzahl. Ist $|G| = p^n$, dann ist G auflösbar (und sogar nilpotent).
