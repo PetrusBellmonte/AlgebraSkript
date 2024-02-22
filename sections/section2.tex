@@ -7,10 +7,10 @@
     Sei $K$ im Folgenden ein Körper. Der Polynomring $K[X]$ ist ein Hauptidealring\footnote{nullteilerfrei, kommutativ und jedes Ideal ist Hauptideal}. Das Ideal $(f)$ ist Primideal gdw. $f = 0$ oder $f$ irreduzibles Polynom ist, d.h. $f = gh \Rightarrow g \in K^* \vee h \in K^*$.
 \end{definition}
 \begin{lemma} \label{theo:2.2}
-    Ist f irreduzibel, dann ist (f) ein maximales Ideal.
+    Ist f irreduzibel, dann ist (f) ein maximales Ideal\footnote{Es existiert kein ("größeres") Ideal $I\neq K[X]$ mit $(f)\subset I$}.
 \end{lemma}
 \begin{proof}
-    Angenommen $(f) \subseteq (g)$. Dann $f = hg$ für ein $h \in K[X]$ nach Def. von $(g)$. Dann gilt
+    Angenommen $(f) \subseteq (g)$. Dann $f = hg$ für ein $h \in K[X]$ nach Definition von $(g)$. Dann gilt
     \begin{equation*}
         \begin{cases}
             g \in K^* \Rightarrow (g) = K[X] \\
@@ -20,11 +20,11 @@
     \end{equation*}
 \end{proof}
 \begin{theorem}[Eisensteinkriterium]
-    Sei A ein kommutativer Ring und $P \subseteq A$ ein Primideal (e.g. $A = \mathbb{Z}$, $P = \{pn \mid n \in \mathbb{N}\}$, $p$ prim). Sei $f \in A[X]$ mit $f = \sum_{0 \leq i \leq n} a_iX^i$ mit drei Eigenschaften:
+    Sei A ein kommutativer Ring und $P \subseteq A$ ein Primideal\footnote{e.g. $A = \mathbb{Z}$, $P = \{pn \mid n \in \mathbb{N}\}$, $p$ prim}. Sei $f \in A[X]$ mit $f = \sum_{0 \leq i \leq n} a_iX^i$ mit drei Eigenschaften:
     
     1) $a_n \notin P$
 
-    2) $a_i \in P \; \forall 0 \leq i \leq n-1$
+    2) $a_i \in P \quad \forall 0 \leq i \leq n-1$
 
     3) $a_0$ ist kein Produkt von zwei Elementen in P.
 
@@ -34,14 +34,15 @@
     EAZ Kühnlein
 \end{proof}
 \begin{definition}[Inhalt]
-    Sei A ein Hauptidealring und $K = Quot(A)$. Sei $f = \sum_{0 \leq i \leq n} a_i X^i \in A[X]$. Definiere $\Tilde{c}(f) \in A$ als einen Erzeuger des Ideals $(a_0, ..., a_n) \subset A$ (eindeutig bis auf Multiplikation mit Einheiten/inv. Elemente in A). Die Assoziiertenklasse $c(f) = \Tilde{c}(f)A^* \subset A/A^*$ [$A^*$ invertierbare Elemente in A] heißt \emph{Inhalt} von f. Sei $f \in K[X]$. Wähle $a \in A \setminus \{0\}$ mit $af \in A[X]$. Definiere $\Tilde{c}(f) = c(af)a^{-1} \in K$ und $c(f) = \Tilde{c}(f)A^* \in K/A^*$ (Übung: Def. unabh. von der Wahl von a).
+    Sei A ein Hauptidealring und $K = Quot(A)$. Sei $f = \sum_{0 \leq i \leq n} a_i X^i \in A[X]$. Definiere $\Tilde{c}(f) \in A$ als einen Erzeuger des Ideals $(a_0, ..., a_n) \subset A$ (eindeutig bis auf Multiplikation mit Einheiten/inv. Elemente in A). Die Assoziiertenklasse $c(f) = \Tilde{c}(f)A^* \subset A/A^*$ [$A^*$ invertierbare Elemente in A] heißt \emph{Inhalt} von f.\\
+    Sei $f \in K[X]$. Wähle $a \in A \setminus \{0\}$ mit $af \in A[X]$. Dann definiere $\Tilde{c}(f) = c(af)a^{-1} \in K$ und $c(f) = \Tilde{c}(f)A^* \in K/A^*$ (Übung: Def. unabh. von der Wahl von a).
 \end{definition}
 \begin{example*}
     $A = \mathbb{Z}, K = \mathbb{Q}$. Dann
     $$f(x) := \frac{2}{5}x^7 - 2x^3 + \frac{8}{3} = \frac{1}{15}(6x^7 - 30x^3 + 40)$$
-    also $\Tilde{c}(f) = \frac{ggT(6,30,49)}{15} = \frac{2}{15}$.
+    also $\Tilde{c}(f) = \frac{ggT(6,30,40)}{15} = \frac{2}{15}$.
 \end{example*}
-\begin{lemma}
+\begin{lemma}\label{theo:2.5}
     Seien $A, K$ wie oben und $f,g \in K[X]$. Dann gilt
     
     a) Für $f \neq 0$ gilt $\Tilde{c}(f)^{-1}f \in A[X]$.
@@ -57,7 +58,7 @@
 \begin{proof}
     Ang. $f = g_0h_0$ mit $g_0, h_0 \in K[X]$. Setze 
     $$g = \Tilde{c}(g_0)^{-1}g_0 \in A[X]$$ und 
-    $$h := \Tilde{c}(g_0)\Tilde{c}(h_0)\Tilde{c}(h_0)^{-1}h_0 = \Tilde{c}(g_0h_0)a\Tilde{c}(h_0)^{-1}h_0$$ für geeignetes $a \in A^*$. Somit ist auch $h \in A[X]$. Weiter ist $f = gh$. Dann ist $deg g_0 = deg g = deg f$ oder $deg h_0 = deg h = deg f$.
+    $$h := \Tilde{c}(g_0)\Tilde{c}(h_0)\Tilde{c}(h_0)^{-1}h_0 \overset{\text{\ref{theo:2.5} b}}{=} \underbrace{\Tilde{c}(\overbrace{g_0h_0}^{=f})}_{\in A^\times}a\ \underbrace{\Tilde{c}(h_0)^{-1}h_0}_{\in A[X]}$$ für geeignetes $a \in A^*$. Somit ist auch $h \in A[X]$. Weiter ist $f = gh$. Dann ist $\deg g_0 = \deg g = \deg f$ oder $\deg h_0 = \deg h = \deg f$.
 \end{proof}
 \begin{theorem}[Eisensteinkriterium für Irreduzibilität]
     Sei A ein Hauptidealring, $P \subset A$ Primideal und $f \in A[X]$. Erfüllt f die Bedingungen i), ii), iii) des Eisensteinkriteriums, dann ist f irreduzibel in K[X] ($K = Quot(A)$).
@@ -66,7 +67,7 @@
     $A = \mathbb{Z}, K = \mathbb{Q}$.
 
 \begin{enumerate}
-    \item $f = X^m - a, a \in \mathbb{Z}$. Falls $a = \prod_{1 \leq i \leq r} p_i^{\alpha_i}$ mit verschiedenen Primzahlen $p_i$ und es ein $j \in \{1, ..., r\}$ mit $\alpha_i = 1$ gibt, dann ist f irreduzibel in K[X].
+    \item $f = X^m - a$, $a \in \mathbb{Z}$. Falls $a = \prod_{1 \leq i \leq r} p_i^{\alpha_i}$ mit verschiedenen Primzahlen $p_i$ und es ein $j \in \{1, ..., r\}$ mit $\alpha_i = 1$ gibt, dann ist f irreduzibel in K[X].
     \item Sei p eine Primzahl. Das Polynom $\Phi_p = X^{p-1} + X^{p-2} + ... + X + 1$ heißt das p-te Kreisteilungspolynom. Setze $g(X) := \Phi_p(X+1)$ (dann impliziert insb. Irreduzibilität von g auch Irreduzibilität von $\Phi_p$; "Substitutionstrick" falls Eisensteinkriterium für Irreduzibilität nicht direkt anwendbar). Es ist $(X-1)\Phi_p(X) = X^p - 1$ und daher 
     $$g(X) = \frac{(X+1)^p - 1}{X} = \sum_{1 \leq j \leq p}\binom{p}{j}X^{j-1}$$
     Eisenstein für p liefert nun Irreduzibilität von g (beachte $p \mid \binom{p}{j}$ für $j = 1,...,p-1$).
@@ -91,7 +92,7 @@ K
     Sei $L | K$ eine K-Erweiterung und sei V ein L-Vektorraum mit L-Basis $(v_i)_{i \in I} \subset V$. Sei $(e_j)_{j \in J} \subset L$ eine K-Basis von L. Dann ist $(e_j \cdot v_i)_{i \in I, j \in J}$ (VR-Multiplikation von Skalaren aus L mit Vektoren aus V) eine K-Basis von V.
 \end{lemma}
 \begin{proof}
-$(v_i)$ L-Basis $\Rightarrow$ für jedes $i \in I ist \sum_j c_{ij}e_j = 0$. $(c_j)$ K-Basis $\Rightarrow$ $c_{ij} = 0$ für alle $i \in I, j \in J$
+$(v_i)$ L-Basis $\Rightarrow$ für jedes $i \in I$ ist $\sum_j c_{ij}e_j = 0$. $(c_j)$ K-Basis $\Rightarrow$ $c_{ij} = 0$ für alle $i \in I, j \in J$
 Erzeugendensystem: Sei $v \in V$.
 Dann ist $v = \sum_{i \in I} \lambda_iv_i$ mit gewissen $\lambda_i \in L$. Für jedes $i \in I$ ist $\lambda_i = \sum_{j \in J} b_ije_j$ mit gewissen $b_ij \in K$. Also $v = \sum_{i,j} b_{ij}(e_j \cdot v_i)$.
 \end{proof}
@@ -177,7 +178,7 @@ Seien K ein Körper und $f \in K[X]$ ein nicht-konstantes Polynom\footnote{irred
     $\mathbb{C}$ ist algebraisch abgeschlossen (Fundamentalsatz der Algebra).
 \end{example*}
 \begin{lemma}
-    Sei A ein kommutativer Ring und $I \subsetneq A$ ein Ideal. Dann ex. ein maximales Ideal $m \subsetneq A$, das I enthält (Beweisidee: Lemma von Zorn).
+    Sei A ein kommutativer Ring und $I \subset A$ ein Ideal. Dann ex. ein maximales Ideal $m \subset A$, das I enthält (Beweisidee: Lemma von Zorn).
 \end{lemma}
 \begin{theorem}\label{theo:2.24}
     Für jeden Körper gibt es einen algebraisch abgeschlossenen Erweiterungskörper.
@@ -201,7 +202,7 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
 
 \subsection{$\overline{K}$-Homomorphismen}
 \begin{definition}
-    Seien $L_1| K$ und $L_2|K$ $K$-Erweiterungen. Ein Homomorphismus $f: L_1 \rightarrow L_2$ heißt \emph{$K$-Homomorphismus}, falls $f(k) = k$ für alle $k \in K$. Ein K-Isomorphismus ist ein bijektiver K-Homomorphismus. Definiere ${Aut}(L_1|K) = \{f: L_1 \rightarrow L_2 \mid f \; K-Isom.\}$ (Gruppe der K-Automorphismen mit Verknüpfung als Operation).
+    Seien $L_1| K$ und $L_2|K$ $K$-Erweiterungen. Ein Homomorphismus $f: L_1 \rightarrow L_2$ heißt \emph{$K$-Homomorphismus}, falls $f(k) = k$ für alle $k \in K$. Ein K-Isomorphismus ist ein bijektiver K-Homomorphismus. Definiere ${Aut}(L_1|K) = \{f: L_1 \rightarrow L_1 \mid f \; K-Isom.\}$ (Gruppe der K-Automorphismen mit Verknüpfung als Operation).
 \end{definition}
 \begin{remark}[Beobachtung]
     Sei $\phi: L_1 \rightarrow L_2$ K-Hom. Sei $f \in K[X]$, $\alpha \in L_1$ mit $f(\alpha) = 0$. Dann ist $f(\phi(\alpha)) = \phi(f(\alpha)) = \phi(0) = 0$. 
@@ -222,30 +223,32 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
 \begin{example}
     Sei $d \neq 1$ eine quadratfreie ganze Zahl. $Aut(\mathbb{Q}(\sqrt{d}) \mid \mathbb{Q}) = \{id, \sigma\}$, $m_{\sqrt{d},\mathbb{Q}} = X^2 - d$ mit $\sigma(\sqrt{d}) = -\sqrt{d}$.
 \end{example}
-\begin{theorem}[Fortsetzungssatz] \label{theo:2.31}
+\begin{theorem}[Fortsetzungssatz] \label{theo:2.31} $ $
     \begin{enumerate}[label=(\alph*)]
-        \item Sei $L \mid K$ eine alg. $K$-Erweiterung, $M$ ein alg. abgeschlossener Körper und $\sigma: K \rightarrow M$ ein Homomorphismus Dann existiert $\phi: L \rightarrow M$ mit $\phi_{|K} = \sigma$.
+        \item Sei $L \mid K$ eine alg. $K$-Erweiterung, $M$ ein alg. abgeschlossener Körper und $\sigma: K \rightarrow M$ ein Homomorphismus. Dann existiert $\phi: L \rightarrow M$ mit $\phi_{|K} = \sigma$.
         \item Sei $\sigma: K \rightarrow K'$ ein Isomorphismus von Körpern. Seien $\overline{K}, \overline{K'}$ alg. Abschlüsse von $K$ bzw. $K'$. Dann ex. ein Isomorphismus $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. (Je zwei algebraische Abschlüsse eines Körpers K sind isomorph.)
     \end{enumerate}
 \end{theorem}
-\begin{proof}
-    a) Sei $$\mathcal{U} = \{(F,\tau) \mid K \subseteq F \subseteq L \text{ Zwischenkörper und } \tau: F \rightarrow M \text{ Hom. mit } \tau|_K = \sigma\}$$ Die Menge $\mathcal{U}$ ist partiell geordnet via 
-    $$(F_1, \tau_1) \leq (F_2, \tau_2) :\Leftrightarrow F_1 \subseteq F_2 \text{ und } \tau_2|_{F_1} = \tau_1$$
-    $(\mathcal{U},\leq)$ ist induktiv, d.h jede Kette in $(\mathcal{U},\leq)$ (total geordnete Teilmenge) besitzt eine obere Schranke. 
-    Sei $C$ eine Kette. Setze $F_0 := \bigcup_{(F,\tau) \in C} F \subseteq L$. Für $x \in F_0$ definiere man $\tau_0(x) := \tau_F(x)$, falls $x \in F$. Da C eine Kette ist, ist die Definition von $\tau_0(x)$ unabhängig von der konkreten Wahl von $F$, also wohldefiniert. Dann ist $(F_0,\tau_0)$ eine obere Schranke von C. Lemma von Zorn impliziert die Existenz eines max. Elementes $(F_1, \tau_1) \in \mathcal{U}$. Wir behaupten nun, dass $F_1 = L$. Falls nicht, also $F_1 \subsetneq L$, sei $\alpha \in L\setminus F_1$. Dann ist $\alpha$ algebraisch über K, insb. algebraisch über $F_1$. Definiere $F_2 := F_1(\alpha)$. Nach \ref{theo:2.28} ex. $\tau_2: F_2 \rightarrow M$ mit $\tau_2|_{F_1} = \tau_1$, also $(F_2, \tau_2) > (F_1, \tau_1)$ - Widerspruch.
+\begin{proof} $ $
+    \begin{enumerate}[label=(\alph*)]
+        \item 
+        Sei $$\mathcal{U} = \{(F,\tau) \mid K \subseteq F \subseteq L \text{ Zwischenkörper und } \tau: F \rightarrow M \text{ Hom. mit } \tau|_K = \sigma\}$$ Die Menge $\mathcal{U}$ ist partiell geordnet via 
+        $$(F_1, \tau_1) \leq (F_2, \tau_2) :\Leftrightarrow F_1 \subseteq F_2 \text{ und } \tau_2|_{F_1} = \tau_1$$
+        $(\mathcal{U},\leq)$ ist induktiv, d.h. jede Kette in $(\mathcal{U},\leq)$ (total geordnete Teilmenge) besitzt eine obere Schranke. 
+        Sei $C$ eine Kette. Setze $F_0 := \bigcup_{(F,\tau) \in C} F \subseteq L$. Für $x \in F_0$ definiere man $\tau_0(x) := \tau_F(x)$, falls $x \in F$. Da C eine Kette ist, ist die Definition von $\tau_0(x)$ unabhängig von der konkreten Wahl von $F$, also wohldefiniert. Dann ist $(F_0,\tau_0)$ eine obere Schranke von C. Lemma von Zorn impliziert die Existenz eines max. Elementes $(F_1, \tau_1) \in \mathcal{U}$. Wir behaupten nun, dass $F_1 = L$. Falls nicht, also $F_1 \subsetneq L$, sei $\alpha \in L\setminus F_1$. Dann ist $\alpha$ algebraisch über K, insb. algebraisch über $F_1$. Definiere $F_2 := F_1(\alpha)$. Nach \ref{theo:2.28} ex. $\tau_2: F_2 \rightarrow M$ mit $\tau_2|_{F_1} = \tau_1$, also $(F_2, \tau_2) > (F_1, \tau_1)$ - Widerspruch.
+        \item 
+        Nach a) gibt es $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. Z.z. $\phi(\overline{K}) = K'$.
 
-    b)
-    Nach a) gibt es $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. Z.z. $\phi(\overline{K}) = K'$.
-
-    Das Bild $\phi(\overline{K})$ ist ein alg. abgeschlossener Körper, da $\phi$ injektiv und damit $\phi(\overline{K})$ isomorph zu $\overline{K}$.
-    $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12IaYAnBrGBjAA0gHIAviAml0mXPkIoyARiq1GLNpzQALLAApO3PgKGiJASmmyQGbHgJEyAJnX1mrRCHE25DxSIVcndNLw52HBgADxxgRgBzADoAAjoAIwT4AGNdBkw4GDAJKRl-BScUYLVqDy1vTijY+IZktMycvIKi0vUYKCyEFFAAM14IAFskF2ocCCQVMpAxyYXZ+cQyDU9tSJi4xKSpagYMmAYABXlHJRBeLATdHD9l8anN9enqdKKoJABaADMWzq4Ua+xayWOIFOP0u10C3nuj2eEgoEiAA
-\begin{tikzcd}[column sep=0cm]
-\overline{K'} \arrow[dd, "\text{alg.}"', bend right=50, no head] & \text{alg. abgeschlossen} \\
-\phi(\overline{K}) \arrow[u, "\text{alg.}"', no head]         & \text{alg. abgeschlossen}  \\
-K' \arrow[u, no head]                                         &                           
-\end{tikzcd}
-$$
-    Wegen \cref{theo:2.22} und der Algebraizität von $\overline{K'}|\phi(\overline{K})$ folgt $\phi(\overline{K}) = \overline{K'}$.
+        Das Bild $\phi(\overline{K})$ ist ein alg. abgeschlossener Körper, da $\phi$ injektiv und damit $\phi(\overline{K})$ isomorph zu $\overline{K}$.
+        $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAB12IaYAnBrGBjAA0gHIAviAml0mXPkIoyARiq1GLNpzQALLAApO3PgKGiJASmmyQGbHgJEyAJnX1mrRCHE25DxSIVcndNLw52HBgADxxgRgBzADoAAjoAIwT4AGNdBkw4GDAJKRl-BScUYLVqDy1vTijY+IZktMycvIKi0vUYKCyEFFAAM14IAFskF2ocCCQVMpAxyYXZ+cQyDU9tSJi4xKSpagYMmAYABXlHJRBeLATdHD9l8anN9enqdKKoJABaADMWzq4Ua+xayWOIFOP0u10C3nuj2eEgoEiAA
+    \begin{tikzcd}[column sep=0cm]
+    \overline{K'} \arrow[dd, "\text{alg.}"', bend right=50, no head] & \text{alg. abgeschlossen} \\
+    \phi(\overline{K}) \arrow[u, "\text{alg.}"', no head]         & \text{alg. abgeschlossen}  \\
+    K' \arrow[u, no head]                                         &                           
+    \end{tikzcd}
+    $$
+        Wegen \cref{theo:2.22} und der Algebraizität von $\overline{K'}|\phi(\overline{K})$ folgt $\phi(\overline{K}) = \overline{K'}$.
+    \end{enumerate}
 \end{proof}
 \begin{flushright}
 VL vom 13.11.2023:
