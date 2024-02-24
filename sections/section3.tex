@@ -43,13 +43,13 @@
     Für $\sigma\in H$ ist $\sigma_*(f) = \prod_{i=1}^n\left(X-\sigma(a_i)\right) = \prod_{i=1}^n(X-a_i)$.\footnote{Zu jedem $a_i$ existiert ein $\tau\in H$ mit $\tau(a) = a_i$. Dann ist $\sigma(a_i) = \sigma(\tau(a)) = \underbrace{(\sigma\circ \tau)}_{\in H}(a)\in H\cdot a$.
     $\sigma$ is bijektiv, weshalb jedes $a_i$ auf ein anderes Element in $H\cdot a\subseteq L$ abgebildet.}
     Da $f_a$ also fix unter $\sigma\in H$ ist, müssen die Koeffizienten von $f_a$ in $L^H$ liegen und damit $f_a\in L^H[X]$.
-    Weil alle Nullstellen von $f_a$ auch Nullstelle von $m_{a,L^H}$ sind, muss schon $f_a=m_{a,L^H}$ sein.\footnote{$m_{a,L^H}$ teilt $f_a\in L^H[X]$, weil $a$ Nullstelle von $f_a$}
+    Weil alle Nullstellen von $f_a$ auch Nullstelle von $m_{a,L^H}$ sind\footnote{und damit $f_a|m_{a,L^H}$, aber $m_{a,L^H}$ als Minimalpolynom irreduzibel}, muss schon $f_a=m_{a,L^H}$ sein.
     Nach Konstruktion hat $f_a$ nur einfache Nullstellen, ist also separabel. $\Rightarrow$ $a$ separabel. $\overset{a\text{ beliebig}}{\Rightarrow}$ $L|L^H$separabel.
     Weiter zerfällt $f_a=m_{a,L^H}$ in Linearfaktoren $\Rightarrow$ $L|L^H$ normal and damit galois'sch.
 
     Wegen $H\subseteq Gal(L|L^H)$ gilt $\card{H}\leq \card{Gal(L|L^H)} = [L:L^H]_S \overset{\cref{theo:2.47}}{=} [L:L^H]$.
     Angenommen $\card{H} < [L:L^H]\leq \infty$. 
-    Dann finden wir ein $L_0$ mit $L^H\subseteq L_0 \subseteq L$ mit $\card{H} \leq [L_0:L^H] <\infty$.
+    Dann finden wir ein $L_0$ mit $L^H\subseteq L_0 \subset L$ mit $\card{H} \leq [L_0:L^H] <\infty$.
     Der Satz vom primitiven Element liefert ein $a\in L_0$ mit $L_0 = L^H(a)$.
     Aber $f_a=m_{a,L^H}$ hat Grad $\leq \card{H}$.
     => $[L_0:L^H] = \deg(m_{a,L^K})\leq \card{H}$ \Lightning
@@ -104,18 +104,21 @@ VL vom 30.11.2023:
 
     
     \begin{remark*}
-        Für $\sigma\in Gal(L|K)$ und $H\in U$, dann $\sigma(L^H) = L^{\sigma H \sigma^{-1}}$, denn für $x\in L^{\sigma H \sigma^{-1}} \Leftrightarrow \forall \tau \in H\colon \sigma \tau \sigma^{-1}(x)=x \Leftrightarrow \forall \tau \in H\colon \tau \sigma^{-1}(x) = \sigma^{-1}(x) \Leftrightarrow \sigma^{-1}x\in L^H \Leftrightarrow x\in \sigma(L^H)$
+        Für $\sigma\in Gal(L|K)$ und $H\in U$, dann $\sigma(L^H) = L^{\sigma H \sigma^{-1}}$, denn für $x\in L^{\sigma H \sigma^{-1}} \Leftrightarrow \forall \tau \in H\colon \sigma \tau \sigma^{-1}(x)=x \Leftrightarrow \forall \tau \in H\colon \tau \sigma^{-1}(x) = \sigma^{-1}(x) \Leftrightarrow \sigma^{-1}x\in L^H \Leftrightarrow x\in \sigma(L^H)$\\
+        $\overset{\Gamma(\cdot)}{\Longrightarrow} Gal(L|\sigma(L^H)) = \sigma H \sigma^{-1}$
     \end{remark*}
 
     \item[Zu b)]$ $
     \begin{itemize}
         \item["'$\Rightarrow$"']
-        Ist $E|K$ normal, so gilt $\sigma(E) = E$ für alle $\sigma \in Gal(L|K)$ nach \cref{theo:2.35} b).
-        $E=L^{Gal(L|E)} \overset{\sigma\Gamma(\cdot)\sigma^{-1}}{\Longrightarrow} \sigma Gal(L|E) \sigma^{-1} = \sigma \Gamma(E) \sigma^{-1} = Gal(L|E)$ für alle $\sigma \in Gal(L|K)$.
-        Damit ist $Gal(L|E)=\Gamma(E)$ normal, also $Gal(L|E)\nteq Gal(L|K)$.
+        Ist $E|K$ normal, so gilt $\sigma(E) = E$ für alle $\sigma \in Gal(L|K)$ nach \cref{theo:2.35} b).\\
+        $\sigma Gal(L|E) \sigma^{-1} = Gal(L|\sigma(L^{Gal(L|E)})) = Gal(L|\sigma(E)) = Gal(L|E)$
+        %$E=L^{Gal(L|E)} \overset{\sigma\Gamma(\cdot)\sigma^{-1}}{\Longrightarrow} \sigma Gal(L|E) \sigma^{-1} = \sigma \Gamma(E) \sigma^{-1} = Gal(L|E)$ 
+        für alle $\sigma \in Gal(L|K)$.
+        Damit ist $Gal(L|E)$ normal, also $Gal(L|E)\nteq Gal(L|K)$.
         \item["'$\Leftarrow$"']
         $Gal(L|E) \nteq Gal(L|K)$, d.h. $\forall \sigma\in Gal(L|K)$ gilt $\sigma(E)=\sigma(L^{Gal(L|E)}) = L^{\sigma Gal(L|E) \sigma^{-1}} = L^{Gal(L|E)} = E$.
-    Nach \cref{theo:2.35} (ii) ist $E|K$ normal.
+        Nach \cref{theo:2.35} (ii) ist $E|K$ normal.
     \end{itemize}
 
     Sei $E|K$ normal.
@@ -157,7 +160,7 @@ Sei $K$ Körper
     Dann ist das Kompositum $L_1L_2$ eine Galois-Erweiterung von $K$.
     Die Zuordnung 
     \begin{align*}
-        \Phi\colon Gal(L_1L_2|K))&\rightarrow Gal(L_1|K)\times Gal(L_2|K)\\
+        \Phi\colon Gal(L_1L_2|K)&\rightarrow Gal(L_1|K)\times Gal(L_2|K)\\
         \sigma &\mapsto (\sigma_{|L_1},\sigma_{|L_2})
     \end{align*}
     ist ein injektiver Gruppenhomomorphismus.
@@ -191,9 +194,9 @@ Sei $K$ Körper
             &= L_1\cap L_2\\
             &= L_1^{Gal(L_1|L_1\cap L_2)}
         \end{align*}
-         $\Rightarrow H= Gal(L_1|L_1\cap L_2)$
+         $\Rightarrow H= Gal(L_1|L_1\cap L_2) = Gal(L_1|K)$
     
-        Analog mit $Phi_2: Gal(L_1L_2|L_1)\rightarrow Gal(L_2|K), \sigma \mapsto \sigma_{|L_2}$
+        Analog mit $\Phi_2: Gal(L_1L_2|L_1)\rightarrow Gal(L_2|K), \sigma \mapsto \sigma_{|L_2}$
     
         $Gal(L_1L_2|K)\geq Gal(L_1L_2|L_i)$ => $\Phi$ ist surjektiv
     \end{description}
@@ -209,22 +212,22 @@ Sei $K$ Körper
 \subsection{Kreisteilungskörper und Einheitswurzeln}
 \begin{definition}
     Sei $K$ Körper und $n\in \N$.
-    Ein Element $\xi\in K^\times$ mit $\xi^n=1$ heißt \emph{$n$-te Einheitswulzel (EW)}. Hat $\xi$ die Ordnung $n$, so nennt man $\xi$ \emph{primitive $n$-te EW}.
+    Ein Element $\xi\in K^\times$ mit $\xi^n=1$ heißt \emph{$n$-te Einheitswulzel (EW)}.
     $\mu_n(K)\coloneqq\{\text{n-te EW in K}\}\leq K^\times$ zyklische Untergruppe.
-    $\card{\mu_n(K)}\leq n$
+    $\card{\mu_n(K)}\leq n$\\
+    Hat $\xi$ die Ordnung $n$, so nennt man $\xi$ \emph{primitive $n$-te EW}.
     $\mu_n^*(K) \coloneqq \{\text{primitive n-te EW in K}\}$
 \end{definition}
 \begin{example*}
     $\mu_n(\C) = \{exp(2\pi i\frac{k}{n})\mid k=0,\dots,n-1\}$
-    $exp(2\pi i \frac{2}{4} = exp(2\pi i \frac{1}{2})$
-    $\xi\in \mu_n(\C)$ ist primitiv $\Leftrightarrow ggT(k,n)=1$
-
-    $theta\in \mu_n(K)\setminus\trivGO \Rightarrow (X^n-1)/(X-1) = X^{n-1}+X^{n-2}+\dots+X+1$ hat $\xi$ als Nullstelle
+    $exp(2\pi i \frac{2}{4} = exp(2\pi i \frac{1}{2})$\\
+    $\xi\in \mu_n(\C)$ ist primitiv $\Leftrightarrow ggT(k,n)=1$\\
+    $\xi\in \mu_n(K)\setminus\trivGO \Rightarrow (X^n-1)/(X-1) = X^{n-1}+X^{n-2}+\dots+X+1$ hat $\xi$ als Nullstelle
     \TODO[bild]
 \end{example*}
 Definition:
-$K$ Körper, $n\in \N$
-$K_n$ ist definiert als Zerfällungskörper von $X^n-1$ über $K$.
+Für $K$ Körper, $n\in \N$ ist
+$K_n$ definiert als Zerfällungskörper von $X^n-1$ über $K$.
 \begin{theorem}\label{theo:3.10}
     $K$ Körper, $n\in \N$, $char(K)\nmid n$
     \begin{enumerate}[label=\alph*)]
@@ -236,12 +239,12 @@ $K_n$ ist definiert als Zerfällungskörper von $X^n-1$ über $K$.
 \begin{proof}
     Zu a)
     $(K_n|K)$ ist normal als Zerfällungskörper.
-    Es ist $D(X^n-1) = nX^{n-1}$, d.h. $X^n-1$ und $D(X^n-1)$ haben keine gemeinsamen NS d.h. $X^n-1$ ist separabel $\overset{2.48}{\Rightarrow}$ $K_n|K$ ist separabel.
+    Es ist $D(X^n-1) = nX^{n-1}$, d.h. $X^n-1$ und $D(X^n-1)$ haben keine gemeinsamen NS d.h.\footnote{Wäre $X^n-1$ nicht separabel, gäbe es einen irreduziblen, nicht separablen Teiler $g$ mit $X^n-1=gh$. Dann hätte $D(X^n-1) = D(gh) = gD(h) + h D(g)= g D(h)$ die Nullstellen von $g$ mit $X^n-1$ gemein. Da dies nicht der Fall ist, muss $X^n-1$ separabel sein.} $X^n-1$ ist separabel $\overset{\ref{theo:2.48}}{\Rightarrow}$ $K_n|K$ ist separabel.
     Insbesondere hat $X^n-1$ $n$ verschiedene NS, d.h. $\card{\mu_n(K_n)} = n$.
     Gruppe der $n$-ten EW ist zyklisch (mit Argument wie in \ref{theo:2.49}), also $\card{\mu_n^*(K_n)} = \card{\Z/n\Z}$
 
     Zu b)
-    $\sigma \in Gal(K_n|K)$, $theta \in \mu_n^*(K_n)$
+    $\sigma \in Gal(K_n|K)$, $\xi \in \mu_n^*(K_n)$:
     $\sigma(\xi) = \xi^m$ für m teilerfremd zu $n$.
     $\sigma$ ist durch $m$ eindeutig bestimmt.
     $\Phi: Gal(K_n|K) \rightarrow (\Z/n\Z)^\times, \sigma \mapsto m+n\Z$ ist ein injektiver Gruppenhomomorphismus.

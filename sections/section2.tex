@@ -234,8 +234,12 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
         \item 
         Sei $$\mathcal{U} = \{(F,\tau) \mid K \subseteq F \subseteq L \text{ Zwischenkörper und } \tau: F \rightarrow M \text{ Hom. mit } \tau|_K = \sigma\}$$ Die Menge $\mathcal{U}$ ist partiell geordnet via 
         $$(F_1, \tau_1) \leq (F_2, \tau_2) :\Leftrightarrow F_1 \subseteq F_2 \text{ und } \tau_2|_{F_1} = \tau_1$$
-        $(\mathcal{U},\leq)$ ist induktiv, d.h. jede Kette in $(\mathcal{U},\leq)$ (total geordnete Teilmenge) besitzt eine obere Schranke. 
-        Sei $C$ eine Kette. Setze $F_0 := \bigcup_{(F,\tau) \in C} F \subseteq L$. Für $x \in F_0$ definiere man $\tau_0(x) := \tau_F(x)$, falls $x \in F$. Da C eine Kette ist, ist die Definition von $\tau_0(x)$ unabhängig von der konkreten Wahl von $F$, also wohldefiniert. Dann ist $(F_0,\tau_0)$ eine obere Schranke von C. Lemma von Zorn impliziert die Existenz eines max. Elementes $(F_1, \tau_1) \in \mathcal{U}$. Wir behaupten nun, dass $F_1 = L$. Falls nicht, also $F_1 \subsetneq L$, sei $\alpha \in L\setminus F_1$. Dann ist $\alpha$ algebraisch über K, insb. algebraisch über $F_1$. Definiere $F_2 := F_1(\alpha)$. Nach \ref{theo:2.28} ex. $\tau_2: F_2 \rightarrow M$ mit $\tau_2|_{F_1} = \tau_1$, also $(F_2, \tau_2) > (F_1, \tau_1)$ - Widerspruch.
+        $(\mathcal{U},\leq)$ ist induktiv, d.h. jede Kette in $(\mathcal{U},\leq)$ (total geordnete Teilmenge) besitzt eine obere Schranke:
+        Sei $C$ eine Kette. Setze $F_0 := \bigcup_{(F,\tau) \in C} F \subseteq L$. Für $x \in F_0$ definiere man $\tau_0(x) := \tau_F(x)$, falls $x \in F$.
+        Da C eine Kette ist, ist die Definition von $\tau_0(x)$ unabhängig von der konkreten Wahl von $F$, also wohldefiniert.
+        Dann ist $(F_0,\tau_0)$ eine obere Schranke von C. Lemma von Zorn\footnote{Eine halbgeordnete Menge, in der jede Kette eine obere Schranke hat, enthält mindestens ein maximales Element.} impliziert die Existenz eines max. Elementes $(F_1, \tau_1) \in \mathcal{U}$.
+        Wir behaupten nun, dass $F_1 = L$. Falls nicht, also $F_1 \subset L$, sei $\alpha \in L\setminus F_1$. Dann ist $\alpha$ algebraisch über K, insb. algebraisch über $F_1$. Definiere $F_2 := F_1(\alpha)$.
+        Nach \ref{theo:2.28} ex. $\tau_2: F_2 \rightarrow M$ mit $\tau_2|_{F_1} = \tau_1$, also $(F_2, \tau_2) > (F_1, \tau_1)$ - Widerspruch.
         \item 
         Nach a) gibt es $\phi: \overline{K} \rightarrow \overline{K'}$ mit $\phi_{|K} = \sigma$. Z.z. $\phi(\overline{K}) = K'$.
 
@@ -256,7 +260,7 @@ VL vom 13.11.2023:
 \subsection{Zerfallskörper}
 
 \begin{definition}
-    Sei $K$ ein Körper und $\Omega \subseteq K[X]$ ene Teilmenge von nicht konstanten Polynomen. Ein Erweiterungskörper $L$ von $K$ heißt \emph{Zerfällungskörper} von $\Omega$, falls gilt
+    Sei $K$ ein Körper und $\Omega \subseteq K[X]$ eine Teilmenge von nicht konstanten Polynomen. Ein Erweiterungskörper $L$ von $K$ heißt \emph{Zerfällungskörper} von $\Omega$, falls gilt
     \begin{enumerate}
         \item Jedes $f\in \Omega$ zerfällt in $L[X]$ in Linearfaktoren
         \item $L=K(S)$, wobei $S=\{x\in L \mid \exists f\in \Omega: f(x)=0\}$
@@ -269,6 +273,7 @@ VL vom 13.11.2023:
     Dann ist $L=K(\alpha_1, \dots, \alpha_r)$, wobei $\alpha_1,\dots,\alpha_r$ Nullstellen von $f$ in $L$ sind ($r\leq m$).
     Es gilt $[L:K]< m^r$.
     Tatsächlich gilt $[L:K] \leq m!$ (Übung).
+    Natürlich
     \begin{align*}
         L&=K(\alpha_1,\dots,\alpha_r)\\
         |&\\
@@ -276,10 +281,10 @@ VL vom 13.11.2023:
         \vdots&\\
         K&
     \end{align*}
-    Natürlich \TODO[graphik] und $[K(\alpha_1,\dots,\alpha_i):K(\alpha_1,\dots,\alpha_{i-1})] \leq [K(\alpha_i):K] \leq m$.
+    und $[K(\alpha_1,\dots,\alpha_i):K(\alpha_1,\dots,\alpha_{i-1})] \leq [K(\alpha_i):K] \leq m$.
 \end{remark}
 
-\begin{example}
+\begin{example}$ $
     \begin{enumerate}[label=\alph*)]
         \item $f=X^4 -2 \in \Q[X]$ irreduzibel nach Eisensteinkriterium mit $p=2$ und Nullstellen $\sqrt[4]{2},-\sqrt[4]{2},i\sqrt[4]{2}$,$-i\sqrt[4]{2}$
         \begin{align*}
@@ -315,7 +320,7 @@ VL vom 13.11.2023:
     \TODO
 \end{proof}
 
-\begin{theorem}[Charackterisung von normalen Erweiterungen] \label{theo:2.36}
+\begin{theorem}[Charakterisierung von normalen Erweiterungen] \label{theo:2.36}
     Sei $K$ Körper mit alg. Abschluss $\overline{K}$. Für einen Zwischenkörper $K\subseteq L \subseteq \overline{K}$ sind folgende Aussagen äquivalent:
     \begin{enumerate}
         \item $L|K$ ist normal
@@ -397,7 +402,7 @@ VL vom 13.11.2023:
 \begin{lemma} \label{theo:2.44}
     Ist $L|K$ separabel und $K\subseteq M \subseteq L$ ein Zwischenkörper, dann ist $L|M$ und $M|K$ separabel.
 \end{lemma}
-\begin{proof}
+\begin{proof} $ $
     \begin{enumerate}
         \item[$M|K$:] Sei $a\in M$. Die Minimalpolynome über $K$ von $a$ als Element von $M$ und $L$ sind gleich. Also ist $a$ separabel.
         \item[$L|M$:] Sei $a\in L$. Dann ist $m_{a,M}$ ein Teiler von $m_{a,K}$ in $\overline{K}[X]$.
@@ -431,8 +436,8 @@ VL vom 13.11.2023:
         Also $\card{I} = [L:K]_S$ and $\card{J}=[M:L]_S$.
         Die $K$-Homomorphismen $\overline{\sigma_i} \circ \tau_j = f_{ij}$ sind genau die paarweise verschiedenen $K$-Homom. 
         $M\rightarrow \overline{K}$, wobei $\overline{\sigma_i}$ eine Fortsetzung von $\sigma_i$ zu einem $K$-Homomorphismus $\overline{K} \rightarrow \overline{K}$ ist (Fortsetzungssatz \cref{theo:2.31}). 
-        Angenommen $\overline{\sigma_i} \circ \tau_j = \overline{\sigma_s} \circ \tau_r$, dann ist $\overline{\sigma_i}_{|L} = (\overline{\sigma_i} \circ \tau_j)_{|L} =(\overline{\sigma_s} \circ \tau_s)_{|L} = \sigma_s$, also $i=s$.
-        Da $\overline{\sigma_i},\overline{\sigma_s}$ automatisch inj. sind\footnotemark, ist $\tau_j = \tau_r$ also $j = r$.
+        Angenommen $\overline{\sigma_i} \circ \tau_j = \overline{\sigma_s} \circ \tau_r$, dann ist $\sigma_i = \overline{\sigma_i}_{|L} = (\overline{\sigma_i} \circ \tau_j)_{|L} =(\overline{\sigma_s} \circ \tau_s)_{|L} = \sigma_s$, also $i=s$.
+        Da $\overline{\sigma_i},\overline{\sigma_s}$ automatisch injektiv sind\footnotemark, ist $\tau_j = \tau_r$ also $j = r$.
         Damit ist a) bewiesen.
     \end{minipage}
     \footnotetext{Alle Körperhomomorphismen sind $0$ oder injektiv. Wäre $\phi(a)=0$, dann $0 = \phi(a) = \phi(a)\phi(a^{-1}) = \phi(1)=1$}%Otherwise the minipage does stupid shit
@@ -453,7 +458,7 @@ VL vom 13.11.2023:
 \begin{proof}
 $ $
     \begin{itemize}[align= left]
-        \item[(i) $\rightarrow$ (ii)] $[L:K] < \infty$, dann gilt $a_1, \dots, a_n \in L$ mit $L=K(a_1, \dots, a_n)$. Diese Elemente sind (nach Definition separabler Körpererweiterungen \cref{theo:2.43}) automatisch separabel.
+        \item[(i) $\rightarrow$ (ii)] $[L:K] < \infty$, dann gilt $a_1, \dots, a_n \in L$ mit $L=K(a_1, \dots, a_n)$. Diese Elemente sind (nach Definition separabler Körpererweiterungen \ref{theo:2.43}) automatisch separabel.
         \item[(ii) $\rightarrow$ (iii)] Wegen \cref{theo:2.46} a) and \cref{theo:2.12} reicht es (iii) für den Fall $L=K(a)$ zu zeigen.
         $$[K(a):K]_S=\card{\{b\in \overline{K}\mid m_{a,K}(b)=0\}} \overset{a\text{ sep.}}{=}\deg(m_{a,K}) = [K(a):K]$$
         \item[(iii) $\rightarrow$ (i)] Sei $a\in L$. Dann gilt
@@ -462,10 +467,10 @@ $ $
             &\leq [L:K(a)] \cdot [K(a):K]\\
             &= [L:K]
         \end{align*}
-        Damit ist $[K(a):K]_S = [K(a):K]$ und $a$ ist separabel.
+        Damit ist $\card{\{b\in \overline{K}\mid m_{a,K}(b)=0\}} = [K(a):K]_S = [K(a):K] = \deg(m_{a,K})$ und $a$ ist separabel.
     \end{itemize}
 \end{proof}
-\begin{corollary}
+\begin{corollary}\label{theo:2.48}
     Ist $f\in K[X]\setminus K$ ein separables Polynom, so ist der Zerällungskörper von $f$ separabel
 \end{corollary}
 
@@ -481,7 +486,7 @@ Ziel: Konstruktion eines Körpers $\F_q$, $q=p^n$, $p$ prim mit $q$ Elementen. N
 \begin{proof}
     Mit $\F$ ist auch der Primkörper\footnote{Kleinster Teilkörper eines Körpers. Er wird von $0$ und $1$ durch Abschluss von Multiplikation, Addition und der Inversen erzeugt. Er ist isomorph zu $\Q$, wenn $char(K)=0$, oder zu $\F_{char(K)}$, wenn $char(K) > 0$.} endlich, also von der Form $\F_p$. Daher $\card{\F} = \card{\F_p}^{[\F:\F_p]} = p^n$.
 
-    Die multiplikative Gruppe $\F^\times$ hat die Ordnung $q-1$, daher ist jedes Element in $\F^*$ Nullstelle von $X^{q-1}-1$. Also ist jedes Element von $\F$ Nullstelle von $X^q-X$.
+    Die multiplikative Gruppe $\F^\times$ hat die Ordnung $q-1$, daher ist jedes Element in $\F^\times$ Nullstelle von $X^{q-1}-1$. Also ist jedes Element von $\F$ Nullstelle von $X^q-X$.
     Insbesondere ist $\F$ Zerfällungskörper von $X^q-X$.
 \end{proof}
 
@@ -492,7 +497,7 @@ Ziel: Konstruktion eines Körpers $\F_q$, $q=p^n$, $p$ prim mit $q$ Elementen. N
 \end{theorem}
 \begin{proof}
     Die Eindeutigkeitsaussagen folgen aus dem Lemma.
-    Sie $f:= X^q-X$. Wegen $D(f)=-1$ hat das Polynom nur einfache Nullstellen, also $q$ einfache Nullstellen in einem algebraischen Abschluss $\overline{\F}_p$ von $\F_p$.
+    Sei $f:= X^q-X$. Wegen $D(f)=-1$ hat das Polynom nur einfache Nullstellen, also $q$ einfache Nullstellen in einem algebraischen Abschluss $\overline{\F}_p$ von $\F_p$.
     Diese Nullstellen bilden einen Teilkörper von $\overline{\F}_p$:
 
 
@@ -509,7 +514,7 @@ Ziel: Konstruktion eines Körpers $\F_q$, $q=p^n$, $p$ prim mit $q$ Elementen. N
 \begin{corollary}
     Man bette die Körper $\F_q$, $ q=p^n$ in einen algebraischen Abschluss $\overline{\F}_p$ von $\F_p$ ein.
     Es ist $\F_q \subseteq \F_{q'}$, $(q = p^n, q'=p^{n'})$genau dann, wenn $n|n'$.
-    Die Erweiterung $\F_{q'}|\F_q$ sind bis auf Isomorphie die einzigen Erweiterungen zwischen endlichen Körpern der Charackteristik $p$.
+    Die Erweiterung $\F_{q'}|\F_q$ sind bis auf Isomorphie die einzigen Erweiterungen zwischen endlichen Körpern der Charakteristik $p$.
 \end{corollary}
 \begin{proof}
     Es gelte $\F_q \subseteq \F_{q'}$. Sei $m:= [\F_{q'}:\F_q]$. Dann $p^{n'} = \card{ \F_{q'}} = \card{\F_q}^m = (p^n)^m = p^{n\cdot m}$, also $n|n'$.
@@ -542,8 +547,8 @@ Ein Körper $K$ ist \emph{perfekt}, wenn jede alg. Erweiterung von $K$ separabel
     Jede algebraische Erweiterung eines endlichen Körpers ist normal und separabel. Insbesondere ist jeder endliche Körper perfekt.
 \end{corollary}
 \begin{proof}
-    Sei $K|\F$ eine alg. Erweiterung von $\F$ endlicher Körper mit Char $p>0$. Sei zunächst $K|\F$ endlich.
-     Da $f=X^q-X$ seprabel und $K$ Zerfällungskörper von $f$ über $\F_p$ für ein $q=p^n$ ist, ist $K|\F_p$, insb auch $K|\F$, normal und separabel.
+    Sei $K|\F$ eine alg. Erweiterung von $\F$ endlicher Körper mit Char $p>0$. Sei zunächst $K|\F$ endlich und damit auch $K$ endlich.
+     Da $f=X^q-X$ seprabel und $K$ Zerfällungskörper von $f$ über $\F_p$ für ein $q=p^n$ ist, ist $K|\F_p$, insbesondere auch $K|\F$, normal und separabel.
 
      Allgemein lässt sich $K$ durch endliche Erweiterungen ausschöpfen.
 \end{proof}
