@@ -261,7 +261,7 @@ $K_n$ definiert als Zerfällungskörper von $X^n-1$ über $K$.
 \begin{proof}
     Beweis mit Induktion über $n$:
     IA: $\phi_1 = X-1$ \checkmark
-    $n\geq 2$: Wir verwenden, dass für $d<n$ $\phi_d\in \Z[X]$.
+    $n\geq 2$: Wir verwenden, dass für $d<n$ gilt $\phi_d\in \Z[X]$.
     Es ist $\mu_n(\C) = \bigcup_{d|n}\mu_d^*(\C)$ (disjukt).
     $X^n-1 = \prod_{\xi\in\mu_n(\C)} (X-\xi) = \prod_{d|n}\underbrace{\prod_{\xi\in\mu_d^*(\C)}(X-\xi)}_{=\phi_d}$
     Setze $f = \prod_{d|n,d<n}\phi_d \overset{(IV)}{\in}\Z[X]$, f ist normiert.
@@ -272,13 +272,15 @@ $K_n$ definiert als Zerfällungskörper von $X^n-1$ über $K$.
 \begin{remark}
     Rekursive Bestimmung der Kreisteilungspolynome mittels $X^n-1 = \prod_{d|n}\phi_d$.
     Wenn $n =p$ prim: $\phi_p \cdot \phi_1 = X^p-1$ -> $\phi_p = \sum_{k=0}^{p-1} X^k$.
-
-    $\phi_2 = X+1$, $\phi_3 = X^2+X+1$
-    $\phi_4 \cdot \phi_2 \cdot \phi_1 = X^4 -1$ -> $\phi_4 =X^2+1$.
-    $\phi_6\cdot\phi_3\cdot\phi_2\cdot\phi_1$ -> $\phi_6 = X^2-X+1$.
+    
+    \noindent
+    $\phi_2 = X+1$\\
+    $\phi_3 = X^2+X+1$\\
+    $\phi_4 \cdot \phi_2 \cdot \phi_1 = X^4 -1$ -> $\phi_4 =X^2+1$.\\
+    $\phi_6\cdot\phi_3\cdot\phi_2\cdot\phi_1 = X^6-1$ -> $\phi_6 = X^2-X+1$.
 
     Für $p\in \N$ Primzahl und $\alpha\in\N$ gilt
-    $$X^{p^\alpha}-1 = \prod_{d|p^\alpha} \phi_d = \phi_{p^\alpha} \underbrace{\prod_{d|p^{\alpha-1}} \phi_d}_{X^{p^{\alpha-1}}-1}=\phi_{p^\alpha} (X^{p^{\alpha-1}})$$
+    $$X^{p^\alpha}-1 = \prod_{d|p^\alpha} \phi_d = \phi_{p^\alpha} \underbrace{\prod_{d|p^{\alpha-1}} \phi_d}_{X^{p^{\alpha-1}}-1}=\phi_{p^\alpha} (X^{p^{\alpha-1}}-1???)$$
     $$\phi_{p^\alpha} = \phi_p(X^{p^{\alpha-1}}) = \sum_{k=0}^{p-1} (X^{p^{\alpha -1}})^k$$
 \end{remark}
 
@@ -297,18 +299,18 @@ VL vom 7.12.2023:
     
     Da $\xi$ Nullstelle von $X^n-1$ ist, existiert ein $h\in\Q[X]$ mit $X^n-1=f\cdot h$.
     Weiter gilt, dass $f,h\in \Z[X]$ aus folgendem Grund:
-    \begin{reminder*}[Gauß-Lemma 2.5 b]
+    \begin{reminder*}[Gauß-Lemma \ref{theo:2.5} b]
         $$c(f)\cdot c(h) = c(f\cdot h) = c(X^n-1) = 1$$
         
     \end{reminder*}
-    Weiter ist $\underbrace{c(f)}_{ =\Tilde{c}(a\cdot f) a^{-1}},c(h)\in \{\frac{1}{k}\mid k\in \N\}$.
+    Weiter ist $\underbrace{c(f)}_{ =\Tilde{c}(a\cdot f) a^{-1}},c(h)\in \{\frac{1}{k}\mid k\in \N\}$\footnote{$f$ und $X^n-1$ normalisiert, haben also eine $1$ als höchsten Koeffizienten, womit auch $h$ normalisiert sein muss. Mit einem $1$-Koeffizienten, muss der "$A$-Anteil" bzw "$\Z$-Anteil" von $c(f)$, $c(h)$ eins sein. Damit sind $c(f)$, $c(h)$ nur Brüche der Form $\frac{1}{n}$ für $n\in \Z$ (und $n\in \N$ da $c(\cdot)$ ja die Nebenklasse von $A^\times = \{\pm 1\}$ ist)}.
     Also folgt $c(f) = c(h)=1$. => $f,g\in \Z[X]$
 
     Sei $p$ eine Primzahl, die $n$ nicht teilt.
-    Dann ist $\xi^p$ auch eine primimtive $n$-te EW.
+    Dann ist $\xi^p$ auch eine primitive $n$-te EW.
     Wir behaupten, dass $\xi^p$ eine Nullstelle von $f$ ist.
 
-    Ist das nicht der Fall, dann ist $h(\xi^p)=0$, also ist $xi$ eine Nullstelle von $h(X^p)$.
+    Ist das nicht der Fall, dann ist $h(\xi^p)=0$, also ist $\xi$ eine Nullstelle von $h(X^p)$.
     Somit $f|h(X^p)$. Es existiert $g\in \Q[X]$ mit $h(X^p) = f\cdot g$.
     Ähnlich wie oben ist sogar $g\in \Z[X]$.
     Betrachte die Reduktion $\mod p$:
@@ -526,10 +528,10 @@ VL vom 15.12.2023:
     \begin{enumerate}[label=\alph*)]
         \item Induktion über die Länge des Turms:
         Der Induktionsanfang mit Länge $0$ ist gegeben \checkmark.
-        Für den Induktionsschritt betrachte einen Turm $K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_n$, wobei $K_n = K_{n-1}(u)$ mit $u^m \in K_{n-1}$ und $K_{n-1}|K$ galoisch ist.
+        Für den Induktionsschritt betrachte einen Turm $K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_n$, wobei $K_n = K_{n-1}(u)$ mit $u^m \in K_{n-1}$ und $K_{n-1}|K$ galoisch ist\footnote{\TODO[Die Index-Arbeit hier ist verwirrend: Wir Konstruieren kein $K_n = K_{n-1}(u)$ sondern nur einen Turm (der auch galois ist), der $K_n$ enthält.]}.
         Nach Induktionsvorraussetzung muss ein solcher Turm existieren.
         Betrachte $$f = \prod_{\sigma\in Gal(K_{n-1}|K)} \left(X^m-\sigma(u^m)\right)\in K[X]$$.
-        $f\in K[X]$, weil $\sigma\circ f=f$ (die Linearfaktoren werden nur permutiert) und somit alle Koeffizienten in $K_{n-1}^{Gal(K_{n-1}|K)}=K$ liegen müssen.
+        $f\in K[X]$, weil $\sigma^*(f)=f$ (die Linearfaktoren werden nur permutiert) und somit alle Koeffizienten in $K_{n-1}^{Gal(K_{n-1}|K)}=K$ liegen müssen.
         Seien $u_1,\dots,u_t$ die Nullstellen von $f$ in $M$, dem Zerfällungskörper von $f$:\footnote{Wenn $K_{n-1}$ Zerfällungskörper von $W\subseteq K[X]$, dann ist $M$ Zerfällungskörper von $W\cup \{f\}$}
         $$K\subseteq K_1\subseteq\dots\subseteq K_{n-1}\subseteq K_{n-1}(u_1)\subseteq K_{n-1}(u_1,u_2)\subseteq\dots\subseteq K_{n-1}(u_1,\dots,u_t)=M$$
 
@@ -568,7 +570,7 @@ VL vom 15.12.2023:
         Bemerke $M(\xi)|K(\xi)$ galois'sch, da $M|K$ bereits galois'sch nach Vorraussetzung.
         $$Gal(M(\xi)|K(\xi)) \leq Gal(M|K)$$
         gilt, da sich Automorphismen aus $G(M(\xi)|K(\xi))$ auf $Gal(M|K)$ eingeschränkt werden kann.
-        Die ist möglich, da die evtl.\footnote{$\xi$ könnte bereits in $M$ sein. In dem Fall ist $Gal(M(\xi)|K(\xi))$ die Menge der Automorphismen in $Gal(M|K)$ ist, die $xi$ fix halten.} zusätzliche Nullstellen $\xi^i$ (als Elemente in $K(\xi)$ ) fix gehalten werden und die Automorphismen in $Gal(M(\xi)|K(\xi))$ höchstens auf den verbleibenden Nullstellen/Elementen in $M$ nicht-fix agieren können.
+        Die ist möglich, da die evtl.\footnote{$\xi$ könnte bereits in $M$ sein. In dem Fall ist $Gal(M(\xi)|K(\xi))$ die Menge der Automorphismen in $Gal(M|K)$ ist, die $\xi$ fix halten.} zusätzliche Nullstellen $\xi^i$ (als Elemente in $K(\xi)$ ) fix gehalten werden und die Automorphismen in $Gal(M(\xi)|K(\xi))$ höchstens auf den verbleibenden Nullstellen/Elementen in $M$ nicht-fix agieren können.
         
         Nach \cref{theo:1.12} sind die Untergruppen auflösbarer Gruppen auflösbar. Damit ist auch $Gal(M(\xi)|K(\xi))$ auflösbar, da $Gal(M|K)$ nach Vorraussetzung auflösbar.
 
@@ -601,7 +603,7 @@ VL vom 15.12.2023:
         \item[$\Rightarrow$]
         Sei $L|K$ durch Radikale auflösbar.
         Nach \ref{theo:3.25} ist $K\subseteq L \subseteq M$.
-        Da $L|K$ galois'sch, ist $Gal(M|L)\nteq Gal(M|K)$ und $Gal(M|K)/Gal(M|K) = Gal(L|K)$.
+        Da $L|K$ galois'sch, ist $Gal(M|L)\nteq Gal(M|K)$ und $Gal(M|K)/Gal(M|L) = Gal(L|K)$.
         Nach \ref{theo:3.25} ist $Gal(M|K)$ auflösbar und damit ist $Gal(L|K)$ als dessen Faktor auch auflösbar (nach \ref{theo:1.12}).
     \end{itemize}
 \end{proof}
@@ -660,7 +662,7 @@ Weiter ist $N_{L|K}(a\cdot b) = N_{L|K}(a)\cdot N_{L|K}(b)$.
     \end{pmatrix}$$
     $\Rightarrow \chi_{a,L|K} =\chi_{a,M|L}^m$, $m=[L:M]$
 \end{proof}
-\begin{remark}
+\begin{remark}\label{theo:3.31}
     Unter der Vorraussetzung von \ref{theo:3.30} erhält man für $a\in M$, dass 
     \begin{align*}
         Sp_{L|K}(a) &= [L:M]\cdot Sp_{M|K}(a)\\
@@ -677,9 +679,9 @@ Weiter ist $N_{L|K}(a\cdot b) = N_{L|K}(a)\cdot N_{L|K}(b)$.
     \end{align*}
 \end{theorem}
 \begin{proof}
-    Nach Lemma \ref{theo:3.30}/3.31 reicht es den Fall $L=K(a)$ zu betrachten.
+    Nach Lemma \ref{theo:3.30}/\ref{theo:3.31} reicht es den Fall $L=K(a)$ zu betrachten.
     In diesem Fall hat $L$ die Basis $1,a,\dots,a^{n-1}$ über $K$.
-    Die dazugehörige Matrix von $\phi_a$ lautet
+    Die dazugehörige Matrix von $\phi_a$ lautet\footnote{Die letzte Spalte ergibt sich aus $a\cdot a^{n-1} = a^n$, da $0=m_{a,K}(a) = \bold{a^n} + \alpha_{n-1} a^{n-1}+\dots,\alpha_0$}
     $$\begin{pmatrix}
         0& 0 &\cdots &\cdots & 0 & -\alpha_0\\
         1& 0 & &  & \vdots& -\alpha_1\\
@@ -692,7 +694,7 @@ Weiter ist $N_{L|K}(a\cdot b) = N_{L|K}(a)\cdot N_{L|K}(b)$.
     $\Rightarrow$ $N_{L|K} (a) = (-1)^n \alpha_0$
 \end{proof}
 \begin{remark}
-    Es gilt sogar $\chi_{a,K(a)|K} = m_{a,K}$.
+    Es gilt sogar $\chi_{a,K(a)|K} = m_{a,K}$.\\
     Cayley Hamilton:
     $\chi_{a,K(a)|K}(\phi_a) = 0$.
     Andererseits ist $0=\chi_{a,K(a)|K}(\phi_a)(1) = \chi_{a,K(a)|K}(\underbrace{\phi_a(1)}_{=a}) $. Da $\deg(\chi_{a,K(a)|K})=\deg(m_{a,K})$ ist $m_{a,K} = \chi_{a,K(a)|K}$.
@@ -701,55 +703,56 @@ Weiter ist $N_{L|K}(a\cdot b) = N_{L|K}(a)\cdot N_{L|K}(b)$.
 \begin{theorem}
     Sei $L|K$ endlich und separabel.
     Sei $n=[L:K]$ und $\{\sigma_1,\dots,\sigma_n\} = Hom_K(L,\overline{K})$.
-    Dann gilt
+    Dann gilt für $a\in L$
     \begin{align*}
         Sp_{L|K} (a) &= \sum_{i=1}^n \sigma_i(a)\\
         N_{L|K} (a) &= \prod_{i=1}^n \sigma_i(a)
     \end{align*}
 \end{theorem}
-\TODO[All contents from this lecture are in dire need of formating! Proceed with caution]
+
 \begin{proof}
     $m_{a,K} = X^r+\alpha_{r-1}X^{r-1}+\dots + \alpha_0$
     das Minimalpolynom.
-    Nach Lemma 2.44 ist $K(a)|K$ ist auch separabel.
+    Nach Lemma \ref{theo:2.44} ist $K(a)|K$ ist auch separabel.
     Folglich gibt es $r$ verschiedene $K$-Homomorphismen $\tau_1,\dots,\tau_r$ von $K(a)$ nach $\overline{K}$.
-    Weiter ist $m_{a,K} = \prod_{i=1}^r (X-\tau_i(a))$.
-    => $\sum_{i=1}^r\tau_i(a) = -\alpha_{r-1}$ (\TODO[why?]), $\prod_{i=1}^r \tau_i(a) = (-1)^r \cdot \alpha_0$.
+    Weiter ist $m_{a,K} = \prod_{i=1}^r (X-\tau_i(a))$.\\
+    $\Longrightarrow$ $\sum_{i=1}^r\tau_i(a) = -\alpha_{r-1}$ und $\prod_{i=1}^r \tau_i(a) = (-1)^r \cdot \alpha_0$.
 
     Es ist $\{{\sigma_1}_{|K(a)}, \dots, {\sigma_n}_{|K(a)}\} = \{\tau_1,\dots,\tau_r\}$.
-    Für jedes $i$ ist die Anzahl der $j$'s mit ${\sigma_j}_{|K(a)} = \tau_i$ gleich $[L:K(a)]_S = [L:K(a)]$
-    Daher folgt $\sum_{j=1}^n\sigma_j(a) = [L:K(a)]\cdot \sum_{i=1}^r \tau_i(a) = -[L:K(a)]\alpha_{r-1} \overset{\text{Satz \ref{theo:3.32}}}{ =} Sp_{L|K}(a)$.
+    Für jedes $i$ ist die Anzahl der $j$'s mit ${\sigma_j}_{|K(a)} = \tau_i$ gleich $[L:K(a)]_S = [L:K(a)]$.
+    Daher folgt $$\sum_{j=1}^n\sigma_j(a) = [L:K(a)]\cdot \sum_{i=1}^r \tau_i(a) = -[L:K(a)]\alpha_{r-1} \overset{\text{Satz \ref{theo:3.32}}}{ =} Sp_{L|K}(a)$$.
 \end{proof}
 \begin{theorem}
     Sei $M$ ein Zwischenkörper der endlichen Erweiterung $L|K$.
     Dann gelten $Sp_{L|K} = Sp_{M|K}\circ Sp_{L|M}$ und
     $N_{L|K} = N_{M|K}\circ N_{L|M}$
 \end{theorem}
-\begin{proof}nur für separable Erweiterungen:
+\begin{proof}[Beweis (nur für separable Erweiterungen)]
     Seien $hom_M(L,\overline{K}) = \{\tau_1,\dots,\tau_m\}$, $m=[L:M]$
     $hom_K(M,\overline{K}) = \{\sigma_1,\dots,\sigma_l\}$, $l = [M:K]$.
-    Dann ist $\{\overline{\sigma}_j\circ\tau_i\mid i \in \{1,\dots,m\}, j\in \{1,\dots,l\}\} = hom_K(L,\overline{K})$, wobei $\overline{\sigma}_j$ Erweiterung vorn $\sigma_j$ zu $\overline{K}\rightarrow \overline{K}$ (siehe Beweis von 2.46)
+    Dann ist $\{\overline{\sigma}_j\circ\tau_i\mid i \in \{1,\dots,m\}, j\in \{1,\dots,l\}\} = hom_K(L,\overline{K})$, wobei $\overline{\sigma}_j$ Erweiterung vorn $\sigma_j$ zu $\overline{K}\rightarrow \overline{K}$ (siehe Beweis von \ref{theo:2.46})
     \begin{align*}
         Sp_{L|K}(a) &= \sum_{i,j} \overline{\sigma}_j(\tau_i(a))\\
         &=\sum_j\overline{\sigma}_j(\underbrace{\sum_i \tau_i (a)}_{Sp_{L|M}(a)\in M})\\
-        &= \sum_j \sigma_j (Sp_{L|M} (a))//
+        &= \sum_j \sigma_j (Sp_{L|M} (a))\\
         &= Sp_{M|K}(Sp_{L|M}(a))
     \end{align*}
 \end{proof}
 \begin{theorem}
     Sei $L|K$ endlich und separabel.
-    \begin{enumerate}%a)
+    \begin{enumerate}[label=\alph*)]
         \item Es gibt ein $a\in L$ mit $Sp_{L|K}(a)\neq 0$
         \item Durch $(v,w)\coloneqq Sp_{L|K}(v\cdot w)$ wird eine symmetirsche Bilienarform des $K$-VR $L$ definiert, die nicht ausgeartet ist.
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-Zu a)
-    Die Homom. $\{\tau_1,\dots,\tau_n\} = hom_K(L|\overline{K})$ sind lin. unabhöngig als Elemente von $Abb(L^\times,\overline{K})$ und somit  von $Hom_K(L,\overline{K})$.
-    Da $Sp_{L|K} = \sum_{i=1}^n \tau_i$ kann $Sp_{L|K}$ nicht die Nullabbildung sein.
-
-    zu b)
-    Sei $a\in L$ mit $Sp_{L|K}(a)\neq 0$. Dann gilt $(v, av^{-1}) = Sp_{L|K}(a) \neq 0$ => nicht ausgeartet
+    \begin{enumerate}[label=\alph*)]
+        \item 
+        Die Homom. $\{\tau_1,\dots,\tau_n\} = hom_K(L|\overline{K})$ sind lin. unabhöngig als Elemente von $Abb(L^\times,\overline{K})$ und somit  von $Hom_K(L,\overline{K})$.
+        Da $Sp_{L|K} = \sum_{i=1}^n \tau_i$ kann $Sp_{L|K}$ nicht die Nullabbildung sein.
+        \item 
+        Sei $a\in L$ mit $Sp_{L|K}(a)\neq 0$. Dann gilt $(v, av^{-1}) = Sp_{L|K}(a) \neq 0$ => nicht ausgeartet
+    \end{enumerate}
 \end{proof}
 \subsection{Anwendungen der Galoistheorie}
 \begin{reminder*}[Fundamentalsatz der Algebra]
@@ -761,6 +764,7 @@ Zu a)
     Durch Vergrößern von $L$ können wir annehmen, dass $L|\R$ eine Galoiserweiterung ist.
     Sei $G\coloneqq Gal(L|\R)$.
     Es ist $[L:\R] = \card{G} = 2^k\cdot m$ mit $2\nmid m$.
+    $k>1$, weil $[L:\R] = [L:\C] \cdot [\C:\R] = [L:\C] \cdot 2$.
     Es sei $H\leq G$ eine $2$-Sylowuntergruppe von $G$.
     $$
     \begin{tikzcd}[row sep=0.2cm,column sep=0.5cm]
@@ -769,10 +773,11 @@ L^H \arrow[rd, "m"', no head] & & \C \arrow[ld, no head] \\
 & \R&
 \end{tikzcd}$$
     Satz vom primitiven Element: $L^H= \R(\alpha)$.
-    Da $m_{\alpha,\R}$ eine Nullstelle in $\R$ besitzt (Zwischenwertsatz!), ist $m_{\alpha,\R}$ linear, also $m=1$ und $L^H= \R$.
-    $\Rightarrow$ $[L:\R] = 2^k$, $[L:\C] = 2^{k-1}$
+    Wenn $m>1$, wäre $\deg(m_{\alpha,\R})$ ungerade und dann besäße $m_{\alpha,\R}$ nach dem Zwischenwertsatz eine Nullstelle in $\R$ , womit  $m_{\alpha,\R}$ linear wäre.
+    Also $m=1$ und $L^H= \R$.
+    $\Longrightarrow$ $[L:\R] = 2^k$, $[L:\C] = 2^{k-1}$
 
-    Ang. $k\geq 2$. Dann existiert $H'\leq G' = Gal(L|\C)$ mit $\card{H'} = 2^{k-2}$ (allg. Aussage über $p$-Gruppen)
+    Ang. $k\geq 2$. Dann existiert $H'\leq G' = Gal(L|\C)$ mit $\card{H'} = 2^{k-2}$ (allg. Aussage über $p$-Gruppen \TODO[Citation needed])
     $$
     \begin{tikzcd}[row sep=0.2cm,column sep=0.5cm]
                      & L \arrow[ld, "2^{k-2}"', no head] \\
@@ -780,7 +785,7 @@ L^H \arrow[rd, "2"', no head] &                          \\
                      & \C \arrow[d, no head]             \\
                      & \R                      
 \end{tikzcd}$$
-    Da jedes quadratische Polynom in $C[X]$ zerfällt in $\C$, folgt ähnlich wie oben ein Widerspruch (bet $m_{a,\C}$ für die $L^H=\C(a)$)
+    Da jedes quadratische Polynom in $C[X]$ zerfällt in $\C$, folgt ähnlich wie oben ein Widerspruch (mit $m_{a,\C}$ für die $L^H=\C(a)$)
 \end{proof}
 
 \begin{flushright}

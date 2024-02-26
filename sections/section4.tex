@@ -19,8 +19,8 @@ VL vom 11.1.2024:
         \item $\R$ mit dem gewöhnlichen Absolutbetrag
         \item $K$ beliebig. Dann definiert 
         $$|x|_{trivial} = \begin{cases}
-            1 & falls x\neq 0\\
-            0 & falls x= 0
+            1 & \text{falls }x\neq 0\\
+            0 & \text{falls }x= 0
         \end{cases}$$
         ein Betrag (genannt: \emph{trivialer Betrag})
         \item $\C$ mit dem komplexen Betrag
@@ -118,7 +118,7 @@ Dies wird \emph{ultrametrische Dreiecksungleichung} genannt.
         Sei $x\in K^\times$. Schreibe $|x|_1 = |y|_1^\alpha$ für eine $\alpha\in \R$.
         Beh: $|x|_2 = |y|_2^\alpha$.
         Sei $(\frac{m_i}{n_i})_i$ eine Folge rationaler Zahlen, die von oben gegen $\alpha$ konvergiert.
-        $$|x|_1\leq |y|_1^{\frac{m_i}{n_i}} \Rightarrow |x^{n_i}|_1 < |y^{m_i}|_1 \Leftrightarrow |x^{n_i}y^{-m_i}|_1 <1$$
+        $$|x|_1\leq\footnote{ Das gilt doch nur für $|y|_1\geq1$} |y|_1^{\frac{m_i}{n_i}} \Rightarrow |x^{n_i}|_1 < |y^{m_i}|_1 \Leftrightarrow |x^{n_i}y^{-m_i}|_1 <1$$
         Damit folgt mit b), dass $|x^{n_i}y^{-m_i}|_2 <1$ und somit (ähnlich wie für $\gaf_1$) $|x|_2\leq |y|_2^{\frac{m_i}{n_i}}$.\footnote{\TODO[Wieso gilt die Rückrichtung?]}
         Limes $i\rightarrow\infty$ ergibt, dass $|x|_2\leq |y|_2^\alpha$.
         Das selbe Argument mit von unten gegen $\alpha$ konvergierende $\frac{m_i}{n_i}$ liefert $|x|_2 \geq |y|_2^\alpha$.
@@ -152,14 +152,14 @@ VL vom 11.1.2024:
 
 \begin{proof}
     Behauptung: $\exists z\in K: |z|_1 > 1$ und $|z|_j<1$ für $j\in \{2,...,n\}$
-    Durch Induktion: Der Induktionsanfang $n=2$ ist nach \ref{theo:4.11}\checkmark.
+    Durch Induktion: \\
+    Der Induktionsanfang $n=2$ ist nach \ref{theo:4.11}\checkmark.
 
     Angenommen es gibt $\Tilde{z}\in K$ mit $|\Tilde{z}|_1 > 1$ und $|\Tilde{z}|_j <1$ für $j\in \{2,...,n-1\}$.
     Wähle $u\in K$ mit $|u|_1>1$ und $|u|_n<1$ nach \ref{theo:4.11}.
     Falls $|\Tilde{z}|_n<1$, dann ist $z=\Tilde{z}$ das gesuchte Element.
-    Falls $|\Tilde{z}|_n = 1$, dann ist $z=u\Tilde{z}^m$ für hinreichend großes $m$ das gesuchte Element.
-    <Argumentation, dass z gewünschte Eigenschaften hat...>
-    Falls $|\Tilde{z}|_n > 1$, dann betrachtet man die Folge $t_m\coloneqq \frac{\Tilde{z}^m}{1+\Tilde{z}^m}$., für die die
+    Falls $|\Tilde{z}|_n = 1$, dann ist $z=u\Tilde{z}^m$ für hinreichend großes $m$ das gesuchte Element.\footnote{Die $\Tilde{Z}$-Potenz kann eventuelle $|u|_j>1$ für $j\in\{2,\dots,n-1\}$ wieder unter $1$ bekommen.}
+    Falls $|\Tilde{z}|_n > 1$, dann betrachtet man die Folge $t_m\coloneqq \frac{\Tilde{z}^m}{1+\Tilde{z}^m}$, für die
     \begin{align*}
         t_m\rightarrow 1\quad &\text{ bez. }\gaf_1\text{ und }\gaf_n\\
         t_m\rightarrow 0\quad&\text{ bez. }\gaf_2,\dots,\gaf_{n-1}
@@ -191,8 +191,8 @@ VL vom 11.1.2024:
         Seien $x,y\in K$ mit \obda $|x|\geq|y|$.
         Sei $B>0$ eine obere Schranke für $\{|n\cdot1_K| \mid n\in \N\}$.
         \begin{align*}
-            |x+y|^n &= |(x+y)^n| = |\sum_{k=0}^n \binom{n}{k} x^k y^{n-k}|\\
-            &\leq \sum_{k=0}^n |\binom{n}{k}\cdot 1_K| \cdot |x|^k \cdot |y|^{n-k} \leq \sum_{k=0}^n |\binom{n}{k}\cdot 1_K| \cdot |x|^n\\
+            |x+y|^n &= |(x+y)^n| = \left|\sum_{k=0}^n \binom{n}{k} x^k y^{n-k}\right|\\
+            &\leq \sum_{k=0}^n \left|\binom{n}{k}\cdot 1_K\right| \cdot |x|^k \cdot |y|^{n-k} \leq \sum_{k=0}^n \left|\binom{n}{k}\cdot 1_K\right| \cdot |x|^n\\
             &\leq (n+1)\cdot B\cdot |x|^n
         \end{align*}
         $\Longrightarrow\;|x+y| \leq \sqrt[n]{(n+1)B} \cdot |x| \overset{n\rightarrow \infty}{\Rightarrow} |x+y| \leq |x|$
@@ -204,7 +204,7 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
     \begin{enumerate}[label=\alph*)]
         \item Ist $\gaf$ ein nicht-archimedischer Betrag, dann ist $\nu(x) = -\log(|x|)$ eine Bewertung auf Körper $K$
         \item Ist $\gaf$ nicht-archimedisch, $|x|> |y|$, dann folgt 
-        $$|x|\leq |x-y+y|\leq \max\{|x-y|,|y|\} = |x-y| \leq |x|$$
+        $$|x| = |x-y+y|\leq \max\{|x-y|,|y|\} = |x-y| \leq |x|$$
         und somit Gleichheit.
     \end{enumerate}
 \end{remark}
@@ -218,8 +218,8 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
         \item[1.Fall]
         Sei $\|.\|$ nicht-archimedisch, d.h. $\|n\|\leq 1$ für alle $n\in \N$.
         Sei $\mathcal{A}\coloneqq \{n\in \Z\mid \|n\| <1\}$.
-        Dann ist $\mathcal{A}$ ein Ideal in $\Z$.
-        Es gibt eine Primzahl $p$ mit $p\in \mathcal{A}$, ansonsten würe $\|.\|$ trivial wegen Primfaktorenzerlegung. Also
+        Dann ist $\mathcal{A}$ ein Ideal\footnote{Für $a,a_1,a_2\in \mathcal{A}$, $x\in\Z$ gilt $\|ax\| = \underbrace{\|a\|}_{<1} \cdot \underbrace{\|x\|}_{\leq 1}<1$ und $\|a_1+a_2\|\leq \max\{\|a_1\|, \|a_2\|\}<1$ und $\|-a\|= \underbrace{\|-1\|}_{=1}\cdot \|a\| <1$} in $\Z$.
+        Es gibt eine Primzahl $p$ mit $p\in \mathcal{A}$, ansonsten wäre $\|.\|$ trivial wegen Primfaktorenzerlegung. Also
         $$p\Z\subseteq\mathcal{A}\subset \Z$$ (da $1\notin \mathcal{A}$).
         Da $p\Z$ maximales Ideal ist, ist $p\Z = \mathcal{A}$.
         Sei $q\in \Q^\times$ und schreibe $q=p^m\cdot \frac{a}{b}$ mit $p\nmid a$, $p\nmid b$.
@@ -258,9 +258,9 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
 \end{definition}
 \begin{example} \label{theo:4.18}$ $
     \begin{itemize}
-        \item $(R,\gaf_\infty)$, $(\C, \gaf_\C)$ sind vollständig
-        \item $(\Q, \gaf_5)$ nicht vollständig\footnote{Das Argument gilt für alle Primzahlen $p\equiv 1\mod 4$}
-        Sei $a_k + 5^k\Z$ ein Element in $(\Z/5^k\Z)^\times$ der Ordnung $4$.\footnote{Wegen $\phi(5^k) = 5^k-5^{k-1}  = 5^{k-1} \cdot 4$ ($k\geq 2$) und der Tatsache, dass $(\Z/5^k\Z)^\times$ yzklisch ist gilt, dass $(\Z/5^k\Z)^\times \cong \Z/4\Z \times \Z/5^{k-1}\Z$. Bei Hartnick gab es mehr dazu.}
+        \item $(\R,\gaf_\infty)$, $(\C, \gaf_\C)$ sind vollständig
+        \item $(\Q, \gaf_5)$ nicht vollständig\footnote{Das Argument gilt für alle Primzahlen $p\equiv 1\mod 4$}.
+        Sei $a_k + 5^k\Z$ ein Element in $(\Z/5^k\Z)^\times$ der Ordnung $4$.\footnote{Wegen $\phi(5^k) = 5^k-5^{k-1}  = 5^{k-1} \cdot 4$ ($k\geq 2$) und der Tatsache, dass $(\Z/5^k\Z)^\times$ zklisch ist gilt, dass $(\Z/5^k\Z)^\times \cong \Z/4\Z \times \Z/5^{k-1}\Z$. Bei Hartnick gab es mehr dazu.}
         Wir können erreichen, dass $a_k\equiv a_{k+1}\mod 5^k$
         => $|a_k-a_{k+1}|_5 < \frac{1}{5^k}$, also ist $(a_k)_k$ eine Cauchyfolge bezüglich $\gaf_5$.
 
@@ -356,7 +356,7 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
 
 \begin{remark}
     Es gilt folgender Satz:\\
-    Ein Körper, der vollständig bez. eines archimdischen Betrags ist, ist isomorph zu $\R$ oder $\C$. Der Betrag ist äquivalent zum gewöhnlichen Betrag.
+    Ein Körper, der vollständig bezüglich eines archimdischen Betrags ist, ist isomorph zu $\R$ oder $\C$. Der Betrag ist äquivalent zum gewöhnlichen Betrag.
 \end{remark}
 
 \subsection{Bewertungen und Bewertungsringe}
@@ -378,7 +378,7 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
 \end{proof}
 
 \begin{definition}
-    Ein kommultiver Ring $R$ mit genau einem maximalen Ideal $\mathcal{m}$ heißt \emph{lokaler Ring}. Der Körper $R/\mathcal{m}$ ist der \emph{Restklassenkörper} vorn $R$.
+    Ein kommutiver Ring $R$ mit genau einem maximalen Ideal $\mathcal{m}$ heißt \emph{lokaler Ring}. Der Körper $R/\mathcal{m}$ ist der \emph{Restklassenkörper} vorn $R$.
 \end{definition}
 
 \begin{example}
@@ -431,7 +431,7 @@ VL vom 19.1.2024:
         Sei $A=\mathcal{O}_\nu$ für eine diskrete Bewertung $\nu$ auf $K$.
         Nach \ref{theo:4.23} ist $A$ lokaler Ring
         $A$ ist kein Körper, weil ein uniformisierendes Element nicht invertierbar ist.\TODO[Wieso muss ein solches Element existieren? Jeder nicht-triviale Betrag lässt sich zu einem äquivalenten Betrag machen, der ein uniformisierendes Element hat (mit ggt der möglichen Werte 1 oder nicht ein und dann einfach durch den ggt Teilt)]
-        Sei $I\subseteq$ ein Ideal mit $I\neq (0)$.
+        Sei $I\subseteq A$ ein Ideal mit $I\neq (0)$.
         Beh: $I=\pi^n\cdot A$ für ein $n\in \N$, wobei $\pi$ uniformisierend.
         Sei $y\in A\setminus\{0\}$. Schreibe $y=\pi^m\cdot u$ mit $m=\nu(y)$, $u\in A^\times = \mathcal{O}_\nu^\times$.
         Daher gilt $y\in I\Leftrightarrow u^{-1}y\in I \Leftrightarrow \pi^m = \pi^{\nu(y)}\in I$.
@@ -462,7 +462,7 @@ VL vom 19.1.2024:
     Ist $K$ vollständig bezüglich $\gaf$, dann ist $K$ vollständig bezüglich aller von $\nu$ induzierten Beträge, und wir sagen, dass $K$ \emph{vollständig bez. $\nu$} ist.
 \end{remark}
 
-\begin{theorem}[Satz über Reihendarstellung]
+\begin{theorem}[Satz über Reihendarstellung]\label{theo:4.31}
     Sei $K$ vollständig mit disketer Bewertung $\nu$.
     Seien $\pi\in \mathcal{O}_\nu$ ein uniformisierendes Element und $\Omega\subseteq \mathcal{O}_\nu$ ein Repräsentantensystem für $\mathcal{O}_\nu/\mathcal{m} = \mathcal{O}_\nu/\pi \mathcal{O}_\nu$.
     \begin{enumerate}[label=(\alph*)]
@@ -571,7 +571,7 @@ $\nu(N_{L|K}(\alpha)) = \nu(\alpha)^n$.
     Der Bewertungsring $\Z_p\coloneqq \mathcal{O}_{\nu_p}$ heißt der \emph{Ring der ganzen $p$-adischen Zahlen}.
     Es gilt $$\Z_p\cap \Q = \{x\in\Q\mid \nu_p(x)\geq 0\} = \Z_{(p)}\footnote{$A_{(p)} \coloneqq \left\{x\in K\mid x = \frac{a}{b}\text{ mit } a\in A \text{ und } b\in A\setminus (p)\right\}$ nach Blatt 10 Aufgabe 3}$$
     Teilmenge $\Z_p\subseteq\Q_p$ ist offen und abgeschlossen, denn:
-    $$\Z_p = \{x\in\Q_p\mid |x|_p \leq 1\} = \overline{B_1(0)} \text{ und }\Z_p = \{x\in\Q_p\mid |x|_p<p\} = B_p(0)$$
+    $$\Z_p = \{x\in\Q_p\mid |x|_p \geq 1\} = \overline{B_1(0)} \text{ und }\Z_p = \{x\in\Q_p\mid |x|_p<p\} = B_p(0)$$
 
     Da $\Z_p\subseteq \Q_p$ offen und $\Q\subseteq \Q_p$ dicht, ist auch $\Z_{(p)} = \Z_p\cap \Q \subseteq \Z_p$ dicht.
     Es ist sogar $\Z$ in $\Z_p$ dicht.
@@ -584,7 +584,7 @@ $\nu(N_{L|K}(\alpha)) = \nu(\alpha)^n$.
     $$\F_p\cong \Z_{(p)}/p\Z_{(p)}\overset{\cong}{\longrightarrow} \Z_p/p\cdot \Z_p$$
     Die Surjektivität und damit Bijektivität/Isomorphie folgt aus der Tatsache, dass jede Nebenklasse $x+p\Z_p$ offen ist und somit Elemente aus $\Z_{(p)}$ enthält.\TODO[Injektivität?]
 
-    Reihendarstellung( 4.31):
+    Reihendarstellung( \ref{theo:4.31}):
     Jedes Element $x\in \Q_p$ lässt sich eindeutig schreiben als $$x=\sum_{i=\nu_p(x)}^\infty a_i\cdot p^i\text{, } a_i\in \{0,\dots,p-1\}$$
     Bsp: $-1 = (p-1) + (p-1) \cdot p + (p-1)\cdot +p^2+\dots$
     sieht man eintweder\\ durch $\underbrace{(p-1)+\dots + (p-1) p^n}_{(p-1)(1+\dots+p^n)} = p^{n+1}-1\equiv -1\mod p^{n+1}$ oder\\ durch geometrische Reihe $\frac{-1}{p-1}=\sum_{i=0}^\infty p^i$.
