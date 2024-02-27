@@ -268,7 +268,7 @@ T' \arrow[r, "\psi"] \arrow[rr, "id_{T'}", bend left, shift left] & T \arrow[r, 
     Für $(x,u)\in I$ sei $i_{(x,u)}:R\rightarrow F$ die jeweilige Inklusion.
     Schreibe $[x,u] \coloneqq i_{(x,u)} (1)\in F$.
     Die Menge $\{[x,u]\mid x\in M, u\in N\}$ ist eine Basis von $F$.
-    Sei $Z$ der Untermodul von $F$, der von allen Elementen der Form $[rx+sy,u] - r[x,u] - s[y,u]$
+    Sei $Z$ der Untermodul von $F$, der von allen Elementen der Form $[rx+sy,u] - r[x,u] - s[y,u]$,
     $[x, ru+sv] - r\cdot [x,u] - s\cdot [x,v]$ mit $r,s\in R$ ,$x,y\in M$, $u,v\in N$ erzeugt wird.
     Setze $T\coloneqq F/Z.$
 
@@ -311,7 +311,7 @@ m\ot (n_1 + n_2)=m\ot n_1 + m\ot n_2 \\
         \item $R\ot_R N \cong N$
         \item $M\ot_R N \cong N\ot_R M$
         \item $M\ot_R (N\ot_R L) \cong (M\ot_R N)\ot_R L$
-        \item $(\bigotimes_{i\in I} M_i)\ot_R N \cong \bigotimes_{i\in I} (M_i\ot_R N)$
+        \item $(\bigoplus_{i\in I} M_i)\ot_R N \cong \bigoplus_{i\in I} (M_i\ot_R N)$
     \end{enumerate}
 \end{lemma}
 
@@ -460,7 +460,7 @@ i)
     Sei $R$ kommutativer Ring, aber nicht der Nullring. Ist $M$ ein freier $R$-Modul mit zwei Basen $\{x_1,\dots,x_m\}$ und $\{y_1,\dots,y_n\}$, dann ist $n=m$.
 \end{corollary}
 \begin{proof}
-    Lemma 2.27 liefert uns ein maximales Ideal $\mathcal{m}\subset R$.
+    Lemma \ref{theo:2.27}\TODO[Ist 2.27 hier richtig??] liefert uns ein maximales Ideal $\mathcal{m}\subset R$.
     Dann ist $R/\mathcal{m} =: K$ ein Körper. $K$ ist auch eine $R$-Algebra.
     Durch Skalarerweiterung erhält man den $K$-VR $K\ot_R M$ mit den $K$-Basen $\{1\ot x_1, 1\ot x_2,\dots\}$ und $\{1\ot y_1, 1\ot y_2,\dots\}$ (Satz 5.34),
     Lineare Algebra => $n=m$.
@@ -482,8 +482,8 @@ i)
 \end{proof}
 
 \begin{remark}
-    In der obigen Situation sind $A\rightarrow A\ot_R B, a\mapsto a\ot 1$
-    $A\rightarrow A\ot_R B,b\mapsto 1\ot b$% align
+    In der obigen Situation sind $A\rightarrow A\ot_R B,\; a\mapsto a\ot 1$ und
+    $A\rightarrow A\ot_R B,\;b\mapsto 1\ot b$ % TODO align
     Homomorphismus von $R$-Algebren.
 \end{remark}
 \begin{theorem}
@@ -504,7 +504,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     Somit erhält man $\phi: A\ot_R B \rightarrow C$ mit $\phi(a\ot b) = f(a)\cdot g(b)$ $R$-linear.
 
     Beh: $\phi$ ist Ringhomomorphismus:
-    $\phi(a_1\ot b_1 \cdot a_2 \ot b_2) =\phi(a_1a_2\ot b_1b_2) = f(a_1a_2) \cdot g(b_1b_2)$
+    $\phi(a_1\ot b_1 \cdot a_2 \ot b_2) =\phi(a_1a_2\ot b_1b_2) = f(a_1a_2) \cdot g(b_1b_2)$\\
     $\phi(a_1\ot b_1) \cdot \phi(a_2\ot b_2) = f(a_1)\cdot g(b_1)\cdot f(a_2)\cdot g(b_2) =f(a_1)f(a_2)g(b_1)g(b_2) = f(a_1a_2)\cdot g(b_1b_2)$
     $f,g$ Ringhomomorphismen.
 \end{proof}
@@ -512,8 +512,8 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     Sei $A$ eine $R$-Algebra mit Skalarabbildung $i:R\rightarrow Z(A)\subseteq A, r\mapsto r1_A$.
     Beh: $A\ot_R M_n(R)\cong M_n(A)$ als $R$-Algebren.
 
-    Betrachte $f:A\in M_n(A), a\mapsto (Dialgonalmatrix mit a auf der diag)$, $g:M_n(R)\rightarrow M_n(A), (r_{ij}\mapsto (i(r_{ij}))\in M_n(Z(A)) \subseteq M(A)$.
-    dann gilt $f(a)g((r_{ij})) = g((r_{ij})) f(a)$.
+    Betrachte $f:A\rightarrow M_n(A), a\mapsto (\text{Dialgonalmatrix mit a auf der diag})$, $g:M_n(R)\rightarrow M_n(A), (r_{ij}\mapsto (i(r_{ij}))\in M_n(Z(A)) \subseteq M(A)$.
+    Dann gilt $f(a)g((r_{ij})) = g((r_{ij})) f(a)$.
     Nach der universellen Eigenschaft existiert $A\ot_R M_n(R) \rightarrow M_n(A), a\ot (r_{ij}) \mapsto (diag-matix mit a in diag) \cdot (r_1)$ Homomorphismus.
     Warum $\phi$ Iso? $A\ot_R \underbrace{M_n(R)}_{=R^{n^2}}\cong A^{n^2}$ und $\phi$ überführt die "Standardbasen".
     $M_n(A)\cong A^{n^2}$
@@ -526,12 +526,12 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 [$R$ möglicherweise nicht kommutativer Ring]
 \begin{example}
     $R=\C[X_1, X_2,\dots]$ Polynomring in abzählbar unendlich vielen Variablen.
-    $M=R$ $R$-Modul ist endlich erzeugt: $M=\langle 1_R\langle$.
+    $M=R$ $R$-Modul ist endlich erzeugt: $M=\langle 1_R\rangle$.
     Sei $I=\langle X_1, X_2,\dots \rangle\subseteq M$ der von allen Varialben erzeugte Untermodul.
-    dann ist $I$ nicht endlich erzeugt.
+    Dann ist $I$ nicht endlich erzeugt.
     
     Seien $f_1, \dots, f_m\in I$. Sei $X_n$ eine Variable, die nicht in den Polynomen $f_1,\dots, f_m$  vorkommt.
-    Dann $x_n\notin \langle f_1,\dots,f_m\rangle = \{\sum_{i=1}^m g_i f_i \mid g_1,\dots, g_m\in R\}$.
+    Dann $X_n\notin \langle f_1,\dots,f_m\rangle = \{\sum_{i=1}^m g_i f_i \mid g_1,\dots, g_m\in R\}$.
     Somit sind Untermoduln von endlich erzeugten $R$-Moduln i.A. nicht endlich erzeugt.
 \end{example}
 
@@ -543,7 +543,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     Sei $M$ ein $R$-Modul. Dann sind folgende Aussagen äquivalent:
     \begin{enumerate}[label=(\roman*)]
         \item $M$ ist noethersch
-        \item Ist $M_1\subseteq M_2\subseteq \dots$ eine aufsteigende Kette von Untermoduln von $M$, dann gibt es ein $n_0\in \N$ mit $M_{n_0} = M_{n_0+1} = M_{n_0+1}=\dots$.
+        \item Ist $M_1\subseteq M_2\subseteq \dots$ eine aufsteigende Kette von Untermoduln von $M$, dann gibt es ein $n_0\in \N$ mit $M_{n_0} = M_{n_0+1} = M_{n_0+2}=\dots$.
         \item Jede nicht leere Menge von Untermoduln von $M$ besitzt ein maximales Element\footnote{Eine Menge $N$ ist maximal in $\mathcal{X}$, wenn für jedes Element $N'\in \mathcal{X}$ gilt $N'\supseteq N \Rightarrow N = N'$}.
     \end{enumerate}
 \end{theorem}
@@ -558,7 +558,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
         Durch Wiederspruch:\\
         Sei $\mathcal{X}$ eine nicht leere Menge von Untermoduln, die kein maximales Element hat.
         Wähle $M_1\in \mathcal{X}$. $M_1$ nicht maximal
-        =>\footnote{Gäbe es keine echte Obermenge gäbe, wäre es maximal. Wenne es eine gibt, dann ist sie nach Definition von Maximal ungleich.} es gibt $M_2\in \mathcal{X}$ mit $M_1\subset M_2$.
+        =>\footnote{Gäbe es keine echte Obermenge gäbe, wäre es maximal. Wenn es eine gibt, dann ist sie nach Definition von Maximal ungleich.} es gibt $M_2\in \mathcal{X}$ mit $M_1\subset M_2$.
         $M_2$ nicht maximal => es gibt $M_3\in \mathcal{X}$ mit $M_2\subset M_3$...
         Wir erhalten induktiv eine strikt aufsteigende Kette von Untermoduln $M_1\subset M_2\subset M_3\subset \dots$ \Lightning
         \item[(iii) $\Rightarrow$ (i)] Sei $N\subset M$ ein Untermodul.
@@ -569,7 +569,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     \end{itemize}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{theo:5.43}
     Es sei $0\rightarrow M'\rightarrow M\overset{p}{\rightarrow }M''\rightarrow 0$ eine kurze exalkte Folge von $R$-Moduln.
     Dann ist $M$ genau dann noethersch, wenn $M'$ und $M''$ noethersch sind.
 \end{lemma}
@@ -591,18 +591,18 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
         exakt und $j^{-1}(W)$ und $p(W)$ sind endlich erzeugt.
 
         Die Aussage folgt aus der folgenden Implikation:
-        $0\rightarrow M_1 \overset{j}{\rightarrow} M_2 \overset{p}{\rightarrow} M_3 \rightarrow 0$ kurze exakte Folge und $M_1,M_3$ endlich erzeugt => $M_2$ endlich erzeugt.
-
+        $0\rightarrow M_1 \overset{j}{\rightarrow} M_2 \overset{p}{\rightarrow} M_3 \rightarrow 0$ kurze exakte Folge und $M_1,M_3$ endlich erzeugt => $M_2$ endlich erzeugt:
+        
         Seien $M_1 = \langle x_1,\dots, x_n\rangle$ und $M_3=\langle y_1, \dots, y_m\rangle$.
-        Dann ist $M_2 = \langle \Tilde{y}_1,\dots, \Tilde{y}_m, j(x_1),\dots,j(x_n)\rangle$ für $\Tilde{y}_i\in p^{-1}(\{y_i\})$
+        Dann ist $M_2 = \langle \Tilde{y}_1,\dots, \Tilde{y}_m, j(x_1),\dots,j(x_n)\rangle$ für $\Tilde{y}_i\in p^{-1}(\{y_i\})$:
 
-        Sei $z\in M_z$. Dann gibt es $r_1,\dots,r_m\in R$ mit $p(z) = r_1\cdot y_1+ \dots + r_m\cdot y_m$.
+        Sei $z\in M_2$. Dann gibt es $r_1,\dots,r_m\in R$ mit $p(z) = r_1\cdot y_1+ \dots + r_m\cdot y_m$.
         Somit ist $z-(r_1\Tilde{y}_1 + \dots + r_m \Tilde{y}_m)\in\ker (p) = Bild(j)$.
         => es gibt $s_1,\dots, s_n\in R$ mit $z-(r_1\Tilde{y}_1 + \dots +r_m\cdot \Tilde{y}_m) = s_1 j(x_1) + \dots + s_n j(x_n)$.
     \end{itemize}
 \end{proof}
 
-\begin{corollary} $ $
+\begin{corollary}\label{theo:5.44} $ $
     \begin{enumerate}[label=(\roman*)]
         \item Jeder Untermodul und jeder Faktormodul eines noethersch Moduls ist noethersch.
         \item Jede endliche direkte Summe von noetherschen Moduln ist noethersch.
@@ -610,8 +610,8 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 \end{corollary} $ $
 \begin{proof}$ $
     \begin{enumerate}[label=(\roman*)]
-        \item direkte Konsequenz von 5.43
-        \item Es genügt zu zeigen, dass $M\oplus N$ noethersch ist, falls $M,N$ noethersch sind. Folgt aus 5.43 und der kurzen exakten Sequenz $0\rightarrow M \rightarrow M\oplus N \rightarrow N \rightarrow 0$
+        \item direkte Konsequenz von \ref{theo:5.43}
+        \item Es genügt zu zeigen, dass $M\oplus N$ noethersch ist, falls $M,N$ noethersch sind. Folgt aus \ref{theo:5.43} und der kurzen exakten Sequenz $0\rightarrow M \rightarrow M\oplus N \rightarrow N \rightarrow 0$
     \end{enumerate}
 \end{proof}
 
@@ -634,11 +634,11 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     Jeder endlich erzeugte Modul über einem linksnoetherschen Ring ist noethersch
 \end{lemma}
 \begin{proof}
-    5.44 (ii) => $R^n$ ist noethersch für $n\in \N$.
-    Sei $M=\langle x_1, \dots, x_n\rangle$ ein endlich erzeugter Modul. Dann ist $R^n ->> M, e_i\mapsto x_i$ ein Epimorphismus.
-    5.44(i) => $M$ noethersch.
+    \ref{theo:5.44} (ii) => $R^n$ ist noethersch für $n\in \N$.
+    Sei $M=\langle x_1, \dots, x_n\rangle$ ein endlich erzeugter Modul. Dann ist $R^n \twoheadrightarrow M, e_i\mapsto x_i$ ein Epimorphismus.
+    \ref{theo:5.44} (i) => $M$ noethersch.
 \end{proof}
-\begin{lemma}
+\begin{lemma}\label{theo:5.47}
     Sei $M$ ein noetherscher $R$-Modul. Falls $M\cong M\oplus N$ für einen $R$-Modul $N$, so gilt $N=0$.
 \end{lemma}
 \begin{theorem}
@@ -648,7 +648,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 
 \begin{proof}
     Ang. $m\leq n$. Dann gilt $R^m\cong M\cong R^n = R^m \oplus R^{n-m}$. Weiter ist $R^m$ noethersch, weil $R$ linksnoethersch ist.
-    Lemma 5.47 =d $R^{n-m} = 0$  = R nicht Nullring => n-m = 0 
+    Lemma \ref{5.47} => $R^{n-m} = 0$  = R nicht Nullring => n-m = 0 
 \end{proof}
 
 \begin{flushright}
@@ -671,7 +671,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 \end{proof}
 
 \begin{theorem}[Hilbertscher Basissatz]
-    Ist $R$ ein linksnoetherscher Ring, dann ist dei Polynomring $R[X]$ auch linksnoethersch.
+    Ist $R$ ein linksnoetherscher Ring, dann ist der Polynomring $R[X]$ auch linksnoethersch.
 \end{theorem}
 \begin{proof}
     Sei $I\subseteq R[X]$ ein Linksideal.

@@ -204,7 +204,7 @@ Dann ist $K -> A ->> A/m = L_1$ eine Einbettung (setze $\pi: A \rightarrow A/m$)
 \begin{definition}
     Seien $L_1| K$ und $L_2|K$ $K$-Erweiterungen. Ein Homomorphismus $f: L_1 \rightarrow L_2$ heißt \emph{$K$-Homomorphismus}, falls $f(k) = k$ für alle $k \in K$. Ein K-Isomorphismus ist ein bijektiver K-Homomorphismus. Definiere ${Aut}(L_1|K) = \{f: L_1 \rightarrow L_1 \mid f \; K-Isom.\}$ (Gruppe der K-Automorphismen mit Verknüpfung als Operation).
 \end{definition}
-\begin{remark}[Beobachtung]
+\begin{remark}[Beobachtung]\label{theo:2.27}
     Sei $\phi: L_1 \rightarrow L_2$ K-Hom. Sei $f \in K[X]$, $\alpha \in L_1$ mit $f(\alpha) = 0$. Dann ist $f(\phi(\alpha)) = \phi(f(\alpha)) = \phi(0) = 0$. 
     Folgerungen: $\alpha$ transzendent, $\phi$ K-Isom. $\Rightarrow \phi(\alpha)$ transzendent; für algebraisches $\alpha$ ist $m_{\alpha, K} = m_{\phi(\alpha), K}$.
 \end{remark}
@@ -412,7 +412,7 @@ VL vom 13.11.2023:
 
 \begin{definition}
     Sei $L|K$ eine alg. $K$-Erweiterung.
-    Der \emph{Separabititätsgrad} $[L:K]_S$ über $K$ ist definiert als $\card{Hom_K(L,\overline{K})}$.
+    Der \emph{Separabilitätsgrad} $[L:K]_S$ über $K$ ist definiert als $\card{Hom_K(L,\overline{K})}$.
     Ist $L|K$ normal, dann ist $[L:K]_s = \card{Aut(L|K)}$.\footnote{Nach \cref{theo:2.35} b)} 
 \end{definition}
 
@@ -548,7 +548,7 @@ Ein Körper $K$ ist \emph{perfekt}, wenn jede alg. Erweiterung von $K$ separabel
 \end{corollary}
 \begin{proof}
     Sei $K|\F$ eine alg. Erweiterung von $\F$ endlicher Körper mit Char $p>0$. Sei zunächst $K|\F$ endlich und damit auch $K$ endlich.
-     Da $f=X^q-X$ seprabel und $K$ Zerfällungskörper von $f$ über $\F_p$ für ein $q=p^n$ ist, ist $K|\F_p$, insbesondere auch $K|\F$, normal und separabel.
+     Da $f=X^q-X$ separabel und $K$ Zerfällungskörper von $f$ über $\F_p$ für ein $q=p^n$ ist, ist $K|\F_p$, insbesondere auch $K|\F$, normal und separabel.
 
      Allgemein lässt sich $K$ durch endliche Erweiterungen ausschöpfen.
 \end{proof}
