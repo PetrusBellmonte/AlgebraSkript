@@ -524,7 +524,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 \end{flushright}
 \subsection{Neothersche Moduln und Ring}
 [$R$ möglicherweise nicht kommutativer Ring]
-\begin{example}
+\begin{example}\label{theo:5.40}
     $R=\C[X_1, X_2,\dots]$ Polynomring in abzählbar unendlich vielen Variablen.
     $M=R$ $R$-Modul ist endlich erzeugt: $M=\langle 1_R\rangle$.
     Sei $I=\langle X_1, X_2,\dots \rangle\subseteq M$ der von allen Varialben erzeugte Untermodul.
@@ -539,7 +539,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     Ein $R$-Modul $M$ heißt \emph{noethersch}, wenn jeder Untermodul von $M$ endlich erzeugt ist.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{theo:5.42}
     Sei $M$ ein $R$-Modul. Dann sind folgende Aussagen äquivalent:
     \begin{enumerate}[label=(\roman*)]
         \item $M$ ist noethersch
@@ -628,9 +628,9 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
         \item Hauptidealringe (folgt aus dem Sturktursatz für Hauptidealringe)
         \item $R=M_n(K)$, $K$ Körper. Jedes (Links-) Ideal in $R$ ist ein $K$-Untervektorraum von $M_n(K) = K^{n^2}$, somit endlich erzeugt als $K$-VR. Somit erst recht endlich erzeugt als $R$-Ideal
     \end{itemize}
-    Bsp 5.40: $\C[X_1,X_2,\dots]$ nicht noethersch.
+    Bsp \ref{theo:5.40}: $\C[X_1,X_2,\dots]$ nicht noethersch.
 \end{example*}
-\begin{lemma}
+\begin{lemma}\label{theo:5.46}
     Jeder endlich erzeugte Modul über einem linksnoetherschen Ring ist noethersch
 \end{lemma}
 \begin{proof}
@@ -648,7 +648,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 
 \begin{proof}
     Ang. $m\leq n$. Dann gilt $R^m\cong M\cong R^n = R^m \oplus R^{n-m}$. Weiter ist $R^m$ noethersch, weil $R$ linksnoethersch ist.
-    Lemma \ref{5.47} => $R^{n-m} = 0$  = R nicht Nullring => n-m = 0 
+    Lemma \ref{theo:5.47} => $R^{n-m} = 0$  = R nicht Nullring => n-m = 0 
 \end{proof}
 
 \begin{flushright}
@@ -657,7 +657,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 
 \begin{proof}[Beweis zu 5.47]
     Sei $X=\{\text{durch $M$ komplementiebare Untermoduln von $M$}\} = \{N_0\subseteq M\mid\text{$N_0$ Untermodul, es existiert ein Untermodul $C$ s.d. $N_0\oplus C = M$ und $C\cong M$} \}$.
-     Dann ist $\{0\}\in X$, also $X\neq \emptyset$. Sei $L\in X$ ein maximales Element, dass nach 5.42 existiert.
+     Dann ist $\{0\}\in X$, also $X\neq \emptyset$. Sei $L\in X$ ein maximales Element, dass nach \ref{theo:5.42} existiert.
      Dann ist $M=L\oplus C$ mit $C\cong M$.
      Sei $f:M\oplus N\rightarrow M$ ein Isomorphismus.
      Dann betrachte 
@@ -698,7 +698,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
     I-Vorrausetzung => $\Tilde{f}\in \langle I_{\leq k} \rangle_{R[X]}$.
     => $f = \Tilde{f} + X^{m-k} \cdot \underbrace{g}_{I_{\leq k}} \in \langle I_{\leq k}\rangle_{R[X]}$.
     Nun ist $I_{\leq k}$ ein $R$-Untermodul von $R x^k \oplus Rx^{k-1}\oplus \dots \oplus Rx \oplus R\cong R^{k+1}$.
-    Da $R$ linksnoethersch ist, folgt mit 5.46, dass $I_{\leq k}$ als $R$-Modul endlich erzeugt ist.
+    Da $R$ linksnoethersch ist, folgt mit \ref{theo:5.46}, dass $I_{\leq k}$ als $R$-Modul endlich erzeugt ist.
     Sei $g_1,\dots, g_l\in I_{\leq k}$ ein $R$-Erzeugendensystem.
     Dann gilt: $I=\langle I_{\leq k}\rangle_{R[X]}$ auch $I = \langle\{g_1,\dots,g_l\}\rangle_{R[X]}$
     % Zeige dass I von einem I_{\leq n} erzeugt wird. Betrachte dafür die Menge der höchsten koeffizienten, die noethersche Untermoduln sind und damit iwann enden. Zeige dann dass auch an dei I_{\leq n} front ab diesem Punkt nichts relevanets mehr hinzukommen kann. Dann ist verbleibt noch zu zeigen, dass endlich erzeugt

@@ -134,7 +134,8 @@ VL vom 02.11.2023:
 \begin{example}
     a) Insbesondere ist jede abelsche Gruppe auflösbar: Für die triviale Gruppe $\{1\}$ existieren keine Faktoren, ansonsten setze $$G_0 := \{1\} \; \nt \; G_1 := G$$
 
-    b) Sei weiterhin $\mathbb{K}$ ein Körper. Die Matrixgruppe $$(B = \{\begin{pmatrix} a & c \\ 0 & b \end{pmatrix} \in GL_2(\mathbb{K}) \mid a,b,c \in \mathbb{K}\}, \cdot)$$ ist nicht abelsch, aber dennoch auflösbar. Sei dafür $$\mathbb{K}^* = \mathbb{K}\setminus\{0\}$$ und $$\phi: B \rightarrow \mathbb{K}^* \times \mathbb{K}^*, \begin{pmatrix} a & c \\ 0 & b
+    b) Sei weiterhin $\mathbb{K}$ ein Körper.
+    Die Matrixgruppe $$(B = \{\begin{pmatrix} a & c \\ 0 & b \end{pmatrix} \in GL_2(\mathbb{K}) \mid a,b,c \in \mathbb{K}\}, \cdot)$$ ist nicht abelsch, aber dennoch auflösbar. Sei dafür $$\mathbb{K}^\times = \mathbb{K}\setminus\{0\}$$ und $$\phi: B \rightarrow \mathbb{K}^\times \times \mathbb{K}^\times, \begin{pmatrix} a & c \\ 0 & b
     \end{pmatrix} \mapsto (a,b)$$ Dann ist $N = ker(\phi) = \{\begin{pmatrix}
         1 & c \\ 0 & 1
     \end{pmatrix} \mid c \in \mathbb{K}\} \cong (\mathbb{K},+)$ Somit ist $$\{id\} \nt N \nt B$$ eine Normalreihe mit abelschen Faktoren. (Geht auch für $GL_n(K)$, Beweis komplizierter)
@@ -196,14 +197,16 @@ $G$ Gruppe, $x, y \in G$
 \begin{theorem}
     Eine Gruppe G ist auflösbar gdw. es ein $m \in \mathbb{N}$ gibt mit $D^m(G) = \{1\}$. (Dies ist nicht immer erfüllt, da es Gruppen gibt mit $D(G) = G$, so dass die abgeleitete Reihe konstant G ist.)
 \end{theorem}
-\begin{proof}
-    "$\Leftarrow$": ist klar (good one).
-
-    "$\Rightarrow$": Sei G auflösbar. Dann gibt es eine abelsche Normalreihe
-    $$\{1\} = G_0 \nt ... \nt G_n = G$$
-    Wir zeigen induktiv über die Länge $n$ der Normalreihe: $D^j(G) \subseteq G_{n-j}, j \in [n]_0$.\\
-    IA: $n=0$. Klar: $D^0(G) = G = G_0 = G_n$\\
-    IS: Angenommen $D^j(G) \subseteq G_{n-j}$. Dann $D^{j+1}(G) = D(D^j(G)) \subseteq D(G_{n-j}) \overset{\ref{theo:1.15}}{\subseteq} G_{n-j-1}$.
+\begin{proof}$ $
+    \begin{itemize}
+        \item[$\Leftarrow$] ist klar (good one).
+        \item[$\Rightarrow$]
+        Sei G auflösbar. Dann gibt es eine abelsche Normalreihe
+        $$\{1\} = G_0 \nt ... \nt G_n = G$$
+        Wir zeigen induktiv über die Länge $n$ der Normalreihe: $D^j(G) \subseteq G_{n-j}, j \in [n]_0$.\\
+        IA: $n=0$. Klar: $D^0(G) = G = G_0 = G_n$\\
+        IS: Angenommen $D^j(G) \subseteq G_{n-j}$. Dann $D^{j+1}(G) = D(D^j(G)) \subseteq D(G_{n-j}) \overset{\ref{theo:1.15}}{\subseteq} G_{n-j-1}$.
+    \end{itemize}
 \end{proof}
 \begin{example}
     Sei G eine Gruppe und p eine Primzahl. Ist $|G| = p^n$, dann ist G auflösbar (und sogar nilpotent).

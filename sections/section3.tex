@@ -241,7 +241,7 @@ $K_n$ definiert als Zerfällungskörper von $X^n-1$ über $K$.
     $(K_n|K)$ ist normal als Zerfällungskörper.
     Es ist $D(X^n-1) = nX^{n-1}$, d.h. $X^n-1$ und $D(X^n-1)$ haben keine gemeinsamen NS d.h.\footnote{Wäre $X^n-1$ nicht separabel, gäbe es einen irreduziblen, nicht separablen Teiler $g$ mit $X^n-1=gh$. Dann hätte $D(X^n-1) = D(gh) = gD(h) + h D(g)= g D(h)$ die Nullstellen von $g$ mit $X^n-1$ gemein. Da dies nicht der Fall ist, muss $X^n-1$ separabel sein.} $X^n-1$ ist separabel $\overset{\ref{theo:2.48}}{\Rightarrow}$ $K_n|K$ ist separabel.
     Insbesondere hat $X^n-1$ $n$ verschiedene NS, d.h. $\card{\mu_n(K_n)} = n$.
-    Gruppe der $n$-ten EW ist zyklisch (mit Argument wie in \ref{theo:2.49}), also $\card{\mu_n^*(K_n)} = \card{\Z/n\Z}$
+    Gruppe der $n$-ten EW ist zyklisch (mit Argument wie in \ref{theo:2.49}), also $\card{\mu_n^*(K_n)} = (\card{\Z/n\Z})^\times$
 
     Zu b)
     $\sigma \in Gal(K_n|K)$, $\xi \in \mu_n^*(K_n)$:
@@ -343,7 +343,7 @@ Für jede Menge $M$ ist die Menge $Abb(M,K)$ der Abbildungen von $M$ nach $K$ ei
 
 \begin{lemma}\label{theo:3.17}
     $K, \Gamma$ wie zuvor.
-    Paarweise verschiedene Charakterer $\chi_1,\dots,\chi_n$ von $\Gamma$ nach $K$ sind in $Abb(\Gamma,K)$ linear unabhängig.
+    Paarweise verschiedene Charaktere $\chi_1,\dots,\chi_n$ von $\Gamma$ nach $K$ sind in $Abb(\Gamma,K)$ linear unabhängig.
 \end{lemma}
 \begin{proof}
     Durch Induktion über $n$.
@@ -666,7 +666,7 @@ Weiter ist $N_{L|K}(a\cdot b) = N_{L|K}(a)\cdot N_{L|K}(b)$.
     Unter der Vorraussetzung von \ref{theo:3.30} erhält man für $a\in M$, dass 
     \begin{align*}
         Sp_{L|K}(a) &= [L:M]\cdot Sp_{M|K}(a)\\
-        N_{L|K}(a) &= N_{M|K}(a)
+        N_{L|K}(a) &= N_{M|K}(a)^{[L:M]}
     \end{align*}
 \end{remark}
 \begin{theorem} \label{theo:3.32}

@@ -4,7 +4,7 @@
 \begin{document}
 \subsection{Irreduzible Polynome}
 \begin{definition}[Wiederholung aus EAZ]
-    Sei $K$ im Folgenden ein Körper. Der Polynomring $K[X]$ ist ein Hauptidealring\footnote{nullteilerfrei, kommutativ und jedes Ideal ist Hauptideal}. Das Ideal $(f)$ ist Primideal gdw. $f = 0$ oder $f$ irreduzibles Polynom ist, d.h. $f = gh \Rightarrow g \in K^* \vee h \in K^*$.
+    Sei $K$ im Folgenden ein Körper. Der Polynomring $K[X]$ ist ein Hauptidealring\footnote{nullteilerfrei, kommutativ und jedes Ideal ist Hauptideal}. Das Ideal $(f)$ ist Primideal gdw. $f = 0$ oder $f$ irreduzibles Polynom ist, d.h. $f = gh \Rightarrow g \in K^\times \vee h \in K^\times$.
 \end{definition}
 \begin{lemma} \label{theo:2.2}
     Ist f irreduzibel, dann ist (f) ein maximales Ideal\footnote{Es existiert kein ("größeres") Ideal $I\neq K[X]$ mit $(f)\subset I$}.
@@ -13,9 +13,9 @@
     Angenommen $(f) \subseteq (g)$. Dann $f = hg$ für ein $h \in K[X]$ nach Definition von $(g)$. Dann gilt
     \begin{equation*}
         \begin{cases}
-            g \in K^* \Rightarrow (g) = K[X] \\
+            g \in K^\times \Rightarrow (g) = K[X] \\
             oder \\
-            h \in K^* \Rightarrow (f) = (g)
+            h \in K^\times \Rightarrow (f) = (g)
         \end{cases}
     \end{equation*}
 \end{proof}
@@ -34,8 +34,8 @@
     EAZ Kühnlein
 \end{proof}
 \begin{definition}[Inhalt]
-    Sei A ein Hauptidealring und $K = Quot(A)$. Sei $f = \sum_{0 \leq i \leq n} a_i X^i \in A[X]$. Definiere $\Tilde{c}(f) \in A$ als einen Erzeuger des Ideals $(a_0, ..., a_n) \subset A$ (eindeutig bis auf Multiplikation mit Einheiten/inv. Elemente in A). Die Assoziiertenklasse $c(f) = \Tilde{c}(f)A^* \subset A/A^*$ [$A^*$ invertierbare Elemente in A] heißt \emph{Inhalt} von f.\\
-    Sei $f \in K[X]$. Wähle $a \in A \setminus \{0\}$ mit $af \in A[X]$. Dann definiere $\Tilde{c}(f) = c(af)a^{-1} \in K$ und $c(f) = \Tilde{c}(f)A^* \in K/A^*$ (Übung: Def. unabh. von der Wahl von a).
+    Sei A ein Hauptidealring und $K = Quot(A)$. Sei $f = \sum_{0 \leq i \leq n} a_i X^i \in A[X]$. Definiere $\Tilde{c}(f) \in A$ als einen Erzeuger des Ideals $(a_0, ..., a_n) \subset A$ (eindeutig bis auf Multiplikation mit Einheiten/inv. Elemente in A). Die Assoziiertenklasse $c(f) = \Tilde{c}(f)A^\times \subset A/A^\times$ [$A^\times$ invertierbare Elemente in A] heißt \emph{Inhalt} von f.\\
+    Sei $f \in K[X]$. Wähle $a \in A \setminus \{0\}$ mit $af \in A[X]$. Dann definiere $\Tilde{c}(f) = c(af)a^{-1} \in K$ und $c(f) = \Tilde{c}(f)A^\times \in K/A^\times$ (Übung: Def. unabh. von der Wahl von a).
 \end{definition}
 \begin{example*}
     $A = \mathbb{Z}, K = \mathbb{Q}$. Dann
@@ -58,7 +58,7 @@
 \begin{proof}
     Ang. $f = g_0h_0$ mit $g_0, h_0 \in K[X]$. Setze 
     $$g = \Tilde{c}(g_0)^{-1}g_0 \in A[X]$$ und 
-    $$h := \Tilde{c}(g_0)\Tilde{c}(h_0)\Tilde{c}(h_0)^{-1}h_0 \overset{\text{\ref{theo:2.5} b}}{=} \underbrace{\Tilde{c}(\overbrace{g_0h_0}^{=f})}_{\in A^\times}a\ \underbrace{\Tilde{c}(h_0)^{-1}h_0}_{\in A[X]}$$ für geeignetes $a \in A^*$. Somit ist auch $h \in A[X]$. Weiter ist $f = gh$. Dann ist $\deg g_0 = \deg g = \deg f$ oder $\deg h_0 = \deg h = \deg f$.
+    $$h := \Tilde{c}(g_0)\Tilde{c}(h_0)\Tilde{c}(h_0)^{-1}h_0 \overset{\text{\ref{theo:2.5} b}}{=} \underbrace{\Tilde{c}(\overbrace{g_0h_0}^{=f})}_{\in A}a\ \underbrace{\Tilde{c}(h_0)^{-1}h_0}_{\in A[X]}\in A[X]$$ für geeignetes $a \in A^\times$. Somit ist auch $h \in A[X]$. Weiter ist $f = gh$. Dann ist $\deg g_0 = \deg g = \deg f$ oder $\deg h_0 = \deg h = \deg f$.
 \end{proof}
 \begin{theorem}[Eisensteinkriterium für Irreduzibilität]
     Sei A ein Hauptidealring, $P \subset A$ Primideal und $f \in A[X]$. Erfüllt f die Bedingungen i), ii), iii) des Eisensteinkriteriums, dann ist f irreduzibel in K[X] ($K = Quot(A)$).
@@ -490,7 +490,7 @@ Ziel: Konstruktion eines Körpers $\F_q$, $q=p^n$, $p$ prim mit $q$ Elementen. N
     Insbesondere ist $\F$ Zerfällungskörper von $X^q-X$.
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theo:2.50}
     Es sei $p$ eine Primzahl. Dann existiert zu jedem $n\in \N$ eine Erweiterung $\F_q|\F_p$ mit $q=p^n$ Elementen. Es ist $\F_q$ bis auf Isomophie der eindeutige Zerfällungskörper von $X^q-X\in \F_p[X]$.
     Es besteht $\F_q$ genau aus den Nullstellen von $X^q-X$.
     Jeder endliche Körper ist bis auf Isomorphie ein Körper des Typs $\F_q$.
@@ -572,7 +572,7 @@ VL vom 24.11.2023:
     Eine endliche Untergruppe der multiplikativen Gruppe eines beliebigen Körpers ist zyklisch.
 \end{theorem}
 \begin{proof}
-    Sei $H\leq K^*$ eine endliche Untergruppe.
+    Sei $H\leq K^\times$ eine endliche Untergruppe.
     Sei $a\in H$ ein Element maximaler Ordnung $m$ in $H$.
     Sei $H_m := \{b\in H\mid ord(b)|m\} \subseteq H$.
     Die Elemente von $H_m$ sind Nullstellen des Polynoms $X^m-1\in K[X]$.
@@ -589,7 +589,7 @@ VL vom 24.11.2023:
 \begin{proof} $ $
     \begin{enumerate}[align=left]
         \item [1.Fall: $K$ ist ein Endlicher Körper] 
-        Dann ist auch $L$ endlich. Nach \cref{theo:2.55} ist $L^*$ zyklisch, d.h. $L^*=\langle a\rangle$. 
+        Dann ist auch $L$ endlich. Nach \cref{theo:2.55} ist $L^\times$ zyklisch, d.h. $L^\times=\langle a\rangle$. 
         Somit $L=K(a)$.
         
         \item [2. Fall $K$ ist unendlich]
