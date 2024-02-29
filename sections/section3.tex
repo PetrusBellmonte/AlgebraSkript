@@ -3,11 +3,11 @@
 
 \begin{document}
 \begin{definition}
-    Eine algebraische Körpererweiterung $L|K$ heißt \emph{Galoiserweiterung} (oder galois'sch), wenn $L|K$ normal und separabel ist.
-    Man nennt dann $Gal(L|K) = Aut_K(L)$ die \emph{Galoisgruppe} von $L|K$.
+    Eine algebraische Körpererweiterung $L|K$ heißt \imph{Galoiserweiterung} (oder galois'sch), wenn $L|K$ normal und separabel ist.
+    Man nennt dann $Gal(L|K) = Aut_K(L)$ die \imph{Galoisgruppe} von $L|K$.
 
     Sei $F$ ein Körper und $H\leq Aut(F)$ eine Untergruppe.
-    dann ist $F^H = \{x\in F\mid \forall\sigma\in H:\sigma(x) = x\}$ ein Teilkörper von F, genannt \emph{Fixkörper} von H.
+    dann ist $F^H = \{x\in F\mid \forall\sigma\in H:\sigma(x) = x\}$ ein Teilkörper von F, genannt \imph{Fixkörper} von H.
 \end{definition}
 \subsection{Hauptsatz der Galoistheorie}
 \begin{lemma} \label{theo:3.2}
@@ -212,10 +212,10 @@ Sei $K$ Körper
 \subsection{Kreisteilungskörper und Einheitswurzeln}
 \begin{definition}
     Sei $K$ Körper und $n\in \N$.
-    Ein Element $\xi\in K^\times$ mit $\xi^n=1$ heißt \emph{$n$-te Einheitswulzel (EW)}.
+    Ein Element $\xi\in K^\times$ mit $\xi^n=1$ heißt \imph{$n$-te Einheitswulzel (EW)}.
     $\mu_n(K)\coloneqq\{\text{n-te EW in K}\}\leq K^\times$ zyklische Untergruppe.
     $\card{\mu_n(K)}\leq n$\\
-    Hat $\xi$ die Ordnung $n$, so nennt man $\xi$ \emph{primitive $n$-te EW}.
+    Hat $\xi$ die Ordnung $n$, so nennt man $\xi$ \imph{primitive $n$-te EW}.
     $\mu_n^*(K) \coloneqq \{\text{primitive n-te EW in K}\}$
 \end{definition}
 \begin{example*}
@@ -251,8 +251,8 @@ $K_n$ definiert als Zerfällungskörper von $X^n-1$ über $K$.
 \end{proof}
 
 \begin{definition}
-    Der Körper $\Q(\xi_n)$ für $\xi_n\in\mu_n^*(\C)$ heißt $n$-ter \emph{Kreisteilungskörper}.
-    Das Polynom $\phi_n=\prod_{\xi\in\mu_n^*(\C)} (X-\xi)$ heißt $n$-tes \emph{Kreisteilungspolynom}
+    Der Körper $\Q(\xi_n)$ für $\xi_n\in\mu_n^*(\C)$ heißt $n$-ter \imph{Kreisteilungskörper}.
+    Das Polynom $\phi_n=\prod_{\xi\in\mu_n^*(\C)} (X-\xi)$ heißt $n$-tes \imph{Kreisteilungspolynom}
 \end{definition}
 
 \begin{lemma}
@@ -337,7 +337,7 @@ VL vom 7.12.2023:
 \subsection{Charaktere und Normalbasen}
 \begin{definition}
     Sei $\Gamma$ eine Gruppe, $K$ ein Körper.
-    Ein \emph{Charakter} (von $\Gamma$ nach $K$) ist ein Homomorphismus $\Gamma\rightarrow K^\times$.
+    Ein \imph{Charakter} (von $\Gamma$ nach $K$) ist ein Homomorphismus $\Gamma\rightarrow K^\times$.
 \end{definition}
 Für jede Menge $M$ ist die Menge $Abb(M,K)$ der Abbildungen von $M$ nach $K$ ein $K$-Vektorraum bezüglich punktweiser Addition und skalarer Multiplikation.
 
@@ -403,7 +403,7 @@ VL vom 8.12.2023:
 \begin{theorem}[Satz von der Normalbasis]
     Sei $L|K$ eine endliche Galois-Erweiterung. Sei $n = [L:K]$ und $Gal(L|K) = \{\sigma_1,\dots,\sigma_n\}$.
     Es existiert ein $a\in L$, sodass $\equalto{\sigma_1(a)}{id},\dots,\sigma_n(a)$ eine $K$-Basis von $L$ bilden.
-    Eine solche Basis nennen wir \emph{Normalbasis} von $L|K$.
+    Eine solche Basis nennen wir \imph{Normalbasis} von $L|K$.
 \end{theorem}
 \begin{proof} [Beweis für unendliche Körper]
     Gemäß \ref{theo:3.19} reicht es ein Element $a\in L$ zu finden, mit $\det(\sigma_i(\sigma_j(a)))_{ij}\neq 0$.
@@ -459,7 +459,7 @@ VL vom 8.12.2023:
 \subsection{Auflösbarkeit von Gleichungen}
 \begin{definition}
     Sei $K$ eine Körper, $a\in K$.
-    Eine Nullstelle von $X^n-a$ nennt man \emph{Radikal} von $a$.
+    Eine Nullstelle von $X^n-a$ nennt man \imph{Radikal} von $a$.
 \end{definition}
 Die Nullstellen von $X^n-a$ in $\overline{K}$ sind $$\{\xi\cdot \sqrt[n]{a}\mid \xi \in \mu_n(\overline{K})\}$$.
 Der Zerfällungskörper ist $K(\xi,\sqrt[n]{a})$, wobei $\xi$ eine primitive $n$-te EW ist.
@@ -503,7 +503,7 @@ Der Zerfällungskörper ist $K(\xi,\sqrt[n]{a})$, wobei $\xi$ eine primitive $n$
 
 \begin{definition}$ $
     \begin{enumerate}[label=(\roman*)]
-        \item man sagt eine $K$-Erweiterung $L|K$ sei \emph{durch Radikale auflösbar}, wenn ein Turm von endlichen $K$-Erweiterungen gibt $K=K_0\subseteq K_1\subseteq K_2\dots\subseteq K_r$, sodass
+        \item man sagt eine $K$-Erweiterung $L|K$ sei \imph{durch Radikale auflösbar}, wenn ein Turm von endlichen $K$-Erweiterungen gibt $K=K_0\subseteq K_1\subseteq K_2\dots\subseteq K_r$, sodass
         \begin{itemize}
             \item Für alle $i$ ist $K_i=K_{i-1}(u_i)$ mit $u_i^{m_i}\in K_{i-1}$ für $m_i\in\N$
             \item $L\subseteq K_r$
@@ -623,8 +623,8 @@ VL vom 21.12.2023:
 \subsection{Spur und Norm}
 \begin{definition}\label{theo:3.28}
     Sei $L|K$ endlich.
-    Sei $a\in L$. Die \emph{Spur} $Sp_{L|K}(a)\in K$ ist die Spur des $K$-lin. Endomorphismus $\phi_a:L\rightarrow L, \phi_a(x) = a\cdot x$.
-    Ähnlich definiert man die \emph{Norm} $N_{L|K}(a) \in K$ als $\det(\phi_a)$.
+    Sei $a\in L$. Die \imph{Spur} $Sp_{L|K}(a)\in K$ ist die Spur des $K$-lin. Endomorphismus $\phi_a:L\rightarrow L, \phi_a(x) = a\cdot x$.
+    Ähnlich definiert man die \imph{Norm} $N_{L|K}(a) \in K$ als $\det(\phi_a)$.
     Das char. Polynom von $\phi_a$ bezeichnen wir mit $\chi_{a,L
     |K}\in K[X]$.
 \end{definition}

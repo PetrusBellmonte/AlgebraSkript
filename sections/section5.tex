@@ -8,7 +8,7 @@ VL vom 26.1.2024:
 Sei $R$ ein Ring mit Eins (aber nicht zwingend kommutativ)
 
 \begin{definition}
-    Ein \emph{Linksmodul} über $R$ ist eine abelsche Gruppe $(M,+)$ zusammen mit einer Skalarmultiplikation
+    Ein \imph{Linksmodul} über $R$ ist eine abelsche Gruppe $(M,+)$ zusammen mit einer Skalarmultiplikation
     $$R\times M\rightarrow M,\quad (r,m)\mapsto r * m$$
     mit den Eigenschaften
     \begin{enumerate}[label=(\roman*)]
@@ -18,7 +18,7 @@ Sei $R$ ein Ring mit Eins (aber nicht zwingend kommutativ)
         \item $1_R * x = x$
     \end{enumerate}
     für alle $r,s\in R$ und $x,y\in M$.\\
-    Analog ist ein \emph{Rechtsmodul} definiert mit Skalarprodukt $M\times R\rightarrow M\quad (m,r)\mapsto m * r$
+    Analog ist ein \imph{Rechtsmodul} definiert mit Skalarprodukt $M\times R\rightarrow M\quad (m,r)\mapsto m * r$
 \end{definition}
 
 \begin{remark}
@@ -40,7 +40,7 @@ Wir betrachten in Zukunft Linksmoduln und nennen sie einfach Moduln.
 
 \begin{definition}$ $
     \begin{enumerate}[label=(\alph*)]
-        \item Eine Abbildung $f:M\rightarrow N$ zwischen $R$-Moduln ist \emph{$R$-Linear}, wenn für $x,y\in M$, $r\in R$ gilt
+        \item Eine Abbildung $f:M\rightarrow N$ zwischen $R$-Moduln ist \imph{$R$-Linear}, wenn für $x,y\in M$, $r\in R$ gilt
         $$f(x+y) = f(x) + f(y) \quad f(r\cdot x) = r\cdot f(x)$$
         $Hom_R(M,N) \coloneqq \{\text{$R$-lineare Abbildung $M\rightarrow N$}\}$
         \item Isomorphismus
@@ -59,7 +59,7 @@ Ilias (angeblich)
 \setcounter{theorem}{8}
 \begin{definition}
     Sei $(M_i)_{i\in I}$ eine Familie von $R$-Moduln. Das kartesische Produkt $\prod_{i\in I} M_i$ ist ein $R$-Modul bezüglich $(x_i)_{i\in I} + (y_i)_{i\in I} = (x_i + y_i)_{i\in I}$ und $r\cdot (x_i)_{i\in I} = (rx_i)_{i\in I}$.
-    Wir sagen $\prod_{i\in I} M_i$ ist das \emph{direkte Produkt der $M_i$}. Für jedes $i\in I$ ist die Projektion $pr_i: \prod_{j\in I} M_i \rightarrow M_i$ $R$-linear.
+    Wir sagen $\prod_{i\in I} M_i$ ist das \imph{direkte Produkt der $M_i$}. Für jedes $i\in I$ ist die Projektion $pr_i: \prod_{j\in I} M_i \rightarrow M_i$ $R$-linear.
     Die Zuordnung $\phi\mapsto (pr_i \circ \phi)_{i\in I}$ definiert einen Isomorphismus abelscher Gruppen
     $$Hom_R(M,\prod_{i\in I} M_i)\overset{\cong}{\rightarrow} \prod_{i\in I} Hom_R(M,M_i)$$
     (Ist $R$ kommutativ ist die Struktur wieder ein Modul)
@@ -69,7 +69,7 @@ Ilias (angeblich)
 \end{remark*}
 
 \begin{definition}[Direkte Summe von $R$-Modul]
-    Sei $(M_i)_{i\in I}$ eine Familie von $R$-Moduln. Definiere $\bigoplus_{i\in I} M_i = \{(x_i)_{i\in I}\in \prod_{i\in I} M_i \mid x_i = 0 \text{ bis auf endlich viele $i$}\}$ die \emph{direkte Summe der $M_i$} alse Untermodul von $\prod_{i\in I} M_i$.
+    Sei $(M_i)_{i\in I}$ eine Familie von $R$-Moduln. Definiere $\bigoplus_{i\in I} M_i = \{(x_i)_{i\in I}\in \prod_{i\in I} M_i \mid x_i = 0 \text{ bis auf endlich viele $i$}\}$ die \imph{direkte Summe der $M_i$} alse Untermodul von $\prod_{i\in I} M_i$.
     Für jedes $j\in I$ ist $\iota_j : M_j \rightarrow \oplus_{i\in I} M_i$, $\iota_j (x) = (0,\dots, 0,\underbrace{x}_{\text{Position $j$}},0,\dots,0)$ eine injektive $R$-lineare Abbildung.
     Die Zuordnung $\phi \mapsto (\phi \circ \iota_i)_{i\in I}$ definiert einen Isomorphismus abelscher Gruppen
     $$Hom_R \left(\bigoplus_{i\in I} M_i,M\right)\overset{\cong}{\rightarrow} \prod_{i\in I} Hom_R(M_i, M)$$
@@ -85,13 +85,13 @@ Ilias (angeblich)
 \begin{definition}
     Sei $S\subseteq M$ eine Teilmenge in einem $R$-Modul $M$. Dann heißt $S$
     \begin{itemize}
-        \item \emph{Erzeugendensystem}, wenn $M\coloneqq \langle S\rangle_R = \{\sum_{s\in J} r_s\cdot s \mid J\subseteq S \text{ endlich}, r_s\in R\} = \bigcap\{N\mid N\subseteq M\text{ Untermodul mit }S\subseteq N\}$
-        \item \emph{$R$-linear unabhängig}, wenn für alle $s_1,\dots,s_m \in S$ und $r_1,\dots,r_m\in R$ die Implikation $\sum_{i=1}^m r_i\cdot s_i = 0 \Rightarrow r_1 = \dots = r_m = 0$ gilt.
-        \item \emph{Basis}, wenn $s$ ein linear unabhängiges Erzeugendensystem ist
+        \item \imph{Erzeugendensystem}, wenn $M\coloneqq \langle S\rangle_R = \{\sum_{s\in J} r_s\cdot s \mid J\subseteq S \text{ endlich}, r_s\in R\} = \bigcap\{N\mid N\subseteq M\text{ Untermodul mit }S\subseteq N\}$
+        \item \imph{$R$-linear unabhängig}, wenn für alle $s_1,\dots,s_m \in S$ und $r_1,\dots,r_m\in R$ die Implikation $\sum_{i=1}^m r_i\cdot s_i = 0 \Rightarrow r_1 = \dots = r_m = 0$ gilt.
+        \item \imph{Basis}, wenn $s$ ein linear unabhängiges Erzeugendensystem ist
         \item $M$ heißt
         \begin{itemize}
-            \item \emph{endlich erzeugt}, wenn $M$ ein endliches Erzeugendensystem besitzt
-            \item \emph{frei}, wenn $M$ eine Basis besitzt
+            \item \emph{endlich erzeugt}\index{Endlich erzeugter modul}, wenn $M$ ein endliches Erzeugendensystem besitzt
+            \item \emph{frei}\index{Freier modul}, wenn $M$ eine Basis besitzt
         \end{itemize}
     \end{itemize}
 \end{definition}
@@ -123,7 +123,7 @@ Ilias (angeblich)
     01.02.2023
 \end{flushright}
 \begin{definition}
-    Ein Untermodul $N\subseteq M$ heißt \emph{direkter Summand}, wenn es einen Untermodul $C\subseteq M$ gibt so, dass
+    Ein Untermodul $N\subseteq M$ heißt \imph{direkter Summand}, wenn es einen Untermodul $C\subseteq M$ gibt so, dass
     \begin{enumerate}[label=(\roman*)]
         \item $C\cap N = \{0\}$
         \item $C+N=M$
@@ -139,9 +139,9 @@ Ilias (angeblich)
     Es seien $M,M',M''$ $R$-Moduln.
     Es seien $f:M'\rightarrow M, g:M\rightarrow M''$ $R$-lineare Abbildungen.
     Man sagt, dass die Folge $$M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M''$$
-    \emph{exakt} ist, wenn $Bild(f) = \ker(g)$.
+    \imph{exakt} ist, wenn $Bild(f) = \ker(g)$.
 
-    Eine Folge der Form $$0\rightarrow M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$$ nennt man \emph{kurz exakte Folge}, wenn sie exakt an jeder Stelle ist, d.h. $f$ injektiv, $g$ surjektiv und $Bild(f) = \ker(g)$.
+    Eine Folge der Form $$0\rightarrow M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$$ nennt man \imph{kurz exakte Folge}, wenn sie exakt an jeder Stelle ist, d.h. $f$ injektiv, $g$ surjektiv und $Bild(f) = \ker(g)$.
 
     Homomorphiesatz liefert\footnote{Das sollte für alle $M'\overset{f}{\rightarrow} M \overset{g}{\rightarrow} M'' \rightarrow 0$ gelten. $g$ muss surjektiv sein, damit $g(M) = M''$, aber $f$ nicht injektiv, weil das nichts an $Bild(f)=\ker(g)$ ändert}, dass
     $$M/f(M') \cong M''$$.
@@ -157,7 +157,7 @@ Ilias (angeblich)
         \item $\exists s\in Hom_R(M'',M): g\circ s = id_{M''}$
         \item $\exists t\in Hom_R(M,M'): t\circ f = id_{M'}$
     \end{enumerate}
-    Sind diese Bedingungen erfüllt, so sagt man, dass die Folge \emph{spaltet}.
+    Sind diese Bedingungen erfüllt, so sagt man, dass die Folge \imph{spaltet}.
 \end{theorem}
 \begin{proof}$ $
     \begin{itemize}
@@ -188,9 +188,9 @@ Ilias (angeblich)
 \begin{definition}$ $
     \begin{enumerate}[label=\alph*)]
         \item 
-        Ein $R$-Modul $P$ heißt \emph{projektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow M' \rightarrow M \rightarrow P\rightarrow 0$ spaltet.
+        Ein $R$-Modul $P$ heißt \imph{projektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow M' \rightarrow M \rightarrow P\rightarrow 0$ spaltet.
         \item 
-        Ein $R$-Modul $I$ heißt \emph{injektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow I\rightarrow M \rightarrow M'' \rightarrow 0$ spaltet.
+        Ein $R$-Modul $I$ heißt \imph{injektiv}, wenn jede kurze exakte Folge von $R$-Moduln der Form $0\rightarrow I\rightarrow M \rightarrow M'' \rightarrow 0$ spaltet.
     \end{enumerate}
 \end{definition}
 
@@ -203,7 +203,7 @@ Ilias (angeblich)
 In diesem Abschnitt ist $R$ ein kommutativer Ring.
 \begin{definition}
     Seien $L,M,N$ drei $R$-Moduln.
-    Eine Abbildung $f:M\times N\rightarrow L$ heißt \emph{$R$-bilinear} wenn gelten
+    Eine Abbildung $f:M\times N\rightarrow L$ heißt \imph{$R$-bilinear} wenn gelten
     \begin{enumerate}
         \item $f(rx+sy,u) = rf(x,u)+sf(y,u)$
         \item $f(x,ru+sv) = rf(x,u) + sf(x,v)$
@@ -212,7 +212,7 @@ In diesem Abschnitt ist $R$ ein kommutativer Ring.
 \end{definition}
 
 \begin{definition}
-    Ein \emph{Tensorprodukt} zweier $R$-Moduln $M$ und $N$ ist ein Paar $(T,\beta)$ bestehend aus einem $R$-Modul $T$ und einer $R$-bilinearen Abbildung $\beta:M\times N\rightarrow T$ so, dass eine \emph{universelle} Eigenschaft erfüllt ist:
+    Ein \imph{Tensorprodukt} zweier $R$-Moduln $M$ und $N$ ist ein Paar $(T,\beta)$ bestehend aus einem $R$-Modul $T$ und einer $R$-bilinearen Abbildung $\beta:M\times N\rightarrow T$ so, dass eine \textit{universelle} Eigenschaft erfüllt ist:
     
     Für jeden $R$ -Modul L und jede $R$-bilneare Abbildung $f:M\times N\rightarrow L$ existiert ein eindeutiger $R$-Homomorphismus $\phi:T\rightarrow L$ mit $\phi\circ\beta = f$
     $$% https://tikzcd.yichuanshen.de/#N4Igdg9gJgpgziAXAbVABwnAlgFyxMJZABgBpiBdUkANwEMAbAVxiRAFkAdTvAW3gAEAORABfUuky58hFAEZyVWoxZsAKmIkgM2PASJk5S+s1aIQAGTFKYUAObwioAGYAnCLyRkQOCEgBM1Caq5s4g1Ax0AEYwDAAKUnqyIK5YdgAWOJou7p6I3r5ICsqmbNwxOHTZIG4eRdSFiIElISDcMAAeWHA4cAIAhNxo6VjhIAxYYGYgUBA4OLZjMWBQSADMxKIUokA
@@ -287,7 +287,7 @@ T' \arrow[r, "\psi"] \arrow[rr, "id_{T'}", bend left, shift left] & T \arrow[r, 
     Das Tensorprodukt der $R$-Moduln $M$ und $N$ notiert man ${M\otimes_R N}$
     ($M\otimes N$, wenn $R$ aus dem Kontext klar ist).
     Das Bild von $(m,n)\in M\times N$ unter der Strukturabbildung $\beta: M\times N \rightarrow M\otimes N$ notiert man als $m\otimes n\in M\otimes N$.
-    Diese Elemente $m\otimes n$, $m\in M$, $n\in N$ nennt man auch \emph{Elementartensor}; diese erzeugen $M\otimes_R N$. (siehe Beweis von 5.22).
+    Diese Elemente $m\otimes n$, $m\in M$, $n\in N$ nennt man auch \imph{Elementartensor}; diese erzeugen $M\otimes_R N$. (siehe Beweis von 5.22).
     Beachte: Die Bilinearität von $\beta$ übersetzt sich in folgende Gleichungen für Elementartensoren:$\begin{array}[t]{r}
 (m_1 + m_2)\otimes n = m_1\ot n + m_2 \ot n \\
 m\ot (n_1 + n_2)=m\ot n_1 + m\ot n_2 \\
@@ -382,7 +382,7 @@ $(f\circ \Tilde{f}) \ot (g\circ \Tilde{g}) = (f\ot g) \circ (\Tilde{f}\ot \Tilde
     \TODO[bild]
 \end{remark}
 
-Ein $R$-Modul $M$ ist \emph{flach}, wenn $M\ot_R -$ exakt ist.
+Ein $R$-Modul $M$ ist \imph{flach}, wenn $M\ot_R -$ exakt ist.
 Bsp: 
 \begin{itemize}[noitemsep]
     \item $\Q$ ist ein flacher $Z$-Modul.
@@ -391,7 +391,7 @@ Bsp:
 \end{itemize}
 
 \begin{definition}
-    Eine \emph{$R$-Algebra} ist ein Ring $A$ (mit 1, nicht unbedingt kommutativ) mit einer $R$-Modulstruktur $R\times A \rightarrow A$ so, dass die Ringmultiplikation $A\times A\rightarrow A$ $R$-bilinear ist.
+    Eine \imph{$R$-Algebra} ist ein Ring $A$ (mit 1, nicht unbedingt kommutativ) mit einer $R$-Modulstruktur $R\times A \rightarrow A$ so, dass die Ringmultiplikation $A\times A\rightarrow A$ $R$-bilinear ist.
     [d.h. $\forall a,b\in A,\ r\in R: r(a._Ab) = (ra)._A b = a._A(rb)$]
 \end{definition}
 \begin{flushright}
@@ -423,7 +423,7 @@ Bsp:
 \begin{theorem}[Skalarerweiterung]
     Es seien $A$ eine $R$-Algebra und $M$ ein $R$-Modul.
     Es gibt genau eine Skalarmultiplikation von $A$ auf $A\ot_R M$ mit $a(b\ot x) = ab \ot x$ für $a,b\in A$, $x\in M$, die $A\ot_R M$ zu einem $A$-Modul macht.
-    Man sagt: $A\ot_R M$ entsteht durch \emph{Skalarerweiterung}.
+    Man sagt: $A\ot_R M$ entsteht durch \imph{Skalarerweiterung}.
     Ist $f:M\rightarrow N$ $R$-linear, dann ist $id_A \ot f: A\ot_R M \rightarrow A\ot_R N$ $A$-linear.
 \end{theorem}
 \begin{proof}
@@ -536,7 +536,7 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 \end{example}
 
 \begin{definition}
-    Ein $R$-Modul $M$ heißt \emph{noethersch}, wenn jeder Untermodul von $M$ endlich erzeugt ist.
+    Ein $R$-Modul $M$ heißt \imph{noethersch}, wenn jeder Untermodul von $M$ endlich erzeugt ist.
 \end{definition}
 
 \begin{theorem}\label{theo:5.42}
@@ -616,10 +616,10 @@ $\phi(a\ot b) = \phi(a\ot 1 \cdot 1\ot b) = \phi(a\ot 1)\cdot \phi(1\ot b) = f(a
 \end{proof}
 
 \begin{definition}
-    Ein Ring heißt \emph{linksnoethersch}, wenn er als Linksmodul über sich selbst noethersch ist.
+    Ein Ring heißt \imph{linksnoethersch}, wenn er als Linksmodul über sich selbst noethersch ist.
 
-    Analog definiert man \emph{rechtsnoethersch}.
-    Ein Ring heißt \emph{noethersch}, wenn er links- und rechtsnoethersch ist.
+    Analog definiert man \imph{rechtsnoethersch}.
+    Ein Ring heißt \imph{noethersch}, wenn er links- und rechtsnoethersch ist.
 \end{definition}
 \begin{example*}
     für noethersche Ringe:

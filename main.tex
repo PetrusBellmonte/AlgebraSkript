@@ -8,6 +8,10 @@
 \usepackage{mathptmx} % Use Times Font
 \usepackage[pdftex]{graphicx} % Required for including pictures
 \usepackage[german]{babel}
+\usepackage{etoolbox}
+\usepackage{makeidx}
+\makeindex
+
 \usepackage[pdftex,linkcolor=black,pdfborder={0 0 0}]{hyperref} % Format links for pdf
 \usepackage{calc} % To reset the counter in the document after title page
 \usepackage{enumitem} % Includes lists
@@ -64,6 +68,7 @@
 \newcommand{\notequalto}[2]{\underset{\scriptstyle\overset{\mkern4mu\vertneq}{#2}}{#1}}
 \newcommand{\mapsfrom}{\mathrel{\reflectbox{\ensuremath{\mapsto}}}}
 \newcommand{\longmapsfrom}{\mathrel{\reflectbox{\ensuremath{\longmapsto}}}}
+\newcommand{\imph}[1]{\emph{#1}\index{#1}}
 
 \title{Skript zur Vorlesung Algebra}
 \author{Basierend auf der Vorlesung von\\Prof. Dr. Roman Sauer}
@@ -80,6 +85,7 @@
 \newtheorem*{remark*}{Bemerkung}
 \newtheorem{reminder}[theorem]{Erinnerung}
 \newtheorem*{reminder*}{Erinnerung}
+
 
 \setlist[description]{font=\normalfont\itshape\space}
 
@@ -99,12 +105,10 @@ pdfauthor = {}
 % Thanks to
 % Alexander Mrinski (spelling/proofreading)
 %----------------------
-
 %-----------------------
 % Begin document
 %-----------------------
 \begin{document}
-
 \maketitle
 \tableofcontents
 
@@ -136,4 +140,6 @@ pdfauthor = {}
 
 \section{Ganze Ringerweiterungen und Dedekindringe}
 \subfile{sections/section6}
+
+\printindex
 \end{document}

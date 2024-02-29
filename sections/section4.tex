@@ -6,7 +6,7 @@ VL vom 11.1.2024:
 \end{flushright}
 \subsection{Beträge}
 \begin{definition} % \gaf Generic absolut function
-    Ein \emph{Betrag} auf einem Körper $K$ ist eine $\gaf: K\rightarrow \R_{\geq0}$ mit den Eigenschaften
+    Ein \imph{Betrag} auf einem Körper $K$ ist eine $\gaf: K\rightarrow \R_{\geq0}$ mit den Eigenschaften
     \begin{enumerate}[label=\roman*)]
         \item $\card{x} = 0 \Leftrightarrow x =0$
         \item $\card{x\cdot y} = |x| \cdot |y|$
@@ -22,7 +22,7 @@ VL vom 11.1.2024:
             1 & \text{falls }x\neq 0\\
             0 & \text{falls }x= 0
         \end{cases}$$
-        ein Betrag (genannt: \emph{trivialer Betrag})
+        ein Betrag (genannt: \imph{trivialer Betrag})
         \item $\C$ mit dem komplexen Betrag
         \item Ist $\gaf$ ein Betrag auf $L$ und $K$ ein Teilkörper von $L$, so ist $\gaf_{|K}$ ein Betrag auf $K$.
     \end{enumerate}
@@ -30,12 +30,12 @@ VL vom 11.1.2024:
 \begin{definition} [p-adischer Betrag]
     Sei $a\in \Z$ und $p$ prim. Dann ist
     $\nu_p(a)= \sup\{e\in \N\mid p^e|a\}\in \N_0\cup \{\infty\}$
-    die \emph{p-adische Betrag}.
+    der \imph{p-adische Betrag}.
 Beachte $\nu_p(0) = \infty$.
 \end{definition}
 Damit gilt:
 $$a = \pm \prod_{p\text{ prim}} p^{\nu_p(a)}$$
-Die Funktion $\nu_p:\Z\rightarrow \N_0\cup \{\infty\}$ heißt \emph{p-adische Bewertung}. Sie hat die folgenden Eigenschaften
+Die Funktion $\nu_p:\Z\rightarrow \N_0\cup \{\infty\}$ heißt \imph{p-adische Bewertung}. Sie hat die folgenden Eigenschaften
 \begin{enumerate}[label=\roman*)]%i, ii
     \item $\nu_p(a) = \infty \Leftrightarrow a = 0$
     \item $\nu_p(ab) = \nu_p(a)+\nu_p(b)$
@@ -46,7 +46,7 @@ Sei nun $x\in \Q^\times$. Schreibe
 $$x=p^m\cdot\frac{a}{b}$$ mit $m\in \Z$, $p\nmid a$, $p\nmid b$.
 Definiere $\nu_p(x) = m$ und $\nu_p(0) = \infty$. Dies setzt die $p$-adische Berwertung von $\Z$ auf $\Q$ fort mit den gleichen Eigenschaften.
 Setze $|x|_p \coloneqq p^{-\nu_p(x)}$ mit der Konvention $|0|_p = p^{-\infty} = 0$.
-Dann definiert $\gaf_p$ einen Betrag auf $\Q$, den \emph{p-adischen Betrag}\footnote{Zum 2ten mal}. Die Eigenschaften i), ii) sind offensichtlich.
+Dann definiert $\gaf_p$ einen Betrag auf $\Q$, den \imph{p-adischen Betrag}\footnote{Zum 2ten mal}. Die Eigenschaften i), ii) sind offensichtlich.
 Zu iii):
 \begin{align*}
     |x+y|_p &= p^{-\nu_p(x+y)}\\
@@ -55,7 +55,7 @@ Zu iii):
     = \max\{|x|_p,|y_p|\}
 \end{align*}
 %Multiline???
-Dies wird \emph{ultrametrische Dreiecksungleichung} genannt.
+Dies wird \imph{ultrametrische Dreiecksungleichung} genannt.
 \begin{definition}
     Eine Bewertung $\nu$ auf einem Körper $K$ ist eine Funktion $$\nu:K\rightarrow \R\cup \{\infty\}$$
     mit folgenden Eigenschaften
@@ -88,7 +88,7 @@ Dies wird \emph{ultrametrische Dreiecksungleichung} genannt.
     Die Addition und Multiplikation definieren stetige Abbildungen $K\times K \rightarrow K$.
 \end{remark}
 \begin{definition}
-    Zwei Bewertungen $\gaf_1$, $\gaf_2$ sind \emph{äquivalent}, wenn sie diesselbe Topologie auf $K$ induzieren.
+    Zwei Bewertungen $\gaf_1$, $\gaf_2$ sind \emph{äquivalent}\index{Aquivalent@Äquivalent!Bewertung}, wenn sie diesselbe Topologie auf $K$ induzieren.
 \end{definition}
 \begin{lemma}
     Für zwei Beträge $\gaf_1$, $\gaf_2$ auf $K$ sind folgende Aussagen äquivalent (schreibe $\gaf_1 \sim\gaf_2$):
@@ -175,7 +175,7 @@ VL vom 11.1.2024:
 \end{proof}
 
 \begin{definition}
-    Ein Betrag $\gaf$ auf $K$ heißt \emph{archimedisch}, wenn 
+    Ein Betrag $\gaf$ auf $K$ heißt \imph{archimedisch}, wenn 
     $$\{|n\cdot1_K| \mid n\in \N\}$$
     nicht beschränkt ist.\footnote{Nach Übung: Wenn ein Betrag $\gaf$ nicht-archimedisch, gilt $\sup\{|n\cdot1_K| \mid n\in \N\} = 1$, wegen $|1| = 1$ und der ultrametrischen Dreiecksungleichung nach \ref{theo:4.14}}
 \end{definition}
@@ -254,7 +254,7 @@ Betrachte Potenzen und ziehe von dem dort gezeigen die Wurzel. Das kann bessere 
 \end{proof}
 \subsection{Vervollständigungen}
 \begin{definition}
-    Ein Körper mit Betrag ist \emph{vollständig}, wenn jede Cauchyfolge\footnote{Eine Folge $(a_n)_{n\in\N}$ ist eine \emph{Cauchy-Folge}, wenn $\forall\epsilon>0\;\exists N\in \N\;\forall m,n\geq N\colon |a_m - a_n| <\epsilon$} in $K$ konvergiert.
+    Ein Körper mit Betrag ist \imph{vollständig}, wenn jede Cauchyfolge\footnote{Eine Folge $(a_n)_{n\in\N}$ ist eine \imph{Cauchy-Folge}, wenn $\forall\epsilon>0\;\exists N\in \N\;\forall m,n\geq N\colon |a_m - a_n| <\epsilon$} in $K$ konvergiert.
 \end{definition}
 \begin{example} \label{theo:4.18}$ $
     \begin{itemize}
@@ -275,7 +275,7 @@ VL vom 18.1.2024:
 \end{flushright}
 
 \begin{definition}% K^ statt tilde
-    Sei $(K,\gaf)$ ein Körper mit Betrag. Eine \emph{Vervollständigung} von $(K,\gaf)$ ist ein Tripel $(\hat{K},\ggaf,i)$ bestehend aus:
+    Sei $(K,\gaf)$ ein Körper mit Betrag. Eine \imph{Vervollständigung} von $(K,\gaf)$ ist ein Tripel $(\hat{K},\ggaf,i)$ bestehend aus:
     \begin{itemize}
         \item einem vollständigen Körper $\hat{K}$ mit Betrag $\ggaf$
         \item einem Homomorphismus $i:K \hookrightarrow \hat{K}$ so, dass
@@ -351,7 +351,7 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
 \end{proof}
 
 \begin{definition}
-    Die Vervollständigung von $\Q$ bezüglich des p-adischen Betrags $\gaf_p$ nennt man den \emph{Körper der $p$-adischen Zahlen} $\Q_p$
+    Die Vervollständigung von $\Q$ bezüglich des p-adischen Betrags $\gaf_p$ nennt man den \imph{Körper der $p$-adischen Zahlen} $\Q_p$
 \end{definition}
 
 \begin{remark}
@@ -362,7 +362,7 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
 \subsection{Bewertungen und Bewertungsringe}
 \begin{theorem}\label{theo:4.23}
     Sei $K$ ein Körper mit Bewertung $\nu:K\rightarrow\R\cup \{\infty\}$.
-    Dann ist $$\mathcal{O}_\nu = \{x\in K\mid \nu(x)\geq0\}$$ [$\mathcal{O}_\nu = \{x\in K\mid \|x\|_\nu \leq 1\}$ für $\|x\|_\nu = a^{-\nu(x)}$] ein Ring (genannt \emph{Bewertungsring}).
+    Dann ist $$\mathcal{O}_\nu = \{x\in K\mid \nu(x)\geq0\}$$ [$\mathcal{O}_\nu = \{x\in K\mid \|x\|_\nu \leq 1\}$ für $\|x\|_\nu = a^{-\nu(x)}$] ein Ring (genannt \imph{Bewertungsring}).
     Der Ring $\mathcal{O}_\nu$ hat genau ein Maximales Ideal $$\mathcal{m}_\nu = \{x\in K\mid \nu(x)>0\}$$ [$\mathcal{m}_\nu = \{x\in K\mid \|x\|_\nu <1\}$]
     und die Einheitengruppe $$\mathcal{O}_\nu^\times = \{x\in K\mid \nu(x) = 0\}$$ [$\mathcal{O}_\nu^\times = \{x\in K\mid \|x\|_\nu = 1\}$]
 \end{theorem}
@@ -378,7 +378,7 @@ Der Beweis von 4.20 verläuft genauso wie die Konstruktion von $\R$ durch Cauchy
 \end{proof}
 
 \begin{definition}
-    Ein kommutiver Ring $R$ mit genau einem maximalen Ideal $\mathcal{m}$ heißt \emph{lokaler Ring}. Der Körper $R/\mathcal{m}$ ist der \emph{Restklassenkörper} vorn $R$.
+    Ein kommutiver Ring $R$ mit genau einem maximalen Ideal $\mathcal{m}$ heißt \imph{lokaler Ring}. Der Körper $R/\mathcal{m}$ ist der \imph{Restklassenkörper} vorn $R$.
 \end{definition}
 
 \begin{example}
@@ -408,8 +408,8 @@ VL vom 19.1.2024:
 \end{flushright}
 
 \begin{definition}
-    Man nennt eine Bewertung \emph{diskret}, wenn sie Werte in $\Z\cup \{\infty\}$ annimmt.
-    Ein Element $\pi$ mit Bewertung $\nu(\pi) = 1$ heißt \emph{uniformisierndes Element}.
+    Man nennt eine Bewertung \imph{diskret}, wenn sie Werte in $\Z\cup \{\infty\}$ annimmt.
+    Ein Element $\pi$ mit Bewertung $\nu(\pi) = 1$ heißt \imph{uniformisierndes Element}.
 \end{definition}
 \begin{remark} \label{theo:4.28}
     Sei $\pi$ uniformisierendes Element von $K$ mit Bewertung $\nu$.
@@ -423,7 +423,7 @@ VL vom 19.1.2024:
         \item $A$ ist Bewertungsring einer diskreten (nicht-trivialen??) Bewertung auf einem Körper.
         \item $A$ ist ein lokaler Hauptidealring, aber kein Körper
     \end{enumerate}
-    Jeder Ring, der diese Bedingungen erfüllt, heißt \emph{diskreter Bewertungsring}.
+    Jeder Ring, der diese Bedingungen erfüllt, heißt \imph{diskreter Bewertungsring}.
 \end{theorem}
 \begin{proof} $ $
     \begin{itemize}
@@ -459,7 +459,7 @@ VL vom 19.1.2024:
     Sei $|x| = a^{-\nu(x)}$ ein Betrag mit $a>1$.
     Eine Folge $(x_n)_n$ in $K$ ist eine Cauchy bezüglich $\gaf$ gdw.
     $$\forall B>0\ \exists N\in \N\ \forall n,m>N: \nu(x_n-x_m)>B$$
-    Ist $K$ vollständig bezüglich $\gaf$, dann ist $K$ vollständig bezüglich aller von $\nu$ induzierten Beträge, und wir sagen, dass $K$ \emph{vollständig bez. $\nu$} ist.
+    Ist $K$ vollständig bezüglich $\gaf$, dann ist $K$ vollständig bezüglich aller von $\nu$ induzierten Beträge, und wir sagen, dass $K$ \imph{vollständig bez. $\nu$} ist.
 \end{remark}
 
 \begin{theorem}[Satz über Reihendarstellung]\label{theo:4.31}
@@ -568,7 +568,7 @@ $\nu(N_{L|K}(\alpha)) = \nu(\alpha)^n$.
     Einnerung: $|x|_p = p^{-\nu_p(x)}$, wobei ${\nu_p}_{|\Q}$ gegeben ist durch $\nu_p(p^n\frac{a}{b}) = n$ mit $p\nmid a$, $p\nmid b$.
     $p$ ist uniformisierendes Element.
 
-    Der Bewertungsring $\Z_p\coloneqq \mathcal{O}_{\nu_p}$ heißt der \emph{Ring der ganzen $p$-adischen Zahlen}.
+    Der Bewertungsring $\Z_p\coloneqq \mathcal{O}_{\nu_p}$ heißt der \imph{Ring der ganzen $p$-adischen Zahlen}.
     Es gilt $$\Z_p\cap \Q = \{x\in\Q\mid \nu_p(x)\geq 0\} = \Z_{(p)}\footnote{$A_{(p)} \coloneqq \left\{x\in K\mid x = \frac{a}{b}\text{ mit } a\in A \text{ und } b\in A\setminus (p)\right\}$ nach Blatt 10 Aufgabe 3}$$
     Teilmenge $\Z_p\subseteq\Q_p$ ist offen und abgeschlossen, denn:
     $$\Z_p = \{x\in\Q_p\mid |x|_p \geq 1\} = \overline{B_1(0)} \text{ und }\Z_p = \{x\in\Q_p\mid |x|_p<p\} = B_p(0)$$

@@ -7,7 +7,7 @@ VL vom 26.10.2023:
 \end{flushright}
 \addtocounter{theorem}{-1}
 \begin{reminder}
-    Ein \emph{Normalteiler} $N$ einer Gruppe $(G,*)$ ist eine Untergruppe mit der Eigenschaft  $\forall g\in G: gNg^{-1} = N$. Man definiert auf den Nebenklassen $G/N = \{gN\mid g\in G\}$ eine Verknüpfung $g_1N \cdot g_2N = g_1g_2N$, die aus $G/N$ eine Gruppe macht. Weiter ist $G\rightarrow G/N, g\mapsto gN$ ein Homomorphismus. Notation $N\nteq G$.
+    Ein \imph{Normalteiler} $N$ einer Gruppe $(G,*)$ ist eine Untergruppe mit der Eigenschaft  $\forall g\in G: gNg^{-1} = N$. Man definiert auf den Nebenklassen $G/N = \{gN\mid g\in G\}$ eine Verknüpfung $g_1N \cdot g_2N = g_1g_2N$, die aus $G/N$ eine Gruppe macht. Weiter ist $G\rightarrow G/N, g\mapsto gN$ ein Homomorphismus. Notation $N\nteq G$.
 
     Z.B. Die alternierende Grruppe $A_n$ ist ein Normalteiler der symmetrischen Gruppe $S_3$.
 
@@ -15,7 +15,7 @@ VL vom 26.10.2023:
 Ansatz: Verstehe eine Gruppe $G$, indem man Normalteiler $\{e\} \neq N \nt G$ und dann $G/N$ studiert.
 \subsection{Einfache Gruppen}
 \begin{definition}[Einfache Gruppe]
-Eine Gruppe $(G,*)$ heißt \emph{einfach}, wenn $G \neq \{1\}$ und die trivialen Normalteiler $\{1\}, G$ die einzigen Normalteiler von $G$ sind.
+Eine Gruppe $(G,*)$ heißt \imph{einfach}, wenn $G \neq \{1\}$ und die trivialen Normalteiler $\{1\}, G$ die einzigen Normalteiler von $G$ sind.
 \end{definition}
 \begin{example}
     $\Z/n\Z$ ist einfach gdw. $n$ prim ist. Andernfalls folgt mit dem chinesischen Restsatz für alle $d \mid n$, dass $\mathbb{Z}/d\mathbb{Z} \nteq \mathbb{Z}/n\mathbb{Z}$.
@@ -40,13 +40,13 @@ Wähle $\sigma \in N\setminus\{1\}$:
 \subsection{Normal- und Kompositionsreihen}
 
 \begin{definition}[Normalreihe, Kompositionsreihe]
-Sei $G$ eine Gruppe. Eine \emph{Normalreihe} ist eine aufsteigende Folge von Untergruppen $\trivGO=G_0\nt G_1\nt \dots \nt G_n = G$ sodass $G_i$ normal in $G_{i+1}$ ist. Die Quotienten $G_{i+1}/G_i$ heißen \emph{Faktoren} der Reihe $\mathcal{G}$.
+Sei $G$ eine Gruppe. Eine \imph{Normalreihe} ist eine aufsteigende Folge von Untergruppen $\trivGO=G_0\nt G_1\nt \dots \nt G_n = G$ sodass $G_i$ normal in $G_{i+1}$ ist. Die Quotienten $G_{i+1}/G_i$ heißen \imph{Faktoren} der Reihe $\mathcal{G}$.
 
-Man sagt, dass eine Normalreihe $\mathcal{H}$ von $G$ eine Normalreihe $\mathcal{G}$ \emph{verfeinert}, wenn $\mathcal{H}$ aus $\mathcal{G}$ durch hinzufügen von Termen hervorgeht.
+Man sagt, dass eine Normalreihe $\mathcal{H}$ von $G$ eine Normalreihe $\mathcal{G}$ \imph{verfeinert}, wenn $\mathcal{H}$ aus $\mathcal{G}$ durch hinzufügen von Termen hervorgeht.
 
 Man sagt, dass $\mathcal{G}$ und $\mathcal{H}$ äquivalent sind, wenn sie die gleiche Länge haben und es eine Permutation $\sigma \in S_n$ gibt mit $H_{i+1}/H_i \cong G_{\sigma(i)+1}/G_{\sigma(i)}$.
 
-Eine Normalreihe, die keine echte Verfeinerung besitzt, heißt Kompositionsreihe.
+Eine Normalreihe, die keine echte Verfeinerung besitzt, heißt \imph{Kompositionsreihe}\index{Normalreihe!Kompositionsreihe}.
 \end{definition}
 
 \begin{flushright}
@@ -167,14 +167,14 @@ VL vom 02.11.2023:
     \end{itemize}
 \end{proof}
 \begin{definition}[Kommutator]
-    Sei G eine Gruppe. Für $x,y \in G$ heißt $x^{-1}y^{-1}xy = [x,y]$ \emph{Kommutator} von x und y. Die Kommutatoruntergruppe von G ist $$D(G) = <[x,y] \mid x,y \in G>$$
+    Sei G eine Gruppe. Für $x,y \in G$ heißt $x^{-1}y^{-1}xy = [x,y]$ \imph{Kommutator} von x und y. Die Kommutatoruntergruppe von G ist $$D(G) = <[x,y] \mid x,y \in G>$$
     Alternativnotation: $[G,G] := D(G)$.
 \end{definition}
 \begin{lemma}[Abelisierung]\label{theo:1.15}
 Für die Kommutatorengruppe gelten folgende Aussagen:
 \begin{itemize}
     \item Die Kommutatoruntergruppe $D(G)$ einer Gruppe $G$ ist ein Normalteiler von $G$.
-    \item Die Faktorgruppe $G^\text{ab} = G/_{D(G)}$ ist abelsch und heißt \emph{Abelisierung} von $G$.
+    \item Die Faktorgruppe $G^\text{ab} = G/_{D(G)}$ ist abelsch und heißt \imph{Abelisierung} von $G$.
     \item Ist $N \nteq G$ und $G/_N$ abelsch, dann ist $D(G) \subseteq N$ (d.h. $G/_{D(G)} \twoheadrightarrow G/_N$ ist surjektiv)
 \end{itemize}
 \end{lemma}
@@ -192,7 +192,7 @@ $G$ Gruppe, $x, y \in G$
 \begin{definition}
     Setze $D^0(G) = G$ und dann induktiv $D^{i+1}(G) := D(D^i(G))$. Die Reihe 
     $$... \triangleleft D^2(G) \triangleleft D^1(G) \triangleleft D^0(G) = G$$
-    (mit abelschen Faktoren nach dem vorhergehenden Lemma) heißt \emph{abgeleitete Reihe} von G.
+    (mit abelschen Faktoren nach dem vorhergehenden Lemma) heißt \imph{abgeleitete Reihe}\index{Normalreihe!Abgeleitet Reihe} von G.
 \end{definition}
 \begin{theorem}
     Eine Gruppe G ist auflösbar gdw. es ein $m \in \mathbb{N}$ gibt mit $D^m(G) = \{1\}$. (Dies ist nicht immer erfüllt, da es Gruppen gibt mit $D(G) = G$, so dass die abgeleitete Reihe konstant G ist.)
