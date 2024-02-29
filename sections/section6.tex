@@ -6,7 +6,7 @@ Alle Ring sind kommutativ.
 \begin{definition}
     Sei $B$ ein Ring und $A\subseteq B$ ein Unterring. Ein Element $x\in B$ heißt \imph{ganz} über $A$, wenn es ein \imph{normiertes} Polynom $f\in A[X]\setminus \trivGZ$ gibt mit $f(x)=0$, d.h. $x^n + a_{n-1}x^{n-1} + \dots + a_0 = 0$ mit $a_i\in A$.
 \end{definition}
-\begin{theorem}[Charakterisierung ganzer Elemente]
+\begin{theorem}[Charakterisierung ganzer Elemente]\label{theo:6.2}
     $A\subseteq B$ Unterring. Für $x\in B$ sind äquivalent:
     \begin{enumerate}[label=(\roman*)]
         \item $x$ ist ganz über $A$
@@ -67,7 +67,7 @@ Alle Ring sind kommutativ.
 \begin{proof}
     \begin{enumerate}[label=(\alph*)]
         \item Induktion nach $n$:\\
-        $n=1$ $\rightarrow$ siehe 6.2\\
+        $n=1$ $\rightarrow$ siehe \ref{theo:6.2}\\
         schreibe $A[x_1, \dots,x_{n+1}] = A[x_1,\dots,x_{n}][x_{n+1}]$.
         Weil $x_{n+1}$ ganz über $A$ ist, ist $x_{n+1}$ a4uc ganz über $A[x_1,\dots,x_n]$.
         Sei $\{f_1,\dots, f_r\}$ ein Erzeugendensystem von $A[x_1,\dots,x_n]$ als $A$-Modul, was nach Induktionsvorraussetzung existiert.
@@ -78,9 +78,9 @@ Alle Ring sind kommutativ.
         \item
         Sei $x,y\in B$ ganz über $A$.
         Dann sind $x+y$, $x-y$, $x\cdot y \in A[x,y]$.
-        Wegen (a) und 6.2 sind $x\pm y$, $x\cdot y$ ganz über $A$.
+        Wegen (a) und \ref{theo:6.2} sind $x\pm y$, $x\cdot y$ ganz über $A$.
         \item
-        Wegen 6.2 ist $B[y]$ als $B$-Modul endlich erzeugt. Wie im Beweis von (a) sieht man, dass dann $B[y]$ als $A$-Modul endlich erzeugt ist. Also ist $y$ ganz über $A$.
+        Wegen \ref{theo:6.2} ist $B[y]$ als $B$-Modul endlich erzeugt. Wie im Beweis von (a) sieht man, dass dann $B[y]$ als $A$-Modul endlich erzeugt ist. Also ist $y$ ganz über $A$.
     \end{enumerate}
 \end{proof}
 
@@ -120,7 +120,7 @@ Alle Ring sind kommutativ.
     Einen endlichen Erweiterungskörper $K|\Q$ nennt man \imph{algebraischer Zahlkörper}.
     Die ganze Hülle $\mathcal{O}_K$ von $\Z$ in $K$ nennt man den \imph{Ganzheitsring} von $K$.
 \end{definition}
-\begin{example*}
+\begin{example*} $ $
     \begin{enumerate}[label=(\arabic*)]
         \item $K=\Q(\sqrt{d})$ mit $d\in \Z$ quadratfrei, $d\neq 1$.
         Was ist $\mathcal{O}_K$? Betrachte $K\ni x = a+\sqrt{d}\cdot b$ mit $a,b\in \Q$.

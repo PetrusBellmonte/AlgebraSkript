@@ -18,10 +18,12 @@ Wenn du Beweise, Abschnitte oder Graphiken erzänzen oder korrigieren willst (od
 Bitte beachte die Anmerkungen zur Notation und behalte die Numerierung aus der Vorlesung bei.
 Bei Problemen kontaktiere mich einfach.
 
-### HowTo mitOverleafs
-Forke das projekt, und wähle beim erstellen des neuen Projekts in overleafs "Import from Github" aus. Möglicherweise wirst da dabei aufgefordert Github mit Overleafs zu verbinden.
+### HowTo mit Overleafs
+Forke das Projekt, und wähle beim erstellen des neuen Projekts in overleafs "Import from Github" aus. Möglicherweise wirst da dabei aufgefordert Github mit Overleafs zu verbinden.
 
-Im Overleafs Menü kann man änderungen wieder in Github pushen und dann eine Pull-request stellen.
+Das Projekt funktioniert nur mit dem pdfLaTeX- Compile (in Overleafs im Menü auswählbar, wenn nicht bereits standartmäßig eingestellt).
+
+Im Overleafs Menü kann man änderungen wieder in Github pushen, wenn man im "Sync"-Berreich auf Github klickt. Aus Github kann man dann eine Pull-request stellen.
 
 ### Theorems
 Wir nutzen folgende theorem-typen, die mit `\begin{<name>}...\end{<name>}` genutzt werden können:
@@ -47,4 +49,5 @@ Einsehbar in `main.tex`. z.b
 | `\Z`, `\N`, `\Q`, `\C`, `\F` | $\mathbb{Z}$, $\mathbb{N}$, $\mathbb{Q}$, $\mathbb{C}$, $\mathbb{F}$ |
 | `\nt`, `\nteq` | $\vartriangleleft$, $\trianglelefteq$ |
 | `\trivG` | $\{e\}$ |
+| `\imph` | `\emph` & `\index` |
 
